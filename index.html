@@ -1,195 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sami App Developer</title>
+<title>Sami App Developer</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
 
-    body {
-      background: #f5f7fb;
-      color: #172033;
-    }
+body{
+  background:#f5f7fb;
+  color:#172033;
+}
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 18px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header{
+  background:#111827;
+  color:white;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    .logo {
-      font-size: 21px;
-      font-weight: bold;
-    }
+.logo{
+  font-size:20px;
+  font-weight:bold;
+}
 
-    .login-btn {
-      background: white;
-      color: #111827;
-      border: none;
-      padding: 9px 15px;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+.hero{
+  background:white;
+  text-align:center;
+  padding:55px 20px;
+}
 
-    .hero {
-      text-align: center;
-      padding: 70px 20px;
-      background: white;
-    }
+.hero h1{
+  font-size:34px;
+  margin-bottom:15px;
+}
 
-    .hero h1 {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
+.hero p{
+  color:#667085;
+  max-width:650px;
+  margin:auto;
+  line-height:1.6;
+}
 
-    .hero p {
-      font-size: 18px;
-      color: #667085;
-      max-width: 650px;
-      margin: auto;
-      line-height: 1.6;
-    }
+.main{
+  max-width:900px;
+  margin:30px auto;
+  padding:20px;
+}
 
-    .create-btn {
-      margin-top: 28px;
-      padding: 14px 25px;
-      border: none;
-      border-radius: 10px;
-      background: #2563eb;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.builder{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
 
-    .section {
-      padding: 45px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
+.builder h2{
+  margin-bottom:10px;
+}
 
-    .section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 28px;
-    }
+.builder p{
+  color:#667085;
+  margin-bottom:20px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
+textarea{
+  width:100%;
+  min-height:180px;
+  resize:vertical;
+  padding:15px;
+  border:1px solid #d0d5dd;
+  border-radius:10px;
+  font-size:16px;
+  outline:none;
+}
 
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    }
+textarea:focus{
+  border-color:#2563eb;
+}
 
-    .card h3 {
-      margin-bottom: 10px;
-    }
+button{
+  border:none;
+  cursor:pointer;
+  border-radius:9px;
+  font-weight:bold;
+}
 
-    .card p {
-      color: #667085;
-      line-height: 1.5;
-    }
+.generate{
+  background:#2563eb;
+  color:white;
+  padding:14px 22px;
+  margin-top:15px;
+  font-size:16px;
+}
 
-    footer {
-      text-align: center;
-      background: #111827;
-      color: white;
-      padding: 25px;
-      margin-top: 30px;
-    }
+.generate:hover{
+  opacity:.9;
+}
 
-    @media(max-width:600px) {
-      .hero h1 {
-        font-size: 30px;
-      }
-    }
-  </style>
+.result{
+  display:none;
+  margin-top:25px;
+  padding:20px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+}
+
+.result h3{
+  margin-bottom:15px;
+}
+
+.result-item{
+  background:white;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+  border-left:4px solid #2563eb;
+}
+
+footer{
+  text-align:center;
+  background:#111827;
+  color:white;
+  padding:25px;
+  margin-top:40px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <div class="logo">🚀 Sami App Developer</div>
-  <button class="login-btn">Login</button>
 </header>
 
 <section class="hero">
-  <h1>Apni Soch Se Apni App Banao</h1>
 
-  <p>
-    Apni app ki requirements likhein aur future mein
-    AI-powered Sami App Developer ke zariye apni application
-    create, update aur manage karein.
-  </p>
+<h1>Apni Soch Se Apni App Banao</h1>
 
-  <button class="create-btn" onclick="createApp()">
-    🚀 Create Your App
-  </button>
-</section>
-
-<section class="section">
-
-  <h2>Platform Features</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>🤖 AI App Builder</h3>
-      <p>
-        Apni app ki requirements likhein aur system
-        unhein app project mein convert kare.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🎨 App Designer</h3>
-      <p>
-        App ke screens aur user interface ko customize karein.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🗄️ Database</h3>
-      <p>
-        Users aur app ka data securely save karne ka system.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🔄 App Updates</h3>
-      <p>
-        Existing project mein naye features add aur changes karein.
-      </p>
-    </div>
-
-  </div>
+<p>
+Apni app ki requirements neeche likhein.
+Sami App Developer un requirements ko
+app project plan mein convert karega.
+</p>
 
 </section>
+
+<div class="main">
+
+<div class="builder">
+
+<h2>🛠️ Create Your App</h2>
+
+<p>
+Apni app ke bare mein detail mein batayein.
+Misal: app kis liye hai, users kya karenge
+aur kaun se features chahiye.
+</p>
+
+<textarea id="appDemand"
+placeholder="Example:
+
+Mujhe ek school management app chahiye.
+
+Is mein:
+- Student registration
+- Student attendance
+- Fees management
+- Teacher login
+- Admin panel
+- Reports
+
+hone chahiye."></textarea>
+
+<button class="generate" onclick="generatePlan()">
+🚀 Generate App Plan
+</button>
+
+<div class="result" id="result">
+
+<h3>📋 Your App Plan</h3>
+
+<div id="plan"></div>
+
+</div>
+
+</div>
+
+</div>
 
 <footer>
-  © 2026 Sami App Developer
+© 2026 Sami App Developer
 </footer>
 
 <script>
 
-function createApp() {
-  alert(
-    "Welcome to Sami App Developer!\\n\\n" +
-    "App Builder system
+function generatePlan(){
+
+  const demand =
+  document.getElementById("appDemand").value.trim();
+
+  if(demand === ""){
+    alert("Pehle apni app ki requirements likhein.");
+    return;
+  }
+
+  const result =
+  document.getElementById("result");
+
+  const plan =
+  document.getElementById("plan");
+
+  plan.innerHTML = "";
+
+  const items = [
+
+    "📱 App project create hoga",
+
+    "🎨 User interface/screens design ki jayengi",
+
+    "🔐 Login aur user system add kiya jayega",
+
+    "🗄️ Required database structure banaya jayega",
+
+    "⚙️ Required features define kiye jayenge",
+
+    "👨‍💼 Admin panel ki requirements identify hongi",
+
+    "🔄 Future updates ke liye project structure save hoga",
+
+    "🧪 App testing requirements identify hongi"
+
+  ];
+
+  items.forEach(function(item){
+
+    const div =
+    document.createElement("div");
+
+    div.className="result-item";
+
+    div.textContent=item;
+
+    plan.appendChild(div);
+
+  });
+
+  result.style.display="block";
+
+  result.scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+</script>
+
+</body>
+</html>
