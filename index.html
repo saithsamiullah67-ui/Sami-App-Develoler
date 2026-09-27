@@ -3,181 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Sami App Developer</title>
 
 <style>
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
 }
 
 body{
+  margin:0;
+  font-family:Arial,sans-serif;
   background:#f4f7fb;
   color:#172033;
 }
 
 header{
-  background:#111827;
+  background:#0b1f3a;
   color:white;
-  padding:18px 20px;
+  padding:18px;
   text-align:center;
-}
-
-.logo{
-  font-size:22px;
+  font-size:23px;
   font-weight:bold;
 }
 
-.hero{
-  background:white;
-  text-align:center;
-  padding:45px 20px;
-}
-
-.hero h1{
-  font-size:34px;
-  margin-bottom:12px;
-}
-
-.hero p{
-  color:#667085;
-  line-height:1.6;
-  max-width:700px;
-  margin:auto;
-}
-
 .container{
-  max-width:950px;
-  margin:30px auto;
+  max-width:900px;
+  margin:auto;
   padding:20px;
 }
 
-.box{
+.card{
   background:white;
-  padding:25px;
+  padding:20px;
+  margin-bottom:20px;
   border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.07);
-  margin-bottom:25px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
-textarea,input{
+h1,h2,h3{
+  margin-top:0;
+}
+
+textarea,
+input,
+select{
   width:100%;
-  padding:14px;
-  border:1px solid #d0d5dd;
+  padding:13px;
+  border:1px solid #ccd3df;
   border-radius:10px;
+  margin-top:8px;
+  margin-bottom:12px;
   font-size:16px;
-}
-
-textarea{
-  min-height:170px;
-  resize:vertical;
-  margin-top:15px;
 }
 
 button{
   border:0;
-  border-radius:9px;
+  border-radius:10px;
+  padding:12px 17px;
+  background:#0b1f3a;
+  color:white;
+  font-size:15px;
   cursor:pointer;
-  font-weight:bold;
-}
-
-.primary{
-  background:#2563eb;
-  color:white;
-  padding:14px 22px;
-  margin-top:15px;
-  font-size:16px;
-}
-
-.secondary{
-  background:#111827;
-  color:white;
-  padding:12px 18px;
-  margin-top:15px;
-}
-
-.feature{
-  background:#f8fafc;
-  border-left:4px solid #2563eb;
-  padding:13px;
-  margin:8px 0;
-  border-radius:7px;
-}
-
-.tag{
-  display:inline-block;
-  background:#eef4ff;
-  padding:8px 11px;
   margin:4px;
-  border-radius:20px;
+}
+
+button:hover{
+  opacity:.9;
+}
+
+.green{
+  background:#138a4b;
+}
+
+.red{
+  background:#c62828;
+}
+
+.blue{
+  background:#1769aa;
 }
 
 .hidden{
   display:none;
 }
 
-.project-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
 .screen{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:#f8fafc;
+  background:#eef3f9;
   padding:13px;
   margin:8px 0;
-  border-radius:9px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.screen-name{
+  flex:1;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.screen-name:hover{
+  color:#1769aa;
 }
 
 .delete{
-  background:#fee2e2;
-  color:#991b1b;
-  padding:7px 10px;
+  background:#c62828;
+  padding:8px 11px;
+  font-size:13px;
+}
+
+.analysis-item{
+  background:#eef3f9;
+  padding:10px;
+  margin:6px 0;
+  border-radius:8px;
 }
 
 .preview{
   background:#111827;
+  border-radius:18px;
+  padding:18px;
+  min-height:250px;
   color:white;
-  padding:20px;
-  border-radius:14px;
-  margin-top:20px;
-  min-height:180px;
-}
-
-.preview h3{
-  margin-bottom:15px;
 }
 
 .preview-item{
-  background:#1f2937;
-  padding:12px;
-  margin:7px 0;
-  border-radius:8px;
+  background:#263449;
+  padding:15px;
+  margin:8px 0;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.preview-item:hover{
+  background:#34465e;
+}
+
+.editor-component{
+  background:#f4f7fb;
+  border:1px solid #d9e0ea;
+  padding:13px;
+  margin:8px 0;
+  border-radius:10px;
+}
+
+.component-title{
+  font-weight:bold;
+}
+
+.component-actions{
+  margin-top:8px;
+}
+
+.badge{
+  display:inline-block;
+  background:#e3edf9;
+  padding:6px 10px;
+  border-radius:20px;
+  margin:4px;
+  font-size:13px;
 }
 
 .notice{
-  background:#fff7ed;
-  color:#9a3412;
-  padding:13px;
-  border-radius:9px;
-  margin-top:15px;
-  line-height:1.5;
-}
-
-footer{
-  background:#111827;
-  color:white;
-  text-align:center;
-  padding:25px;
-  margin-top:30px;
+  background:#fff7d6;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:15px;
 }
 </style>
 </head>
@@ -185,529 +178,199 @@ footer{
 <body>
 
 <header>
-  <div class="logo">🚀 Sami App Developer</div>
+🚀 Sami App Developer
 </header>
-
-<section class="hero">
-
-<h1>Apni Soch Se Apni App Banao</h1>
-
-<p>
-Apni app ki demand likhein aur uska project
-structure tayar karein.
-</p>
-
-</section>
 
 <div class="container">
 
-<!-- REQUIREMENT -->
+<div class="card">
+<h1>Apni Soch Se Apni App Banao</h1>
 
-<div class="box">
-
-<h2>🛠️ Create Your App</h2>
-
-<p style="margin-top:8px;color:#667085;">
-Example: Mujhe school management app chahiye
-jisme students, attendance, fees aur teachers hon.
+<p>
+Apni app ke bare mein neeche likhein. Sami App Developer requirements ko samajhne ki koshish karega.
 </p>
 
-<textarea id="appDemand"
-placeholder="Apni app ki complete demand yahan likhein..."></textarea>
+<textarea id="appDemand" rows="5"
+placeholder="Example: Mujhe school management app chahiye jisme students, attendance, fees aur teachers hon..."></textarea>
 
-<button class="primary" onclick="analyzeApp()">
-🚀 Analyze & Create App Plan
-</button>
-
+<button onclick="analyzeApp()">🔍 Analyze App</button>
+<button class="green" onclick="createProject()">🚀 Create App Project</button>
 </div>
 
-<!-- ANALYSIS -->
 
-<div class="box hidden" id="analysisBox">
+<div id="analysisBox" class="card hidden">
 
 <h2>📋 App Analysis</h2>
 
-<div id="appType" style="margin-top:15px;"></div>
+<h3>Features</h3>
+<div id="analysisFeatures"></div>
 
-<h3 style="margin-top:20px;">⚙️ Required Features</h3>
-
-<div id="features"></div>
-
-<h3 style="margin-top:20px;">📱 Suggested Screens</h3>
-
-<div id="screens"></div>
-
-<button class="primary" onclick="createProject()">
-🚀 Create App Project
-</button>
+<h3>Screens</h3>
+<div id="analysisScreens"></div>
 
 </div>
 
-<!-- PROJECT -->
 
-<div class="box hidden" id="projectBox">
+<div id="projectBox" class="card hidden">
 
-<div class="project-header">
+<h2>🛠️ App Project Workspace</h2>
 
-<div>
-<h2>🚀 App Project Workspace</h2>
-<p style="color:#667085;margin-top:5px;">
-Yahan se project ko edit kiya ja sakta hai.
-</p>
-</div>
+<label>Project Name</label>
+<input id="projectName" placeholder="App Name">
 
-<button class="secondary" onclick="saveProject()">
-💾 Save Project
-</button>
-
-</div>
-
-<hr style="margin:20px 0;border:0;border-top:1px solid #eee;">
-
-<label><b>Project Name</b></label>
-
-<input id="projectName" style="margin-top:8px;">
-
-<h3 style="margin-top:25px;">📱 App Screens</h3>
+<h3>📱 App Screens</h3>
 
 <div id="projectScreens"></div>
 
-<button class="secondary" onclick="addScreen()">
-➕ Add New Screen
-</button>
+<button class="blue" onclick="addScreen()">➕ Add New Screen</button>
 
-<h3 style="margin-top:25px;">⚙️ App Features</h3>
+<h3>⚙️ App Features</h3>
 
 <div id="projectFeatures"></div>
 
-<button class="secondary" onclick="addFeature()">
-➕ Add New Feature
-</button>
-
-<div class="preview">
+<button class="blue" onclick="addFeature()">➕ Add New Feature</button>
 
 <h3>👁️ App Preview</h3>
 
-<div id="previewContent"></div>
+<div class="preview" id="previewContent"></div>
+
+<br>
+
+<button class="green" onclick="saveProject()">💾 Save Project</button>
 
 </div>
+
+
+<!-- SCREEN EDITOR -->
+
+<div id="screenEditor" class="card hidden">
+
+<h2>🎨 Screen Editor</h2>
 
 <div class="notice">
-⚠️ Ye abhi Sami App Developer ka foundation workspace hai.
-Agli stages mein isi project ko database, real AI,
-live editor, testing aur Android/Web build system se connect
-kiya jayega.
+Editing Screen:
+<strong id="editingScreenName"></strong>
 </div>
+
+<h3>➕ Add Component</h3>
+
+<select id="componentType">
+<option value="Text">📝 Text</option>
+<option value="Button">🔘 Button</option>
+<option value="Input">⌨️ Input</option>
+<option value="Image">🖼️ Image</option>
+<option value="List">📋 List</option>
+<option value="Table">📊 Table</option>
+<option value="Search">🔎 Search</option>
+<option value="Login">🔐 Login</option>
+<option value="Camera">📷 Camera</option>
+<option value="Map">🗺️ Map</option>
+<option value="Video">🎬 Video</option>
+<option value="Notification">🔔 Notification</option>
+</select>
+
+<input id="componentName"
+placeholder="Component ka naam likhein">
+
+<button class="green" onclick="addComponent()">
+➕ Add Component
+</button>
+
+<h3>🧩 Screen Components</h3>
+
+<div id="componentList"></div>
+
+<br>
+
+<button onclick="closeEditor()">⬅️ Back to Workspace</button>
 
 </div>
 
 </div>
 
-<footer>
-© 2026 Sami App Developer
-</footer>
 
 <script>
 
 let currentFeatures=[];
 let currentScreens=[];
+let screenComponents={};
+let currentEditingScreen="";
+
 
 function analyzeApp(){
 
-const demand=document
-.getElementById("appDemand")
-.value
-.toLowerCase()
-.trim();
-
-if(!demand){
-alert("Pehle app ki demand likhein.");
-return;
-}
-
-let type="📱 General Application";
-
-currentFeatures=[
-"🔐 User Login / Signup",
-"👤 User Profile",
-"📊 Dashboard",
-"🗄️ Data Management",
-"⚙️ Settings"
-];
-
-currentScreens=[
-"🏠 Home",
-"🔐 Login",
-"📊 Dashboard",
-"👤 Profile",
-"⚙️ Settings"
-];
-
-if(
-demand.includes("school") ||
-demand.includes("student") ||
-demand.includes("attendance") ||
-demand.includes("fees")
-){
-
-type="🏫 School Management App";
-
-currentFeatures=[
-"👨‍🎓 Student Management",
-"✅ Attendance Management",
-"💰 Fees Management",
-"👨‍🏫 Teacher Management",
-"📊 Student Reports",
-"🔐 Admin Login",
-"📢 Notifications",
-"🗄️ Student Database"
-];
-
-currentScreens=[
-"🏠 School Dashboard",
-"👨‍🎓 Students",
-"✅ Attendance",
-"💰 Fees",
-"👨‍🏫 Teachers",
-"📊 Reports",
-"⚙️ Admin Panel"
-];
-
-}
-
-else if(
-demand.includes("restaurant") ||
-demand.includes("food") ||
-demand.includes("menu") ||
-demand.includes("delivery")
-){
-
-type="🍔 Restaurant / Food App";
-
-currentFeatures=[
-"🍔 Food Menu",
-"🔎 Food Search",
-"🛒 Shopping Cart",
-"📦 Orders",
-"🚚 Delivery Tracking",
-"💳 Payment",
-"⭐ Reviews",
-"⚙️ Admin Panel"
-];
-
-currentScreens=[
-"🏠 Home",
-"🍔 Menu",
-"🛒 Cart",
-"📦 Orders",
-"🚚 Tracking",
-"👤 Profile",
-"⚙️ Admin Panel"
-];
-
-}
-
-else if(
-demand.includes("shop") ||
-demand.includes("shopping") ||
-demand.includes("product") ||
-demand.includes("ecommerce")
-){
-
-type="🛒 E-Commerce App";
-
-currentFeatures=[
-"🛍️ Product Management",
-"🔎 Product Search",
-"🛒 Shopping Cart",
-"📦 Orders",
-"👤 Customer Accounts",
-"💳 Payment",
-"📊 Sales Dashboard",
-"⚙️ Admin Panel"
-];
-
-currentScreens=[
-"🏠 Home",
-"🛍️ Products",
-"🔎 Search",
-"🛒 Cart",
-"📦 Orders",
-"👤 Profile",
-"⚙️ Admin Panel"
-];
-
-}
-
-else if(
-demand.includes("gps") ||
-demand.includes("location") ||
-demand.includes("tracking") ||
-demand.includes("map")
-){
-
-type="📍 GPS / Tracking App";
-
-currentFeatures=[
-"📍 Live Location",
-"🗺️ Map",
-"📜 Location History",
-"🔗 Location Sharing",
-"🔔 Location Alerts",
-"👤 User Accounts",
-"🗄️ Location Database",
-"⚙️ Admin Panel"
-];
-
-currentScreens=[
-"🏠 Home",
-"🗺️ Live Map",
-"📜 Location History",
-"🔗 Share Location",
-"👤 Profile",
-"⚙️ Settings",
-"⚙️ Admin Panel"
-];
-
-}
-
-else if(
-demand.includes("chat") ||
-demand.includes("message") ||
-demand.includes("messenger")
-){
-
-type="💬 Chat Application";
-
-currentFeatures=[
-"👤 User Accounts",
-"💬 Private Chat",
-"👥 User Search",
-"📷 Image Sharing",
-"🔔 Notifications",
-"🟢 Online Status",
-"🔐 Privacy Settings"
-];
-
-currentScreens=[
-"🏠 Home",
-"👥 Users",
-"💬 Chats",
-"👤 Profile",
-"⚙️ Settings"
-];
-
-}
-
-document.getElementById("appType").innerHTML=
-"<div class='feature'><b>Detected App:</b> "
-+type+"</div>";
-
-showAnalysis();
-
-document.getElementById("analysisBox")
-.scrollIntoView({behavior:"smooth"});
-
-}
-
-function showAnalysis(){
-
-let f="";
-
-currentFeatures.forEach(function(x){
-f+="<div class='feature'>"+x+"</div>";
-});
-
-document.getElementById("features").innerHTML=f;
-
-let s="";
-
-currentScreens.forEach(function(x){
-s+="<span class='tag'>"+x+"</span>";
-});
-
-document.getElementById("screens").innerHTML=s;
-
-document.getElementById("analysisBox")
-.classList.remove("hidden");
-
-}
-
-function createProject(){
-
-document.getElementById("projectBox")
-.classList.remove("hidden");
-
-let demand=document
-.getElementById("appDemand")
-.value
-.trim();
-
-let name="My New App";
-
-if(demand.toLowerCase().includes("school"))
-name="School Management App";
-
-else if(demand.toLowerCase().includes("restaurant"))
-name="Restaurant App";
-
-else if(demand.toLowerCase().includes("shop"))
-name="E-Commerce App";
-
-else if(demand.toLowerCase().includes("gps"))
-name="GPS Tracking App";
-
-else if(demand.toLowerCase().includes("chat"))
-name="Chat App";
-
-document.getElementById("projectName").value=name;
-
-renderProject();
-
-document.getElementById("projectBox")
-.scrollIntoView({behavior:"smooth"});
-
-}
-
-function renderProject(){
-
-let html="";
-
-currentScreens.forEach(function(screen,index){
-
-html+=
-"<div class='screen'>"+
-"<span>"+screen+"</span>"+
-"<button class='delete' onclick='removeScreen("+index+")'>"+
-"Remove"+
-"</button>"+
-"</div>";
-
-});
-
-document.getElementById("projectScreens").innerHTML=html;
-
-let featureHTML="";
-
-currentFeatures.forEach(function(feature,index){
-
-featureHTML+=
-"<div class='screen'>"+
-"<span>"+feature+"</span>"+
-"<button class='delete' onclick='removeFeature("+index+")'>"+
-"Remove"+
-"</button>"+
-"</div>";
-
-});
-
-document.getElementById("projectFeatures").innerHTML=featureHTML;
-
-updatePreview();
-
-}
-
-function removeScreen(index){
-
-currentScreens.splice(index,1);
-renderProject();
-
-}
-
-function removeFeature(index){
-
-currentFeatures.splice(index,1);
-renderProject();
-
-}
-
-function addScreen(){
-
-let name=prompt("New screen ka naam likhein:");
-
-if(name){
-
-currentScreens.push("📱 "+name);
-renderProject();
-
-}
-
-}
-
-function addFeature(){
-
-let name=prompt("New feature ka naam likhein:");
-
-if(name){
-
-currentFeatures.push("⚙️ "+name);
-renderProject();
-
-}
-
-}
-
-function updatePreview(){
-
-let html="";
-
-currentScreens.forEach(function(screen){
-
-html+=
-"<div class='preview-item'>"+
-screen+
-"</div>";
-
-});
-
-document.getElementById("previewContent").innerHTML=html;
-
-}
-
-function saveProject(){
-
-let project={
-name:document.getElementById("projectName").value,
-features:currentFeatures,
-screens:currentScreens,
-savedAt:new Date().toISOString()
-};
-
-localStorage.setItem(
-"SamiAppDeveloperProject",
-JSON.stringify(project)
-);
-
-alert("✅ Project browser mein save ho gaya.");
-
-}
-
-window.onload=function(){
-
-let saved=localStorage.getItem(
-"SamiAppDeveloperProject"
-);
-
-if(saved){
-
-try{
-
-let project=JSON.parse(saved);
-
-if(project.name){
-
-document.getElementById("projectName").value=
-project.name;
-
-}
-
-}catch(e){}
-
-}
-
-};
-
-</script>
-
-</body>
-</html>
+  let demand=document.getElementById("appDemand").value.toLowerCase();
+
+  if(!demand.trim()){
+    alert("Pehle apni app ki requirements likhein.");
+    return;
+  }
+
+  currentFeatures=[];
+  currentScreens=[];
+
+  if(demand.includes("school") ||
+     demand.includes("student") ||
+     demand.includes("attendance")){
+
+    currentFeatures=[
+      "👨‍🎓 Student Management",
+      "📅 Attendance Management",
+      "💰 Fees Management",
+      "👨‍🏫 Teacher Management",
+      "📊 Student Reports",
+      "🔐 Admin Login",
+      "🔔 Notifications",
+      "🗄️ Student Database"
+    ];
+
+    currentScreens=[
+      "📱 School Dashboard",
+      "📱 Students",
+      "📱 Attendance",
+      "📱 Fees",
+      "📱 Teachers",
+      "📱 Reports",
+      "📱 Admin Panel"
+    ];
+
+  }
+  else if(demand.includes("restaurant") ||
+          demand.includes("food")){
+
+    currentFeatures=[
+      "🍔 Food Menu",
+      "🛒 Orders",
+      "💳 Payments",
+      "📦 Order Tracking",
+      "👤 Customer Management",
+      "🔐 Admin Panel"
+    ];
+
+    currentScreens=[
+      "📱 Home",
+      "📱 Menu",
+      "📱 Cart",
+      "📱 Orders",
+      "📱 Profile",
+      "📱 Admin Panel"
+    ];
+
+  }
+  else if(demand.includes("shop") ||
+          demand.includes("ecommerce") ||
+          demand.includes("e-commerce")){
+
+    currentFeatures=[
+      "🛍️ Products",
+      "🛒 Shopping Cart",
+      "💳 Payments",
+      "📦 Orders",
+      "👤 Customer Account",
+      "🔐 Admin Panel"
+    ];
+
+    currentScreens=[
+      "📱 Home",
+      "📱 Products",
+      "📱 Product
