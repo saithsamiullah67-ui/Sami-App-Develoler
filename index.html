@@ -6,9 +6,7 @@
 <title>Sami App Developer</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -40,13 +38,9 @@ header{
   box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
-h1,h2,h3{
-  margin-top:0;
-}
+h1,h2,h3{margin-top:0}
 
-textarea,
-input,
-select{
+textarea,input,select{
   width:100%;
   padding:13px;
   border:1px solid #ccd3df;
@@ -67,25 +61,10 @@ button{
   margin:4px;
 }
 
-button:hover{
-  opacity:.9;
-}
-
-.green{
-  background:#138a4b;
-}
-
-.red{
-  background:#c62828;
-}
-
-.blue{
-  background:#1769aa;
-}
-
-.hidden{
-  display:none;
-}
+.green{background:#138a4b}
+.red{background:#c62828}
+.blue{background:#1769aa}
+.hidden{display:none}
 
 .screen{
   background:#eef3f9;
@@ -104,9 +83,7 @@ button:hover{
   font-weight:bold;
 }
 
-.screen-name:hover{
-  color:#1769aa;
-}
+.screen-name:hover{color:#1769aa}
 
 .delete{
   background:#c62828;
@@ -134,11 +111,6 @@ button:hover{
   padding:15px;
   margin:8px 0;
   border-radius:10px;
-  cursor:pointer;
-}
-
-.preview-item:hover{
-  background:#34465e;
 }
 
 .editor-component{
@@ -149,13 +121,7 @@ button:hover{
   border-radius:10px;
 }
 
-.component-title{
-  font-weight:bold;
-}
-
-.component-actions{
-  margin-top:8px;
-}
+.component-title{font-weight:bold}
 
 .badge{
   display:inline-block;
@@ -171,6 +137,36 @@ button:hover{
   padding:12px;
   border-radius:10px;
   margin-bottom:15px;
+}
+
+.property-box{
+  background:#eef3f9;
+  padding:15px;
+  border-radius:12px;
+  margin-top:15px;
+}
+
+.property-row{
+  margin-bottom:10px;
+}
+
+.property-row label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.color-input{
+  width:100%;
+  height:45px;
+  padding:3px;
+}
+
+.preview-component{
+  padding:10px;
+  margin-top:7px;
+  border-radius:7px;
+  word-break:break-word;
 }
 </style>
 </head>
@@ -197,7 +193,6 @@ placeholder="Example: Mujhe school management app chahiye jisme students, attend
 <button class="green" onclick="createProject()">🚀 Create App Project</button>
 </div>
 
-
 <div id="analysisBox" class="card hidden">
 
 <h2>📋 App Analysis</h2>
@@ -209,7 +204,6 @@ placeholder="Example: Mujhe school management app chahiye jisme students, attend
 <div id="analysisScreens"></div>
 
 </div>
-
 
 <div id="projectBox" class="card hidden">
 
@@ -239,7 +233,6 @@ placeholder="Example: Mujhe school management app chahiye jisme students, attend
 <button class="green" onclick="saveProject()">💾 Save Project</button>
 
 </div>
-
 
 <!-- SCREEN EDITOR -->
 
@@ -280,6 +273,63 @@ placeholder="Component ka naam likhein">
 
 <div id="componentList"></div>
 
+<!-- PROPERTIES -->
+
+<div id="propertyEditor" class="property-box hidden">
+
+<h3>⚙️ Component Properties</h3>
+
+<div class="property-row">
+<label>Component Name / Text</label>
+<input id="propName">
+</div>
+
+<div class="property-row">
+<label>Font Size</label>
+<input id="propFontSize" type="number" min="8" max="80">
+</div>
+
+<div class="property-row">
+<label>Width</label>
+<input id="propWidth" type="number" min="20" max="100" placeholder="Percentage">
+</div>
+
+<div class="property-row">
+<label>Height</label>
+<input id="propHeight" type="number" min="20" max="500">
+</div>
+
+<div class="property-row">
+<label>Text Color</label>
+<input id="propTextColor" class="color-input" type="color">
+</div>
+
+<div class="property-row">
+<label>Background Color</label>
+<input id="propBgColor" class="color-input" type="color">
+</div>
+
+<div class="property-row">
+<label>Alignment</label>
+
+<select id="propAlign">
+<option value="left">⬅️ Left</option>
+<option value="center">↔️ Center</option>
+<option value="right">➡️ Right</option>
+</select>
+
+</div>
+
+<button class="green" onclick="saveProperties()">
+💾 Apply Properties
+</button>
+
+<button class="red" onclick="closeProperties()">
+✖️ Close
+</button>
+
+</div>
+
 <br>
 
 <button onclick="closeEditor()">⬅️ Back to Workspace</button>
@@ -288,14 +338,18 @@ placeholder="Component ka naam likhein">
 
 </div>
 
-
 <script>
 
 let currentFeatures=[];
 let currentScreens=[];
 let screenComponents={};
 let currentEditingScreen="";
+let currentEditingComponent=-1;
 
+
+/* =========================
+   ANALYZE APP
+========================= */
 
 function analyzeApp(){
 
@@ -309,9 +363,11 @@ function analyzeApp(){
   currentFeatures=[];
   currentScreens=[];
 
-  if(demand.includes("school") ||
-     demand.includes("student") ||
-     demand.includes("attendance")){
+  if(
+    demand.includes("school") ||
+    demand.includes("student") ||
+    demand.includes("attendance")
+  ){
 
     currentFeatures=[
       "👨‍🎓 Student Management",
@@ -335,8 +391,10 @@ function analyzeApp(){
     ];
 
   }
-  else if(demand.includes("restaurant") ||
-          demand.includes("food")){
+  else if(
+    demand.includes("restaurant") ||
+    demand.includes("food")
+  ){
 
     currentFeatures=[
       "🍔 Food Menu",
@@ -357,9 +415,11 @@ function analyzeApp(){
     ];
 
   }
-  else if(demand.includes("shop") ||
-          demand.includes("ecommerce") ||
-          demand.includes("e-commerce")){
+  else if(
+    demand.includes("shop") ||
+    demand.includes("ecommerce") ||
+    demand.includes("e-commerce")
+  ){
 
     currentFeatures=[
       "🛍️ Products",
@@ -381,8 +441,10 @@ function analyzeApp(){
     ];
 
   }
-  else if(demand.includes("gps") ||
-          demand.includes("tracking")){
+  else if(
+    demand.includes("gps") ||
+    demand.includes("tracking")
+  ){
 
     currentFeatures=[
       "📍 Live Location",
@@ -401,8 +463,10 @@ function analyzeApp(){
     ];
 
   }
-  else if(demand.includes("chat") ||
-          demand.includes("messenger")){
+  else if(
+    demand.includes("chat") ||
+    demand.includes("messenger")
+  ){
 
     currentFeatures=[
       "💬 Messaging",
@@ -449,34 +513,44 @@ function showAnalysis(){
   let featureHTML="";
 
   currentFeatures.forEach(function(feature){
+
     featureHTML +=
-      "<div class='analysis-item'>"+feature+"</div>";
+      "<div class='analysis-item'>"+
+      feature+
+      "</div>";
+
   });
 
   document.getElementById("analysisFeatures")
   .innerHTML=featureHTML;
 
-
   let screenHTML="";
 
   currentScreens.forEach(function(screen){
+
     screenHTML +=
-      "<div class='analysis-item'>"+screen+"</div>";
+      "<div class='analysis-item'>"+
+      screen+
+      "</div>";
+
   });
 
   document.getElementById("analysisScreens")
   .innerHTML=screenHTML;
-
 }
 
+
+/* =========================
+   CREATE PROJECT
+========================= */
 
 function createProject(){
 
   document.getElementById("projectBox")
   .classList.remove("hidden");
 
-  let demand=document
-    .getElementById("appDemand")
+  let demand=
+    document.getElementById("appDemand")
     .value
     .trim()
     .toLowerCase();
@@ -498,9 +572,8 @@ function createProject(){
   else if(demand.includes("chat"))
     name="Chat App";
 
-  document.getElementById("projectName").value=name;
-
-  loadScreenComponents();
+  document.getElementById("projectName")
+  .value=name;
 
   renderProject();
 
@@ -510,6 +583,10 @@ function createProject(){
   });
 }
 
+
+/* =========================
+   PROJECT
+========================= */
 
 function renderProject(){
 
@@ -542,7 +619,6 @@ function renderProject(){
 
   document.getElementById("projectScreens")
   .innerHTML=html;
-
 
   let featureHTML="";
 
@@ -626,7 +702,6 @@ function addFeature(){
    SCREEN EDITOR
 ========================= */
 
-
 function openScreenEditor(index){
 
   currentEditingScreen=currentScreens[index];
@@ -638,9 +713,7 @@ function openScreenEditor(index){
   .innerText=currentEditingScreen;
 
   if(!screenComponents[currentEditingScreen]){
-
     screenComponents[currentEditingScreen]=[];
-
   }
 
   renderComponents();
@@ -657,14 +730,18 @@ function closeEditor(){
   document.getElementById("screenEditor")
   .classList.add("hidden");
 
+  updatePreview();
+
   document.getElementById("projectBox")
   .scrollIntoView({
     behavior:"smooth"
   });
-
-  updatePreview();
 }
 
+
+/* =========================
+   COMPONENTS
+========================= */
 
 function addComponent(){
 
@@ -678,25 +755,31 @@ function addComponent(){
     .trim();
 
   if(!name){
-
     name=type;
-
   }
 
   if(!screenComponents[currentEditingScreen]){
-
     screenComponents[currentEditingScreen]=[];
-
   }
 
   screenComponents[currentEditingScreen].push({
 
     type:type,
-    name:name
+    name:name,
+
+    fontSize:18,
+    width:100,
+    height:45,
+
+    textColor:"#ffffff",
+    bgColor:"#263449",
+
+    align:"left"
 
   });
 
-  document.getElementById("componentName").value="";
+  document.getElementById("componentName")
+  .value="";
 
   renderComponents();
 
@@ -706,8 +789,8 @@ function addComponent(){
 
 function renderComponents(){
 
-  let list=document
-    .getElementById("componentList");
+  let list=
+    document.getElementById("componentList");
 
   let components=
     screenComponents[currentEditingScreen] || [];
@@ -739,40 +822,142 @@ function renderComponents(){
           ${component.type}
         </span>
 
-        <div class="component-actions">
+        <br>
 
-          <button
-            class="red"
-            onclick="removeComponent(${index})">
+        <button
+          class="blue"
+          onclick="editComponent(${index})">
 
-            🗑️ Remove
+          ✏️ Edit Properties
 
-          </button>
+        </button>
 
-          <button
-            class="blue"
-            onclick="editComponent(${index})">
+        <button
+          class="red"
+          onclick="removeComponent(${index})">
 
-            ✏️ Edit
+          🗑️ Remove
 
-          </button>
-
-        </div>
+        </button>
 
       </div>
 
     `;
-
   });
 
   list.innerHTML=html;
 }
 
 
+/* =========================
+   PROPERTY EDITOR
+========================= */
+
+function editComponent(index){
+
+  currentEditingComponent=index;
+
+  let component=
+    screenComponents[currentEditingScreen][index];
+
+  document.getElementById("propertyEditor")
+  .classList.remove("hidden");
+
+  document.getElementById("propName")
+  .value=component.name || "";
+
+  document.getElementById("propFontSize")
+  .value=component.fontSize || 18;
+
+  document.getElementById("propWidth")
+  .value=component.width || 100;
+
+  document.getElementById("propHeight")
+  .value=component.height || 45;
+
+  document.getElementById("propTextColor")
+  .value=component.textColor || "#ffffff";
+
+  document.getElementById("propBgColor")
+  .value=component.bgColor || "#263449";
+
+  document.getElementById("propAlign")
+  .value=component.align || "left";
+
+  document.getElementById("propertyEditor")
+  .scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+
+function saveProperties(){
+
+  if(currentEditingComponent<0){
+    return;
+  }
+
+  let component=
+    screenComponents[currentEditingScreen]
+    [currentEditingComponent];
+
+  component.name=
+    document.getElementById("propName").value;
+
+  component.fontSize=
+    Number(
+      document.getElementById("propFontSize").value
+    ) || 18;
+
+  component.width=
+    Number(
+      document.getElementById("propWidth").value
+    ) || 100;
+
+  component.height=
+    Number(
+      document.getElementById("propHeight").value
+    ) || 45;
+
+  component.textColor=
+    document.getElementById("propTextColor").value;
+
+  component.bgColor=
+    document.getElementById("propBgColor").value;
+
+  component.align=
+    document.getElementById("propAlign").value;
+
+  renderComponents();
+
+  updatePreview();
+
+  alert("✅ Component properties update ho gayi hain.");
+}
+
+
+function closeProperties(){
+
+  document.getElementById("propertyEditor")
+  .classList.add("hidden");
+
+  currentEditingComponent=-1;
+}
+
+
+/* =========================
+   REMOVE COMPONENT
+========================= */
+
 function removeComponent(index){
 
   screenComponents[currentEditingScreen]
     .splice(index,1);
+
+  currentEditingComponent=-1;
+
+  document.getElementById("propertyEditor")
+  .classList.add("hidden");
 
   renderComponents();
 
@@ -780,27 +965,9 @@ function removeComponent(index){
 }
 
 
-function editComponent(index){
-
-  let component=
-    screenComponents[currentEditingScreen][index];
-
-  let newName=prompt(
-    "Component ka naya naam:",
-    component.name
-  );
-
-  if(newName){
-
-    component.name=newName;
-
-    renderComponents();
-
-    updatePreview();
-
-  }
-}
-
+/* =========================
+   ICONS
+========================= */
 
 function getComponentIcon(type){
 
@@ -829,7 +996,6 @@ function getComponentIcon(type){
    PREVIEW
 ========================= */
 
-
 function updatePreview(){
 
   let html="";
@@ -847,42 +1013,38 @@ function updatePreview(){
 
     `;
 
-    if(components.length>0){
+    components.forEach(function(component){
 
-      components.forEach(function(component){
+      html += `
 
-        html += `
+        <div
+          class="preview-component"
 
-          <div style="
-            background:#111827;
-            padding:9px;
-            margin-top:7px;
-            border-radius:7px;
-          ">
+          style="
+            font-size:${component.fontSize || 18}px;
+            width:${component.width || 100}%;
+            min-height:${component.height || 45}px;
+            color:${component.textColor || "#ffffff"};
+            background:${component.bgColor || "#263449"};
+            text-align:${component.align || "left"};
+          "
+        >
 
           ${getComponentIcon(component.type)}
           ${component.name}
 
-          </div>
-
-        `;
-
-      });
-
-    }
-    else{
-
-      html += `
-
-        <div style="
-          opacity:.7;
-          margin-top:8px;
-        ">
-
-        No components added
-
         </div>
 
+      `;
+
+    });
+
+    if(components.length===0){
+
+      html += `
+        <div style="opacity:.7;margin-top:8px">
+          No components added
+        </div>
       `;
 
     }
@@ -906,7 +1068,6 @@ function updatePreview(){
 /* =========================
    SAVE PROJECT
 ========================= */
-
 
 function saveProject(){
 
@@ -944,35 +1105,6 @@ function saveProject(){
    LOAD PROJECT
 ========================= */
 
-
-function loadScreenComponents(){
-
-  let saved=
-    localStorage.getItem(
-      "SamiAppDeveloperProject"
-    );
-
-  if(!saved) return;
-
-  try{
-
-    let project=JSON.parse(saved);
-
-    if(project.components){
-
-      screenComponents=
-        project.components;
-
-    }
-
-  }catch(e){
-
-    console.log(e);
-
-  }
-}
-
-
 window.onload=function(){
 
   let saved=
@@ -987,38 +1119,28 @@ window.onload=function(){
       let project=JSON.parse(saved);
 
       if(project.name){
-
-        document.getElementById(
-          "projectName"
-        ).value=project.name;
-
+        document.getElementById("projectName")
+        .value=project.name;
       }
 
       if(project.features){
-
-        currentFeatures=
-          project.features;
-
+        currentFeatures=project.features;
       }
 
       if(project.screens){
-
-        currentScreens=
-          project.screens;
-
+        currentScreens=project.screens;
       }
 
       if(project.components){
-
-        screenComponents=
-          project.components;
-
+        screenComponents=project.components;
       }
 
-    }catch(e){}
+    }catch(e){
 
+      console.log(e);
+
+    }
   }
-
 };
 
 </script>
