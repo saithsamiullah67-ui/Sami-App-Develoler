@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sami App Developer</title>
 
@@ -50,7 +50,7 @@ header{
 }
 
 .container{
-  max-width:900px;
+  max-width:950px;
   margin:30px auto;
   padding:20px;
 }
@@ -60,17 +60,21 @@ header{
   padding:25px;
   border-radius:15px;
   box-shadow:0 5px 20px rgba(0,0,0,.07);
+  margin-bottom:25px;
 }
 
-textarea{
+textarea,input{
   width:100%;
-  min-height:180px;
-  margin-top:15px;
-  padding:15px;
+  padding:14px;
   border:1px solid #d0d5dd;
   border-radius:10px;
   font-size:16px;
+}
+
+textarea{
+  min-height:170px;
   resize:vertical;
+  margin-top:15px;
 }
 
 button{
@@ -80,7 +84,7 @@ button{
   font-weight:bold;
 }
 
-.generate{
+.primary{
   background:#2563eb;
   color:white;
   padding:14px 22px;
@@ -88,14 +92,11 @@ button{
   font-size:16px;
 }
 
-.result{
-  display:none;
-  margin-top:25px;
-}
-
-.title{
-  font-size:23px;
-  margin-bottom:15px;
+.secondary{
+  background:#111827;
+  color:white;
+  padding:12px 18px;
+  margin-top:15px;
 }
 
 .feature{
@@ -109,26 +110,74 @@ button{
 .tag{
   display:inline-block;
   background:#eef4ff;
-  padding:7px 10px;
+  padding:8px 11px;
   margin:4px;
   border-radius:20px;
 }
 
-.warning{
-  margin-top:15px;
+.hidden{
+  display:none;
+}
+
+.project-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.screen{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#f8fafc;
+  padding:13px;
+  margin:8px 0;
+  border-radius:9px;
+}
+
+.delete{
+  background:#fee2e2;
+  color:#991b1b;
+  padding:7px 10px;
+}
+
+.preview{
+  background:#111827;
+  color:white;
+  padding:20px;
+  border-radius:14px;
+  margin-top:20px;
+  min-height:180px;
+}
+
+.preview h3{
+  margin-bottom:15px;
+}
+
+.preview-item{
+  background:#1f2937;
   padding:12px;
-  background:#fff7ed;
+  margin:7px 0;
   border-radius:8px;
+}
+
+.notice{
+  background:#fff7ed;
   color:#9a3412;
+  padding:13px;
+  border-radius:9px;
+  margin-top:15px;
   line-height:1.5;
 }
 
 footer{
-  margin-top:30px;
   background:#111827;
   color:white;
   text-align:center;
   padding:25px;
+  margin-top:30px;
 }
 </style>
 </head>
@@ -144,38 +193,41 @@ footer{
 <h1>Apni Soch Se Apni App Banao</h1>
 
 <p>
-Apni app ki demand likhein. Sami App Developer
-aapki requirements ko analyze karke app ka
-initial project plan tayar karega.
+Apni app ki demand likhein aur uska project
+structure tayar karein.
 </p>
 
 </section>
 
 <div class="container">
 
+<!-- REQUIREMENT -->
+
 <div class="box">
 
 <h2>🛠️ Create Your App</h2>
 
 <p style="margin-top:8px;color:#667085;">
-Example: "Mujhe school app chahiye jisme students,
-attendance, fees aur admin panel ho."
+Example: Mujhe school management app chahiye
+jisme students, attendance, fees aur teachers hon.
 </p>
 
 <textarea id="appDemand"
 placeholder="Apni app ki complete demand yahan likhein..."></textarea>
 
-<button class="generate" onclick="analyzeApp()">
+<button class="primary" onclick="analyzeApp()">
 🚀 Analyze & Create App Plan
 </button>
 
-<div class="result" id="result">
-
-<div class="title">
-📋 App Analysis
 </div>
 
-<div id="appType"></div>
+<!-- ANALYSIS -->
+
+<div class="box hidden" id="analysisBox">
+
+<h2>📋 App Analysis</h2>
+
+<div id="appType" style="margin-top:15px;"></div>
 
 <h3 style="margin-top:20px;">⚙️ Required Features</h3>
 
@@ -185,15 +237,70 @@ placeholder="Apni app ki complete demand yahan likhein..."></textarea>
 
 <div id="screens"></div>
 
-<div class="warning">
-⚠️ Ye abhi initial planning engine hai. Agle stages mein
-AI, database, live project editor, preview aur actual
-app build/export system connect kiya jayega.
+<button class="primary" onclick="createProject()">
+🚀 Create App Project
+</button>
+
+</div>
+
+<!-- PROJECT -->
+
+<div class="box hidden" id="projectBox">
+
+<div class="project-header">
+
+<div>
+<h2>🚀 App Project Workspace</h2>
+<p style="color:#667085;margin-top:5px;">
+Yahan se project ko edit kiya ja sakta hai.
+</p>
+</div>
+
+<button class="secondary" onclick="saveProject()">
+💾 Save Project
+</button>
+
+</div>
+
+<hr style="margin:20px 0;border:0;border-top:1px solid #eee;">
+
+<label><b>Project Name</b></label>
+
+<input id="projectName" style="margin-top:8px;">
+
+<h3 style="margin-top:25px;">📱 App Screens</h3>
+
+<div id="projectScreens"></div>
+
+<button class="secondary" onclick="addScreen()">
+➕ Add New Screen
+</button>
+
+<h3 style="margin-top:25px;">⚙️ App Features</h3>
+
+<div id="projectFeatures"></div>
+
+<button class="secondary" onclick="addFeature()">
+➕ Add New Feature
+</button>
+
+<div class="preview">
+
+<h3>👁️ App Preview</h3>
+
+<div id="previewContent"></div>
+
+</div>
+
+<div class="notice">
+⚠️ Ye abhi Sami App Developer ka foundation workspace hai.
+Agli stages mein isi project ko database, real AI,
+live editor, testing aur Android/Web build system se connect
+kiya jayega.
 </div>
 
 </div>
 
-</div>
 </div>
 
 <footer>
@@ -202,46 +309,50 @@ app build/export system connect kiya jayega.
 
 <script>
 
+let currentFeatures=[];
+let currentScreens=[];
+
 function analyzeApp(){
 
-const demand =
-document.getElementById("appDemand").value
+const demand=document
+.getElementById("appDemand")
+.value
 .toLowerCase()
 .trim();
 
-if(demand===""){
-alert("Pehle apni app ki demand likhein.");
+if(!demand){
+alert("Pehle app ki demand likhein.");
 return;
 }
 
 let type="📱 General Application";
 
-let features=[
+currentFeatures=[
 "🔐 User Login / Signup",
 "👤 User Profile",
-"⚙️ Settings",
 "📊 Dashboard",
-"🗄️ Data Management"
+"🗄️ Data Management",
+"⚙️ Settings"
 ];
 
-let screens=[
+currentScreens=[
 "🏠 Home",
-"🔐 Login / Signup",
+"🔐 Login",
 "📊 Dashboard",
 "👤 Profile",
 "⚙️ Settings"
 ];
 
-/* SCHOOL */
-
 if(
 demand.includes("school") ||
 demand.includes("student") ||
-demand.includes("school management")
+demand.includes("attendance") ||
+demand.includes("fees")
 ){
+
 type="🏫 School Management App";
 
-features=[
+currentFeatures=[
 "👨‍🎓 Student Management",
 "✅ Attendance Management",
 "💰 Fees Management",
@@ -252,7 +363,7 @@ features=[
 "🗄️ Student Database"
 ];
 
-screens=[
+currentScreens=[
 "🏠 School Dashboard",
 "👨‍🎓 Students",
 "✅ Attendance",
@@ -261,31 +372,62 @@ screens=[
 "📊 Reports",
 "⚙️ Admin Panel"
 ];
+
 }
 
-/* E-COMMERCE */
+else if(
+demand.includes("restaurant") ||
+demand.includes("food") ||
+demand.includes("menu") ||
+demand.includes("delivery")
+){
+
+type="🍔 Restaurant / Food App";
+
+currentFeatures=[
+"🍔 Food Menu",
+"🔎 Food Search",
+"🛒 Shopping Cart",
+"📦 Orders",
+"🚚 Delivery Tracking",
+"💳 Payment",
+"⭐ Reviews",
+"⚙️ Admin Panel"
+];
+
+currentScreens=[
+"🏠 Home",
+"🍔 Menu",
+"🛒 Cart",
+"📦 Orders",
+"🚚 Tracking",
+"👤 Profile",
+"⚙️ Admin Panel"
+];
+
+}
 
 else if(
-demand.includes("shopping") ||
 demand.includes("shop") ||
-demand.includes("ecommerce") ||
-demand.includes("e-commerce") ||
-demand.includes("products")
+demand.includes("shopping") ||
+demand.includes("product") ||
+demand.includes("ecommerce")
 ){
+
 type="🛒 E-Commerce App";
 
-features=[
+currentFeatures=[
 "🛍️ Product Management",
 "🔎 Product Search",
 "🛒 Shopping Cart",
 "📦 Orders",
 "👤 Customer Accounts",
-"💳 Payment System",
+"💳 Payment",
 "📊 Sales Dashboard",
 "⚙️ Admin Panel"
 ];
 
-screens=[
+currentScreens=[
 "🏠 Home",
 "🛍️ Products",
 "🔎 Search",
@@ -294,105 +436,8 @@ screens=[
 "👤 Profile",
 "⚙️ Admin Panel"
 ];
+
 }
-
-/* RESTAURANT */
-
-else if(
-demand.includes("restaurant") ||
-demand.includes("food") ||
-demand.includes("delivery") ||
-demand.includes("menu")
-){
-type="🍔 Restaurant / Food App";
-
-features=[
-"🍔 Food Menu",
-"🔎 Food Search",
-"🛒 Cart",
-"📦 Food Orders",
-"🚚 Delivery Tracking",
-"💳 Payment",
-"⭐ Reviews",
-"⚙️ Restaurant Admin"
-];
-
-screens=[
-"🏠 Home",
-"🍔 Menu",
-"🛒 Cart",
-"📦 Orders",
-"🚚 Tracking",
-"👤 Profile",
-"⚙️ Admin"
-];
-}
-
-/* EARNING */
-
-else if(
-demand.includes("earning") ||
-demand.includes("earn") ||
-demand.includes("income") ||
-demand.includes("dollar") ||
-demand.includes("money")
-){
-type="💰 Earning / Rewards App";
-
-features=[
-"👤 User Accounts",
-"📊 User Dashboard",
-"🎁 Tasks / Rewards",
-"💰 Earnings Records",
-"💳 Withdrawal Requests",
-"📜 Transaction History",
-"🔔 Notifications",
-"⚙️ Admin Panel"
-];
-
-screens=[
-"🏠 Home",
-"📊 Dashboard",
-"🎁 Tasks",
-"💰 Earnings",
-"💳 Withdraw",
-"📜 History",
-"👤 Profile",
-"⚙️ Admin"
-];
-}
-
-/* CHAT */
-
-else if(
-demand.includes("chat") ||
-demand.includes("messenger") ||
-demand.includes("message")
-){
-type="💬 Chat / Messaging App";
-
-features=[
-"👤 User Accounts",
-"💬 One-to-One Chat",
-"👥 User Search",
-"🔔 Notifications",
-"📷 Image Sharing",
-"🟢 Online Status",
-"🔐 Privacy Settings",
-"⚙️ Admin Panel"
-];
-
-screens=[
-"🏠 Home",
-"👥 Users",
-"💬 Chats",
-"👤 Profile",
-"⚙️ Settings",
-"⚙️ Admin"
-];
-}
-
-/* GPS */
 
 else if(
 demand.includes("gps") ||
@@ -400,9 +445,10 @@ demand.includes("location") ||
 demand.includes("tracking") ||
 demand.includes("map")
 ){
-type="📍 GPS / Location Tracking App";
 
-features=[
+type="📍 GPS / Tracking App";
+
+currentFeatures=[
 "📍 Live Location",
 "🗺️ Map",
 "📜 Location History",
@@ -413,78 +459,253 @@ features=[
 "⚙️ Admin Panel"
 ];
 
-screens=[
+currentScreens=[
 "🏠 Home",
 "🗺️ Live Map",
-"📜 History",
+"📜 Location History",
 "🔗 Share Location",
 "👤 Profile",
 "⚙️ Settings",
-"⚙️ Admin"
-];
-}
-
-/* SOCIAL */
-
-else if(
-demand.includes("social") ||
-demand.includes("video") ||
-demand.includes("tiktok") ||
-demand.includes("reels")
-){
-type="🎥 Social / Video App";
-
-features=[
-"👤 User Profiles",
-"🎥 Video Upload",
-"❤️ Likes",
-"💬 Comments",
-"➕ Follow System",
-"🔖 Favorites",
-"📢 Notifications",
 "⚙️ Admin Panel"
 ];
 
-screens=[
-"🏠 Video Feed",
-"🔎 Explore",
-"➕ Upload",
-"🔔 Notifications",
-"👤 Profile",
-"⚙️ Admin"
-];
 }
 
-/* DISPLAY */
+else if(
+demand.includes("chat") ||
+demand.includes("message") ||
+demand.includes("messenger")
+){
+
+type="💬 Chat Application";
+
+currentFeatures=[
+"👤 User Accounts",
+"💬 Private Chat",
+"👥 User Search",
+"📷 Image Sharing",
+"🔔 Notifications",
+"🟢 Online Status",
+"🔐 Privacy Settings"
+];
+
+currentScreens=[
+"🏠 Home",
+"👥 Users",
+"💬 Chats",
+"👤 Profile",
+"⚙️ Settings"
+];
+
+}
 
 document.getElementById("appType").innerHTML=
-"<div class='feature'><strong>Detected App:</strong> "
+"<div class='feature'><b>Detected App:</b> "
 +type+"</div>";
 
-document.getElementById("features").innerHTML="";
+showAnalysis();
 
-features.forEach(function(item){
-
-document.getElementById("features").innerHTML +=
-"<div class='feature'>"+item+"</div>";
-
-});
-
-document.getElementById("screens").innerHTML="";
-
-screens.forEach(function(item){
-
-document.getElementById("screens").innerHTML +=
-"<span class='tag'>"+item+"</span>";
-
-});
-
-document.getElementById("result").style.display="block";
-
-document.getElementById("result")
+document.getElementById("analysisBox")
 .scrollIntoView({behavior:"smooth"});
 
 }
+
+function showAnalysis(){
+
+let f="";
+
+currentFeatures.forEach(function(x){
+f+="<div class='feature'>"+x+"</div>";
+});
+
+document.getElementById("features").innerHTML=f;
+
+let s="";
+
+currentScreens.forEach(function(x){
+s+="<span class='tag'>"+x+"</span>";
+});
+
+document.getElementById("screens").innerHTML=s;
+
+document.getElementById("analysisBox")
+.classList.remove("hidden");
+
+}
+
+function createProject(){
+
+document.getElementById("projectBox")
+.classList.remove("hidden");
+
+let demand=document
+.getElementById("appDemand")
+.value
+.trim();
+
+let name="My New App";
+
+if(demand.toLowerCase().includes("school"))
+name="School Management App";
+
+else if(demand.toLowerCase().includes("restaurant"))
+name="Restaurant App";
+
+else if(demand.toLowerCase().includes("shop"))
+name="E-Commerce App";
+
+else if(demand.toLowerCase().includes("gps"))
+name="GPS Tracking App";
+
+else if(demand.toLowerCase().includes("chat"))
+name="Chat App";
+
+document.getElementById("projectName").value=name;
+
+renderProject();
+
+document.getElementById("projectBox")
+.scrollIntoView({behavior:"smooth"});
+
+}
+
+function renderProject(){
+
+let html="";
+
+currentScreens.forEach(function(screen,index){
+
+html+=
+"<div class='screen'>"+
+"<span>"+screen+"</span>"+
+"<button class='delete' onclick='removeScreen("+index+")'>"+
+"Remove"+
+"</button>"+
+"</div>";
+
+});
+
+document.getElementById("projectScreens").innerHTML=html;
+
+let featureHTML="";
+
+currentFeatures.forEach(function(feature,index){
+
+featureHTML+=
+"<div class='screen'>"+
+"<span>"+feature+"</span>"+
+"<button class='delete' onclick='removeFeature("+index+")'>"+
+"Remove"+
+"</button>"+
+"</div>";
+
+});
+
+document.getElementById("projectFeatures").innerHTML=featureHTML;
+
+updatePreview();
+
+}
+
+function removeScreen(index){
+
+currentScreens.splice(index,1);
+renderProject();
+
+}
+
+function removeFeature(index){
+
+currentFeatures.splice(index,1);
+renderProject();
+
+}
+
+function addScreen(){
+
+let name=prompt("New screen ka naam likhein:");
+
+if(name){
+
+currentScreens.push("📱 "+name);
+renderProject();
+
+}
+
+}
+
+function addFeature(){
+
+let name=prompt("New feature ka naam likhein:");
+
+if(name){
+
+currentFeatures.push("⚙️ "+name);
+renderProject();
+
+}
+
+}
+
+function updatePreview(){
+
+let html="";
+
+currentScreens.forEach(function(screen){
+
+html+=
+"<div class='preview-item'>"+
+screen+
+"</div>";
+
+});
+
+document.getElementById("previewContent").innerHTML=html;
+
+}
+
+function saveProject(){
+
+let project={
+name:document.getElementById("projectName").value,
+features:currentFeatures,
+screens:currentScreens,
+savedAt:new Date().toISOString()
+};
+
+localStorage.setItem(
+"SamiAppDeveloperProject",
+JSON.stringify(project)
+);
+
+alert("✅ Project browser mein save ho gaya.");
+
+}
+
+window.onload=function(){
+
+let saved=localStorage.getItem(
+"SamiAppDeveloperProject"
+);
+
+if(saved){
+
+try{
+
+let project=JSON.parse(saved);
+
+if(project.name){
+
+document.getElementById("projectName").value=
+project.name;
+
+}
+
+}catch(e){}
+
+}
+
+};
 
 </script>
 
