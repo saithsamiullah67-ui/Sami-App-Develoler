@@ -271,6 +271,34 @@ placeholder="Component ka naam likhein">
 
 <h3>🧩 Screen Components</h3>
 
+  <div class="card" style="background:#e9edf3;">
+
+  <h3>📱 Live Screen Preview</h3>
+
+  <div id="liveScreenPreview"
+       style="
+       width:100%;
+       max-width:360px;
+       min-height:500px;
+       margin:auto;
+       background:white;
+       border:8px solid #111827;
+       border-radius:28px;
+       padding:15px;
+       overflow:hidden;
+       box-shadow:0 8px 25px rgba(0,0,0,.2);
+       ">
+
+    <div id="liveScreenContent">
+      <p style="text-align:center;color:#777;">
+        Screen preview yahan show hogi.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+  
 <div id="componentList"></div>
 
 <!-- PROPERTIES -->
@@ -1143,6 +1171,68 @@ window.onload=function(){
   }
 };
 
+function updateLiveScreenPreview(){
+
+  let box=document.getElementById("liveScreenContent");
+
+  if(!box){
+    return;
+  }
+
+  let components=
+    screenComponents[currentEditingScreen] || [];
+
+  let html="";
+
+  if(components.length===0){
+
+    html=`
+      <div style="
+        text-align:center;
+        color:#777;
+        padding-top:180px;
+      ">
+        Abhi koi component nahi hai.
+      </div>
+    `;
+
+  }else{
+
+    components.forEach(function(component){
+
+      html += `
+
+        <div
+          style="
+            font-size:${component.fontSize || 18}px;
+            width:${component.width || 100}%;
+            min-height:${component.height || 45}px;
+            color:${component.textColor || "#ffffff"};
+            background:${component.bgColor || "#263449"};
+            text-align:${component.align || "left"};
+            padding:10px;
+            margin:8px 0;
+            border-radius:8px;
+            display:flex;
+            align-items:center;
+          "
+        >
+
+          ${getComponentIcon(component.type)}
+          &nbsp;
+          ${component.name}
+
+        </div>
+
+      `;
+
+    });
+
+  }
+
+  box.innerHTML=html;
+}
+  
 </script>
 
 </body>
