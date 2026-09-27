@@ -7,320 +7,841 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
- margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+color:#172033
 }
+
 header{
- background:#0b1f3a;color:#fff;padding:18px;text-align:center;
- font-size:23px;font-weight:bold
+background:#0b1f3a;
+color:#fff;
+padding:18px;
+text-align:center;
+font-size:23px;
+font-weight:bold
 }
-.container{max-width:900px;margin:auto;padding:20px}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px
+}
+
 .card{
- background:#fff;padding:20px;margin-bottom:20px;border-radius:15px;
- box-shadow:0 5px 20px rgba(0,0,0,.08)
+background:#fff;
+padding:20px;
+margin-bottom:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.08)
 }
-h1,h2,h3{margin-top:0}
+
+h1,h2,h3{
+margin-top:0
+}
+
 textarea,input,select{
- width:100%;padding:13px;border:1px solid #ccd3df;
- border-radius:10px;margin-top:8px;margin-bottom:12px;font-size:16px
+width:100%;
+padding:13px;
+border:1px solid #ccd3df;
+border-radius:10px;
+margin-top:8px;
+margin-bottom:12px;
+font-size:16px
 }
+
 button{
- border:0;border-radius:10px;padding:12px 17px;background:#0b1f3a;
- color:#fff;font-size:15px;cursor:pointer;margin:4px
+border:0;
+border-radius:10px;
+padding:12px 17px;
+background:#0b1f3a;
+color:#fff;
+font-size:15px;
+cursor:pointer;
+margin:4px
 }
-button:hover{opacity:.9}
+
+button:hover{
+opacity:.9
+}
+
 .green{background:#138a4b}
 .red{background:#c62828}
 .blue{background:#1769aa}
-.hidden{display:none}
+.orange{background:#d97706}
+
+.hidden{
+display:none
+}
+
 .screen{
- background:#eef3f9;padding:13px;margin:8px 0;border-radius:10px;
- display:flex;align-items:center;justify-content:space-between;gap:8px
+background:#eef3f9;
+padding:13px;
+margin:8px 0;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:8px
 }
-.screen-name{flex:1;cursor:pointer;font-weight:bold}
-.screen-name:hover{color:#1769aa}
-.delete{background:#c62828;padding:8px 11px;font-size:13px}
+
+.screen-name{
+flex:1;
+cursor:pointer;
+font-weight:bold
+}
+
+.screen-name:hover{
+color:#1769aa
+}
+
+.delete{
+background:#c62828;
+padding:8px 11px;
+font-size:13px
+}
+
 .analysis-item{
- background:#eef3f9;padding:10px;margin:6px 0;border-radius:8px
+background:#eef3f9;
+padding:10px;
+margin:6px 0;
+border-radius:8px
 }
+
 .preview{
- background:#111827;border-radius:18px;padding:18px;min-height:250px;color:#fff
+background:#111827;
+border-radius:18px;
+padding:18px;
+min-height:250px;
+color:#fff
 }
+
 .preview-item{
- background:#263449;padding:15px;margin:8px 0;border-radius:10px
+background:#263449;
+padding:15px;
+margin:8px 0;
+border-radius:10px
 }
+
 .editor-component{
- background:#f4f7fb;border:1px solid #d9e0ea;padding:13px;
- margin:8px 0;border-radius:10px
+background:#f4f7fb;
+border:1px solid #d9e0ea;
+padding:13px;
+margin:8px 0;
+border-radius:10px
 }
-.component-title{font-weight:bold}
-.component-actions{margin-top:8px}
+
+.component-title{
+font-weight:bold
+}
+
+.component-actions{
+margin-top:8px
+}
+
 .badge{
- display:inline-block;background:#e3edf9;padding:6px 10px;
- border-radius:20px;margin:4px;font-size:13px
+display:inline-block;
+background:#e3edf9;
+padding:6px 10px;
+border-radius:20px;
+margin:4px;
+font-size:13px
 }
+
 .notice{
- background:#fff7d6;padding:12px;border-radius:10px;margin-bottom:15px
+background:#fff7d6;
+padding:12px;
+border-radius:10px;
+margin-bottom:15px
 }
+
 .property-box{
- background:#eef3f9;padding:15px;border-radius:12px;margin-top:15px
+background:#eef3f9;
+padding:15px;
+border-radius:12px;
+margin-top:15px
 }
-.property-row{margin-bottom:10px}
+
+.property-row{
+margin-bottom:10px
+}
+
 .property-row label{
- display:block;font-weight:bold;margin-bottom:5px
+display:block;
+font-weight:bold;
+margin-bottom:5px
 }
-.color-input{width:100%;height:45px;padding:3px}
+
+.color-input{
+width:100%;
+height:45px;
+padding:3px
+}
+
 .live-preview-area{
- background:#e9edf3;padding:15px;border-radius:15px;margin-top:20px
+background:#e9edf3;
+padding:15px;
+border-radius:15px;
+margin-top:20px
 }
+
 .mobile-frame{
- width:100%;max-width:360px;min-height:500px;margin:auto;
- background:#fff;border:8px solid #111827;border-radius:28px;
- padding:15px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.2)
+width:100%;
+max-width:360px;
+min-height:500px;
+margin:auto;
+background:#fff;
+border:8px solid #111827;
+border-radius:28px;
+padding:15px;
+overflow:hidden;
+box-shadow:0 8px 25px rgba(0,0,0,.2)
 }
+
 .live-canvas{
- position:relative;width:100%;min-height:470px;overflow:hidden
+position:relative;
+width:100%;
+min-height:470px;
+overflow:hidden
 }
+
 .live-component{
- position:absolute;box-sizing:border-box;cursor:move;
- user-select:none;touch-action:none;display:flex;
- align-items:center;overflow:hidden;word-break:break-word;
- border-radius:8px;padding:10px
+position:absolute;
+box-sizing:border-box;
+cursor:move;
+user-select:none;
+touch-action:none;
+display:flex;
+align-items:center;
+overflow:hidden;
+word-break:break-word;
+border-radius:8px;
+padding:10px
 }
+
 .live-component.selected{
- outline:3px dashed #1769aa;outline-offset:2px
+outline:3px dashed #1769aa;
+outline-offset:2px
 }
+
 .action-box{
- background:#e8f4ff;padding:12px;border-radius:10px;margin-top:12px
+background:#e8f4ff;
+padding:12px;
+border-radius:10px;
+margin-top:12px
 }
+
+.data-box{
+background:#f0fdf4;
+padding:15px;
+border-radius:12px;
+margin-top:15px;
+border:1px solid #bbf7d0
+}
+
+.data-record{
+background:white;
+border:1px solid #d9e0ea;
+padding:12px;
+border-radius:10px;
+margin:8px 0
+}
+
+.data-field{
+padding:5px 0;
+border-bottom:1px solid #eee
+}
+
+.data-field:last-child{
+border-bottom:0
+}
+
 .small{
- font-size:13px;color:#555;margin-top:-5px;margin-bottom:10px
+font-size:13px;
+color:#555;
+margin-top:-5px;
+margin-bottom:10px
+}
+
+.status{
+padding:10px;
+border-radius:8px;
+background:#eef3f9;
+margin:8px 0
 }
 </style>
 </head>
 
 <body>
 
-<header>🚀 Sami App Developer</header>
+<header>
+🚀 Sami App Developer
+</header>
 
 <div class="container">
 
+
 <!-- APP REQUIREMENT -->
+
 <div class="card">
+
 <h1>Apni Soch Se Apni App Banao</h1>
 
 <p>
 Apni app ke bare mein neeche likhein. Sami App Developer requirements ko samajhne ki koshish karega.
 </p>
 
-<textarea id="appDemand" rows="5"
-placeholder="Example: Mujhe school management app chahiye jisme students, attendance, fees aur teachers hon..."></textarea>
+<textarea
+id="appDemand"
+rows="5"
+placeholder="Example: Mujhe school management app chahiye jisme students, attendance, fees aur teachers hon..."
+></textarea>
 
-<button onclick="analyzeApp()">🔍 Analyze App</button>
-<button class="green" onclick="createProject()">🚀 Create App Project</button>
+<button onclick="analyzeApp()">
+🔍 Analyze App
+</button>
+
+<button class="green" onclick="createProject()">
+🚀 Create App Project
+</button>
+
 </div>
 
 
 <!-- ANALYSIS -->
-<div id="analysisBox" class="card hidden">
+
+<div
+id="analysisBox"
+class="card hidden"
+>
 
 <h2>📋 App Analysis</h2>
 
 <h3>Features</h3>
+
 <div id="analysisFeatures"></div>
 
 <h3>Screens</h3>
+
 <div id="analysisScreens"></div>
 
 </div>
 
 
-<!-- PROJECT WORKSPACE -->
-<div id="projectBox" class="card hidden">
+<!-- PROJECT -->
+
+<div
+id="projectBox"
+class="card hidden"
+>
 
 <h2>🛠️ App Project Workspace</h2>
 
 <label>Project Name</label>
-<input id="projectName" placeholder="App Name">
+
+<input
+id="projectName"
+placeholder="App Name"
+>
 
 <h3>📱 App Screens</h3>
+
 <div id="projectScreens"></div>
 
-<button class="blue" onclick="addScreen()">➕ Add New Screen</button>
+<button
+class="blue"
+onclick="addScreen()"
+>
+➕ Add New Screen
+</button>
 
 <h3>⚙️ App Features</h3>
+
 <div id="projectFeatures"></div>
 
-<button class="blue" onclick="addFeature()">➕ Add New Feature</button>
+<button
+class="blue"
+onclick="addFeature()"
+>
+➕ Add New Feature
+</button>
 
 <h3>👁️ App Preview</h3>
-<div class="preview" id="previewContent"></div>
+
+<div
+class="preview"
+id="previewContent"
+></div>
 
 <br>
 
-<button class="green" onclick="saveProject()">💾 Save Project</button>
+<button
+class="green"
+onclick="saveProject()"
+>
+💾 Save Project
+</button>
 
 </div>
 
 
 <!-- SCREEN EDITOR -->
-<div id="screenEditor" class="card hidden">
+
+<div
+id="screenEditor"
+class="card hidden"
+>
 
 <h2>🎨 Screen Editor</h2>
 
 <div class="notice">
+
 Editing Screen:
+
 <strong id="editingScreenName"></strong>
+
 </div>
+
 
 <h3>➕ Add Component</h3>
 
 <select id="componentType">
-<option value="Text">📝 Text</option>
-<option value="Button">🔘 Button</option>
-<option value="Input">⌨️ Input</option>
-<option value="Image">🖼️ Image</option>
-<option value="List">📋 List</option>
-<option value="Table">📊 Table</option>
-<option value="Search">🔎 Search</option>
-<option value="Login">🔐 Login</option>
-<option value="Camera">📷 Camera</option>
-<option value="Map">🗺️ Map</option>
-<option value="Video">🎬 Video</option>
-<option value="Notification">🔔 Notification</option>
+
+<option value="Text">
+📝 Text
+</option>
+
+<option value="Button">
+🔘 Button
+</option>
+
+<option value="Input">
+⌨️ Input
+</option>
+
+<option value="Image">
+🖼️ Image
+</option>
+
+<option value="List">
+📋 List
+</option>
+
+<option value="Table">
+📊 Table
+</option>
+
+<option value="Search">
+🔎 Search
+</option>
+
+<option value="Login">
+🔐 Login
+</option>
+
+<option value="Camera">
+📷 Camera
+</option>
+
+<option value="Map">
+🗺️ Map
+</option>
+
+<option value="Video">
+🎬 Video
+</option>
+
+<option value="Notification">
+🔔 Notification
+</option>
+
 </select>
 
-<input id="componentName" placeholder="Component ka naam likhein">
+<input
+id="componentName"
+placeholder="Component ka naam likhein"
+>
 
-<button class="green" onclick="addComponent()">➕ Add Component</button>
+<button
+class="green"
+onclick="addComponent()"
+>
+➕ Add Component
+</button>
+
 
 <h3>🧩 Screen Components</h3>
+
 <div id="componentList"></div>
 
 
 <!-- LIVE PREVIEW -->
+
 <div class="live-preview-area">
 
-<h3>📱 Live Screen Preview</h3>
+<h3>
+📱 Live Screen Preview
+</h3>
 
 <p class="small">
-Components ko finger se drag karke screen par move karein.
-Button ko tap karke uska action test karein.
+Components ko finger se drag karke move karein.
+Button ko tap karke action test karein.
+Input mein data likh kar Save Data button test karein.
 </p>
 
 <div class="mobile-frame">
+
 <div id="liveScreenContent"></div>
+
 </div>
 
 </div>
 
 
 <!-- PROPERTIES -->
-<div id="propertyEditor" class="property-box hidden">
 
-<h3>⚙️ Component Properties</h3>
+<div
+id="propertyEditor"
+class="property-box hidden"
+>
+
+<h3>
+⚙️ Component Properties
+</h3>
+
 
 <div class="property-row">
-<label>Component Name / Text</label>
+
+<label>
+Component Name / Text
+</label>
+
 <input id="propName">
+
 </div>
 
-<div class="property-row">
-<label>Font Size</label>
-<input id="propFontSize" type="number" min="8" max="80">
-</div>
 
 <div class="property-row">
-<label>Width (%)</label>
-<input id="propWidth" type="number" min="20" max="100">
+
+<label>
+Font Size
+</label>
+
+<input
+id="propFontSize"
+type="number"
+min="8"
+max="80"
+>
+
 </div>
 
-<div class="property-row">
-<label>Height</label>
-<input id="propHeight" type="number" min="20" max="500">
-</div>
 
 <div class="property-row">
-<label>Horizontal Position (X)</label>
-<input id="propX" type="number" min="0" max="100">
+
+<label>
+Width (%)
+</label>
+
+<input
+id="propWidth"
+type="number"
+min="20"
+max="100"
+>
+
 </div>
 
-<div class="property-row">
-<label>Vertical Position (Y)</label>
-<input id="propY" type="number" min="0" max="1000">
-</div>
 
 <div class="property-row">
-<label>Text Color</label>
-<input id="propTextColor" class="color-input" type="color">
+
+<label>
+Height
+</label>
+
+<input
+id="propHeight"
+type="number"
+min="20"
+max="500"
+>
+
 </div>
 
-<div class="property-row">
-<label>Background Color</label>
-<input id="propBgColor" class="color-input" type="color">
-</div>
 
 <div class="property-row">
-<label>Alignment</label>
+
+<label>
+Horizontal Position (X)
+</label>
+
+<input
+id="propX"
+type="number"
+min="0"
+max="100"
+>
+
+</div>
+
+
+<div class="property-row">
+
+<label>
+Vertical Position (Y)
+</label>
+
+<input
+id="propY"
+type="number"
+min="0"
+max="1000"
+>
+
+</div>
+
+
+<div class="property-row">
+
+<label>
+Text Color
+</label>
+
+<input
+id="propTextColor"
+class="color-input"
+type="color"
+>
+
+</div>
+
+
+<div class="property-row">
+
+<label>
+Background Color
+</label>
+
+<input
+id="propBgColor"
+class="color-input"
+type="color"
+>
+
+</div>
+
+
+<div class="property-row">
+
+<label>
+Alignment
+</label>
+
 <select id="propAlign">
-<option value="left">⬅️ Left</option>
-<option value="center">↔️ Center</option>
-<option value="right">➡️ Right</option>
+
+<option value="left">
+⬅️ Left
+</option>
+
+<option value="center">
+↔️ Center
+</option>
+
+<option value="right">
+➡️ Right
+</option>
+
 </select>
+
 </div>
 
 
-<!-- BUTTON ACTIONS -->
-<div id="buttonActionBox" class="action-box hidden">
+<!-- BUTTON ACTION -->
 
-<h3>⚡ Button Action</h3>
+<div
+id="buttonActionBox"
+class="action-box hidden"
+>
+
+<h3>
+⚡ Button Action
+</h3>
 
 <p class="small">
 Is Button ko press karne par kya hona chahiye?
 </p>
 
 <div class="property-row">
-<label>Action</label>
 
-<select id="propAction" onchange="updateActionFields()">
-<option value="none">🚫 No Action</option>
-<option value="screen">📱 Open Another Screen</option>
-<option value="url">🌐 Open Website / Link</option>
-<option value="call">📞 Phone Call</option>
-<option value="whatsapp">💬 WhatsApp</option>
-<option value="alert">🔔 Alert / Message</option>
+<label>
+Action
+</label>
+
+<select
+id="propAction"
+onchange="updateActionFields()"
+>
+
+<option value="none">
+🚫 No Action
+</option>
+
+<option value="screen">
+📱 Open Another Screen
+</option>
+
+<option value="url">
+🌐 Open Website / Link
+</option>
+
+<option value="call">
+📞 Phone Call
+</option>
+
+<option value="whatsapp">
+💬 WhatsApp
+</option>
+
+<option value="alert">
+🔔 Alert / Message
+</option>
+
+<option value="saveData">
+💾 Save Data
+</option>
+
+<option value="deleteData">
+🗑️ Delete Saved Data
+</option>
+
 </select>
-</div>
-
-
-<div id="screenActionField" class="property-row hidden">
-<label>Target Screen</label>
-<select id="propActionScreen"></select>
-</div>
-
-
-<div id="valueActionField" class="property-row hidden">
-<label id="actionValueLabel">Action Value</label>
-<input id="propActionValue">
-</div>
 
 </div>
 
 
-<button class="green" onclick="saveProperties()">
+<div
+id="screenActionField"
+class="property-row hidden"
+>
+
+<label>
+Target Screen
+</label>
+
+<select
+id="propActionScreen"
+></select>
+
+</div>
+
+
+<div
+id="valueActionField"
+class="property-row hidden"
+>
+
+<label id="actionValueLabel">
+Action Value
+</label>
+
+<input
+id="propActionValue"
+>
+
+</div>
+
+</div>
+
+
+<!-- DATA PROPERTIES -->
+
+<div
+id="dataPropertyBox"
+class="data-box hidden"
+>
+
+<h3>
+💾 Data Settings
+</h3>
+
+<p class="small">
+Input component ka data name yahan set karein.
+</p>
+
+<div class="property-row">
+
+<label>
+Data Field Name
+</label>
+
+<input
+id="propDataKey"
+placeholder="Example: studentName"
+>
+
+</div>
+
+<p class="small">
+List/Search component mein isi field ka data show/search ho sakta hai.
+</p>
+
+</div>
+
+
+<button
+class="green"
+onclick="saveProperties()"
+>
 💾 Apply Properties
 </button>
 
-<button class="red" onclick="closeProperties()">
+<button
+class="red"
+onclick="closeProperties()"
+>
 ✖️ Close
 </button>
 
 </div>
 
 
+<!-- DATA MANAGER -->
+
+<div
+id="dataManager"
+class="data-box"
+>
+
+<h3>
+💾 App Data Storage
+</h3>
+
+<p class="small">
+Is screen ka saved data browser mein store hota hai. Page refresh ke baad bhi data rahega.
+</p>
+
+<input
+id="dataSearch"
+placeholder="🔍 Saved data search karein..."
+oninput="renderDataRecords()"
+>
+
+<div id="dataStatus" class="status">
+Abhi koi saved data nahi.
+</div>
+
+<div id="dataRecords"></div>
+
+</div>
+
+
 <br>
 
-<button onclick="closeEditor()">⬅️ Back to Workspace</button>
+<button onclick="closeEditor()">
+⬅️ Back to Workspace
+</button>
 
 </div>
 
@@ -330,7 +851,7 @@ Is Button ko press karne par kya hona chahiye?
 <script>
 
 /* =========================
-   GLOBAL DATA
+GLOBAL DATA
 ========================= */
 
 let currentFeatures=[];
@@ -342,20 +863,24 @@ let currentEditingComponent=-1;
 
 
 /* =========================
-   ANALYZE APP
+ANALYZE
 ========================= */
 
 function analyzeApp(){
 
-let demand=document.getElementById("appDemand").value.toLowerCase();
+let demand=
+document.getElementById("appDemand").value.toLowerCase();
 
 if(!demand.trim()){
+
 alert("Pehle apni app ki requirements likhein.");
+
 return;
 }
 
 currentFeatures=[];
 currentScreens=[];
+
 
 if(
 demand.includes("school") ||
@@ -364,6 +889,7 @@ demand.includes("attendance")
 ){
 
 currentFeatures=[
+
 "👨‍🎓 Student Management",
 "📅 Attendance Management",
 "💰 Fees Management",
@@ -372,9 +898,11 @@ currentFeatures=[
 "🔐 Admin Login",
 "🔔 Notifications",
 "🗄️ Student Database"
+
 ];
 
 currentScreens=[
+
 "📱 School Dashboard",
 "📱 Students",
 "📱 Attendance",
@@ -382,6 +910,7 @@ currentScreens=[
 "📱 Teachers",
 "📱 Reports",
 "📱 Admin Panel"
+
 ];
 
 }
@@ -392,21 +921,25 @@ demand.includes("food")
 ){
 
 currentFeatures=[
+
 "🍔 Food Menu",
 "🛒 Orders",
 "💳 Payments",
 "📦 Order Tracking",
 "👤 Customer Management",
 "🔐 Admin Panel"
+
 ];
 
 currentScreens=[
+
 "📱 Home",
 "📱 Menu",
 "📱 Cart",
 "📱 Orders",
 "📱 Profile",
 "📱 Admin Panel"
+
 ];
 
 }
@@ -418,15 +951,18 @@ demand.includes("e-commerce")
 ){
 
 currentFeatures=[
+
 "🛍️ Products",
 "🛒 Shopping Cart",
 "💳 Payments",
 "📦 Orders",
 "👤 Customer Account",
 "🔐 Admin Panel"
+
 ];
 
 currentScreens=[
+
 "📱 Home",
 "📱 Products",
 "📱 Product Details",
@@ -434,6 +970,7 @@ currentScreens=[
 "📱 Orders",
 "📱 Profile",
 "📱 Admin Panel"
+
 ];
 
 }
@@ -444,19 +981,23 @@ demand.includes("tracking")
 ){
 
 currentFeatures=[
+
 "📍 Live Location",
 "🗺️ Map",
 "🕐 Location History",
 "🔔 Notifications",
 "👤 User Account"
+
 ];
 
 currentScreens=[
+
 "📱 Home",
 "📱 Live Map",
 "📱 History",
 "📱 Profile",
 "📱 Settings"
+
 ];
 
 }
@@ -467,19 +1008,23 @@ demand.includes("messenger")
 ){
 
 currentFeatures=[
+
 "💬 Messaging",
 "👤 User Profiles",
 "🟢 Online Status",
 "🔔 Notifications",
 "📷 Media Sharing"
+
 ];
 
 currentScreens=[
+
 "📱 Home",
 "📱 Chats",
 "📱 Contacts",
 "📱 Profile",
 "📱 Settings"
+
 ];
 
 }
@@ -487,63 +1032,95 @@ currentScreens=[
 else{
 
 currentFeatures=[
+
 "🔐 User Login",
 "👤 User Profile",
 "🔔 Notifications",
 "⚙️ Settings"
+
 ];
 
 currentScreens=[
+
 "📱 Home",
 "📱 Profile",
 "📱 Settings"
+
 ];
 
 }
 
 showAnalysis();
+
 }
 
 
 /* =========================
-   SHOW ANALYSIS
+SHOW ANALYSIS
 ========================= */
 
 function showAnalysis(){
 
-document.getElementById("analysisBox").classList.remove("hidden");
+document
+.getElementById("analysisBox")
+.classList
+.remove("hidden");
+
 
 let featureHTML="";
 
 currentFeatures.forEach(function(feature){
+
 featureHTML+=
-"<div class='analysis-item'>"+feature+"</div>";
+"<div class='analysis-item'>"+
+escapeHTML(feature)+
+"</div>";
+
 });
 
-document.getElementById("analysisFeatures").innerHTML=featureHTML;
+document.getElementById("analysisFeatures")
+.innerHTML=featureHTML;
+
 
 let screenHTML="";
 
 currentScreens.forEach(function(screen){
+
 screenHTML+=
-"<div class='analysis-item'>"+screen+"</div>";
+"<div class='analysis-item'>"+
+escapeHTML(screen)+
+"</div>";
+
 });
 
-document.getElementById("analysisScreens").innerHTML=screenHTML;
+document.getElementById("analysisScreens")
+.innerHTML=screenHTML;
+
 }
 
 
 /* =========================
-   CREATE PROJECT
+CREATE PROJECT
 ========================= */
 
 function createProject(){
 
-document.getElementById("projectBox").classList.remove("hidden");
+document
+.getElementById("projectBox")
+.classList
+.remove("hidden");
 
-let demand=document.getElementById("appDemand").value.trim().toLowerCase();
+
+let demand=
+document
+.getElementById("appDemand")
+.value
+.trim()
+.toLowerCase();
+
 
 let name="My New App";
+
 
 if(demand.includes("school"))
 name="School Management App";
@@ -560,73 +1137,104 @@ name="GPS Tracking App";
 else if(demand.includes("chat"))
 name="Chat App";
 
-document.getElementById("projectName").value=name;
+
+document
+.getElementById("projectName")
+.value=name;
+
 
 renderProject();
 
-document.getElementById("projectBox").scrollIntoView({
+
+document
+.getElementById("projectBox")
+.scrollIntoView({
 behavior:"smooth"
 });
+
 }
 
 
 /* =========================
-   RENDER PROJECT
+RENDER PROJECT
 ========================= */
 
 function renderProject(){
 
 let html="";
 
+
 currentScreens.forEach(function(screen,index){
 
 html+=`
+
 <div class="screen">
 
-<div class="screen-name"
-onclick="openScreenEditor(${index})">
-${screen}
+<div
+class="screen-name"
+onclick="openScreenEditor(${index})"
+>
+${escapeHTML(screen)}
 </div>
 
-<button class="delete"
-onclick="removeScreen(${index})">
+<button
+class="delete"
+onclick="removeScreen(${index})"
+>
 Remove
 </button>
 
 </div>
+
 `;
 
 });
 
-document.getElementById("projectScreens").innerHTML=html;
+
+document
+.getElementById("projectScreens")
+.innerHTML=html;
+
 
 let featureHTML="";
+
 
 currentFeatures.forEach(function(feature,index){
 
 featureHTML+=`
+
 <div class="screen">
 
-<span>${feature}</span>
+<span>
+${escapeHTML(feature)}
+</span>
 
-<button class="delete"
-onclick="removeFeature(${index})">
+<button
+class="delete"
+onclick="removeFeature(${index})"
+>
 Remove
 </button>
 
 </div>
+
 `;
 
 });
 
-document.getElementById("projectFeatures").innerHTML=featureHTML;
+
+document
+.getElementById("projectFeatures")
+.innerHTML=featureHTML;
+
 
 updatePreview();
+
 }
 
 
 /* =========================
-   SCREEN MANAGEMENT
+SCREEN MANAGEMENT
 ========================= */
 
 function removeScreen(index){
@@ -638,6 +1246,7 @@ delete screenComponents[screen];
 currentScreens.splice(index,1);
 
 renderProject();
+
 }
 
 
@@ -646,12 +1255,14 @@ function removeFeature(index){
 currentFeatures.splice(index,1);
 
 renderProject();
+
 }
 
 
 function addScreen(){
 
-let name=prompt("New screen ka naam likhein:");
+let name=
+prompt("New screen ka naam likhein:");
 
 if(name){
 
@@ -662,25 +1273,30 @@ currentScreens.push(screen);
 screenComponents[screen]=[];
 
 renderProject();
+
 }
+
 }
 
 
 function addFeature(){
 
-let name=prompt("New feature ka naam likhein:");
+let name=
+prompt("New feature ka naam likhein:");
 
 if(name){
 
 currentFeatures.push("⚙️ "+name);
 
 renderProject();
+
 }
+
 }
 
 
 /* =========================
-   NORMALIZE OLD COMPONENTS
+NORMALIZE
 ========================= */
 
 function normalizeComponent(component,index){
@@ -700,110 +1316,181 @@ component.actionValue="";
 if(component.actionScreen===undefined)
 component.actionScreen="";
 
+if(component.dataKey===undefined)
+component.dataKey="";
+
 return component;
+
 }
 
 
 /* =========================
-   SCREEN EDITOR
+OPEN SCREEN
 ========================= */
 
 function openScreenEditor(index){
 
-currentEditingScreen=currentScreens[index];
+currentEditingScreen=
+currentScreens[index];
 
-document.getElementById("screenEditor").classList.remove("hidden");
 
-document.getElementById("editingScreenName").innerText=
+document
+.getElementById("screenEditor")
+.classList
+.remove("hidden");
+
+
+document
+.getElementById("editingScreenName")
+.innerText=
 currentEditingScreen;
+
 
 if(!screenComponents[currentEditingScreen])
 screenComponents[currentEditingScreen]=[];
 
-screenComponents[currentEditingScreen].forEach(normalizeComponent);
+
+screenComponents[currentEditingScreen]
+.forEach(normalizeComponent);
+
 
 currentEditingComponent=-1;
 
-document.getElementById("propertyEditor").classList.add("hidden");
+
+document
+.getElementById("propertyEditor")
+.classList
+.add("hidden");
+
 
 renderComponents();
+
 updateLiveScreenPreview();
 
-document.getElementById("screenEditor").scrollIntoView({
+renderDataRecords();
+
+
+document
+.getElementById("screenEditor")
+.scrollIntoView({
 behavior:"smooth"
 });
+
 }
 
 
 function closeEditor(){
 
-document.getElementById("screenEditor").classList.add("hidden");
+document
+.getElementById("screenEditor")
+.classList
+.add("hidden");
+
 
 updatePreview();
 
-document.getElementById("projectBox").scrollIntoView({
+
+document
+.getElementById("projectBox")
+.scrollIntoView({
 behavior:"smooth"
 });
+
 }
 
 
 /* =========================
-   ADD COMPONENT
+ADD COMPONENT
 ========================= */
 
 function addComponent(){
 
-let type=document.getElementById("componentType").value;
+let type=
+document
+.getElementById("componentType")
+.value;
 
-let name=document.getElementById("componentName").value.trim();
+
+let name=
+document
+.getElementById("componentName")
+.value
+.trim();
+
 
 if(!name)
 name=type;
 
+
 if(!screenComponents[currentEditingScreen])
 screenComponents[currentEditingScreen]=[];
 
-let count=screenComponents[currentEditingScreen].length;
+
+let count=
+screenComponents[currentEditingScreen].length;
+
 
 screenComponents[currentEditingScreen].push({
 
 type:type,
+
 name:name,
 
 fontSize:18,
+
 width:100,
+
 height:45,
 
 x:5,
+
 y:10+(count*55),
 
 textColor:"#ffffff",
+
 bgColor:"#263449",
+
 align:"left",
 
 action:"none",
+
 actionValue:"",
-actionScreen:""
+
+actionScreen:"",
+
+dataKey:""
 
 });
 
-document.getElementById("componentName").value="";
+
+document
+.getElementById("componentName")
+.value="";
+
 
 renderComponents();
+
 updatePreview();
+
 updateLiveScreenPreview();
+
 }
 
 
 /* =========================
-   COMPONENT LIST
+COMPONENT LIST
 ========================= */
 
 function renderComponents(){
 
-let list=document.getElementById("componentList");
+let list=
+document
+.getElementById("componentList");
 
-let components=screenComponents[currentEditingScreen]||[];
+
+let components=
+screenComponents[currentEditingScreen]||[];
+
 
 if(components.length===0){
 
@@ -813,115 +1500,207 @@ list.innerHTML=
 updateLiveScreenPreview();
 
 return;
+
 }
 
+
 let html="";
+
 
 components.forEach(function(component,index){
 
 normalizeComponent(component,index);
 
+
 let actionText="";
 
-if(component.type==="Button" && component.action!=="none"){
-actionText="<div class='small'>⚡ Action: "+component.action+"</div>";
+
+if(
+component.type==="Button" &&
+component.action!=="none"
+){
+
+actionText=
+"<div class='small'>⚡ Action: "+
+escapeHTML(component.action)+
+"</div>";
+
 }
 
+
+let dataText="";
+
+
+if(
+component.type==="Input" &&
+component.dataKey
+){
+
+dataText=
+"<div class='small'>💾 Data: "+
+escapeHTML(component.dataKey)+
+"</div>";
+
+}
+
+
 html+=`
+
 <div class="editor-component">
 
 <div class="component-title">
+
 ${getComponentIcon(component.type)}
+
 ${escapeHTML(component.name)}
+
 </div>
 
-<span class="badge">${component.type}</span>
+
+<span class="badge">
+${component.type}
+</span>
 
 ${actionText}
 
+${dataText}
+
+
 <div class="component-actions">
 
-<button class="blue"
-onclick="editComponent(${index})">
+<button
+class="blue"
+onclick="editComponent(${index})"
+>
 ✏️ Edit Properties
 </button>
 
-<button class="red"
-onclick="removeComponent(${index})">
+
+<button
+class="red"
+onclick="removeComponent(${index})"
+>
 🗑️ Remove
 </button>
 
 </div>
 
 </div>
+
 `;
 
 });
 
+
 list.innerHTML=html;
 
+
 updateLiveScreenPreview();
+
 }
 
 
 /* =========================
-   EDIT COMPONENT
+EDIT COMPONENT
 ========================= */
 
 function editComponent(index){
 
 currentEditingComponent=index;
 
+
 let component=
-screenComponents[currentEditingScreen][index];
+screenComponents[currentEditingScreen]
+[index];
+
 
 normalizeComponent(component,index);
 
-document.getElementById("propertyEditor")
-.classList.remove("hidden");
 
-document.getElementById("propName").value=
+document
+.getElementById("propertyEditor")
+.classList
+.remove("hidden");
+
+
+document
+.getElementById("propName")
+.value=
 component.name||"";
 
-document.getElementById("propFontSize").value=
+
+document
+.getElementById("propFontSize")
+.value=
 component.fontSize||18;
 
-document.getElementById("propWidth").value=
+
+document
+.getElementById("propWidth")
+.value=
 component.width||100;
 
-document.getElementById("propHeight").value=
+
+document
+.getElementById("propHeight")
+.value=
 component.height||45;
 
-document.getElementById("propX").value=
+
+document
+.getElementById("propX")
+.value=
 component.x??5;
 
-document.getElementById("propY").value=
+
+document
+.getElementById("propY")
+.value=
 component.y??10;
 
-document.getElementById("propTextColor").value=
+
+document
+.getElementById("propTextColor")
+.value=
 component.textColor||"#ffffff";
 
-document.getElementById("propBgColor").value=
+
+document
+.getElementById("propBgColor")
+.value=
 component.bgColor||"#263449";
 
-document.getElementById("propAlign").value=
+
+document
+.getElementById("propAlign")
+.value=
 component.align||"left";
 
-let actionBox=document.getElementById("buttonActionBox");
+
+let actionBox=
+document
+.getElementById("buttonActionBox");
+
 
 if(component.type==="Button"){
 
 actionBox.classList.remove("hidden");
 
-document.getElementById("propAction").value=
+document
+.getElementById("propAction")
+.value=
 component.action||"none";
 
 populateScreenTargets();
 
-document.getElementById("propActionScreen").value=
+document
+.getElementById("propActionScreen")
+.value=
 component.actionScreen||"";
 
-document.getElementById("propActionValue").value=
+document
+.getElementById("propActionValue")
+.value=
 component.actionValue||"";
 
 updateActionFields();
@@ -932,27 +1711,62 @@ actionBox.classList.add("hidden");
 
 }
 
-document.getElementById("propertyEditor").scrollIntoView({
+
+let dataBox=
+document
+.getElementById("dataPropertyBox");
+
+
+if(
+component.type==="Input" ||
+component.type==="List" ||
+component.type==="Search"
+){
+
+dataBox.classList.remove("hidden");
+
+document
+.getElementById("propDataKey")
+.value=
+component.dataKey||"";
+
+}else{
+
+dataBox.classList.add("hidden");
+
+}
+
+
+document
+.getElementById("propertyEditor")
+.scrollIntoView({
 behavior:"smooth"
 });
+
 }
 
 
 /* =========================
-   SCREEN TARGETS
+SCREEN TARGETS
 ========================= */
 
 function populateScreenTargets(){
 
-let select=document.getElementById("propActionScreen");
+let select=
+document
+.getElementById("propActionScreen");
+
 
 select.innerHTML="";
 
+
 currentScreens.forEach(function(screen){
 
-let option=document.createElement("option");
+let option=
+document.createElement("option");
 
 option.value=screen;
+
 option.textContent=screen;
 
 select.appendChild(option);
@@ -963,25 +1777,43 @@ select.appendChild(option);
 
 
 /* =========================
-   ACTION FIELDS
+ACTION FIELDS
 ========================= */
 
 function updateActionFields(){
 
-let action=document.getElementById("propAction").value;
+let action=
+document
+.getElementById("propAction")
+.value;
 
-let screenField=document.getElementById("screenActionField");
 
-let valueField=document.getElementById("valueActionField");
+let screenField=
+document
+.getElementById("screenActionField");
 
-let label=document.getElementById("actionValueLabel");
 
-let input=document.getElementById("propActionValue");
+let valueField=
+document
+.getElementById("valueActionField");
+
+
+let label=
+document
+.getElementById("actionValueLabel");
+
+
+let input=
+document
+.getElementById("propActionValue");
+
 
 screenField.classList.add("hidden");
+
 valueField.classList.add("hidden");
 
 input.placeholder="";
+
 
 if(action==="screen"){
 
@@ -989,50 +1821,89 @@ screenField.classList.remove("hidden");
 
 }
 
+
 else if(action==="url"){
 
 valueField.classList.remove("hidden");
 
-label.innerText="Website / Link";
+label.innerText=
+"Website / Link";
 
-input.placeholder="https://example.com";
+input.placeholder=
+"https://example.com";
 
 }
+
 
 else if(action==="call"){
 
 valueField.classList.remove("hidden");
 
-label.innerText="Phone Number";
+label.innerText=
+"Phone Number";
 
-input.placeholder="+923001234567";
+input.placeholder=
+"+923001234567";
 
 }
+
 
 else if(action==="whatsapp"){
 
 valueField.classList.remove("hidden");
 
-label.innerText="WhatsApp Number";
+label.innerText=
+"WhatsApp Number";
 
-input.placeholder="923001234567";
+input.placeholder=
+"923001234567";
 
 }
+
 
 else if(action==="alert"){
 
 valueField.classList.remove("hidden");
 
-label.innerText="Message";
+label.innerText=
+"Message";
 
-input.placeholder="Button press hone par message";
+input.placeholder=
+"Button press hone par message";
 
 }
+
+
+else if(action==="saveData"){
+
+valueField.classList.remove("hidden");
+
+label.innerText=
+"Save Message";
+
+input.placeholder=
+"Data saved successfully";
+
+}
+
+
+else if(action==="deleteData"){
+
+valueField.classList.remove("hidden");
+
+label.innerText=
+"Delete Confirmation";
+
+input.placeholder=
+"Are you sure?";
+
+}
+
 }
 
 
 /* =========================
-   SAVE PROPERTIES
+SAVE PROPERTIES
 ========================= */
 
 function saveProperties(){
@@ -1040,103 +1911,180 @@ function saveProperties(){
 if(currentEditingComponent<0)
 return;
 
+
 let component=
 screenComponents[currentEditingScreen]
 [currentEditingComponent];
 
+
 component.name=
-document.getElementById("propName").value;
+document
+.getElementById("propName")
+.value;
+
 
 component.fontSize=
-Number(document.getElementById("propFontSize").value)||18;
+Number(
+document
+.getElementById("propFontSize")
+.value
+)||18;
+
 
 component.width=
-Number(document.getElementById("propWidth").value)||100;
+Number(
+document
+.getElementById("propWidth")
+.value
+)||100;
+
 
 component.height=
-Number(document.getElementById("propHeight").value)||45;
+Number(
+document
+.getElementById("propHeight")
+.value
+)||45;
+
 
 component.x=
 Math.max(
 0,
 Math.min(
 100,
-Number(document.getElementById("propX").value)||0
+Number(
+document
+.getElementById("propX")
+.value
+)||0
 )
 );
+
 
 component.y=
 Math.max(
 0,
-Number(document.getElementById("propY").value)||0
+Number(
+document
+.getElementById("propY")
+.value
+)||0
 );
 
+
 component.textColor=
-document.getElementById("propTextColor").value;
+document
+.getElementById("propTextColor")
+.value;
+
 
 component.bgColor=
-document.getElementById("propBgColor").value;
+document
+.getElementById("propBgColor")
+.value;
+
 
 component.align=
-document.getElementById("propAlign").value;
+document
+.getElementById("propAlign")
+.value;
 
 
 if(component.type==="Button"){
 
 component.action=
-document.getElementById("propAction").value;
+document
+.getElementById("propAction")
+.value;
 
 component.actionScreen=
-document.getElementById("propActionScreen").value;
+document
+.getElementById("propActionScreen")
+.value;
 
 component.actionValue=
-document.getElementById("propActionValue").value.trim();
+document
+.getElementById("propActionValue")
+.value
+.trim();
+
+}
+
+
+if(
+component.type==="Input" ||
+component.type==="List" ||
+component.type==="Search"
+){
+
+component.dataKey=
+document
+.getElementById("propDataKey")
+.value
+.trim();
 
 }
 
 
 renderComponents();
+
 updatePreview();
+
 updateLiveScreenPreview();
 
-alert("✅ Component properties update ho gayi hain.");
+alert(
+"✅ Component properties update ho gayi hain."
+);
+
 }
 
 
 /* =========================
-   CLOSE PROPERTIES
+CLOSE PROPERTIES
 ========================= */
 
 function closeProperties(){
 
-document.getElementById("propertyEditor")
-.classList.add("hidden");
+document
+.getElementById("propertyEditor")
+.classList
+.add("hidden");
 
 currentEditingComponent=-1;
+
 }
 
 
 /* =========================
-   REMOVE COMPONENT
+REMOVE COMPONENT
 ========================= */
 
 function removeComponent(index){
 
-screenComponents[currentEditingScreen].splice(index,1);
+screenComponents[currentEditingScreen]
+.splice(index,1);
+
 
 currentEditingComponent=-1;
 
-document.getElementById("propertyEditor")
-.classList.add("hidden");
+
+document
+.getElementById("propertyEditor")
+.classList
+.add("hidden");
+
 
 renderComponents();
+
 updatePreview();
+
 updateLiveScreenPreview();
+
 }
 
 
 /* =========================
-   ICONS
+ICONS
 ========================= */
 
 function getComponentIcon(type){
@@ -1159,11 +2107,12 @@ Notification:"🔔"
 };
 
 return icons[type]||"🧩";
+
 }
 
 
 /* =========================
-   ESCAPE HTML
+ESCAPE HTML
 ========================= */
 
 function escapeHTML(value){
@@ -1174,32 +2123,43 @@ return String(value||"")
 .replace(/>/g,"&gt;")
 .replace(/"/g,"&quot;")
 .replace(/'/g,"&#039;");
+
 }
 
 
 /* =========================
-   NORMAL PREVIEW
+NORMAL PREVIEW
 ========================= */
 
 function updatePreview(){
 
 let html="";
 
+
 currentScreens.forEach(function(screen){
 
-let components=screenComponents[screen]||[];
+let components=
+screenComponents[screen]||[];
+
 
 html+=`
+
 <div class="preview-item">
 
-<strong>${escapeHTML(screen)}</strong>
+<strong>
+${escapeHTML(screen)}
+</strong>
+
 `;
+
 
 components.forEach(function(component,index){
 
 normalizeComponent(component,index);
 
+
 html+=`
+
 <div
 style="
 font-size:${component.fontSize||18}px;
@@ -1211,116 +2171,207 @@ text-align:${component.align||"left"};
 padding:10px;
 margin-top:7px;
 border-radius:7px;
-">
+"
+>
 
 ${getComponentIcon(component.type)}
 ${escapeHTML(component.name)}
 
 </div>
+
 `;
 
 });
 
+
 if(components.length===0){
 
 html+=`
-<div style="opacity:.7;margin-top:8px">
+
+<div
+style="
+opacity:.7;
+margin-top:8px;
+"
+>
 No components added
 </div>
+
 `;
 
 }
+
 
 html+="</div>";
 
 });
 
-if(!html)
-html="<p>App screens yahan preview hongi.</p>";
 
-document.getElementById("previewContent").innerHTML=html;
+if(!html){
+
+html=
+"<p>App screens yahan preview hongi.</p>";
+
+}
+
+
+document
+.getElementById("previewContent")
+.innerHTML=html;
+
 }
 
 
 /* =========================
-   LIVE MOBILE PREVIEW
+LIVE MOBILE PREVIEW
 ========================= */
 
 function updateLiveScreenPreview(){
 
-let box=document.getElementById("liveScreenContent");
+let box=
+document
+.getElementById("liveScreenContent");
+
 
 if(!box)
 return;
 
+
 let components=
 screenComponents[currentEditingScreen]||[];
 
+
 box.innerHTML="";
 
-let canvas=document.createElement("div");
 
-canvas.className="live-canvas";
+let canvas=
+document.createElement("div");
+
+canvas.className=
+"live-canvas";
+
 
 box.appendChild(canvas);
+
 
 if(components.length===0){
 
 canvas.innerHTML=`
-<div style="
+
+<div
+style="
 text-align:center;
 color:#777;
-padding-top:180px">
+padding-top:180px;
+"
+>
 Abhi koi component nahi hai.
 </div>
+
 `;
 
 return;
+
 }
+
 
 components.forEach(function(component,index){
 
 normalizeComponent(component,index);
 
-let el=document.createElement("div");
 
-el.className="live-component";
+let el=
+document.createElement("div");
+
+
+el.className=
+"live-component";
+
 
 el.dataset.index=index;
+
+
+let displayName=
+component.name;
+
+
+if(component.type==="Input"){
+
+displayName=
+"⌨️ "+component.name;
+
+}
+
+
+if(component.type==="List"){
+
+displayName=
+"📋 "+component.name;
+
+}
+
 
 el.innerHTML=
 getComponentIcon(component.type)+
 "&nbsp;"+
-escapeHTML(component.name);
+escapeHTML(displayName);
 
-el.style.fontSize=(component.fontSize||18)+"px";
-el.style.width=(component.width||100)+"%";
-el.style.height=(component.height||45)+"px";
-el.style.color=component.textColor||"#ffffff";
-el.style.background=component.bgColor||"#263449";
-el.style.textAlign=component.align||"left";
 
-el.style.left=(component.x||0)+"%";
-el.style.top=(component.y||0)+"px";
+el.style.fontSize=
+(component.fontSize||18)+"px";
+
+
+el.style.width=
+(component.width||100)+"%";
+
+
+el.style.height=
+(component.height||45)+"px";
+
+
+el.style.color=
+component.textColor||"#ffffff";
+
+
+el.style.background=
+component.bgColor||"#263449";
+
+
+el.style.textAlign=
+component.align||"left";
+
+
+el.style.left=
+(component.x||0)+"%";
+
+
+el.style.top=
+(component.y||0)+"px";
+
 
 if(index===currentEditingComponent)
 el.classList.add("selected");
 
 
-/* =========================
-   DRAG SYSTEM
-========================= */
+/* DRAG */
 
 let dragging=false;
+
 let startX=0;
 let startY=0;
+
 let startLeft=0;
 let startTop=0;
+
 let moved=false;
 
-el.addEventListener("pointerdown",function(e){
+
+el.addEventListener(
+"pointerdown",
+function(e){
 
 dragging=true;
+
 moved=false;
 
 startX=e.clientX;
@@ -1332,29 +2383,55 @@ startTop=component.y||0;
 el.setPointerCapture(e.pointerId);
 
 e.preventDefault();
-});
+
+}
+);
 
 
-el.addEventListener("pointermove",function(e){
+el.addEventListener(
+"pointermove",
+function(e){
 
 if(!dragging)
 return;
 
-let dx=e.clientX-startX;
-let dy=e.clientY-startY;
 
-if(Math.abs(dx)>3 || Math.abs(dy)>3)
+let dx=
+e.clientX-startX;
+
+
+let dy=
+e.clientY-startY;
+
+
+if(
+Math.abs(dx)>3 ||
+Math.abs(dy)>3
+){
+
 moved=true;
 
-let canvasWidth=canvas.clientWidth||320;
+}
 
-let percentMove=(dx/canvasWidth)*100;
 
-let newX=startLeft+percentMove;
+let canvasWidth=
+canvas.clientWidth||320;
 
-let newY=startTop+dy;
 
-newX=Math.max(
+let percentMove=
+(dx/canvasWidth)*100;
+
+
+let newX=
+startLeft+percentMove;
+
+
+let newY=
+startTop+dy;
+
+
+newX=
+Math.max(
 0,
 Math.min(
 100-(component.width||100),
@@ -1362,59 +2439,112 @@ newX
 )
 );
 
-newY=Math.max(0,newY);
 
-component.x=Number(newX.toFixed(1));
-component.y=Number(newY.toFixed(1));
-
-el.style.left=component.x+"%";
-el.style.top=component.y+"px";
-
-});
+newY=
+Math.max(
+0,
+newY
+);
 
 
-el.addEventListener("pointerup",function(e){
+component.x=
+Number(newX.toFixed(1));
+
+
+component.y=
+Number(newY.toFixed(1));
+
+
+el.style.left=
+component.x+"%";
+
+
+el.style.top=
+component.y+"px";
+
+}
+);
+
+
+el.addEventListener(
+"pointerup",
+function(e){
 
 dragging=false;
 
+
 try{
+
 el.releasePointerCapture(e.pointerId);
+
 }catch(err){}
+
 
 if(moved){
 
-document.getElementById("propX").value=
+document
+.getElementById("propX")
+.value=
 component.x;
 
-document.getElementById("propY").value=
+
+document
+.getElementById("propY")
+.value=
 component.y;
 
 }
-});
+
+}
+);
 
 
-/* =========================
-   CLICK / BUTTON ACTION
-========================= */
+/* CLICK */
 
-el.addEventListener("click",function(e){
+el.addEventListener(
+"click",
+function(e){
 
 if(moved){
+
 moved=false;
+
 return;
+
 }
+
 
 if(component.type==="Button"){
 
 executeButtonAction(component);
 
-}else{
+}
+
+else if(
+component.type==="Input"
+){
 
 editComponent(index);
 
 }
 
-});
+else if(
+component.type==="List"
+){
+
+renderDataRecords();
+
+}
+
+else{
+
+editComponent(index);
+
+}
+
+}
+);
+
 
 canvas.appendChild(el);
 
@@ -1424,46 +2554,65 @@ canvas.appendChild(el);
 
 
 /* =========================
-   BUTTON ACTION ENGINE
+BUTTON ACTION ENGINE
 ========================= */
 
 function executeButtonAction(component){
 
-let action=component.action||"none";
+let action=
+component.action||"none";
 
-let value=(component.actionValue||"").trim();
+
+let value=
+(component.actionValue||"")
+.trim();
+
 
 if(action==="none"){
 
 alert("🔘 Button press hua.");
 
 return;
+
 }
 
 
 if(action==="screen"){
 
-let target=component.actionScreen||"";
+let target=
+component.actionScreen||"";
+
 
 if(!target){
 
-alert("⚠️ Is button ke liye target screen select nahi ki gayi.");
+alert(
+"⚠️ Target screen select nahi ki gayi."
+);
 
 return;
+
 }
 
-let targetIndex=currentScreens.indexOf(target);
+
+let targetIndex=
+currentScreens.indexOf(target);
+
 
 if(targetIndex===-1){
 
-alert("⚠️ Target screen nahi mili.");
+alert(
+"⚠️ Target screen nahi mili."
+);
 
 return;
+
 }
+
 
 openScreenEditor(targetIndex);
 
 return;
+
 }
 
 
@@ -1471,19 +2620,32 @@ if(action==="url"){
 
 if(!value){
 
-alert("⚠️ Website link enter karein.");
+alert(
+"⚠️ Website link enter karein."
+);
 
 return;
+
 }
+
 
 let url=value;
 
-if(!/^https?:\/\//i.test(url))
-url="https://"+url;
+
+if(
+!/^https?:\/\//i.test(url)
+){
+
+url=
+"https://"+url;
+
+}
+
 
 window.open(url,"_blank");
 
 return;
+
 }
 
 
@@ -1491,16 +2653,24 @@ if(action==="call"){
 
 if(!value){
 
-alert("⚠️ Phone number enter karein.");
+alert(
+"⚠️ Phone number enter karein."
+);
 
 return;
+
 }
 
-let phone=value.replace(/[^\d+]/g,"");
 
-window.location.href="tel:"+phone;
+let phone=
+value.replace(/[^\d+]/g,"");
+
+
+window.location.href=
+"tel:"+phone;
 
 return;
+
 }
 
 
@@ -1508,12 +2678,18 @@ if(action==="whatsapp"){
 
 if(!value){
 
-alert("⚠️ WhatsApp number enter karein.");
+alert(
+"⚠️ WhatsApp number enter karein."
+);
 
 return;
+
 }
 
-let phone=value.replace(/\D/g,"");
+
+let phone=
+value.replace(/\D/g,"");
+
 
 window.open(
 "https://wa.me/"+phone,
@@ -1521,28 +2697,441 @@ window.open(
 );
 
 return;
+
 }
 
 
 if(action==="alert"){
 
-alert(value||"🔔 Button press hua.");
+alert(
+value||
+"🔔 Button press hua."
+);
 
 return;
+
+}
+
+
+if(action==="saveData"){
+
+let records=
+collectScreenInputData();
+
+
+if(records.length===0){
+
+alert(
+"⚠️ Pehle Input fields mein data likhein."
+);
+
+return;
+
+}
+
+
+saveCurrentRecord(records);
+
+alert(
+value||
+"✅ Data successfully save ho gaya."
+);
+
+renderDataRecords();
+
+return;
+
+}
+
+
+if(action==="deleteData"){
+
+let answer=
+confirm(
+value||
+"Saved data delete karna hai?"
+);
+
+
+if(answer){
+
+deleteAllCurrentScreenData();
+
+}
+
+return;
+
 }
 
 }
 
 
 /* =========================
-   SAVE PROJECT
+DATA STORAGE KEY
+========================= */
+
+function getDataStorageKey(){
+
+let projectName=
+document
+.getElementById("projectName")
+.value
+.trim();
+
+
+if(!projectName)
+projectName="My New App";
+
+
+return "SamiAppData_"+projectName+"_"+currentEditingScreen;
+
+}
+
+
+/* =========================
+GET SAVED RECORDS
+========================= */
+
+function getCurrentRecords(){
+
+let key=
+getDataStorageKey();
+
+
+let saved=
+localStorage.getItem(key);
+
+
+if(!saved)
+return [];
+
+
+try{
+
+let data=
+JSON.parse(saved);
+
+
+if(Array.isArray(data))
+return data;
+
+
+return [];
+
+}catch(e){
+
+return [];
+
+}
+
+}
+
+
+/* =========================
+COLLECT INPUT DATA
+========================= */
+
+function collectScreenInputData(){
+
+let components=
+screenComponents[currentEditingScreen]||[];
+
+
+let inputs=
+components.filter(function(component){
+
+return component.type==="Input";
+
+});
+
+
+let result=[];
+
+
+inputs.forEach(function(component,index){
+
+let key=
+component.dataKey||
+component.name||
+("field_"+index);
+
+
+let value=
+prompt(
+"Data enter karein:\n"+
+key
+);
+
+
+if(value!==null){
+
+result.push({
+
+key:key,
+
+label:component.name,
+
+value:value
+
+});
+
+}
+
+});
+
+
+return result;
+
+}
+
+
+/* =========================
+SAVE RECORD
+========================= */
+
+function saveCurrentRecord(fields){
+
+let records=
+getCurrentRecords();
+
+
+let record={
+
+id:Date.now(),
+
+createdAt:
+new Date().toLocaleString(),
+
+fields:fields
+
+};
+
+
+records.push(record);
+
+
+localStorage.setItem(
+getDataStorageKey(),
+JSON.stringify(records)
+);
+
+
+renderDataRecords();
+
+}
+
+
+/* =========================
+RENDER DATA
+========================= */
+
+function renderDataRecords(){
+
+let box=
+document
+.getElementById("dataRecords");
+
+
+let status=
+document
+.getElementById("dataStatus");
+
+
+if(!box || !status)
+return;
+
+
+let records=
+getCurrentRecords();
+
+
+let search=
+(
+document
+.getElementById("dataSearch")
+.value||""
+)
+.toLowerCase()
+.trim();
+
+
+let filtered=
+records.filter(function(record){
+
+if(!search)
+return true;
+
+
+let text=
+JSON.stringify(record)
+.toLowerCase();
+
+
+return text.includes(search);
+
+});
+
+
+if(records.length===0){
+
+status.innerText=
+"Abhi koi saved data nahi.";
+
+box.innerHTML="";
+
+return;
+
+}
+
+
+status.innerText=
+records.length+
+" total record(s) • "+
+filtered.length+
+" showing";
+
+
+if(filtered.length===0){
+
+box.innerHTML=
+"<p>🔍 Search se koi record nahi mila.</p>";
+
+return;
+
+}
+
+
+let html="";
+
+
+filtered.forEach(function(record){
+
+html+=`
+
+<div class="data-record">
+
+<strong>
+🗂️ Record #${record.id}
+</strong>
+
+<div class="small">
+${escapeHTML(record.createdAt)}
+</div>
+
+`;
+
+
+(record.fields||[]).forEach(function(field){
+
+html+=`
+
+<div class="data-field">
+
+<strong>
+${escapeHTML(field.label||field.key)}
+</strong>
+
+<br>
+
+${escapeHTML(field.value)}
+
+</div>
+
+`;
+
+});
+
+
+html+=`
+
+<button
+class="red"
+onclick="deleteOneRecord(${record.id})"
+>
+🗑️ Delete
+</button>
+
+</div>
+
+`;
+
+});
+
+
+box.innerHTML=html;
+
+}
+
+
+/* =========================
+DELETE ONE
+========================= */
+
+function deleteOneRecord(id){
+
+let records=
+getCurrentRecords();
+
+
+let confirmDelete=
+confirm(
+"Ye record delete karna hai?"
+);
+
+
+if(!confirmDelete)
+return;
+
+
+records=
+records.filter(function(record){
+
+return record.id!==id;
+
+});
+
+
+localStorage.setItem(
+getDataStorageKey(),
+JSON.stringify(records)
+);
+
+
+renderDataRecords();
+
+}
+
+
+/* =========================
+DELETE ALL
+========================= */
+
+function deleteAllCurrentScreenData(){
+
+localStorage.removeItem(
+getDataStorageKey()
+);
+
+renderDataRecords();
+
+alert(
+"🗑️ Is screen ka saved data delete ho gaya."
+);
+
+}
+
+
+/* =========================
+SAVE PROJECT
 ========================= */
 
 function saveProject(){
 
-Object.keys(screenComponents).forEach(function(screen){
+Object.keys(screenComponents)
+.forEach(function(screen){
 
-screenComponents[screen].forEach(function(component,index){
+screenComponents[screen]
+.forEach(function(component,index){
 
 normalizeComponent(component,index);
 
@@ -1550,32 +3139,44 @@ normalizeComponent(component,index);
 
 });
 
+
 let project={
 
 name:
-document.getElementById("projectName").value,
+document
+.getElementById("projectName")
+.value,
 
-features:currentFeatures,
+features:
+currentFeatures,
 
-screens:currentScreens,
+screens:
+currentScreens,
 
-components:screenComponents,
+components:
+screenComponents,
 
-savedAt:new Date().toISOString()
+savedAt:
+new Date().toISOString()
 
 };
+
 
 localStorage.setItem(
 "SamiAppDeveloperProject",
 JSON.stringify(project)
 );
 
-alert("✅ Project browser mein save ho gaya.");
+
+alert(
+"✅ Project browser mein save ho gaya."
+);
+
 }
 
 
 /* =========================
-   LOAD PROJECT
+LOAD PROJECT
 ========================= */
 
 window.onload=function(){
@@ -1585,37 +3186,64 @@ localStorage.getItem(
 "SamiAppDeveloperProject"
 );
 
+
 if(saved){
 
 try{
 
-let project=JSON.parse(saved);
+let project=
+JSON.parse(saved);
+
 
 if(project.name){
 
-document.getElementById("projectName").value=
+document
+.getElementById("projectName")
+.value=
 project.name;
 
 }
 
-if(project.features)
-currentFeatures=project.features;
 
-if(project.screens)
-currentScreens=project.screens;
+if(project.features){
 
-if(project.components)
-screenComponents=project.components;
+currentFeatures=
+project.features;
 
-Object.keys(screenComponents).forEach(function(screen){
+}
 
-screenComponents[screen].forEach(function(component,index){
 
-normalizeComponent(component,index);
+if(project.screens){
+
+currentScreens=
+project.screens;
+
+}
+
+
+if(project.components){
+
+screenComponents=
+project.components;
+
+}
+
+
+Object.keys(screenComponents)
+.forEach(function(screen){
+
+screenComponents[screen]
+.forEach(function(component,index){
+
+normalizeComponent(
+component,
+index
+);
 
 });
 
 });
+
 
 }catch(e){
 
@@ -1626,6 +3254,7 @@ console.log(e);
 }
 
 };
+
 </script>
 
 </body>
