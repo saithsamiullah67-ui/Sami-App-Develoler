@@ -373,4 +373,655 @@ function analyzeApp(){
     currentScreens=[
       "📱 Home",
       "📱 Products",
-      "📱 Product
+      "📱 Product Details",
+      "📱 Cart",
+      "📱 Orders",
+      "📱 Profile",
+      "📱 Admin Panel"
+    ];
+
+  }
+  else if(demand.includes("gps") ||
+          demand.includes("tracking")){
+
+    currentFeatures=[
+      "📍 Live Location",
+      "🗺️ Map",
+      "🕐 Location History",
+      "🔔 Notifications",
+      "👤 User Account"
+    ];
+
+    currentScreens=[
+      "📱 Home",
+      "📱 Live Map",
+      "📱 History",
+      "📱 Profile",
+      "📱 Settings"
+    ];
+
+  }
+  else if(demand.includes("chat") ||
+          demand.includes("messenger")){
+
+    currentFeatures=[
+      "💬 Messaging",
+      "👤 User Profiles",
+      "🟢 Online Status",
+      "🔔 Notifications",
+      "📷 Media Sharing"
+    ];
+
+    currentScreens=[
+      "📱 Home",
+      "📱 Chats",
+      "📱 Contacts",
+      "📱 Profile",
+      "📱 Settings"
+    ];
+
+  }
+  else{
+
+    currentFeatures=[
+      "🔐 User Login",
+      "👤 User Profile",
+      "🔔 Notifications",
+      "⚙️ Settings"
+    ];
+
+    currentScreens=[
+      "📱 Home",
+      "📱 Profile",
+      "📱 Settings"
+    ];
+  }
+
+  showAnalysis();
+}
+
+
+function showAnalysis(){
+
+  document.getElementById("analysisBox")
+  .classList.remove("hidden");
+
+  let featureHTML="";
+
+  currentFeatures.forEach(function(feature){
+    featureHTML +=
+      "<div class='analysis-item'>"+feature+"</div>";
+  });
+
+  document.getElementById("analysisFeatures")
+  .innerHTML=featureHTML;
+
+
+  let screenHTML="";
+
+  currentScreens.forEach(function(screen){
+    screenHTML +=
+      "<div class='analysis-item'>"+screen+"</div>";
+  });
+
+  document.getElementById("analysisScreens")
+  .innerHTML=screenHTML;
+
+}
+
+
+function createProject(){
+
+  document.getElementById("projectBox")
+  .classList.remove("hidden");
+
+  let demand=document
+    .getElementById("appDemand")
+    .value
+    .trim()
+    .toLowerCase();
+
+  let name="My New App";
+
+  if(demand.includes("school"))
+    name="School Management App";
+
+  else if(demand.includes("restaurant"))
+    name="Restaurant App";
+
+  else if(demand.includes("shop"))
+    name="E-Commerce App";
+
+  else if(demand.includes("gps"))
+    name="GPS Tracking App";
+
+  else if(demand.includes("chat"))
+    name="Chat App";
+
+  document.getElementById("projectName").value=name;
+
+  loadScreenComponents();
+
+  renderProject();
+
+  document.getElementById("projectBox")
+  .scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+
+function renderProject(){
+
+  let html="";
+
+  currentScreens.forEach(function(screen,index){
+
+    html += `
+      <div class="screen">
+
+        <div
+          class="screen-name"
+          onclick="openScreenEditor(${index})">
+
+          ${screen}
+
+        </div>
+
+        <button
+          class="delete"
+          onclick="removeScreen(${index})">
+
+          Remove
+
+        </button>
+
+      </div>
+    `;
+  });
+
+  document.getElementById("projectScreens")
+  .innerHTML=html;
+
+
+  let featureHTML="";
+
+  currentFeatures.forEach(function(feature,index){
+
+    featureHTML += `
+      <div class="screen">
+
+        <span>${feature}</span>
+
+        <button
+          class="delete"
+          onclick="removeFeature(${index})">
+
+          Remove
+
+        </button>
+
+      </div>
+    `;
+  });
+
+  document.getElementById("projectFeatures")
+  .innerHTML=featureHTML;
+
+  updatePreview();
+}
+
+
+function removeScreen(index){
+
+  let screen=currentScreens[index];
+
+  delete screenComponents[screen];
+
+  currentScreens.splice(index,1);
+
+  renderProject();
+}
+
+
+function removeFeature(index){
+
+  currentFeatures.splice(index,1);
+
+  renderProject();
+}
+
+
+function addScreen(){
+
+  let name=prompt("New screen ka naam likhein:");
+
+  if(name){
+
+    let screen="📱 "+name;
+
+    currentScreens.push(screen);
+
+    screenComponents[screen]=[];
+
+    renderProject();
+  }
+}
+
+
+function addFeature(){
+
+  let name=prompt("New feature ka naam likhein:");
+
+  if(name){
+
+    currentFeatures.push("⚙️ "+name);
+
+    renderProject();
+  }
+}
+
+
+/* =========================
+   SCREEN EDITOR
+========================= */
+
+
+function openScreenEditor(index){
+
+  currentEditingScreen=currentScreens[index];
+
+  document.getElementById("screenEditor")
+  .classList.remove("hidden");
+
+  document.getElementById("editingScreenName")
+  .innerText=currentEditingScreen;
+
+  if(!screenComponents[currentEditingScreen]){
+
+    screenComponents[currentEditingScreen]=[];
+
+  }
+
+  renderComponents();
+
+  document.getElementById("screenEditor")
+  .scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+
+function closeEditor(){
+
+  document.getElementById("screenEditor")
+  .classList.add("hidden");
+
+  document.getElementById("projectBox")
+  .scrollIntoView({
+    behavior:"smooth"
+  });
+
+  updatePreview();
+}
+
+
+function addComponent(){
+
+  let type=document
+    .getElementById("componentType")
+    .value;
+
+  let name=document
+    .getElementById("componentName")
+    .value
+    .trim();
+
+  if(!name){
+
+    name=type;
+
+  }
+
+  if(!screenComponents[currentEditingScreen]){
+
+    screenComponents[currentEditingScreen]=[];
+
+  }
+
+  screenComponents[currentEditingScreen].push({
+
+    type:type,
+    name:name
+
+  });
+
+  document.getElementById("componentName").value="";
+
+  renderComponents();
+
+  updatePreview();
+}
+
+
+function renderComponents(){
+
+  let list=document
+    .getElementById("componentList");
+
+  let components=
+    screenComponents[currentEditingScreen] || [];
+
+  if(components.length===0){
+
+    list.innerHTML=
+      "<p>Abhi is screen mein koi component nahi hai.</p>";
+
+    return;
+  }
+
+  let html="";
+
+  components.forEach(function(component,index){
+
+    html += `
+
+      <div class="editor-component">
+
+        <div class="component-title">
+
+          ${getComponentIcon(component.type)}
+          ${component.name}
+
+        </div>
+
+        <span class="badge">
+          ${component.type}
+        </span>
+
+        <div class="component-actions">
+
+          <button
+            class="red"
+            onclick="removeComponent(${index})">
+
+            🗑️ Remove
+
+          </button>
+
+          <button
+            class="blue"
+            onclick="editComponent(${index})">
+
+            ✏️ Edit
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+  list.innerHTML=html;
+}
+
+
+function removeComponent(index){
+
+  screenComponents[currentEditingScreen]
+    .splice(index,1);
+
+  renderComponents();
+
+  updatePreview();
+}
+
+
+function editComponent(index){
+
+  let component=
+    screenComponents[currentEditingScreen][index];
+
+  let newName=prompt(
+    "Component ka naya naam:",
+    component.name
+  );
+
+  if(newName){
+
+    component.name=newName;
+
+    renderComponents();
+
+    updatePreview();
+
+  }
+}
+
+
+function getComponentIcon(type){
+
+  let icons={
+
+    Text:"📝",
+    Button:"🔘",
+    Input:"⌨️",
+    Image:"🖼️",
+    List:"📋",
+    Table:"📊",
+    Search:"🔎",
+    Login:"🔐",
+    Camera:"📷",
+    Map:"🗺️",
+    Video:"🎬",
+    Notification:"🔔"
+
+  };
+
+  return icons[type] || "🧩";
+}
+
+
+/* =========================
+   PREVIEW
+========================= */
+
+
+function updatePreview(){
+
+  let html="";
+
+  currentScreens.forEach(function(screen){
+
+    let components=
+      screenComponents[screen] || [];
+
+    html += `
+
+      <div class="preview-item">
+
+        <strong>${screen}</strong>
+
+    `;
+
+    if(components.length>0){
+
+      components.forEach(function(component){
+
+        html += `
+
+          <div style="
+            background:#111827;
+            padding:9px;
+            margin-top:7px;
+            border-radius:7px;
+          ">
+
+          ${getComponentIcon(component.type)}
+          ${component.name}
+
+          </div>
+
+        `;
+
+      });
+
+    }
+    else{
+
+      html += `
+
+        <div style="
+          opacity:.7;
+          margin-top:8px;
+        ">
+
+        No components added
+
+        </div>
+
+      `;
+
+    }
+
+    html += "</div>";
+
+  });
+
+  if(!html){
+
+    html=
+      "<p>App screens yahan preview hongi.</p>";
+
+  }
+
+  document.getElementById("previewContent")
+  .innerHTML=html;
+}
+
+
+/* =========================
+   SAVE PROJECT
+========================= */
+
+
+function saveProject(){
+
+  let project={
+
+    name:
+      document.getElementById("projectName").value,
+
+    features:
+      currentFeatures,
+
+    screens:
+      currentScreens,
+
+    components:
+      screenComponents,
+
+    savedAt:
+      new Date().toISOString()
+
+  };
+
+  localStorage.setItem(
+    "SamiAppDeveloperProject",
+    JSON.stringify(project)
+  );
+
+  alert(
+    "✅ Project browser mein save ho gaya."
+  );
+}
+
+
+/* =========================
+   LOAD PROJECT
+========================= */
+
+
+function loadScreenComponents(){
+
+  let saved=
+    localStorage.getItem(
+      "SamiAppDeveloperProject"
+    );
+
+  if(!saved) return;
+
+  try{
+
+    let project=JSON.parse(saved);
+
+    if(project.components){
+
+      screenComponents=
+        project.components;
+
+    }
+
+  }catch(e){
+
+    console.log(e);
+
+  }
+}
+
+
+window.onload=function(){
+
+  let saved=
+    localStorage.getItem(
+      "SamiAppDeveloperProject"
+    );
+
+  if(saved){
+
+    try{
+
+      let project=JSON.parse(saved);
+
+      if(project.name){
+
+        document.getElementById(
+          "projectName"
+        ).value=project.name;
+
+      }
+
+      if(project.features){
+
+        currentFeatures=
+          project.features;
+
+      }
+
+      if(project.screens){
+
+        currentScreens=
+          project.screens;
+
+      }
+
+      if(project.components){
+
+        screenComponents=
+          project.components;
+
+      }
+
+    }catch(e){}
+
+  }
+
+};
+
+</script>
+
+</body>
+</html>
