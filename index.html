@@ -815,7 +815,7 @@ function addComponent(){
 }
 
 
-function renderComponents(){
+function renderComponents()updateLiveScreenPreview();{
 
   let list=
     document.getElementById("componentList");
@@ -958,7 +958,7 @@ function saveProperties(){
 
   renderComponents();
 
-  updatePreview();
+  updatePreview(); updateLiveScreenPreview();
 
   alert("✅ Component properties update ho gayi hain.");
 }
