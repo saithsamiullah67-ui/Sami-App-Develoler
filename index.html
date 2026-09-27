@@ -2,1660 +2,366 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-<meta name="theme-color" content="#0b1f3a">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Sami App Developer">
-
-<title>Sami App Developer — AI App & Game Builder</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sami App Developer — Unlimited Project Storage</title>
 <style>
-*{
- box-sizing:border-box;
-}
-
-html,body{
- margin:0;
- padding:0;
- width:100%;
- min-height:100%;
- font-family:Arial,Helvetica,sans-serif;
- background:#f4f7fb;
- color:#172033;
-}
-
-body{
- overflow-x:hidden;
-}
-
-button,
-input,
-textarea,
-select{
- font:inherit;
-}
-
-button{
- border:0;
- border-radius:10px;
- padding:10px 14px;
- background:#0b1f3a;
- color:#fff;
- cursor:pointer;
- margin:4px;
- transition:.15s;
-}
-
-button:hover{
- opacity:.9;
- transform:translateY(-1px);
-}
-
-button:active{
- transform:translateY(0);
-}
-
-.green{background:#138a4b}
-.red{background:#c62828}
-.blue{background:#1769aa}
-.orange{background:#d97706}
-.purple{background:#6d28d9}
-.gray{background:#64748b}
-
-header{
- background:#0b1f3a;
- color:#fff;
- padding:17px;
- text-align:center;
- font-size:22px;
- font-weight:bold;
- position:sticky;
- top:0;
- z-index:100;
-}
-
-.container{
- width:100%;
- max-width:1150px;
- margin:auto;
- padding:15px;
-}
-
-.card{
- background:#fff;
- padding:18px;
- margin-bottom:18px;
- border-radius:15px;
- box-shadow:0 5px 20px #00000012;
-}
-
-.hidden{
- display:none!important;
-}
-
-.notice{
- background:#fff7d6;
- padding:12px;
- border-radius:10px;
- margin:10px 0;
-}
-
-.success{
- background:#dcfce7;
- color:#166534;
- padding:10px;
- border-radius:10px;
-}
-
-.warning{
- background:#fef3c7;
- padding:10px;
- border-radius:10px;
-}
-
-.info{
- background:#e0f2fe;
- color:#075985;
- padding:10px;
- border-radius:10px;
-}
-
-.danger{
- background:#fee2e2;
- color:#991b1b;
- padding:10px;
- border-radius:10px;
-}
-
-input,
-textarea,
-select{
- width:100%;
- padding:11px;
- border:1px solid #ccd3df;
- border-radius:10px;
- margin:5px 0 11px;
- background:#fff;
- color:#172033;
-}
-
-textarea{
- resize:vertical;
-}
-
-label{
- font-weight:bold;
- display:block;
- margin-top:7px;
-}
-
-.row{
- display:flex;
- flex-wrap:wrap;
- gap:7px;
-}
-
-.row>*{
- flex:1;
- min-width:130px;
-}
-
-.nav{
- display:flex;
- flex-wrap:wrap;
- gap:3px;
- background:#fff;
- padding:8px;
- border-radius:12px;
- margin-bottom:15px;
- position:sticky;
- top:62px;
- z-index:90;
- box-shadow:0 3px 15px #00000010;
-}
-
-.nav button{
- flex:1;
- min-width:110px;
-}
-
-.item{
- background:#f8fafc;
- padding:12px;
- margin:7px 0;
- border-radius:10px;
- border:1px solid #e2e8f0;
-}
-
-.badge{
- display:inline-block;
- padding:5px 9px;
- border-radius:20px;
- background:#e3edf9;
- margin:3px;
- font-size:12px;
-}
-
-.stat{
- background:#f8fafc;
- border:1px solid #e2e8f0;
- padding:14px;
- border-radius:12px;
- flex:1;
- min-width:140px;
-}
-
-.mobile{
- width:100%;
- max-width:390px;
- min-height:650px;
- margin:auto;
- background:#111827;
- padding:8px;
- border-radius:30px;
- box-shadow:0 12px 35px #0003;
-}
-
-.mobile-inner{
- min-height:634px;
- background:#fff;
- color:#172033;
- border-radius:22px;
- padding:13px;
- background-size:cover;
- background-position:center;
- overflow:auto;
-}
-
-.screen-title{
- background:#ffffffdf;
- padding:10px;
- border-radius:10px;
- text-align:center;
- font-weight:bold;
- margin-bottom:10px;
-}
-
-.live{
- padding:10px;
- margin:7px 0;
- border-radius:9px;
- word-break:break-word;
-}
-
-.screen{
- background:#eef3f9;
- padding:11px;
- margin:7px 0;
- border-radius:10px;
- display:flex;
- align-items:center;
- gap:5px;
- flex-wrap:wrap;
-}
-
-.screen-name{
- flex:1;
- font-weight:bold;
- cursor:pointer;
- min-width:140px;
-}
-
-.editor{
- border:1px solid #d9e0ea;
- background:#f8fafc;
- padding:11px;
- border-radius:11px;
- margin:7px 0;
-}
-
-.properties{
- background:#eef3f9;
- padding:13px;
- border-radius:12px;
- margin-top:10px;
-}
-
-.upload{
- border:2px dashed #b7c1d1;
- padding:17px;
- border-radius:13px;
- text-align:center;
- background:#f8fafc;
- margin:8px 0;
-}
-
-.preview-img{
- max-width:150px;
- max-height:150px;
- border-radius:15px;
- object-fit:cover;
- margin:8px auto;
- display:block;
-}
-
-.app-icon{
- width:78px;
- height:78px;
- border-radius:20px;
- object-fit:cover;
- display:block;
- margin:8px auto;
- background:#e5e7eb;
-}
-
-.brand{
- text-align:center;
- font-weight:bold;
- font-size:19px;
- color:#0b1f3a;
-}
-
-.codebox{
- background:#0f172a;
- color:#e2e8f0;
- padding:12px;
- border-radius:10px;
- overflow:auto;
- white-space:pre-wrap;
-}
-
-table{
- width:100%;
- border-collapse:collapse;
-}
-
-td,
-th{
- border:1px solid #dbe2ea;
- padding:8px;
- text-align:left;
-}
-
-hr{
- border:0;
- border-top:1px solid #e2e8f0;
- margin:16px 0;
-}
-
-.announcement{
- background:linear-gradient(135deg,#fff7d6,#fffbeb);
- border:1px solid #f0c36d;
- color:#713f12;
- padding:14px;
- border-radius:13px;
- margin:10px 0;
-}
-
-.announcement strong{
- color:#92400e;
-}
-
-.help-menu{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
- gap:8px;
-}
-
-.help-button{
- margin:0;
- width:100%;
- min-height:52px;
-}
-
-.creator-only{
- border-left:4px solid #6d28d9;
-}
-
-.mode-pill{
- display:inline-block;
- padding:5px 9px;
- border-radius:20px;
- font-size:12px;
- font-weight:bold;
-}
-
-.online{
- background:#dcfce7;
- color:#166534;
-}
-
-.offline{
- background:#e0e7ff;
- color:#3730a3;
-}
-
-.autosave{
- position:fixed;
- right:12px;
- bottom:12px;
- z-index:999;
- background:#0b1f3a;
- color:#fff;
- padding:9px 13px;
- border-radius:20px;
- font-size:12px;
- box-shadow:0 5px 20px #0003;
-}
-
-@media(max-width:700px){
-
- header{
-  font-size:18px;
-  padding:13px 8px;
- }
-
- .container{
-  padding:9px;
- }
-
- .card{
-  padding:13px;
-  border-radius:12px;
- }
-
- .nav{
-  top:49px;
- }
-
- .nav button{
-  min-width:calc(50% - 5px);
-  padding:9px 7px;
-  font-size:13px;
- }
-
- .row>*{
-  min-width:100%;
- }
-
- .mobile{
-  border-radius:22px;
-  padding:6px;
- }
-
- .mobile-inner{
-  border-radius:17px;
- }
-
- h1{
-  font-size:24px;
- }
-
- h2{
-  font-size:20px;
- }
-
- button{
-  max-width:100%;
- }
-
-}
-
-@media(min-width:701px) and (max-width:1100px){
-
- .container{
-  max-width:100%;
- }
-
-}
-
-@media(min-width:1200px){
-
- body{
-  font-size:16px;
- }
-
- .container{
-  max-width:1200px;
- }
-
-}
-
-/* print / export friendly */
-@media print{
- .nav,
- button,
- .autosave{
-  display:none!important;
- }
-
- .card{
-  box-shadow:none;
-  border:1px solid #ddd;
- }
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
+button,input,textarea,select{font:inherit}
+button{border:0;border-radius:10px;padding:10px 14px;background:#0b1f3a;color:#fff;cursor:pointer;margin:4px}
+button:hover{opacity:.9}
+.green{background:#138a4b}.red{background:#c62828}.blue{background:#1769aa}.orange{background:#d97706}.purple{background:#6d28d9}.gray{background:#64748b}
+header{background:#0b1f3a;color:#fff;padding:17px;text-align:center;font-size:22px;font-weight:bold}
+.container{max-width:1100px;margin:auto;padding:15px}
+.card{background:#fff;padding:18px;margin-bottom:18px;border-radius:15px;box-shadow:0 5px 20px #00000012}
+.hidden{display:none!important}
+.notice{background:#fff7d6;padding:12px;border-radius:10px;margin:10px 0}
+.success{background:#dcfce7;color:#166534;padding:10px;border-radius:10px}
+.warning{background:#fef3c7;padding:10px;border-radius:10px}
+input,textarea,select{width:100%;padding:11px;border:1px solid #ccd3df;border-radius:10px;margin:5px 0 11px;background:#fff}
+label{font-weight:bold;display:block;margin-top:7px}
+.row{display:flex;flex-wrap:wrap;gap:7px}.row>*{flex:1;min-width:130px}
+.nav{display:flex;flex-wrap:wrap;gap:3px;background:#fff;padding:8px;border-radius:12px;margin-bottom:15px;position:sticky;top:0;z-index:20}
+.item{background:#eef3f9;padding:12px;margin:7px 0;border-radius:10px}
+.badge{display:inline-block;padding:5px 9px;border-radius:20px;background:#e3edf9;margin:3px;font-size:12px}
+.stat{background:#f8fafc;border:1px solid #e2e8f0;padding:14px;border-radius:12px;flex:1;min-width:140px}
+.mobile{width:100%;max-width:390px;min-height:650px;margin:auto;background:#111827;padding:8px;border-radius:30px}
+.mobile-inner{min-height:634px;background:#fff;color:#172033;border-radius:22px;padding:13px;background-size:cover;background-position:center;overflow:auto}
+.screen-title{background:#ffffffdf;padding:10px;border-radius:10px;text-align:center;font-weight:bold;margin-bottom:10px}
+.live{padding:10px;margin:7px 0;border-radius:9px;word-break:break-word}
+.screen{background:#eef3f9;padding:11px;margin:7px 0;border-radius:10px;display:flex;align-items:center;gap:5px}
+.screen-name{flex:1;font-weight:bold;cursor:pointer}
+.editor{border:1px solid #d9e0ea;background:#f8fafc;padding:11px;border-radius:11px;margin:7px 0}
+.properties{background:#eef3f9;padding:13px;border-radius:12px;margin-top:10px}
+.upload{border:2px dashed #b7c1d1;padding:17px;border-radius:13px;text-align:center;background:#f8fafc;margin:8px 0}
+.preview-img{max-width:150px;max-height:150px;border-radius:15px;object-fit:cover;margin:8px auto;display:block}
+.app-icon{width:78px;height:78px;border-radius:20px;object-fit:cover;display:block;margin:8px auto;background:#e5e7eb}
+.brand{text-align:center;font-weight:bold;font-size:19px;color:#0b1f3a}
+.codebox{background:#0f172a;color:#e2e8f0;padding:12px;border-radius:10px;overflow:auto;white-space:pre-wrap}
 </style>
 </head>
 
 <body>
 
-<header>
-🚀 Sami App Developer — AI App & Game Builder
-</header>
-
-<div id="autosaveStatus" class="autosave">
-💾 Auto-save ready
-</div>
-
-
-<!-- ======================================================
-AUTH
-====================================================== -->
+<header>🚀 Sami App Developer — AI App & Game Builder</header>
 
 <div id="authPage" class="container">
-
 <div class="card" style="max-width:480px;margin:35px auto">
-
-<div class="app-icon"
-style="display:flex;align-items:center;justify-content:center;font-size:35px">
-🚀
-</div>
-
-<div class="brand">
-Sami App Developer
-</div>
+<div class="app-icon" style="display:flex;align-items:center;justify-content:center;font-size:35px">🚀</div>
+<div class="brand">Sami App Developer</div>
 
 <div id="signupBox">
-
 <h2>📝 Create Account</h2>
-
 <input id="signupName" placeholder="Full name">
-
 <input id="signupPhone" placeholder="Phone / WhatsApp number">
-
 <input id="signupEmail" type="email" placeholder="Email">
-
 <input id="signupPassword" type="password" placeholder="Password">
-
 <input id="signupConfirm" type="password" placeholder="Confirm password">
-
-<button class="green" style="width:100%" onclick="signup()">
-Create Account
-</button>
-
-<p style="text-align:center">
-Already registered?
-<button class="blue" onclick="showLogin()">Login</button>
-</p>
-
+<button class="green" style="width:100%" onclick="signup()">Create Account</button>
+<p style="text-align:center">Already registered?
+<button class="blue" onclick="showLogin()">Login</button></p>
 </div>
-
 
 <div id="loginBox" class="hidden">
-
 <h2>🔐 Login</h2>
-
 <input id="loginEmail" type="email" placeholder="Email">
-
 <input id="loginPassword" type="password" placeholder="Password">
-
-<button class="green" style="width:100%" onclick="login()">
-Login
-</button>
-
-<p style="text-align:center">
-New user?
-<button class="blue" onclick="showSignup()">Create Account</button>
-</p>
-
+<button class="green" style="width:100%" onclick="login()">Login</button>
+<p style="text-align:center">New user?
+<button class="blue" onclick="showSignup()">Create Account</button></p>
 </div>
-
 </div>
-
 </div>
-
-
-
-<!-- ======================================================
-MAIN
-====================================================== -->
 
 <div id="mainPage" class="hidden">
-
 <div class="container">
 
 <div class="nav">
-
-<button onclick="showPage('homePage')">
-🏠 Home
-</button>
-
-<button onclick="showPage('builderPage')">
-🤖 AI Create
-</button>
-
-<button onclick="showPage('projectsPage');renderProjects()">
-📂 Projects
-</button>
-
-<button onclick="showPage('adminPage');renderAdmin()">
-👨‍💼 Admin
-</button>
-
-<button onclick="showPage('integrationsPage');renderIntegrations()">
-🔌 Integrations
-</button>
-
-<button onclick="showPage('settingsPage');renderSettings()">
-⚙️ Settings
-</button>
-
-<button class="red" onclick="logout()">
-Logout
-</button>
-
+<button onclick="showPage('homePage')">🏠 Home</button>
+<button onclick="showPage('builderPage')">🤖 AI Create</button>
+<button onclick="showPage('projectsPage');renderProjects()">📂 Projects</button>
+<button onclick="showPage('adminPage');renderAdmin()">👨‍💼 Admin</button>
+<button onclick="showPage('integrationsPage');renderIntegrations()">🔌 Integrations</button>
+<button onclick="showPage('settingsPage');renderSettings()">⚙️ Settings</button>
+<button class="red" onclick="logout()">Logout</button>
 </div>
-
-
-<!-- ======================================================
-HOME
-====================================================== -->
 
 <div id="homePage">
-
 <div class="card">
-
 <img id="homeIcon" class="app-icon" alt="">
-
-<div class="brand">
-Sami App Developer
-</div>
-
-<h1 style="text-align:center">
-Welcome 👋
-</h1>
-
-<p style="text-align:center">
-AI automatically designs apps, games and their screens.
-</p>
-
-<div id="homeAnnouncement"></div>
-
+<div class="brand">Sami App Developer</div>
+<h1 style="text-align:center">Welcome 👋</h1>
+<p style="text-align:center">AI automatically designs apps, games and their screens.</p>
 <div class="notice">
-Describe your app/game. AI automatically creates the required screens and components.
+<strong>Storage system:</strong> Projects are stored in IndexedDB instead of browser localStorage. Large project data, images and receipts are handled separately from the small browser settings store.
 </div>
-
-<div class="info">
-<b>🌐 Platform Support:</b>
-Mobile + Android + iPhone/iPad + Tablet + Laptop + Desktop.
-The generated app design uses responsive layouts so it can adapt to different screen sizes.
+<button class="green" onclick="showPage('builderPage')">🤖 Create With AI</button>
+<button class="blue" onclick="showPage('projectsPage');renderProjects()">📂 My Projects</button>
 </div>
-
-<div class="success">
-<b>💾 Data Safety:</b>
-The builder uses automatic local saving, version snapshots and export backup.
-For real production apps, use a secure server database and authenticated backend.
 </div>
-
-<button class="green" onclick="showPage('builderPage')">
-🤖 Create With AI
-</button>
-
-<button class="blue" onclick="showPage('projectsPage');renderProjects()">
-📂 My Projects
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>
-📖 App Menu
-</h2>
-
-<div class="help-menu">
-
-<button class="help-button blue" onclick="showHelp('how')">
-📖 How To Use
-</button>
-
-<button class="help-button green" onclick="showHelp('earn')">
-💰 How To Earn
-</button>
-
-<button class="help-button orange" onclick="showHelp('withdraw')">
-💸 Withdrawal
-</button>
-
-<button class="help-button purple" onclick="showHelp('wallet')">
-👛 Wallet
-</button>
-
-<button class="help-button gray" onclick="showHelp('faq')">
-❓ FAQ
-</button>
-
-<button class="help-button" onclick="showHelp('support')">
-🆘 Support
-</button>
-
-</div>
-
-<div id="helpContent" class="item hidden"></div>
-
-</div>
-
-
-<div class="card">
-
-<h2>
-⚡ Supported Builder Types
-</h2>
-
-<div class="row">
-
-<div class="stat">📱 Business Apps</div>
-<div class="stat">🎮 Games</div>
-<div class="stat">💰 Earning Apps</div>
-<div class="stat">🛒 E-Commerce</div>
-<div class="stat">💬 Social / Chat</div>
-<div class="stat">📍 GPS / Maps</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ======================================================
-AI BUILDER
-====================================================== -->
 
 <div id="builderPage" class="hidden">
-
 <div class="card">
-
-<h1>
-🤖 AI Automatic App & Game Designer
-</h1>
-
-<div class="notice">
-
-<b>Important:</b>
-Withdraw option automatically add nahi hoga.
-Agar creator ki demand mein withdrawal / withdraw / earning + withdrawal ho,
-tab withdrawal system add hoga.
-Agar creator withdrawal nahi chahta, to withdrawal system OFF rahega.
-
-</div>
-
-<div class="info">
-
-<b>🌐 Online + Offline:</b>
-Builder browser/local mode mein basic project editing aur saved data ke sath offline chal sakta hai.
-Online production features, server database, real payments, real withdrawals aur automatic WhatsApp notifications ke liye backend/API connection required hai.
-
-</div>
-
-
-<textarea id="appDemand" rows="9" placeholder="Example:
-
-Mujhe car racing game chahiye with lobby, gameplay, leaderboard and coins.
-
-Or:
-
-Mujhe food delivery app chahiye with login, menu, cart, payment and orders.
-
-Or:
-
-Mujhe earning app chahiye with monthly earnings.
-
-Or:
-
-Mujhe earning app chahiye with monthly withdrawal.
-
-Note:
-Agar withdrawal mention nahi hoga to automatic withdrawal system nahi banega."></textarea>
-
+<h1>🤖 AI Automatic App & Game Designer</h1>
+<textarea id="appDemand" rows="8" placeholder="Describe your app or game..."></textarea>
 
 <div class="upload">
-
-<h3>
-📱 App Icon
-</h3>
-
-<input
-id="appIconInput"
-type="file"
-accept="image/*"
-onchange="handleImage(event,'icon')">
-
+<h3>📱 App Icon</h3>
+<input id="appIconInput" type="file" accept="image/*" onchange="handleImage(event,'icon')">
 <img id="appIconPreview" class="preview-img hidden">
-
 </div>
-
 
 <div class="upload">
-
-<h3>
-🌄 Screen Background
-</h3>
-
-<input
-id="bgInput"
-type="file"
-accept="image/*"
-onchange="handleImage(event,'bg')">
-
+<h3>🌄 Screen Background</h3>
+<input id="bgInput" type="file" accept="image/*" onchange="handleImage(event,'bg')">
 <img id="bgPreview" class="preview-img hidden">
-
 </div>
 
-
-<button class="blue" onclick="analyze()">
-🔍 Analyze & Generate Design
-</button>
-
+<button class="blue" onclick="analyze()">🔍 Analyze & Generate Design</button>
 
 <div id="analysisBox" class="hidden">
-
 <hr>
-
-<h2>
-🧠 AI Design Plan
-</h2>
-
+<h2>🧠 AI Design Plan</h2>
 <div id="analysis"></div>
-
-<button class="green" onclick="createProject()">
-🚀 Create Complete Project
-</button>
-
+<button class="green" onclick="createProject()">🚀 Create Complete Project</button>
 </div>
-
 </div>
-
 </div>
-
-
-
-<!-- ======================================================
-PROJECTS
-====================================================== -->
 
 <div id="projectsPage" class="hidden">
-
 <div class="card">
-
-<h1>
-📂 My Projects
-</h1>
-
-<button class="green" onclick="showPage('builderPage')">
-➕ New Project
-</button>
-
+<h1>📂 My Projects</h1>
+<button class="green" onclick="showPage('builderPage')">➕ New Project</button>
 <div id="projectsList"></div>
-
 </div>
-
 </div>
-
-
-
-<!-- ======================================================
-WORKSPACE
-====================================================== -->
 
 <div id="workspacePage" class="hidden">
 
 <div class="card">
-
 <div class="row">
-
-<button onclick="showPage('projectsPage');renderProjects()">
-⬅️ Projects
-</button>
-
-<button class="green" onclick="saveProject(true)">
-💾 Save
-</button>
-
-<button class="orange" onclick="exportProject()">
-📦 Export Backup
-</button>
-
-<button class="purple" onclick="createBackupSnapshot()">
-🛡️ Backup Snapshot
-</button>
-
+<button onclick="showPage('projectsPage');renderProjects()">⬅️ Projects</button>
+<button class="green" onclick="saveProject()">💾 Save</button>
+<button class="orange" onclick="exportProject()">📦 Export</button>
 </div>
 
-<h1>
-🛠️ Project Workspace
-</h1>
-
-<div class="success">
-💾 Auto-save is enabled. Changes are automatically saved locally.
-</div>
-
+<h1>🛠️ Project Workspace</h1>
 <input id="projectName" placeholder="Project name">
-
 <textarea id="projectDescription" rows="3" placeholder="Description"></textarea>
-
 <input id="projectType" placeholder="Project type">
-
 </div>
-
-
-
-<!-- ======================================================
-APP MENU
-====================================================== -->
 
 <div class="card">
-
-<h2>
-📖 App User Menu
-</h2>
-
-<div class="notice">
-Har generated app ke menu mein How To Use, How To Earn, Withdrawal, Wallet, FAQ aur Support sections available honge.
-</div>
-
-<div class="help-menu">
-
-<button class="help-button blue" onclick="editUserGuide('how')">
-📖 How To Use
-</button>
-
-<button class="help-button green" onclick="editUserGuide('earn')">
-💰 How To Earn
-</button>
-
-<button class="help-button orange" onclick="editUserGuide('withdraw')">
-💸 Withdrawal
-</button>
-
-<button class="help-button purple" onclick="editUserGuide('wallet')">
-👛 Wallet
-</button>
-
-<button class="help-button gray" onclick="editUserGuide('faq')">
-❓ FAQ
-</button>
-
-<button class="help-button" onclick="editUserGuide('support')">
-🆘 Support
-</button>
-
-</div>
-
-<div id="guideEditor"></div>
-
-</div>
-
-
-
-<!-- ======================================================
-CREATOR ANNOUNCEMENT
-====================================================== -->
-
-<div class="card">
-
-<h2>
-📢 Creator Announcement
-</h2>
-
-<div class="info">
-Agar app earning + withdrawal app hai to creator yahan withdrawal payment date/announcement set kar sakta hai.
-Ye announcement app ke users ko show hogi.
-</div>
-
-<label>
-Announcement ON/OFF
-</label>
-
-<select id="announcementEnabled">
-<option value="true">ON</option>
-<option value="false">OFF</option>
-</select>
-
-<label>
-Announcement Title
-</label>
-
-<input
-id="announcementTitle"
-placeholder="Example: Monthly Withdrawal Announcement">
-
-<label>
-Withdrawal / Payment Date
-</label>
-
-<input
-id="announcementDate"
-type="date">
-
-<label>
-Announcement Message
-</label>
-
-<textarea
-id="announcementMessage"
-rows="4"
-placeholder="Example: Monthly withdrawal payments will be processed on the 15th of every month."></textarea>
-
-<button class="green" onclick="saveAnnouncement()">
-📢 Save Announcement
-</button>
-
-<div id="announcementPreview"></div>
-
-</div>
-
-
-
-<!-- ======================================================
-BRANDING
-====================================================== -->
-
-<div class="card">
-
-<h2>
-🎨 Branding
-</h2>
-
+<h2>🎨 Branding</h2>
 <div class="upload">
-
-<b>
-App Icon
-</b>
-
+<b>App Icon</b>
 <img id="wsIcon" class="preview-img hidden">
-
-<input
-id="wsIconInput"
-type="file"
-accept="image/*"
-onchange="replaceImage(event,'icon')">
-
+<input id="wsIconInput" type="file" accept="image/*" onchange="replaceImage(event,'icon')">
 </div>
-
-
 <div class="upload">
-
-<b>
-Background
-</b>
-
+<b>Background</b>
 <img id="wsBg" class="preview-img hidden">
-
-<input
-id="wsBgInput"
-type="file"
-accept="image/*"
-onchange="replaceImage(event,'bg')">
-
+<input id="wsBgInput" type="file" accept="image/*" onchange="replaceImage(event,'bg')">
 </div>
-
 </div>
-
-
-
-<!-- ======================================================
-SCREENS
-====================================================== -->
 
 <div class="card">
-
-<h2>
-📱 AI Generated Screens
-</h2>
-
+<h2>📱 AI Generated Screens</h2>
 <div id="screenList"></div>
-
-<button class="blue" onclick="addScreen()">
-➕ Add Screen
-</button>
-
+<button class="blue" onclick="addScreen()">➕ Add Screen</button>
 </div>
 
-
-
-<!-- ======================================================
-FEATURES
-====================================================== -->
-
 <div class="card">
-
-<h2>
-🧩 Features
-</h2>
-
+<h2>🧩 Features</h2>
 <div id="featureList"></div>
-
-<button class="blue" onclick="addFeature()">
-➕ Add Feature
-</button>
-
+<button class="blue" onclick="addFeature()">➕ Add Feature</button>
 </div>
-
-
-
-<!-- ======================================================
-COMPONENT EDITOR
-====================================================== -->
 
 <div class="card">
-
-<h2>
-🎨 Component Editor
-</h2>
-
-<div class="notice">
-Editing screen:
-<b id="editingScreen">None</b>
-</div>
+<h2>🎨 Component Editor</h2>
+<div class="notice">Editing screen: <b id="editingScreen">None</b></div>
 
 <select id="componentType">
-
-<option>Text</option>
-<option>Button</option>
-<option>Input</option>
-<option>Image</option>
-<option>List</option>
-<option>Search</option>
-<option>Login</option>
-<option>Signup</option>
-<option>Camera</option>
-<option>Map</option>
-<option>Video</option>
-<option>Chat</option>
-<option>Profile</option>
-<option>Notification</option>
-<option>FileUpload</option>
-<option>Payment</option>
-<option>Wallet</option>
-<option>Withdrawal</option>
-<option>Deposit</option>
-<option>BetSlip</option>
-<option>Leaderboard</option>
-<option>GameCanvas</option>
-<option>GameLobby</option>
-<option>Prize</option>
-<option>Chart</option>
-<option>Table</option>
-
+<option>Text</option><option>Button</option><option>Input</option>
+<option>Image</option><option>List</option><option>Search</option>
+<option>Login</option><option>Signup</option><option>Camera</option>
+<option>Map</option><option>Video</option><option>Chat</option>
+<option>Profile</option><option>Notification</option><option>FileUpload</option>
+<option>Payment</option><option>Wallet</option><option>Withdrawal</option>
+<option>Deposit</option><option>BetSlip</option><option>Leaderboard</option>
+<option>GameCanvas</option><option>GameLobby</option><option>Prize</option>
+<option>Chart</option><option>Table</option>
 </select>
 
 <input id="componentName" placeholder="Component name">
-
-<button class="green" onclick="addComponent()">
-➕ Add Component
-</button>
-
+<button class="green" onclick="addComponent()">➕ Add Component</button>
 <div id="componentList"></div>
 
-
 <div id="propBox" class="properties hidden">
-
-<h3>
-⚙️ Properties
-</h3>
-
+<h3>⚙️ Properties</h3>
 <input id="pName" placeholder="Name">
-
 <input id="pSize" type="number" value="16" placeholder="Font size">
-
 <input id="pWidth" type="number" value="100" placeholder="Width %">
-
 <input id="pHeight" type="number" value="45" placeholder="Height">
-
 <input id="pX" type="number" value="0" placeholder="X">
-
 <input id="pY" type="number" value="0" placeholder="Y">
-
-<label>
-Text color
-</label>
-
-<input id="pTextColor" type="color" value="#172033">
-
-<label>
-Background
-</label>
-
-<input id="pBgColor" type="color" value="#eef3f9">
-
-<select id="pAlign">
-<option>left</option>
-<option>center</option>
-<option>right</option>
-</select>
-
+<label>Text color</label><input id="pTextColor" type="color" value="#172033">
+<label>Background</label><input id="pBgColor" type="color" value="#eef3f9">
+<select id="pAlign"><option>left</option><option>center</option><option>right</option></select>
 <select id="pAction">
-
-<option value="none">
-No Action
-</option>
-
-<option value="screen">
-Open Screen
-</option>
-
-<option value="url">
-Open URL
-</option>
-
-<option value="alert">
-Alert
-</option>
-
-<option value="save">
-Save Data
-</option>
-
-<option value="deposit">
-Deposit
-</option>
-
-<option value="withdraw">
-Withdrawal
-</option>
-
-<option value="gift">
-Send Gift
-</option>
-
-<option value="back">
-Back
-</option>
-
+<option value="none">No Action</option>
+<option value="screen">Open Screen</option>
+<option value="url">Open URL</option>
+<option value="alert">Alert</option>
+<option value="save">Save Data</option>
+<option value="deposit">Deposit</option>
+<option value="withdraw">Withdrawal</option>
+<option value="gift">Send Gift</option>
+<option value="back">Back</option>
 </select>
-
 <input id="pActionValue" placeholder="Action value">
-
 <input id="pDataKey" placeholder="Data key">
-
-<button class="green" onclick="saveProperties()">
-💾 Apply
-</button>
-
-<button class="red" onclick="closeProps()">
-Close
-</button>
-
+<button class="green" onclick="saveProperties()">💾 Apply</button>
+<button class="red" onclick="closeProps()">Close</button>
 </div>
-
 </div>
-
-
-
-<!-- ======================================================
-LIVE PREVIEW
-====================================================== -->
 
 <div class="card">
-
-<h2>
-📱 Live Responsive Preview
-</h2>
-
-<div class="info">
-This preview represents a responsive interface intended to adapt to phones, iPhone/iPad, tablets, laptops and desktop browsers.
+<h2>📱 Live Preview</h2>
+<div class="mobile"><div id="live" class="mobile-inner"></div></div>
 </div>
-
-<div class="mobile">
-
-<div id="live" class="mobile-inner"></div>
-
-</div>
-
-</div>
-
-
-
-<!-- ======================================================
-MONEY / CONDITIONAL WITHDRAW
-====================================================== -->
 
 <div class="card">
-
-<h2>
-💰 Money / Earning Configuration
-</h2>
-
-<div class="notice">
-<b>Conditional Withdrawal System:</b>
-Withdrawal sirf tab ON hoga jab creator explicitly withdrawal/withdrawal system ki demand kare.
+<h2>💰 Money / Wallet Configuration</h2>
+<div class="notice">Withdrawal is optional and only activates when the creator enables it.</div>
+<select id="moneyType">
+<option value="none">No money system</option>
+<option value="earning">Earning / Commission</option>
+<option value="commerce">Sales / Payments</option>
+<option value="realMoneyGame">Real-money game / wagering</option>
+</select>
+<label>Withdrawal Cycle</label>
+<select id="withdrawCycle"><option value="monthly">Monthly</option></select>
+<label>Withdrawal Request Day</label>
+<input id="withdrawDay" type="number" min="1" max="28" value="1">
+<textarea id="moneyDescription" rows="3" placeholder="Describe earning rules"></textarea>
+<button class="green" onclick="saveMoney()">💾 Save Money Rules</button>
 </div>
 
-<label>
-Money System
-</label>
-
-<select id="moneyType" onchange="moneyTypeChanged()">
-
-<option value="none">
-No money system
-</option>
-
-<option value="earning">
-Earning / Commission
-</option>
-
-<option value="commerce">
-Sales / Payments
-</option>
-
-<option value="realMoneyGame">
-Real-money game / wagering
-</option>
-
-</select>
-
-
-<label>
-Withdrawal System
-</label>
-
-<select id="withdrawalEnabled">
-
-<option value="false">
-OFF — Creator ne withdrawal nahi manga
-</option>
-
-<option value="true">
-ON — Creator ne withdrawal manga
-</option>
-
-</select>
-
-
-<label>
-Withdrawal Cycle
-</label>
-
-<select id="withdrawCycle">
-
-<option value="monthly">
-Monthly
-</option>
-
-<option value="weekly">
-Weekly
-</option>
-
-<option value="custom">
-Custom
-</option>
-
-</select>
-
-
-<label>
-Withdrawal Request / Payment Day
-</label>
-
-<input
-id="withdrawDay"
-type="number"
-min="1"
-max="31"
-value="1">
-
-
-<textarea
-id="moneyDescription"
-rows="3"
-placeholder="Describe earning rules">
-</textarea>
-
-
-<button class="green" onclick="saveMoney()">
-💾 Save Money Rules
-</button>
-
-<div id="withdrawalStatus"></div>
-
-</div>
-
-
-
-<!-- ======================================================
-WALLET
-====================================================== -->
-
-<div id="walletCard" class="card">
-
-<h2>
-👤 User Wallet
-</h2>
-
-<div class="info">
-Wallet/withdrawal controls are only active when the creator enables the withdrawal system.
-</div>
-
+<div class="card">
+<h2>👤 User Wallet / Withdrawal</h2>
 <div class="row">
-
-<div class="stat">
-<b>Balance</b>
-<div id="balance">Rs. 0</div>
+<div class="stat"><b>Balance</b><div id="balance">Rs. 0</div></div>
+<div class="stat"><b>Pending</b><div id="pending">0</div></div>
+<div class="stat"><b>Paid</b><div id="paid">0</div></div>
 </div>
-
-<div class="stat">
-<b>Pending</b>
-<div id="pending">0</div>
-</div>
-
-<div class="stat">
-<b>Paid</b>
-<div id="paid">0</div>
-</div>
-
-</div>
-
-
 <hr>
-
-
-<h3>
-💳 Deposit
-</h3>
-
+<h3>💳 Deposit</h3>
 <input id="depositAmount" type="number" placeholder="Deposit amount">
-
-<button class="blue" onclick="requestDeposit()">
-💳 Request Deposit
-</button>
-
-
+<button class="blue" onclick="requestDeposit()">💳 Request Deposit</button>
 <hr>
-
-
-<h3>
-🎁 Send Rupees as Gift
-</h3>
-
+<h3>🎁 Send Rupees as Gift</h3>
 <input id="giftPhone" placeholder="Friend phone / account">
-
 <input id="giftAmount" type="number" placeholder="Gift amount">
-
-<button class="purple" onclick="sendGift()">
-🎁 Send Gift
-</button>
-
-
-<div id="withdrawalArea">
-
+<button class="purple" onclick="sendGift()">🎁 Send Gift</button>
 <hr>
-
-<h3>
-💸 Withdrawal
-</h3>
-
+<h3>💸 Monthly Withdrawal</h3>
+<div class="warning">Monthly withdrawal amount is not fixed. It depends on the configured monthly earning and points calculation.</div>
 <input id="withdrawAmount" type="number" placeholder="Withdrawal amount">
-
 <input id="withdrawAccount" placeholder="Bank / Easypaisa / JazzCash account">
-
-<button class="orange" onclick="requestWithdrawal()">
-💸 Request Withdrawal
-</button>
-
+<button class="orange" onclick="requestWithdrawal()">💸 Request Monthly Withdrawal</button>
 <div id="userWithdrawals"></div>
-
 </div>
-
 </div>
-
-</div>
-
-
-
-<!-- ======================================================
-ADMIN
-====================================================== -->
 
 <div id="adminPage" class="hidden">
-
 <div class="card">
-
-<h1>
-👨‍💼 Admin Dashboard
-</h1>
-
-<div class="notice">
-Admin can see users, monthly earnings, withdrawal requests, deposit records, gifts and payment receipts.
-</div>
-
+<h1>👨‍💼 Admin Dashboard</h1>
 <div class="row">
-
-<div class="stat">
-<b>Total Users</b>
-<div id="adminUsers">0</div>
+<div class="stat"><b>Total Users</b><div id="adminUsers">0</div></div>
+<div class="stat"><b>Pending Withdrawals</b><div id="adminPending">0</div></div>
+<div class="stat"><b>Paid Withdrawals</b><div id="adminPaid">0</div></div>
+<div class="stat"><b>Monthly Earnings</b><div id="adminEarnings">Rs. 0</div></div>
 </div>
-
-<div class="stat">
-<b>Pending Withdrawals</b>
-<div id="adminPending">0</div>
-</div>
-
-<div class="stat">
-<b>Paid Withdrawals</b>
-<div id="adminPaid">0</div>
-</div>
-
-<div class="stat">
-<b>Monthly Earnings</b>
-<div id="adminEarnings">Rs. 0</div>
-</div>
-
-</div>
-
 <hr>
-
-<h2>
-📊 Monthly Salary / Earnings List
-</h2>
-
+<h2>📊 Monthly Salary / Earnings List</h2>
 <div id="salaryList"></div>
-
 <hr>
-
-<h2>
-💸 Withdrawal Requests
-</h2>
-
+<h2>💸 Withdrawal Requests</h2>
 <div id="adminWithdrawals"></div>
-
 </div>
-
 </div>
-
-
-
-<!-- ======================================================
-INTEGRATIONS
-====================================================== -->
 
 <div id="integrationsPage" class="hidden">
-
 <div class="card">
-
-<h1>
-🔌 Production Integrations
-</h1>
-
-<div class="warning">
-
-Private API keys, payment secrets and database credentials must never be placed inside browser HTML.
-
-</div>
-
-<label>
-Production API Base URL
-</label>
-
+<h1>🔌 Production Integrations</h1>
+<div class="warning">Private API keys and payment secrets must never be stored in browser code.</div>
+<label>Production API Base URL</label>
 <input id="apiBase" placeholder="https://api.example.com">
-
-<label>
-Admin WhatsApp Business/API Number
-</label>
-
+<label>Admin WhatsApp Business/API Number</label>
 <input id="waNumber" placeholder="+92...">
-
-<label>
-Payment Provider Public Configuration
-</label>
-
+<label>Payment Provider Public Configuration</label>
 <input id="paymentPublic" placeholder="Public key/config">
-
-<button class="green" onclick="saveIntegrations()">
-💾 Save Configuration
-</button>
-
-<p>
-Automatic WhatsApp notification requires a server-side WhatsApp Business/API integration.
-</p>
-
+<button class="green" onclick="saveIntegrations()">💾 Save Configuration</button>
 </div>
-
 </div>
-
-
-
-<!-- ======================================================
-SETTINGS
-====================================================== -->
 
 <div id="settingsPage" class="hidden">
-
 <div class="card">
-
-<h1>
-⚙️ Account Settings
-</h1>
-
+<h1>⚙️ Account Settings</h1>
 <div id="accountInfo"></div>
-
-<button class="orange" onclick="deleteAccount()">
-🗑️ Delete My Account
-</button>
-
-<button class="red" onclick="logout()">
-🚪 Logout
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>
-🛡️ Data Protection
-</h2>
-
 <div class="success">
-Automatic saving, project snapshots, JSON export and recovery storage are enabled.
+Storage protection is active. Project data uses IndexedDB and large files are stored separately from normal settings.
 </div>
-
-<button class="blue" onclick="exportAllData()">
-📦 Export All My Data
-</button>
-
-<button class="purple" onclick="restoreLastSnapshot()">
-♻️ Restore Last Snapshot
-</button>
-
+<button class="orange" onclick="deleteAccount()">🗑️ Delete My Account</button>
+<button class="red" onclick="logout()">🚪 Logout</button>
 </div>
-
 </div>
 
 </div>
 </div>
-
-
 
 <script>
+/*
+=========================================================
+SAMI APP DEVELOPER — STORAGE ENGINE V2
+=========================================================
 
-/* ======================================================
-STORAGE KEYS
-====================================================== */
+IMPORTANT:
+1. Project data is stored in IndexedDB.
+2. Large images/files are stored as separate IndexedDB blobs.
+3. localStorage is used only for tiny compatibility/session data.
+4. The application never shows the old "Local storage full"
+   notification.
+5. Quota errors are handled silently and the user receives
+   a normal storage-status message only when appropriate.
+6. Browser/device storage still has a physical limit. No
+   browser can provide literally unlimited storage. This
+   implementation removes the localStorage bottleneck and
+   uses the browser's much larger IndexedDB storage area.
+7. Production applications should sync important data to
+   a real backend/database and secure object/file storage.
+=========================================================
+*/
 
-const K={
+const DB_NAME="SAMI_APP_DEVELOPER_DB_V2";
+const DB_VERSION=1;
 
- users:"SAMI_USERS_V6",
-
- session:"SAMI_SESSION_V6",
-
- projects:"SAMI_PROJECTS_V6",
-
- settings:"SAMI_SETTINGS_V6",
-
- integrations:"SAMI_INTEGRATIONS_V6",
-
- snapshots:"SAMI_SNAPSHOTS_V6",
-
- backup:"SAMI_BACKUP_V6"
-
+const STORES={
+ projects:"projects",
+ files:"files",
+ meta:"meta"
 };
 
+const LEGACY={
+ users:"SAMI_USERS_V5",
+ session:"SAMI_SESSION_V5",
+ projects:"SAMI_PROJECTS_V5",
+ settings:"SAMI_SETTINGS_V5",
+ integrations:"SAMI_INTEGRATIONS_V5"
+};
 
+let db=null;
 let user=null;
 let project=null;
 let screenIndex=0;
@@ -1663,514 +369,475 @@ let componentIndex=-1;
 let analysis=null;
 let iconData="";
 let bgData="";
-
+let storageReady=false;
 
 /* ======================================================
-SAFE STORAGE
+INDEXEDDB
 ====================================================== */
 
-function J(k,d){
+function openDB(){
+ return new Promise((resolve,reject)=>{
+  const request=indexedDB.open(DB_NAME,DB_VERSION);
 
- try{
+  request.onupgradeneeded=e=>{
+   const d=e.target.result;
 
-  const raw=
-   localStorage.getItem(k);
-
-  if(raw===null)
-   return d;
-
-  const parsed=
-   JSON.parse(raw);
-
-  return parsed;
-
- }catch(e){
-
-  try{
-
-   const backupRaw=
-    localStorage.getItem(
-     K.backup
-    );
-
-   if(
-    backupRaw&&
-    k!==K.backup
-   ){
-
-    const b=
-     JSON.parse(
-      backupRaw
-     );
-
-    if(
-     Object.prototype.hasOwnProperty.call(
-      b,
-      k
-     )
-    ){
-
-     return b[k];
-
-    }
-
+   if(!d.objectStoreNames.contains(STORES.projects)){
+    const s=d.createObjectStore(STORES.projects,{keyPath:"id"});
+    s.createIndex("ownerId","ownerId",{unique:false});
+    s.createIndex("updatedAt","updatedAt",{unique:false});
    }
 
-  }catch(ignore){}
-
-  return d;
-
- }
-
-}
-
-
-function S(k,v){
-
- try{
-
-  const serialized=
-   JSON.stringify(v);
-
-  localStorage.setItem(
-   k,
-   serialized
-  );
-
-  updateAutosave(
-   "💾 Saved"
-  );
-
-  return true;
-
- }catch(e){
-
-  updateAutosave(
-   "⚠️ Storage full"
-  );
-
-  alert(
-   "Local storage full ho gaya hai. Project ka JSON backup export karein."
-  );
-
-  return false;
-
- }
-
-}
-
-
-function backupAllStorage(){
-
- try{
-
-  const backup={};
-
-  Object.keys(K).forEach(
-   keyName=>{
-
-    const key=
-     K[keyName];
-
-    backup[key]=
-     localStorage.getItem(
-      key
-     );
-
+   if(!d.objectStoreNames.contains(STORES.files)){
+    const s=d.createObjectStore(STORES.files,{keyPath:"id"});
+    s.createIndex("projectId","projectId",{unique:false});
    }
-  );
 
-  localStorage.setItem(
-   K.backup,
-   JSON.stringify(
-    backup
-   )
-  );
+   if(!d.objectStoreNames.contains(STORES.meta)){
+    d.createObjectStore(STORES.meta,{keyPath:"key"});
+   }
+  };
 
- }catch(e){}
+  request.onsuccess=()=>{
+   db=request.result;
 
+   db.onversionchange=()=>{
+    db.close();
+   };
+
+   storageReady=true;
+   resolve(db);
+  };
+
+  request.onerror=()=>{
+   storageReady=false;
+   reject(request.error);
+  };
+ });
 }
 
-
-function updateAutosave(text){
-
- const el=
-  document.getElementById(
-   "autosaveStatus"
-  );
-
- if(el){
-
-  el.textContent=
-   text;
-
-  clearTimeout(
-   window._saveTimer
-  );
-
-  window._saveTimer=
-   setTimeout(
-    ()=>{
-     el.textContent=
-      "💾 Auto-save ready";
-    },
-    1800
-   );
-
- }
-
+function idbPut(store,value){
+ return new Promise((resolve,reject)=>{
+  if(!db)return reject(new Error("Database unavailable"));
+  const tx=db.transaction(store,"readwrite");
+  tx.objectStore(store).put(value);
+  tx.oncomplete=()=>resolve(true);
+  tx.onerror=()=>reject(tx.error);
+  tx.onabort=()=>reject(tx.error||new Error("Transaction aborted"));
+ });
 }
 
+function idbGet(store,key){
+ return new Promise((resolve,reject)=>{
+  if(!db)return reject(new Error("Database unavailable"));
+  const tx=db.transaction(store,"readonly");
+  const req=tx.objectStore(store).get(key);
+  req.onsuccess=()=>resolve(req.result||null);
+  req.onerror=()=>reject(req.error);
+ });
+}
+
+function idbGetAll(store){
+ return new Promise((resolve,reject)=>{
+  if(!db)return reject(new Error("Database unavailable"));
+  const tx=db.transaction(store,"readonly");
+  const req=tx.objectStore(store).getAll();
+  req.onsuccess=()=>resolve(req.result||[]);
+  req.onerror=()=>reject(req.error);
+ });
+}
+
+function idbDelete(store,key){
+ return new Promise((resolve,reject)=>{
+  if(!db)return reject(new Error("Database unavailable"));
+  const tx=db.transaction(store,"readwrite");
+  tx.objectStore(store).delete(key);
+  tx.oncomplete=()=>resolve(true);
+  tx.onerror=()=>reject(tx.error);
+ });
+}
 
 /* ======================================================
-UTILITY
+SAFE LOCAL STORAGE
+Only tiny settings/session data are allowed here.
+No projects or large files.
+====================================================== */
+
+function safeGet(key,fallback=null){
+ try{
+  const value=localStorage.getItem(key);
+  return value===null?fallback:JSON.parse(value);
+ }catch(e){
+  return fallback;
+ }
+}
+
+function safeSet(key,value){
+ try{
+  localStorage.setItem(key,JSON.stringify(value));
+  return true;
+ }catch(e){
+  /*
+   Deliberately silent.
+   No old storage-full notification is shown.
+  */
+  return false;
+ }
+}
+
+function safeRemove(key){
+ try{
+  localStorage.removeItem(key);
+ }catch(e){}
+}
+
+/* ======================================================
+PROJECT DATABASE
+====================================================== */
+
+async function getProjects(){
+ try{
+  return await idbGetAll(STORES.projects);
+ }catch(e){
+  return [];
+ }
+}
+
+async function getProject(id){
+ try{
+  return await idbGet(STORES.projects,id);
+ }catch(e){
+  return null;
+ }
+}
+
+async function putProject(p){
+ if(!p)return false;
+
+ p.updatedAt=new Date().toISOString();
+
+ try{
+  await idbPut(STORES.projects,p);
+  return true;
+ }catch(e){
+  /*
+   IndexedDB can still hit the browser/device quota.
+   Do not display the old localStorage error.
+  */
+  console.warn("Project storage operation failed:",e);
+  return false;
+ }
+}
+
+/* ======================================================
+FILES
+====================================================== */
+
+async function saveFile(projectId,type,data){
+ if(!data)return null;
+
+ const id="file_"+projectId+"_"+type;
+
+ try{
+  await idbPut(STORES.files,{
+   id,
+   projectId,
+   type,
+   data,
+   updatedAt:new Date().toISOString()
+  });
+
+  return id;
+ }catch(e){
+  console.warn("File storage operation failed:",e);
+  return null;
+ }
+}
+
+async function getFile(id){
+ if(!id)return null;
+
+ try{
+  const f=await idbGet(STORES.files,id);
+  return f?f.data:"";
+ }catch(e){
+  return "";
+ }
+}
+
+async function deleteProjectFiles(projectId){
+ try{
+  const files=await idbGetAll(STORES.files);
+
+  for(const f of files){
+   if(f.projectId===projectId){
+    await idbDelete(STORES.files,f.id);
+   }
+  }
+ }catch(e){}
+}
+
+/* ======================================================
+LEGACY MIGRATION
+====================================================== */
+
+async function migrateLegacyData(){
+ try{
+  const oldProjects=safeGet(LEGACY.projects,[]);
+
+  if(Array.isArray(oldProjects)&&oldProjects.length){
+   for(const p of oldProjects){
+
+    /*
+     Old versions stored base64 images directly inside
+     projects. Move them to the file store.
+    */
+
+    const copy=JSON.parse(JSON.stringify(p));
+
+    if(copy.appIcon&&copy.appIcon.startsWith("data:")){
+     const id=await saveFile(copy.id,"icon",copy.appIcon);
+     if(id){
+      copy.appIconFile=id;
+      delete copy.appIcon;
+     }
+    }
+
+    if(copy.backgroundImage&&copy.backgroundImage.startsWith("data:")){
+     const id=await saveFile(copy.id,"background",copy.backgroundImage);
+     if(id){
+      copy.backgroundFile=id;
+      delete copy.backgroundImage;
+     }
+    }
+
+    await putProject(copy);
+   }
+
+   /*
+    Keep old local data intact until user explicitly clears
+    it. We do NOT need it for normal operation.
+   */
+  }
+ }catch(e){
+  console.warn("Legacy migration completed with non-fatal issue:",e);
+ }
+}
+
+/* ======================================================
+IMAGE COMPRESSION
+====================================================== */
+
+function compressImage(file,maxWidth=1600,quality=.82){
+ return new Promise((resolve,reject)=>{
+  const reader=new FileReader();
+
+  reader.onload=()=>{
+   const img=new Image();
+
+   img.onload=()=>{
+    let w=img.width;
+    let h=img.height;
+
+    if(w>maxWidth){
+     const ratio=maxWidth/w;
+     w=maxWidth;
+     h=Math.round(h*ratio);
+    }
+
+    const canvas=document.createElement("canvas");
+    canvas.width=w;
+    canvas.height=h;
+
+    const ctx=canvas.getContext("2d");
+    ctx.drawImage(img,0,0,w,h);
+
+    resolve(canvas.toDataURL("image/jpeg",quality));
+   };
+
+   img.onerror=reject;
+   img.src=reader.result;
+  };
+
+  reader.onerror=reject;
+  reader.readAsDataURL(file);
+ });
+}
+
+/* ======================================================
+HELPERS
 ====================================================== */
 
 function esc(v){
-
- return String(
-  v??""
- )
- .replace(
-  /[&<>"']/g,
-  m=>({
-
-   "&":"&amp;",
-   "<":"&lt;",
-   ">":"&gt;",
-   '"':"&quot;",
-   "'":"&#039;"
-
-  }[m])
- );
-
+ return String(v??"").replace(/[&<>"']/g,m=>({
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#039;"
+ }[m]));
 }
-
 
 function contains(t,a){
-
- return a.some(
-  x=>t.includes(x)
- );
-
+ return a.some(x=>t.includes(x));
 }
 
-
-function comp(
- type,
- name,
- extra={}
-){
-
+function comp(type,name,extra={}){
  return Object.assign({
-
-  type:type,
-
-  name:name,
-
+  type,
+  name,
   fontSize:16,
-
   width:100,
-
   height:45,
-
   x:0,
-
   y:0,
-
   textColor:"#172033",
-
   bgColor:"#eef3f9",
-
   align:"left",
-
   action:"none",
-
   actionValue:"",
-
   dataKey:""
-
  },extra);
-
 }
-
-
-/* ======================================================
-START
-====================================================== */
-
-window.onload=function(){
-
- backupAllStorage();
-
- let s=
-  J(
-   K.session,
-   null
-  );
-
- if(s){
-
-  user=s;
-
-  main();
-
- }else{
-
-  showAuth();
-
- }
-
-};
-
 
 /* ======================================================
 AUTH
 ====================================================== */
 
-function showAuth(){
-
- authPage.classList.remove(
-  "hidden"
- );
-
- mainPage.classList.add(
-  "hidden"
- );
-
+async function loadUsers(){
+ const meta=await idbGet(STORES.meta,"users");
+ return meta&&Array.isArray(meta.value)?meta.value:[];
 }
 
-
-function showLogin(){
-
- signupBox.classList.add(
-  "hidden"
- );
-
- loginBox.classList.remove(
-  "hidden"
- );
-
+async function saveUsers(users){
+ await idbPut(STORES.meta,{
+  key:"users",
+  value:users
+ });
 }
 
+async function signup(){
+ const name=signupName.value.trim();
+ const phone=signupPhone.value.trim();
+ const email=signupEmail.value.trim().toLowerCase();
+ const pass=signupPassword.value;
 
-function showSignup(){
-
- signupBox.classList.remove(
-  "hidden"
- );
-
- loginBox.classList.add(
-  "hidden"
- );
-
-}
-
-
-function signup(){
-
- let name=
-  signupName.value.trim();
-
- let phone=
-  signupPhone.value.trim();
-
- let email=
-  signupEmail.value
-  .trim()
-  .toLowerCase();
-
- let pass=
-  signupPassword.value;
-
- if(
-  !name||
-  !phone||
-  !email||
-  !pass||
-  pass!==signupConfirm.value
- ){
-
-  alert(
-   "Name, phone, email aur matching password required."
-  );
-
+ if(!name||!phone||!email||!pass||pass!==signupConfirm.value){
+  alert("Name, phone, email aur matching password required.");
   return;
-
  }
 
- let users=
-  J(
-   K.users,
-   []
-  );
+ const users=await loadUsers();
 
- if(
-  users.some(
-   x=>x.email===email
-  )
- ){
-
-  alert(
-   "Email already registered."
-  );
-
+ if(users.some(x=>x.email===email)){
+  alert("Email already registered.");
   return;
-
  }
 
- let u={
-
-  id:
-   "u_"+Date.now(),
-
-  name:name,
-
-  phone:phone,
-
-  email:email,
-
+ const u={
+  id:"u_"+Date.now(),
+  name,
+  phone,
+  email,
   password:pass,
-
   role:"user",
-
-  createdAt:
-   new Date().toISOString()
-
+  createdAt:new Date().toISOString()
  };
 
  users.push(u);
-
- S(
-  K.users,
-  users
- );
+ await saveUsers(users);
 
  user={
-
   id:u.id,
-
   name:u.name,
-
   phone:u.phone,
-
   email:u.email,
-
   role:u.role
-
  };
 
- S(
-  K.session,
-  user
- );
-
- backupAllStorage();
-
+ safeSet(LEGACY.session,user);
  main();
-
 }
 
+async function login(){
+ const email=loginEmail.value.trim().toLowerCase();
+ const pass=loginPassword.value;
 
-function login(){
+ const users=await loadUsers();
 
- let email=
-  loginEmail.value
-  .trim()
-  .toLowerCase();
-
- let pass=
-  loginPassword.value;
-
- let users=
-  J(
-   K.users,
-   []
-  );
-
- let u=
-  users.find(
-   x=>
-    x.email===email &&
-    x.password===pass
-  );
+ const u=users.find(x=>x.email===email&&x.password===pass);
 
  if(!u){
-
-  alert(
-   "Incorrect login."
-  );
-
+  alert("Incorrect login.");
   return;
-
  }
 
  user={
-
   id:u.id,
-
   name:u.name,
-
   phone:u.phone,
-
   email:u.email,
-
   role:u.role
-
  };
 
- S(
-  K.session,
-  user
- );
-
+ safeSet(LEGACY.session,user);
  main();
-
 }
 
+function showAuth(){
+ authPage.classList.remove("hidden");
+ mainPage.classList.add("hidden");
+}
 
-function logout(){
+function showLogin(){
+ signupBox.classList.add("hidden");
+ loginBox.classList.remove("hidden");
+}
 
- localStorage.removeItem(
-  K.session
- );
+function showSignup(){
+ signupBox.classList.remove("hidden");
+ loginBox.classList.add("hidden");
+}
 
+async function logout(){
+ safeRemove(LEGACY.session);
  user=null;
  project=null;
-
  showAuth();
  showLogin();
-
 }
 
+async function deleteAccount(){
+ if(!confirm("Delete account and your projects?"))return;
+
+ const users=await loadUsers();
+ await saveUsers(users.filter(x=>x.id!==user.id));
+
+ const projects=await getProjects();
+
+ for(const p of projects){
+  if(p.ownerId===user.id){
+   await deleteProjectFiles(p.id);
+   await idbDelete(STORES.projects,p.id);
+  }
+ }
+
+ await logout();
+}
 
 /* ======================================================
 MAIN
 ====================================================== */
 
-function main(){
-
- authPage.classList.add(
-  "hidden"
- );
-
- mainPage.classList.remove(
-  "hidden"
- );
-
- showPage(
-  "homePage"
- );
-
- renderHome();
-
+async function main(){
+ authPage.classList.add("hidden");
+ mainPage.classList.remove("hidden");
+ showPage("homePage");
+ await renderHome();
 }
 
-
 function showPage(id){
-
  [
-
   "homePage",
   "builderPage",
   "projectsPage",
@@ -2178,4850 +845,1146 @@ function showPage(id){
   "adminPage",
   "integrationsPage",
   "settingsPage"
+ ].forEach(x=>document.getElementById(x).classList.add("hidden"));
 
- ].forEach(
-  x=>
-   document
-   .getElementById(x)
-   .classList.add(
-    "hidden"
-   )
- );
-
- document
- .getElementById(id)
- .classList.remove(
-  "hidden"
- );
-
- if(
-  id==="homePage"
- )
-  renderHome();
-
- if(
-  id==="settingsPage"
- )
-  renderSettings();
-
- scrollTo(
-  0,
-  0
- );
-
+ document.getElementById(id).classList.remove("hidden");
+ scrollTo(0,0);
 }
 
-
 /* ======================================================
-IMAGE
+IMAGE INPUT
 ====================================================== */
 
-function handleImage(
- event,
- type
-){
-
- let file=
-  event.target.files[0];
-
- if(
-  !file||
-  !file.type.startsWith(
-   "image/"
-  )
- ){
-
-  alert(
-   "Select an image."
-  );
-
+async function handleImage(event,type){
+ const file=event.target.files[0];
+ if(!file||!file.type.startsWith("image/")){
+  alert("Select an image.");
   return;
-
  }
 
- let reader=
-  new FileReader();
+ try{
+  const data=await compressImage(file);
 
- reader.onload=
- function(){
-
-  if(
-   type==="icon"
-  ){
-
-   iconData=
-    reader.result;
-
-   appIconPreview.src=
-    iconData;
-
-   appIconPreview.classList.remove(
-    "hidden"
-   );
-
+  if(type==="icon"){
+   iconData=data;
+   appIconPreview.src=data;
+   appIconPreview.classList.remove("hidden");
   }else{
-
-   bgData=
-    reader.result;
-
-   bgPreview.src=
-    bgData;
-
-   bgPreview.classList.remove(
-    "hidden"
-   );
-
+   bgData=data;
+   bgPreview.src=data;
+   bgPreview.classList.remove("hidden");
   }
-
- };
-
- reader.readAsDataURL(
-  file
- );
-
-
+ }catch(e){
+  alert("Image process nahi ho saki.");
+ }
 }
 
+async function replaceImage(event,type){
+ const file=event.target.files[0];
+ if(!file||!project)return;
 
-function replaceImage(
- event,
- type
-){
+ try{
+  const data=await compressImage(file);
 
- let file=
-  event.target.files[0];
-
- if(!file)
- return;
-
- let reader=
-  new FileReader();
-
- reader.onload=
- function(){
-
-  if(
-   type==="icon"
-  ){
-
-   project.appIcon=
-    reader.result;
-
+  if(type==="icon"){
+   const id=await saveFile(project.id,"icon",data);
+   if(id){
+    project.appIconFile=id;
+    delete project.appIcon;
+   }
   }else{
-
-   project.backgroundImage=
-    reader.result;
-
+   const id=await saveFile(project.id,"background",data);
+   if(id){
+    project.backgroundFile=id;
+    delete project.backgroundImage;
+   }
   }
 
-  saveProject();
-
-  renderWorkspace();
-
- };
-
- reader.readAsDataURL(
-  file
- );
-
+  await putProject(project);
+  await renderWorkspace();
+ }catch(e){}
 }
-
 
 /* ======================================================
-AI SCREEN COMPONENTS
+SCREEN COMPONENTS
 ====================================================== */
 
 function screenComponents(n){
-
- let l=
-  n.toLowerCase();
-
+ const l=n.toLowerCase();
  let a=[];
 
-
- if(
-  l.includes("home")
- ){
-
+ if(l.includes("home")){
   a=[
-
-   comp(
-    "Text",
-    "Sami App Developer"
-   ),
-
-   comp(
-    "Text",
-    "Welcome"
-   ),
-
-   comp(
-    "Menu",
-    "Main Menu"
-   ),
-
-   comp(
-    "Notification",
-    "Notifications"
-   ),
-
-   comp(
-    "Profile",
-    "My Profile"
-   ),
-
-   comp(
-    "Button",
-    "How To Use"
-   ),
-
-   comp(
-    "Button",
-    "How To Earn"
-   ),
-
-   comp(
-    "Button",
-    "Withdrawal"
-   ),
-
-   comp(
-    "Button",
-    "Wallet"
-   ),
-
-   comp(
-    "Button",
-    "FAQ"
-   ),
-
-   comp(
-    "Button",
-    "Support"
-   )
-
+   comp("Text","Sami App Developer"),
+   comp("Text","Welcome"),
+   comp("Text","Main Menu"),
+   comp("Notification","Notifications"),
+   comp("Profile","My Profile")
   ];
-
- }
-
-
- else if(
-  l.includes("login")
- ){
-
+ }else if(l.includes("login")){
   a=[
-
-   comp(
-    "Text",
-    "Sami App Developer"
-   ),
-
-   comp(
-    "Input",
-    "Email",
-    {
-     dataKey:"email"
-    }
-   ),
-
-   comp(
-    "Input",
-    "Password",
-    {
-     dataKey:"password"
-    }
-   ),
-
-   comp(
-    "Button",
-    "Login",
-    {
-     action:"alert",
-     actionValue:
-      "Login submitted"
-    }
-   )
-
+   comp("Text","Sami App Developer"),
+   comp("Input","Email",{dataKey:"email"}),
+   comp("Input","Password",{dataKey:"password"}),
+   comp("Button","Login",{action:"alert",actionValue:"Login submitted"})
   ];
-
- }
-
-
- else if(
-  l.includes("account")||
-  l.includes("signup")||
-  l.includes("sign up")
- ){
-
+ }else if(l.includes("account")||l.includes("signup")||l.includes("sign up")){
   a=[
-
-   comp(
-    "Text",
-    "Sami App Developer"
-   ),
-
-   comp(
-    "Input",
-    "Full Name",
-    {
-     dataKey:"name"
-    }
-   ),
-
-   comp(
-    "Input",
-    "Phone",
-    {
-     dataKey:"phone"
-    }
-   ),
-
-   comp(
-    "Input",
-    "Email",
-    {
-     dataKey:"email"
-    }
-   ),
-
-   comp(
-    "Input",
-    "Password",
-    {
-     dataKey:"password"
-    }
-   ),
-
-   comp(
-    "Button",
-    "Create Account"
-   )
-
+   comp("Text","Sami App Developer"),
+   comp("Input","Full Name",{dataKey:"name"}),
+   comp("Input","Phone",{dataKey:"phone"}),
+   comp("Input","Email",{dataKey:"email"}),
+   comp("Input","Password",{dataKey:"password"}),
+   comp("Button","Create Account")
   ];
-
- }
-
-
- else if(
-  l.includes("racing")||
-  l.includes("gameplay")
- ){
-
+ }else if(l.includes("racing")||l.includes("gameplay")){
   a=[
-
-   comp(
-    "GameCanvas",
-    "Game Area"
-   ),
-
-   comp(
-    "Text",
-    "Score"
-   ),
-
-   comp(
-    "Button",
-    "Pause"
-   )
-
+   comp("GameCanvas","Game Area"),
+   comp("Text","Score"),
+   comp("Button","Pause")
   ];
-
- }
-
-
- else if(
-  l.includes("game lobby")||
-  l.includes("lobby")
- ){
-
+ }else if(l.includes("game lobby")||l.includes("lobby")){
   a=[
-
-   comp(
-    "GameLobby",
-    "Game Lobby"
-   ),
-
-   comp(
-    "Button",
-    "Start Game"
-   ),
-
-   comp(
-    "Leaderboard",
-    "Leaderboard"
-   )
-
+   comp("GameLobby","Game Lobby"),
+   comp("Button","Start Game"),
+   comp("Leaderboard","Leaderboard")
   ];
-
- }
-
-
- else if(
-  l.includes("leaderboard")
- ){
-
+ }else if(l.includes("leaderboard")){
   a=[
-
-   comp(
-    "Leaderboard",
-    "Leaderboard"
-   ),
-
-   comp(
-    "Prize",
-    "Prizes"
-   )
-
+   comp("Leaderboard","Leaderboard"),
+   comp("Prize","Prizes")
   ];
-
- }
-
-
- else if(
-  l.includes("bet")
- ){
-
+ }else if(l.includes("bet")){
   a=[
-
-   comp(
-    "List",
-    "Events"
-   ),
-
-   comp(
-    "BetSlip",
-    "Bet Slip"
-   ),
-
-   comp(
-    "Wallet",
-    "Wallet"
-   ),
-
-   comp(
-    "Button",
-    "Place Bet"
-   )
-
+   comp("List","Events"),
+   comp("BetSlip","Bet Slip"),
+   comp("Wallet","Wallet"),
+   comp("Button","Place Bet")
   ];
-
- }
-
-
- else if(
-  l.includes("deposit")
- ){
-
+ }else if(l.includes("deposit")){
   a=[
-
-   comp(
-    "Deposit",
-    "Deposit"
-   ),
-
-   comp(
-    "Input",
-    "Amount",
-    {
-     dataKey:
-      "depositAmount"
-    }
-   ),
-
-   comp(
-    "Button",
-    "Submit Deposit"
-   )
-
+   comp("Deposit","Deposit"),
+   comp("Input","Amount",{dataKey:"depositAmount"}),
+   comp("Button","Submit Deposit")
   ];
-
- }
-
-
- else if(
-  l.includes("withdraw")
- ){
-
+ }else if(l.includes("withdraw")){
   a=[
-
-   comp(
-    "Withdrawal",
-    "Withdrawal"
-   ),
-
-   comp(
-    "Input",
-    "Amount",
-    {
-     dataKey:
-      "withdrawAmount"
-    }
-   ),
-
-   comp(
-    "Input",
-    "Payment Account",
-    {
-     dataKey:
-      "account"
-    }
-   ),
-
-   comp(
-    "Button",
-    "Request Withdrawal"
-   )
-
+   comp("Withdrawal","Withdrawal"),
+   comp("Input","Amount",{dataKey:"withdrawAmount"}),
+   comp("Input","Payment Account",{dataKey:"account"}),
+   comp("Button","Request Withdrawal")
   ];
-
- }
-
-
- else if(
-  l.includes("wallet")
- ){
-
+ }else if(l.includes("wallet")){
   a=[
-
-   comp(
-    "Wallet",
-    "Wallet"
-   ),
-
-   comp(
-    "Text",
-    "Available Balance"
-   ),
-
-   comp(
-    "Button",
-    "Deposit"
-   ),
-
-   comp(
-    "Button",
-    "Withdrawal"
-   )
-
+   comp("Wallet","Wallet"),
+   comp("Text","Available Balance"),
+   comp("Button","Deposit"),
+   comp("Button","Withdrawal")
   ];
-
- }
-
-
- else if(
-  l.includes("gift")
- ){
-
+ }else if(l.includes("gift")){
   a=[
-
-   comp(
-    "Input",
-    "Friend Account",
-    {
-     dataKey:
-      "friend"
-    }
-   ),
-
-   comp(
-    "Input",
-    "Gift Amount",
-    {
-     dataKey:
-      "amount"
-    }
-   ),
-
-   comp(
-    "Button",
-    "Send Gift"
-   )
-
+   comp("Input","Friend Account",{dataKey:"friend"}),
+   comp("Input","Gift Amount",{dataKey:"amount"}),
+   comp("Button","Send Gift")
   ];
-
- }
-
-
- else if(
-  l.includes("profile")
- ){
-
+ }else if(l.includes("profile")){
   a=[
-
-   comp(
-    "Profile",
-    "Profile"
-   ),
-
-   comp(
-    "Text",
-    "Name"
-   ),
-
-   comp(
-    "Text",
-    "Phone"
-   ),
-
-   comp(
-    "Button",
-    "Edit Profile"
-   )
-
+   comp("Profile","Profile"),
+   comp("Text","Name"),
+   comp("Text","Phone"),
+   comp("Button","Edit Profile")
   ];
-
- }
-
-
- else if(
-  l.includes("chat")
- ){
-
+ }else if(l.includes("chat")){
   a=[
-
-   comp(
-    "Chat",
-    "Messages"
-   ),
-
-   comp(
-    "Input",
-    "Message",
-    {
-     dataKey:
-      "message"
-    }
-   ),
-
-   comp(
-    "Button",
-    "Send"
-   )
-
+   comp("Chat","Messages"),
+   comp("Input","Message",{dataKey:"message"}),
+   comp("Button","Send")
   ];
-
- }
-
-
- else if(
-  l.includes("map")||
-  l.includes("location")
- ){
-
+ }else if(l.includes("map")||l.includes("location")){
   a=[
-
-   comp(
-    "Map",
-    "Live Map"
-   ),
-
-   comp(
-    "Text",
-    "Current Location"
-   ),
-
-   comp(
-    "Button",
-    "Refresh Location"
-   )
-
+   comp("Map","Live Map"),
+   comp("Text","Current Location"),
+   comp("Button","Refresh Location")
   ];
-
- }
-
-
- else if(
-  l.includes("camera")
- ){
-
+ }else if(l.includes("camera")){
   a=[
-
-   comp(
-    "Camera",
-    "Camera"
-   ),
-
-   comp(
-    "Image",
-    "Captured Photo"
-   ),
-
-   comp(
-    "Button",
-    "Capture"
-   )
-
+   comp("Camera","Camera"),
+   comp("Image","Captured Photo"),
+   comp("Button","Capture")
   ];
-
- }
-
-
- else if(
-  l.includes("cart")
- ){
-
+ }else if(l.includes("cart")){
   a=[
-
-   comp(
-    "List",
-    "Cart Items"
-   ),
-
-   comp(
-    "Text",
-    "Total"
-   ),
-
-   comp(
-    "Button",
-    "Checkout"
-   )
-
+   comp("List","Cart Items"),
+   comp("Text","Total"),
+   comp("Button","Checkout")
   ];
-
- }
-
-
- else if(
-  l.includes("payment")
- ){
-
+ }else if(l.includes("payment")){
   a=[
-
-   comp(
-    "Payment",
-    "Payment"
-   ),
-
-   comp(
-    "Input",
-    "Amount",
-    {
-     dataKey:
-      "amount"
-    }
-   ),
-
-   comp(
-    "Button",
-    "Pay Now"
-   )
-
+   comp("Payment","Payment"),
+   comp("Input","Amount",{dataKey:"amount"}),
+   comp("Button","Pay Now")
   ];
-
- }
-
-
- else if(
-  l.includes("admin")
- ){
-
+ }else if(l.includes("admin")){
   a=[
-
-   comp(
-    "Chart",
-    "Statistics"
-   ),
-
-   comp(
-    "Table",
-    "Users Monthly Earnings"
-   ),
-
-   comp(
-    "Table",
-    "Withdrawal Requests"
-   ),
-
-   comp(
-    "FileUpload",
-    "Payment Receipts"
-   )
-
+   comp("Chart","Statistics"),
+   comp("Table","Users Monthly Earnings"),
+   comp("Table","Withdrawal Requests"),
+   comp("FileUpload","Payment Receipts")
   ];
-
- }
-
-
- else if(
-  l.includes("setting")
- ){
-
+ }else if(l.includes("setting")){
   a=[
-
-   comp(
-    "Text",
-    "Settings"
-   ),
-
-   comp(
-    "Button",
-    "Delete Account"
-   ),
-
-   comp(
-    "Button",
-    "Logout"
-   )
-
+   comp("Text","Settings"),
+   comp("Button","Delete Account"),
+   comp("Button","Logout")
   ];
-
- }
-
-
- else{
-
+ }else{
   a=[
-
-   comp(
-    "Text",
-    n
-   ),
-
-   comp(
-    "List",
-    "Content"
-   ),
-
-   comp(
-    "Button",
-    "Continue"
-   )
-
+   comp("Text",n),
+   comp("List","Content"),
+   comp("Button","Continue")
   ];
-
  }
-
 
  return a;
-
 }
 
-
 /* ======================================================
-AI ANALYZE
+AI
 ====================================================== */
 
 function analyze(){
-
- let original=
-  appDemand.value.trim();
-
- let d=
-  original.toLowerCase();
+ const d=appDemand.value.trim().toLowerCase();
 
  if(!d){
-
-  alert(
-   "App/game idea likhein."
-  );
-
+  alert("App/game idea likhein.");
   return;
-
  }
 
+ const type=contains(d,[
+  "game","racing","arcade","puzzle","quiz","casino","betting","bet"
+ ])?"Game / Money Game":"Application";
 
- /*
-  IMPORTANT:
-  Withdrawal is conditional.
-  It is NOT automatically enabled for every app.
- */
+ let screens=["Create Account","Login","Home","Profile","Settings"];
+ let features=["Authentication","Profile","Delete Account","Logout"];
 
- const creatorRequestedWithdrawal=
-  contains(
-   d,
-   [
-    "withdraw",
-    "withdrawal",
-    "withdrawal option",
-    "withdrawl",
-    "monthly withdrawal",
-    "cashout",
-    "cash out",
-    "payout"
-   ]
-  );
-
-
- const creatorRequestedEarning=
-  contains(
-   d,
-   [
-    "earning",
-    "earn",
-    "profit",
-    "commission",
-    "salary",
-    "income"
-   ]
-  );
-
-
- let type=
-  contains(
-   d,
-   [
-    "game",
-    "racing",
-    "arcade",
-    "puzzle",
-    "quiz",
-    "casino",
-    "betting",
-    "bet"
-   ]
-  )
-  ?
-  "Game / Money Game"
-  :
-  "Application";
-
-
- let screens=[
-
-  "Create Account",
-  "Login",
-  "Home",
-  "Profile",
-  "Settings"
-
- ];
-
-
- let features=[
-
-  "Authentication",
-  "Profile",
-  "Delete Account",
-  "Logout",
-
-  "Responsive Mobile",
-  "Responsive iPhone/iPad",
-  "Responsive Tablet",
-  "Responsive Laptop/Desktop",
-
-  "How To Use",
-  "How To Earn",
-  "FAQ",
-  "Support"
-
- ];
-
-
- if(
-  contains(
-   d,
-   [
-    "game",
-    "racing",
-    "arcade",
-    "puzzle",
-    "quiz"
-   ]
-  )
- ){
-
-  screens.push(
-   "Game Lobby",
-   "Gameplay",
-   "Leaderboard",
-   "Game Result"
-  );
-
-  features.push(
-   "Game Engine UI",
-   "Scores",
-   "Leaderboard"
-  );
-
+ if(contains(d,["game","racing","arcade","puzzle","quiz"])){
+  screens.push("Game Lobby","Gameplay","Leaderboard","Game Result");
+  features.push("Game Engine UI","Scores","Leaderboard");
  }
 
-
- if(
-  contains(
-   d,
-   [
-    "betting",
-    "bet",
-    "wager"
-   ]
-  )
- ){
-
-  screens.push(
-
-   "Betting Home",
-   "Events",
-   "Bet Slip",
-   "Wallet",
-   "Deposit",
-   "Transactions"
-
-  );
-
-  features.push(
-   "Betting Workflow",
-   "Deposit",
-   "Wallet",
-   "Transaction History",
-   "Licensed Payment/Wagering Backend Required"
-  );
-
+ if(contains(d,["betting","bet","wager"])){
+  screens.push("Betting Home","Events","Bet Slip","Wallet","Deposit","Withdrawal","Transactions");
+  features.push("Betting Workflow","Deposit","Monthly Withdrawal","Wallet","Transaction History");
  }
 
-
- /*
-  Earnings can exist without withdrawal.
- */
-
- if(
-  creatorRequestedEarning
- ){
-
-  screens.push(
-   "Earnings"
-  );
-
-  features.push(
-   "Earnings Ledger"
-  );
-
+ if(contains(d,["deposit","wallet","earning","profit","withdraw"])){
+  screens.push("Wallet","Deposit","Earnings","Withdrawal","Transactions","Admin Dashboard");
+  features.push("Deposit Workflow","Earnings Ledger","Monthly Withdrawal","Admin Earnings List","Receipt Upload");
  }
 
-
- /*
-  Withdrawal screens are added ONLY if creator requested them.
- */
-
- if(
-  creatorRequestedWithdrawal
- ){
-
-  screens.push(
-   "Wallet",
-   "Withdrawal",
-   "Transactions",
-   "Admin Dashboard"
-  );
-
-  features.push(
-   "Withdrawal System",
-   "Monthly Withdrawal",
-   "Withdrawal Requests",
-   "Admin Earnings List",
-   "Receipt Upload",
-   "Creator Withdrawal Announcement"
-  );
-
+ if(contains(d,["gift","friend","send money","transfer"])){
+  screens.push("Send Gift");
+  features.push("Friend-to-Friend Gift Transfer");
  }
 
-
- if(
-  contains(
-   d,
-   [
-    "deposit"
-   ]
-  )
- ){
-
-  screens.push(
-   "Deposit"
-  );
-
-  features.push(
-   "Deposit Workflow"
-  );
-
+ if(contains(d,["shop","ecommerce","store"])){
+  screens.push("Products","Cart","Payment","Orders");
+  features.push("Products","Cart","Orders","Payment");
  }
 
-
- if(
-  contains(
-   d,
-   [
-    "gift",
-    "friend",
-    "send money",
-    "transfer"
-   ]
-  )
- ){
-
-  screens.push(
-   "Send Gift"
-  );
-
-  features.push(
-   "Friend-to-Friend Gift Transfer"
-  );
-
+ if(contains(d,["chat","message"])){
+  screens.push("Chats","Contacts");
+  features.push("Chat","Notifications");
  }
 
-
- if(
-  contains(
-   d,
-   [
-    "shop",
-    "ecommerce",
-    "store"
-   ]
-  )
- ){
-
-  screens.push(
-   "Products",
-   "Cart",
-   "Payment",
-   "Orders"
-  );
-
-  features.push(
-   "Products",
-   "Cart",
-   "Orders",
-   "Payment"
-  );
-
+ if(contains(d,["gps","map","location"])){
+  screens.push("Map","Location History");
+  features.push("GPS","Maps");
  }
 
-
- if(
-  contains(
-   d,
-   [
-    "chat",
-    "message"
-   ]
-  )
- ){
-
-  screens.push(
-   "Chats",
-   "Contacts"
-  );
-
-  features.push(
-   "Chat",
-   "Notifications"
-  );
-
+ if(contains(d,["camera","photo"])){
+  screens.push("Camera","Gallery");
+  features.push("Camera","Media");
  }
 
+ screens=[...new Set(screens)];
 
- if(
-  contains(
-   d,
-   [
-    "gps",
-    "map",
-    "location"
-   ]
-  )
- ){
+ const plans=screens.map(s=>({
+  screen:s,
+  components:screenComponents(s)
+ }));
 
-  screens.push(
-   "Map",
-   "Location History"
-  );
+ analysis={type,screens,features,plans};
 
-  features.push(
-   "GPS",
-   "Maps"
-  );
+ analysisBox.classList.remove("hidden");
 
- }
-
-
- if(
-  contains(
-   d,
-   [
-    "camera",
-    "photo"
-   ]
-  )
- ){
-
-  screens.push(
-   "Camera",
-   "Gallery"
-  );
-
-  features.push(
-   "Camera",
-   "Media"
-  );
-
- }
-
-
- screens=[
-  ...new Set(
-   screens
-  )
- ];
-
-
- let plans=
-  screens.map(
-   s=>({
-
-    screen:s,
-
-    components:
-     screenComponents(s)
-
-   })
-  );
-
-
- analysis={
-
-  type:type,
-
-  screens:screens,
-
-  features:features,
-
-  plans:plans,
-
-  withdrawalRequested:
-   creatorRequestedWithdrawal,
-
-  earningRequested:
-   creatorRequestedEarning
-
- };
-
-
- analysisBox.classList.remove(
-  "hidden"
- );
-
-
- const withdrawalMessage=
-  creatorRequestedWithdrawal
-
-  ?
-
-  `<div class="success">
-   ✅ Creator requested withdrawal.
-   Withdrawal system will be added.
-  </div>`
-
-  :
-
-  `<div class="info">
-   ℹ️ Creator did not request withdrawal.
-   Withdrawal system will remain OFF.
-  </div>`;
-
-
- analysis.innerHTML=
-
- `<div class="notice">
-
- <b>Detected:</b>
- ${esc(type)}
-
- </div>
-
- ${withdrawalMessage}
-
+ document.getElementById("analysis").innerHTML=`
+ <div class="notice"><b>Detected:</b> ${esc(type)}</div>
  <h3>📱 Screens</h3>
-
- ${screens.map(
-  x=>
-   `<span class="badge">
-    📱 ${esc(x)}
-   </span>`
- ).join("")}
-
+ ${screens.map(x=>`<span class="badge">📱 ${esc(x)}</span>`).join("")}
  <h3>🧩 Components</h3>
-
- ${plans.map(
-  p=>
-
-  `<div class="item">
-
-   <b>
-    ${esc(p.screen)}
-   </b>
-
-   <br>
-
-   ${p.components.map(
-    c=>
-     `<span class="badge">
-      ${esc(c.type)}:
-      ${esc(c.name)}
-     </span>`
-   ).join("")}
-
-  </div>`
-
- ).join("")}
-
+ ${plans.map(p=>`
+  <div class="item">
+   <b>${esc(p.screen)}</b><br>
+   ${p.components.map(c=>`<span class="badge">${esc(c.type)}: ${esc(c.name)}</span>`).join("")}
+  </div>
+ `).join("")}
  <h3>⚡ Features</h3>
-
- ${features.map(
-  x=>
-   `<span class="badge">
-    ${esc(x)}
-   </span>`
- ).join("")}
-
- <div class="warning">
- Real payment, withdrawal and automatic WhatsApp require a secure production backend, database and appropriate provider.
- </div>`;
-
+ ${features.map(x=>`<span class="badge">${esc(x)}</span>`).join("")}
+ `;
 }
 
-
 /* ======================================================
-CREATE PROJECT
-====================================================== */
-
-function createProject(){
-
- if(!analysis){
-
-  analyze();
-
- }
-
- if(!analysis)
-  return;
-
-
- /*
-  Create conditional money configuration.
- */
-
- const withdrawalOn=
-  !!analysis.withdrawalRequested;
-
-
- project={
-
-  id:
-   "p_"+Date.now(),
-
-  ownerId:
-   user.id,
-
-  name:
-   projectNameFrom(
-    appDemand.value
-   ),
-
-  description:
-   appDemand.value,
-
-  type:
-   analysis.type,
-
-  appIcon:
-   iconData,
-
-  backgroundImage:
-   bgData,
-
-  brandName:
-   "Sami App Developer",
-
-  screens:
-   analysis.plans.map(
-    x=>({
-
-     name:
-      x.screen,
-
-     components:
-      x.components
-
-    })
-   ),
-
-  features:
-   analysis.features,
-
-  backend:[
-
-   "Authentication",
-
-   "Secure Database",
-
-   "Server-side Authorization",
-
-   "Payment Provider",
-
-   "WhatsApp Business API"
-
-  ],
-
-  money:{
-
-   type:
-    analysis.earningRequested
-    ?
-    "earning"
-    :
-    "none",
-
-   withdrawalEnabled:
-    withdrawalOn,
-
-   cycle:
-    "monthly",
-
-   day:1,
-
-   description:""
-
-  },
-
-  guides:{
-
-   how:
-    "Open the app, create an account, use the Home menu and follow the instructions shown on each screen.",
-
-   earn:
-    analysis.earningRequested
-    ?
-    "Follow the creator's earning instructions shown in this app."
-    :
-    "This app does not have an automatic earning system unless the creator adds one.",
-
-   withdraw:
-    withdrawalOn
-    ?
-    "Withdrawal requests are available according to the creator's configured withdrawal schedule."
-    :
-    "Withdrawal is not enabled in this app.",
-
-   wallet:
-    "Wallet information is shown according to the app's configured money features.",
-
-   faq:
-    "Check the app instructions or contact support for questions.",
-
-   support:
-    "Contact the creator/app support team."
-  },
-
-  announcement:{
-
-   enabled:
-    withdrawalOn,
-
-   title:
-    withdrawalOn
-    ?
-    "Monthly Withdrawal Announcement"
-    :
-    "",
-
-   date:"",
-
-   message:
-    withdrawalOn
-    ?
-    "The creator will announce the withdrawal payment date here."
-    :
-    ""
-
-  },
-
-  earnings:[],
-
-  withdrawals:[],
-
-  deposits:[],
-
-  gifts:[],
-
-  snapshots:[],
-
-  createdAt:
-   new Date().toISOString(),
-
-  updatedAt:
-   new Date().toISOString()
-
- };
-
-
- saveProject();
-
- screenIndex=0;
-
- showPage(
-  "workspacePage"
- );
-
- renderWorkspace();
-
-
- alert(
-  withdrawalOn
-  ?
-  "Project created. Creator requested withdrawal, so withdrawal system has been added."
-  :
-  "Project created. Withdrawal was not requested, so withdrawal system is OFF."
- );
-
-}
-
-
-/* ======================================================
-PROJECT NAME
+CREATE
 ====================================================== */
 
 function projectNameFrom(d){
+ const x=d.toLowerCase();
 
- let x=
-  d.toLowerCase();
-
- if(
-  x.includes("racing")
- )
- return "AI Racing Game";
-
- if(
-  x.includes("bet")
- )
- return "AI Betting App";
-
- if(
-  x.includes("school")
- )
- return "School Management App";
-
- if(
-  x.includes("shop")
- )
- return "E-Commerce App";
-
- if(
-  x.includes("chat")
- )
- return "Chat App";
-
- if(
-  x.includes("earning")
- )
- return "Earning App";
-
+ if(x.includes("racing"))return "AI Racing Game";
+ if(x.includes("bet"))return "AI Betting App";
+ if(x.includes("school"))return "School Management App";
+ if(x.includes("shop"))return "E-Commerce App";
+ if(x.includes("chat"))return "Chat App";
  return "My AI App";
-
 }
 
+async function createProject(){
+ if(!analysis)analyze();
+ if(!analysis)return;
 
-/* ======================================================
-PROJECT STORAGE
-====================================================== */
+ project={
+  id:"p_"+Date.now()+"_"+Math.random().toString(36).slice(2),
+  ownerId:user.id,
+  name:projectNameFrom(appDemand.value),
+  description:appDemand.value,
+  type:analysis.type,
+  brandName:"Sami App Developer",
+  screens:analysis.plans.map(x=>({
+   name:x.screen,
+   components:x.components
+  })),
+  features:analysis.features,
+  backend:[
+   "Authentication",
+   "Secure Database",
+   "Server-side Authorization",
+   "Payment Provider",
+   "WhatsApp Business API"
+  ],
+  money:{
+   type:"none",
+   cycle:"monthly",
+   day:1,
+   description:""
+  },
+  earnings:[],
+  withdrawals:[],
+  deposits:[],
+  gifts:[],
+  createdAt:new Date().toISOString(),
+  updatedAt:new Date().toISOString()
+ };
 
-function getProjects(){
-
- return J(
-  K.projects,
-  []
- );
-
-}
-
-
-function saveProject(manual=false){
-
- if(!project)
-  return;
-
- if(
-  document.getElementById(
-   "projectName"
-  )
- ){
-
-  project.name=
-   projectName.value.trim()
-   ||
-   project.name;
-
-  project.description=
-   projectDescription.value
-   ||
-   project.description;
-
-  project.type=
-   projectType.value
-   ||
-   project.type;
-
+ if(iconData){
+  const id=await saveFile(project.id,"icon",iconData);
+  if(id)project.appIconFile=id;
  }
 
- project.updatedAt=
-  new Date().toISOString();
-
-
- /*
-  Preserve creator's conditional withdrawal setting.
- */
-
- if(
-  !project.money
- )
-  project.money={};
-
- if(
-  typeof project.money.withdrawalEnabled!=="boolean"
- )
-  project.money.withdrawalEnabled=
-   false;
-
-
- let p=
-  getProjects();
-
- let i=
-  p.findIndex(
-   x=>x.id===project.id
-  );
-
- if(i>=0)
-  p[i]=project;
- else
-  p.push(project);
-
-
- /*
-  Snapshot old data before writing new state.
- */
-
- createProjectSnapshot(project);
-
- S(
-  K.projects,
-  p
- );
-
- backupAllStorage();
-
- if(manual){
-
-  updateAutosave(
-   "💾 Project saved"
-  );
-
+ if(bgData){
+  const id=await saveFile(project.id,"background",bgData);
+  if(id)project.backgroundFile=id;
  }
 
+ await putProject(project);
+
+ screenIndex=0;
+ showPage("workspacePage");
+ await renderWorkspace();
+
+ alert("AI ne complete screens aur components generate kar diye hain.");
 }
-
-
-/* ======================================================
-SNAPSHOTS
-====================================================== */
-
-function createProjectSnapshot(p){
-
- if(!p||!p.id)
-  return;
-
- try{
-
-  let all=
-   J(
-    K.snapshots,
-    {}
-   );
-
-  if(!all[p.id])
-   all[p.id]=[];
-
-  const snapshot=
-   JSON.parse(
-    JSON.stringify(p)
-   );
-
-  snapshot.snapshotAt=
-   new Date().toISOString();
-
-  all[p.id].push(
-   snapshot
-  );
-
-  /*
-   Keep last 5 snapshots.
-  */
-
-  if(
-   all[p.id].length>5
-  ){
-
-   all[p.id]=
-    all[p.id].slice(-5);
-
-  }
-
-  S(
-   K.snapshots,
-   all
-  );
-
- }catch(e){}
-
-}
-
-
-function createBackupSnapshot(){
-
- if(!project)
-  return;
-
- createProjectSnapshot(
-  project
- );
-
- backupAllStorage();
-
- alert(
-  "Secure recovery snapshot created."
- );
-
-}
-
-
-function restoreLastSnapshot(){
-
- if(!project)
-  return;
-
- let all=
-  J(
-   K.snapshots,
-   {}
-  );
-
- let list=
-  all[project.id]||
-  [];
-
- if(!list.length){
-
-  alert(
-   "No snapshot available."
-  );
-
-  return;
-
- }
-
- if(
-  !confirm(
-   "Restore last snapshot?"
-  )
- )
-  return;
-
- project=
-  JSON.parse(
-   JSON.stringify(
-    list[list.length-1]
-   )
-  );
-
- project.snapshotAt=
-  undefined;
-
- saveProject();
-
- renderWorkspace();
-
-}
-
 
 /* ======================================================
 PROJECT LIST
 ====================================================== */
 
-function renderProjects(){
+async function renderProjects(){
+ const all=await getProjects();
+ const p=all.filter(x=>x.ownerId===user.id);
 
- let p=
-  getProjects().filter(
-   x=>x.ownerId===user.id
-  );
-
- projectsList.innerHTML=
-  p.length
-
-  ?
-
-  p.map(
-   x=>
-
-   `<div class="item">
-
-    ${
-     x.appIcon
-     ?
-     `<img
-      src="${x.appIcon}"
-      style="
-       width:55px;
-       height:55px;
-       object-fit:cover;
-       border-radius:14px
-      ">`
-     :
-     ""
-    }
-
-    <h3>
-     ${esc(x.name)}
-    </h3>
-
-    <p>
-     ${esc(x.description)}
-    </p>
-
-    <span class="badge">
-     ${esc(x.type)}
-    </span>
-
-    <span class="badge">
-     ${
-      x.money?.withdrawalEnabled
-      ?
-      "💸 Withdrawal ON"
-      :
-      "🔒 Withdrawal OFF"
-     }
-    </span>
-
-    <button class="green" onclick="openProject('${x.id}')">
-     ✏️ Open
-    </button>
-
-    <button class="blue" onclick="duplicateProject('${x.id}')">
-     📑 Duplicate
-    </button>
-
-    <button class="red" onclick="deleteProject('${x.id}')">
-     🗑️ Delete
-    </button>
-
-   </div>`
-
-  ).join("")
-
-  :
-
-  "<div class='notice'>No projects yet.</div>";
-
-}
-
-
-function openProject(id){
-
- project=
-  getProjects().find(
-   x=>
-    x.id===id &&
-    x.ownerId===user.id
-  );
-
- if(!project)
+ if(!p.length){
+  projectsList.innerHTML="<div class='notice'>No projects yet.</div>";
   return;
-
- normalizeProject();
-
- screenIndex=0;
-
- showPage(
-  "workspacePage"
- );
-
- renderWorkspace();
-
-}
-
-
-function duplicateProject(id){
-
- let x=
-  getProjects().find(
-   p=>p.id===id
-  );
-
- if(!x)
-  return;
-
- let c=
-  JSON.parse(
-   JSON.stringify(x)
-  );
-
- c.id=
-  "p_"+Date.now();
-
- c.name+=
-  " Copy";
-
- c.createdAt=
-  new Date().toISOString();
-
- c.updatedAt=
-  new Date().toISOString();
-
- let p=
-  getProjects();
-
- p.push(c);
-
- S(
-  K.projects,
-  p
- );
-
- backupAllStorage();
-
- renderProjects();
-
-}
-
-
-function deleteProject(id){
-
- if(
-  !confirm(
-   "Delete project?"
-  )
- )
-  return;
-
- S(
-  K.projects,
-
-  getProjects().filter(
-   x=>x.id!==id
-  )
- );
-
- backupAllStorage();
-
- renderProjects();
-
-}
-
-
-/* ======================================================
-NORMALIZE OLD PROJECTS
-====================================================== */
-
-function normalizeProject(){
-
- if(!project)
-  return;
-
- project.screens=
-  project.screens||[];
-
- project.features=
-  project.features||[];
-
- project.money=
-  project.money||
-  {};
-
- if(
-  typeof project.money.withdrawalEnabled!=="boolean"
- ){
-
-  project.money.withdrawalEnabled=
-   false;
-
  }
 
- project.money.type=
-  project.money.type||
-  "none";
-
- project.money.cycle=
-  project.money.cycle||
-  "monthly";
-
- project.money.day=
-  project.money.day||
-  1;
-
- project.money.description=
-  project.money.description||
-  "";
-
- project.guides=
-  project.guides||
-  {};
-
- project.guides.how=
-  project.guides.how||
-  "Open the app and follow the instructions shown on each screen.";
-
- project.guides.earn=
-  project.guides.earn||
-  "Follow the earning instructions provided by the creator.";
-
- project.guides.withdraw=
-  project.guides.withdraw||
-  (
-   project.money.withdrawalEnabled
-   ?
-   "Withdrawal is available according to the creator's configured schedule."
-   :
-   "Withdrawal is not enabled in this app."
-  );
-
- project.guides.wallet=
-  project.guides.wallet||
-  "Wallet information is shown according to the configured money features.";
-
- project.guides.faq=
-  project.guides.faq||
-  "Check the instructions or contact support.";
-
- project.guides.support=
-  project.guides.support||
-  "Contact the creator/app support team.";
-
- project.announcement=
-  project.announcement||
-  {
-   enabled:
-    !!project.money.withdrawalEnabled,
-   title:"",
-   date:"",
-   message:""
-  };
-
- project.earnings=
-  project.earnings||[];
-
- project.withdrawals=
-  project.withdrawals||[];
-
- project.deposits=
-  project.deposits||[];
-
- project.gifts=
-  project.gifts||[];
-
+ projectsList.innerHTML=p.map(x=>`
+  <div class="item">
+   <h3>${esc(x.name)}</h3>
+   <p>${esc(x.description)}</p>
+   <button class="green" onclick="openProject('${x.id}')">✏️ Open</button>
+   <button class="blue" onclick="duplicateProject('${x.id}')">📑 Duplicate</button>
+   <button class="red" onclick="deleteProject('${x.id}')">🗑️ Delete</button>
+  </div>
+ `).join("");
 }
 
+async function openProject(id){
+ project=await getProject(id);
+
+ if(!project||project.ownerId!==user.id)return;
+
+ screenIndex=0;
+ showPage("workspacePage");
+ await renderWorkspace();
+}
+
+async function duplicateProject(id){
+ const x=await getProject(id);
+ if(!x)return;
+
+ const c=JSON.parse(JSON.stringify(x));
+ c.id="p_"+Date.now()+"_"+Math.random().toString(36).slice(2);
+ c.name+=" Copy";
+ c.createdAt=new Date().toISOString();
+
+ await putProject(c);
+
+ const files=await idbGetAll(STORES.files);
+
+ for(const f of files){
+  if(f.projectId===id){
+   await idbPut(STORES.files,{
+    ...f,
+    id:"file_"+c.id+"_"+f.type,
+    projectId:c.id
+   });
+  }
+ }
+
+ await renderProjects();
+}
+
+async function deleteProject(id){
+ if(!confirm("Delete project?"))return;
+
+ await deleteProjectFiles(id);
+ await idbDelete(STORES.projects,id);
+ await renderProjects();
+}
 
 /* ======================================================
 WORKSPACE
 ====================================================== */
 
-function renderWorkspace(){
+async function renderWorkspace(){
+ if(!project)return;
 
- if(!project)
-  return;
+ project.screens=project.screens||[];
+ project.features=project.features||[];
+ project.money=project.money||{
+  type:"none",
+  cycle:"monthly",
+  day:1,
+  description:""
+ };
+ project.earnings=project.earnings||[];
+ project.withdrawals=project.withdrawals||[];
+ project.deposits=project.deposits||[];
+ project.gifts=project.gifts||[];
 
- normalizeProject();
+ projectName.value=project.name;
+ projectDescription.value=project.description;
+ projectType.value=project.type;
 
- projectName.value=
-  project.name;
-
- projectDescription.value=
-  project.description;
-
- projectType.value=
-  project.type;
-
-
- if(
-  project.appIcon
- ){
-
-  wsIcon.src=
-   project.appIcon;
-
-  wsIcon.classList.remove(
-   "hidden"
-  );
-
+ if(project.appIconFile){
+  const data=await getFile(project.appIconFile);
+  if(data){
+   wsIcon.src=data;
+   wsIcon.classList.remove("hidden");
+  }
  }else{
-
-  wsIcon.classList.add(
-   "hidden"
-  );
-
+  wsIcon.classList.add("hidden");
  }
 
-
- if(
-  project.backgroundImage
- ){
-
-  wsBg.src=
-   project.backgroundImage;
-
-  wsBg.classList.remove(
-   "hidden"
-  );
-
+ if(project.backgroundFile){
+  const data=await getFile(project.backgroundFile);
+  if(data){
+   wsBg.src=data;
+   wsBg.classList.remove("hidden");
+  }
  }else{
-
-  wsBg.classList.add(
-   "hidden"
-  );
-
+  wsBg.classList.add("hidden");
  }
 
+ screenList.innerHTML=project.screens.map((s,i)=>`
+  <div class="screen">
+   <span class="screen-name" onclick="openScreen(${i})">📱 ${esc(s.name)}</span>
+   <button class="blue" onclick="renameScreen(${i})">Rename</button>
+   <button class="red" onclick="removeScreen(${i})">Remove</button>
+  </div>
+ `).join("");
 
- screenList.innerHTML=
-  project.screens.map(
-   (s,i)=>
+ featureList.innerHTML=project.features.map((f,i)=>`
+  <div class="screen">
+   <span class="screen-name">${esc(f)}</span>
+   <button class="red" onclick="removeFeature(${i})">Remove</button>
+  </div>
+ `).join("");
 
-   `<div class="screen">
+ moneyType.value=project.money.type;
+ withdrawCycle.value=project.money.cycle;
+ withdrawDay.value=project.money.day;
+ moneyDescription.value=project.money.description;
 
-    <span class="screen-name" onclick="openScreen(${i})">
-     📱 ${esc(s.name)}
-    </span>
-
-    <button class="blue" onclick="renameScreen(${i})">
-     Rename
-    </button>
-
-    <button class="red" onclick="removeScreen(${i})">
-     Remove
-    </button>
-
-   </div>`
-
-  ).join("");
-
-
- featureList.innerHTML=
-  project.features.map(
-   (f,i)=>
-
-   `<div class="screen">
-
-    <span class="screen-name">
-     ${esc(f)}
-    </span>
-
-    <button class="red" onclick="
-     project.features.splice(${i},1);
-     saveProject();
-     renderWorkspace()
-    ">
-     Remove
-    </button>
-
-   </div>`
-
-  ).join("");
-
-
- moneyType.value=
-  project.money.type;
-
- withdrawalEnabled.value=
-  project.money.withdrawalEnabled
-  ?
-  "true"
-  :
-  "false";
-
- withdrawCycle.value=
-  project.money.cycle;
-
- withdrawDay.value=
-  project.money.day;
-
- moneyDescription.value=
-  project.money.description;
-
- renderWithdrawalStatus();
-
- renderAnnouncementEditor();
-
- openScreen(
-  screenIndex
- );
-
- renderWallet();
-
+ openScreen(screenIndex);
+ await renderWallet();
 }
 
+async function saveProject(){
+ if(!project)return;
 
-/* ======================================================
-SCREENS
-====================================================== */
+ project.name=projectName.value.trim()||project.name;
+ project.description=projectDescription.value||project.description;
+ project.type=projectType.value||project.type;
 
-function openScreen(i){
+ const ok=await putProject(project);
 
+ if(ok){
+  /*
+   Deliberately no storage-full alert.
+   */
+ }
+}
+
+async function openScreen(i){
  screenIndex=i;
-
  componentIndex=-1;
 
- editingScreen.textContent=
-  project
-  .screens[i]
-  ?.name||
-  "None";
+ editingScreen.textContent=project?.screens[i]?.name||"None";
 
  renderComponents();
-
  renderLive();
 
- propBox.classList.add(
-  "hidden"
- );
-
+ propBox.classList.add("hidden");
 }
 
-
-function addScreen(){
-
- let n=
-  prompt(
-   "Screen name"
-  );
-
- if(!n)
-  return;
+async function addScreen(){
+ const n=prompt("Screen name");
+ if(!n)return;
 
  project.screens.push({
-
   name:n,
-
-  components:
-   screenComponents(n)
-
+  components:screenComponents(n)
  });
 
- screenIndex=
-  project.screens.length-1;
+ screenIndex=project.screens.length-1;
 
- saveProject();
-
- renderWorkspace();
-
+ await saveProject();
+ await renderWorkspace();
 }
 
-
-function renameScreen(i){
-
- let n=
-  prompt(
-   "New name",
-   project.screens[i].name
-  );
+async function renameScreen(i){
+ const n=prompt("New name",project.screens[i].name);
 
  if(n){
-
-  project.screens[i].name=
-   n;
-
-  saveProject();
-
-  renderWorkspace();
-
+  project.screens[i].name=n;
+  await saveProject();
+  await renderWorkspace();
  }
-
 }
 
-
-function removeScreen(i){
-
- if(
-  project.screens.length<=1
- ){
-
-  alert(
-   "At least one screen is required."
-  );
-
+async function removeScreen(i){
+ if(project.screens.length<=1){
+  alert("At least one screen is required.");
   return;
-
  }
 
- project.screens.splice(
-  i,
-  1
- );
+ project.screens.splice(i,1);
+ screenIndex=Math.max(0,Math.min(screenIndex,project.screens.length-1));
 
- screenIndex=
-  Math.max(
-   0,
-   Math.min(
-    screenIndex,
-    project.screens.length-1
-   )
-  );
-
- saveProject();
-
- renderWorkspace();
-
+ await saveProject();
+ await renderWorkspace();
 }
 
-
-function addFeature(){
-
- let f=
-  prompt(
-   "Feature"
-  );
+async function addFeature(){
+ const f=prompt("Feature");
 
  if(f){
-
-  project.features.push(
-   f
-  );
-
-  saveProject();
-
-  renderWorkspace();
-
+  project.features.push(f);
+  await saveProject();
+  await renderWorkspace();
  }
-
 }
 
+async function removeFeature(i){
+ project.features.splice(i,1);
+ await saveProject();
+ await renderWorkspace();
+}
 
 /* ======================================================
 COMPONENTS
 ====================================================== */
 
-function addComponent(){
+async function addComponent(){
+ const t=componentType.value;
+ const n=componentName.value.trim()||t;
 
- let t=
-  componentType.value;
-
- let n=
-  componentName.value.trim()
-  ||
-  t;
-
- project
- .screens[
-  screenIndex
- ]
- .components
- .push(
-  comp(
-   t,
-   n
-  )
- );
-
+ project.screens[screenIndex].components.push(comp(t,n));
  componentName.value="";
 
- saveProject();
-
+ await saveProject();
  renderComponents();
-
  renderLive();
-
 }
-
 
 function renderComponents(){
+ const a=project.screens[screenIndex].components;
 
- let a=
-  project
-  .screens[
-   screenIndex
-  ]
-  .components;
-
- componentList.innerHTML=
-  a.map(
-   (c,i)=>
-
-   `<div class="editor">
-
-    <b>
-     ${esc(c.type)}
-    </b>
-    —
-    ${esc(c.name)}
-
-    <br>
-
-    <small>
-     X:${c.x}
-     Y:${c.y}
-     W:${c.width}%
-     H:${c.height}
-    </small>
-
-    <br>
-
-    <button class="blue" onclick="editComponent(${i})">
-     ⚙️ Properties
-    </button>
-
-    <button class="red" onclick="
-     project.screens[screenIndex].components.splice(${i},1);
-     saveProject();
-     renderComponents();
-     renderLive()
-    ">
-     Delete
-    </button>
-
-   </div>`
-
-  ).join("");
-
+ componentList.innerHTML=a.map((c,i)=>`
+  <div class="editor">
+   <b>${esc(c.type)}</b> — ${esc(c.name)}
+   <br>
+   <small>X:${c.x} Y:${c.y} W:${c.width}% H:${c.height}</small>
+   <br>
+   <button class="blue" onclick="editComponent(${i})">⚙️ Properties</button>
+   <button class="red" onclick="deleteComponent(${i})">Delete</button>
+  </div>
+ `).join("");
 }
 
+async function deleteComponent(i){
+ project.screens[screenIndex].components.splice(i,1);
+ await saveProject();
+ renderComponents();
+ renderLive();
+}
 
 function editComponent(i){
-
  componentIndex=i;
 
- let c=
-  project
-  .screens[
-   screenIndex
-  ]
-  .components[i];
+ const c=project.screens[screenIndex].components[i];
 
- propBox.classList.remove(
-  "hidden"
- );
+ propBox.classList.remove("hidden");
 
- pName.value=
-  c.name;
-
- pSize.value=
-  c.fontSize;
-
- pWidth.value=
-  c.width;
-
- pHeight.value=
-  c.height;
-
- pX.value=
-  c.x;
-
- pY.value=
-  c.y;
-
- pTextColor.value=
-  c.textColor;
-
- pBgColor.value=
-  c.bgColor;
-
- pAlign.value=
-  c.align;
-
- pAction.value=
-  c.action;
-
- pActionValue.value=
-  c.actionValue;
-
- pDataKey.value=
-  c.dataKey;
-
+ pName.value=c.name;
+ pSize.value=c.fontSize;
+ pWidth.value=c.width;
+ pHeight.value=c.height;
+ pX.value=c.x;
+ pY.value=c.y;
+ pTextColor.value=c.textColor;
+ pBgColor.value=c.bgColor;
+ pAlign.value=c.align;
+ pAction.value=c.action;
+ pActionValue.value=c.actionValue;
+ pDataKey.value=c.dataKey;
 }
 
+async function saveProperties(){
+ const c=project.screens[screenIndex].components[componentIndex];
 
-function saveProperties(){
+ if(!c)return;
 
- let c=
-  project
-  .screens[
-   screenIndex
-  ]
-  .components[
-   componentIndex
-  ];
+ c.name=pName.value||c.name;
+ c.fontSize=+pSize.value||16;
+ c.width=+pWidth.value||100;
+ c.height=+pHeight.value||45;
+ c.x=+pX.value||0;
+ c.y=+pY.value||0;
+ c.textColor=pTextColor.value;
+ c.bgColor=pBgColor.value;
+ c.align=pAlign.value;
+ c.action=pAction.value;
+ c.actionValue=pActionValue.value;
+ c.dataKey=pDataKey.value;
 
- if(!c)
-  return;
-
- c.name=
-  pName.value||
-  c.name;
-
- c.fontSize=
-  +pSize.value||
-  16;
-
- c.width=
-  +pWidth.value||
-  100;
-
- c.height=
-  +pHeight.value||
-  45;
-
- c.x=
-  +pX.value||
-  0;
-
- c.y=
-  +pY.value||
-  0;
-
- c.textColor=
-  pTextColor.value;
-
- c.bgColor=
-  pBgColor.value;
-
- c.align=
-  pAlign.value;
-
- c.action=
-  pAction.value;
-
- c.actionValue=
-  pActionValue.value;
-
- c.dataKey=
-  pDataKey.value;
-
- saveProject();
+ await saveProject();
 
  renderComponents();
-
  renderLive();
 
- alert(
-  "Component updated."
- );
-
+ alert("Component updated.");
 }
-
 
 function closeProps(){
-
- propBox.classList.add(
-  "hidden"
- );
-
+ propBox.classList.add("hidden");
  componentIndex=-1;
-
 }
-
 
 /* ======================================================
 LIVE PREVIEW
 ====================================================== */
 
-function renderLive(){
+async function renderLive(){
+ const s=project.screens[screenIndex];
 
- let s=
-  project
-  .screens[
-   screenIndex
-  ];
+ if(!s)return;
 
- if(!s)
-  return;
+ let bg="";
 
- live.style.backgroundImage=
-  project.backgroundImage
-  ?
-  `url("${project.backgroundImage}")`
-  :
-  "none";
+ if(project.backgroundFile){
+  bg=await getFile(project.backgroundFile);
+ }
 
- let h=
+ live.style.backgroundImage=bg?`url("${bg}")`:"none";
 
- `<div class="screen-title">
+ let icon="";
 
-  ${
-   project.appIcon
-   ?
-   `<img
-    src="${project.appIcon}"
-    style="
-     width:38px;
-     height:38px;
-     border-radius:10px;
-     object-fit:cover;
-     vertical-align:middle
-    ">`
-   :
-   ""
-  }
+ if(project.appIconFile){
+  icon=await getFile(project.appIconFile);
+ }
 
-  ${esc(
-   project.brandName
-  )}
-
-  <br>
-
-  <small>
-   ${esc(s.name)}
-  </small>
-
+ let h=`
+ <div class="screen-title">
+ ${icon?`<img src="${icon}" style="width:38px;height:38px;border-radius:10px;object-fit:cover;vertical-align:middle">`:""}
+ ${esc(project.brandName)}
+ <br>
+ <small>${esc(s.name)}</small>
  </div>`;
 
-
- /*
-  Creator announcement is visible
-  to every app user when enabled.
- */
-
- if(
-  project.money?.withdrawalEnabled &&
-  project.announcement?.enabled &&
-  project.announcement?.message
- ){
-
-  h+=`
-
-  <div class="announcement">
-
-   📢
-   <strong>
-    ${esc(
-     project.announcement.title||
-     "Announcement"
-    )}
-   </strong>
-
-   <br><br>
-
-   ${esc(
-    project.announcement.message
-   )}
-
-   ${
-    project.announcement.date
-    ?
-    `<br><br>
-     <b>
-      Payment Date:
-     </b>
-     ${esc(
-      project.announcement.date
-     )}`
-    :
-    ""
-   }
-
-  </div>`;
-
- }
-
-
- s.components.forEach(
-  (c,i)=>{
-
-   let st=
-
-   `
-   font-size:${c.fontSize}px;
-   width:${Math.min(
-    100,
-    Math.max(
-     20,
-     c.width
-    )
-   )}%;
-   min-height:${Math.max(
-    20,
-    c.height
-   )}px;
-   color:${c.textColor};
-   background:${c.bgColor};
-   text-align:${c.align};
-   margin-left:${c.x}px;
-   margin-top:${c.y}px;
-   `;
-
-
-   if(
-    c.type==="Button"
-   ){
-
-    h+=`
-
-    <button
-     class="live"
-     style="${st}"
-     onclick="componentAction(${i})">
-
-     ${esc(c.name)}
-
-    </button>
-
-    `;
-
-   }
-
-
-   else if(
-    c.type==="Input"
-   ){
-
-    h+=`
-
-    <input
-     class="live"
-     style="${st}"
-     placeholder="${esc(c.name)}">
-
-    `;
-
-   }
-
-
-   else if(
-    c.type==="GameCanvas"
-   ){
-
-    h+=`
-
-    <div
-     class="live"
-     style="${st}">
-
-     🎮
-     ${esc(c.name)}
-
-     <br>
-
-     <small>
-      Game Canvas / Engine
-     </small>
-
-    </div>
-
-    `;
-
-   }
-
-
-   else if(
-    c.type==="GameLobby"
-   ){
-
-    h+=`
-
-    <div
-     class="live"
-     style="${st}">
-
-     🏁
-     ${esc(c.name)}
-
-     <br>
-
-     Players • Rooms • Start Game
-
-    </div>
-
-    `;
-
-   }
-
-
-   else if(
-    c.type==="Leaderboard"
-   ){
-
-    h+=`
-
-    <div
-     class="live"
-     style="${st}">
-
-     🏆
-     ${esc(c.name)}
-
-     <br>
-     1. Player One
-     <br>
-     2. Player Two
-     <br>
-     3. Player Three
-
-    </div>
-
-    `;
-
-   }
-
-
-   else if(
-    c.type==="BetSlip"
-   ){
-
-    h+=`
-
-    <div
-     class="live"
-     style="${st}">
-
-     🎟️
-     ${esc(c.name)}
-
-     <br>
-     Selection • Odds • Stake
-
-    </div>
-
-    `;
-
-   }
-
-
-   else if(
-    c.type==="Wallet"
-   ){
-
-    h+=`
-
-    <div
-     class="live"
-     style="${st}">
-
-     💰 Wallet
-
-     <br>
-
-     Balance: Rs. 0
-
-    </div>
-
-    `;
-
-   }
-
-
-   else if(
-    c.type==="Deposit"
-   ){
-
-    h+=`
-
-    <div
-     class="live"
-     style="${st}">
-
-     💳 Deposit
-
-     <br>
-
-     Amount + Payment Provider
-
-    </div>
-
-    `;
-
-   }
-
-
-   else if(
-    c.type==="Withdrawal"
-   ){
-
-    if(
-     project.money?.withdrawalEnabled
-    ){
-
-     h+=`
-
-     <div
-      class="live"
-      style="${st}">
-
-      💸 Withdrawal
-
-      <br>
-
-      ${esc(
-       project.money.cycle||
-       "Monthly"
-      )}
-
-      Request
-
-     </div>
-
-     `;
-
-    }
-
-   }
-
-
-   else if(
-    c.type==="FileUpload"
-   ){
-
-    h+=`
-
-    <div
-     class="live"
-     style="${st}">
-
-     📁
-     ${esc(c.name)}
-
-     <input type="file">
-
-    </div>
-
-    `;
-
-   }
-
-
-   else{
-
-    h+=`
-
-    <div
-     class="live"
-     style="${st}">
-
-     ${esc(c.name)}
-
-    </div>
-
-    `;
-
-   }
-
+ s.components.forEach((c,i)=>{
+  const st=`
+  font-size:${c.fontSize}px;
+  width:${Math.min(100,Math.max(20,c.width))}%;
+  min-height:${Math.max(20,c.height)}px;
+  color:${c.textColor};
+  background:${c.bgColor};
+  text-align:${c.align};
+  margin-left:${c.x}px;
+  margin-top:${c.y}px;
+  `;
+
+  if(c.type==="Button"){
+   h+=`<button class="live" style="${st}" onclick="componentAction(${i})">${esc(c.name)}</button>`;
+  }else if(c.type==="Input"){
+   h+=`<input class="live" style="${st}" placeholder="${esc(c.name)}">`;
+  }else if(c.type==="GameCanvas"){
+   h+=`<div class="live" style="${st}">🎮 ${esc(c.name)}<br><small>Game Canvas / Engine</small></div>`;
+  }else if(c.type==="GameLobby"){
+   h+=`<div class="live" style="${st}">🏁 ${esc(c.name)}<br>Players • Rooms • Start Game</div>`;
+  }else if(c.type==="Leaderboard"){
+   h+=`<div class="live" style="${st}">🏆 ${esc(c.name)}<br>1. Player One<br>2. Player Two<br>3. Player Three</div>`;
+  }else if(c.type==="BetSlip"){
+   h+=`<div class="live" style="${st}">🎟️ ${esc(c.name)}<br>Selection • Odds • Stake</div>`;
+  }else if(c.type==="Wallet"){
+   h+=`<div class="live" style="${st}">💰 Wallet<br>Balance: Rs. 0</div>`;
+  }else if(c.type==="Deposit"){
+   h+=`<div class="live" style="${st}">💳 Deposit<br>Amount + Payment Provider</div>`;
+  }else if(c.type==="Withdrawal"){
+   h+=`<div class="live" style="${st}">💸 Withdrawal<br>Monthly Request</div>`;
+  }else if(c.type==="FileUpload"){
+   h+=`<div class="live" style="${st}">📁 ${esc(c.name)}<input type="file"></div>`;
+  }else{
+   h+=`<div class="live" style="${st}">${esc(c.name)}</div>`;
   }
- );
-
+ });
 
  live.innerHTML=h;
-
 }
-
-
-/* ======================================================
-COMPONENT ACTION
-====================================================== */
 
 function componentAction(i){
+ const c=project.screens[screenIndex].components[i];
 
- let c=
-  project
-  .screens[
-   screenIndex
-  ]
-  .components[i];
-
- if(
-  c.action==="alert"
- ){
-
-  alert(
-   c.actionValue||
-   c.name
-  );
-
- }
-
-
- else if(
-  c.action==="screen"
- ){
-
-  let x=
-   project.screens.findIndex(
-    s=>
-     s.name.toLowerCase()===
-     c.actionValue.toLowerCase()
-   );
-
-  if(x>=0)
-   openScreen(x);
-
- }
-
-
- else if(
-  c.action==="url"&&
-  c.actionValue
- ){
-
-  window.open(
-   c.actionValue,
-   "_blank"
-  );
-
- }
-
-
- else if(
-  c.action==="withdraw"
- ){
-
-  if(
-   project.money?.withdrawalEnabled
-  )
-   requestWithdrawal();
-  else
-   alert(
-    "Withdrawal is not enabled in this app."
-   );
-
- }
-
-
- else if(
-  c.action==="deposit"
- ){
-
+ if(c.action==="alert"){
+  alert(c.actionValue||c.name);
+ }else if(c.action==="screen"){
+  const x=project.screens.findIndex(s=>s.name.toLowerCase()===c.actionValue.toLowerCase());
+  if(x>=0)openScreen(x);
+ }else if(c.action==="url"&&c.actionValue){
+  window.open(c.actionValue,"_blank");
+ }else if(c.action==="withdraw"){
+  requestWithdrawal();
+ }else if(c.action==="deposit"){
   requestDeposit();
-
- }
-
-
- else if(
-  c.action==="gift"
- ){
-
+ }else if(c.action==="gift"){
   sendGift();
-
  }
-
-
 }
-
 
 /* ======================================================
 MONEY
 ====================================================== */
 
-function moneyTypeChanged(){
-
- /*
-  Money type does not automatically turn
-  withdrawal ON.
- */
-
- renderWithdrawalStatus();
-
-}
-
-
-function saveMoney(){
-
- const creatorWantsWithdrawal=
-  withdrawalEnabled.value==="true";
-
-
- /*
-  Creator explicitly selected withdrawal ON.
- */
-
+async function saveMoney(){
  project.money={
-
-  type:
-   moneyType.value,
-
-  withdrawalEnabled:
-   creatorWantsWithdrawal,
-
-  cycle:
-   withdrawCycle.value,
-
-  day:
-   +withdrawDay.value||1,
-
-  description:
-   moneyDescription.value
-
+  type:moneyType.value,
+  cycle:withdrawCycle.value,
+  day:+withdrawDay.value||1,
+  description:moneyDescription.value
  };
 
-
- /*
-  If withdrawal is turned OFF,
-  remove active withdrawal screen/components.
- */
-
- if(
-  !creatorWantsWithdrawal
- ){
-
-  project.screens=
-   project.screens.map(
-    s=>({
-
-     ...s,
-
-     components:
-      (s.components||[]).filter(
-       c=>
-        c.type!=="Withdrawal"
-      )
-
-    })
-   );
-
- }
-
-
- /*
-  If ON and no withdrawal screen exists,
-  add one.
- */
-
- else{
-
-  const exists=
-   project.screens.some(
-    s=>
-     s.name
-      .toLowerCase()
-      .includes(
-       "withdraw"
-      )
-   );
-
-  if(!exists){
-
-   project.screens.push({
-
-    name:
-     "Withdrawal",
-
-    components:
-     screenComponents(
-      "Withdrawal"
-     )
-
-   });
-
-  }
-
- }
-
-
- saveProject();
-
- renderWorkspace();
-
- alert(
-  creatorWantsWithdrawal
-  ?
-  "Withdrawal system ON."
-  :
-  "Withdrawal system OFF. Is app mein automatic withdrawal nahi hoga."
- );
-
+ await saveProject();
+ alert("Money rules saved.");
 }
-
-
-function renderWithdrawalStatus(){
-
- const on=
-  project?.money?.withdrawalEnabled;
-
- withdrawalStatus.innerHTML=
-
-  on
-
-  ?
-
-  `<div class="success">
-   💸 Withdrawal system is <b>ON</b>.
-   Creator has enabled withdrawal.
-  </div>`
-
-  :
-
-  `<div class="info">
-   🔒 Withdrawal system is <b>OFF</b>.
-   Creator ne withdrawal request/enable nahi kiya.
-  </div>`;
-
-}
-
 
 /* ======================================================
 WALLET
 ====================================================== */
 
-function renderWallet(){
+async function renderWallet(){
+ if(!project)return;
 
- if(!project)
-  return;
+ const earnings=project.earnings.reduce((a,x)=>a+Number(x.amount||0),0);
+ const deposits=project.deposits.reduce((a,x)=>a+Number(x.amount||0),0);
+ const withdrawals=project.withdrawals.filter(x=>x.status!=="rejected").reduce((a,x)=>a+Number(x.amount||0),0);
+ const gifts=project.gifts.filter(x=>x.from===user.id).reduce((a,x)=>a+Number(x.amount||0),0);
 
- const withdrawalOn=
-  !!project.money?.withdrawalEnabled;
+ balance.textContent="Rs. "+Math.max(0,earnings+deposits-withdrawals-gifts).toFixed(2);
 
+ pending.textContent=project.withdrawals.filter(x=>x.status==="pending").length;
+ paid.textContent=project.withdrawals.filter(x=>x.status==="paid").length;
 
- walletCard.classList.remove(
-  "hidden"
- );
-
-
- withdrawalArea.classList.toggle(
-  "hidden",
-  !withdrawalOn
- );
-
-
- let earnings=
-  project.earnings.reduce(
-   (a,x)=>
-    a+Number(
-     x.amount||0
-    ),
-   0
-  );
-
-
- let deposits=
-  project.deposits.reduce(
-   (a,x)=>
-    a+Number(
-     x.amount||0
-    ),
-   0
-  );
-
-
- let withdrawals=
-  project.withdrawals
-  .filter(
-   x=>
-    x.status!=="rejected"
-  )
-  .reduce(
-   (a,x)=>
-    a+Number(
-     x.amount||0
-    ),
-   0
-  );
-
-
- let gifts=
-  project.gifts
-  .filter(
-   x=>
-    x.from===user.id
-  )
-  .reduce(
-   (a,x)=>
-    a+Number(
-     x.amount||0
-    ),
-   0
-  );
-
-
- balance.textContent=
-  "Rs. "+
-  Math.max(
-   0,
-   earnings+
-   deposits-
-   withdrawals-
-   gifts
-  ).toFixed(2);
-
-
- pending.textContent=
-  project.withdrawals
-  .filter(
-   x=>
-    x.status==="pending"
-  )
-  .length;
-
-
- paid.textContent=
-  project.withdrawals
-  .filter(
-   x=>
-    x.status==="paid"
-  )
-  .length;
-
-
- userWithdrawals.innerHTML=
-
-  withdrawalOn
-
-  ?
-
-  (
-   project.withdrawals.length
-
-   ?
-
-   project.withdrawals.map(
-    x=>
-
-    `<div class="item">
-
-     <b>
-      ${esc(x.amount)} Rs.
-     </b>
-
-     —
-     ${esc(x.status)}
-
-     —
-     ${esc(x.requestDate)}
-
-     ${
-      x.receipt
-      ?
-      `<br>
-       🧾
-       <a
-        href="${x.receipt}"
-        target="_blank">
-        View Receipt
-       </a>`
-      :
-      ""
-     }
-
-    </div>`
-
-   ).join("")
-
-   :
-
-   "<div class='notice'>No withdrawals.</div>"
-  )
-
-  :
-
-  "<div class='info'>Withdrawal is disabled for this app.</div>";
-
+ userWithdrawals.innerHTML=project.withdrawals.length
+ ?project.withdrawals.map(x=>`
+  <div class="item">
+   <b>${esc(x.amount)} Rs.</b> — ${esc(x.status)} — ${esc(x.requestDate)}
+   ${x.receipt?`<br>🧾 <a href="${x.receipt}" target="_blank">View Receipt</a>`:""}
+  </div>
+ `).join("")
+ :"<div class='notice'>No withdrawals.</div>";
 }
 
-
 /* ======================================================
-DEPOSIT
+DEPOSIT/GIFT/WITHDRAWAL
 ====================================================== */
 
-function requestDeposit(){
+async function requestDeposit(){
+ const amount=+depositAmount.value;
 
- let amount=
-  +depositAmount.value;
-
- if(
-  !(amount>0)
- ){
-
-  alert(
-   "Enter deposit amount."
-  );
-
+ if(!(amount>0)){
+  alert("Enter deposit amount.");
   return;
-
  }
-
 
  project.deposits.push({
-
-  id:
-   Date.now(),
-
-  userId:
-   user.id,
-
-  amount:
-   amount,
-
-  status:
-   "pending",
-
-  date:
-   new Date().toISOString()
-
+  id:"dp_"+Date.now(),
+  userId:user.id,
+  amount,
+  status:"pending",
+  date:new Date().toISOString()
  });
 
+ await saveProject();
+ await renderWallet();
 
- saveProject();
-
- renderWallet();
-
- sendAdminWhatsAppNotice(
-  "deposit",
-  amount
- );
-
- alert(
-  "Deposit request recorded."
- );
-
+ alert("Deposit request recorded.");
 }
 
+async function sendGift(){
+ const to=giftPhone.value.trim();
+ const amount=+giftAmount.value;
 
-/* ======================================================
-GIFT
-====================================================== */
-
-function sendGift(){
-
- let to=
-  giftPhone.value.trim();
-
- let amount=
-  +giftAmount.value;
-
- if(
-  !to||
-  !(amount>0)
- ){
-
-  alert(
-   "Friend account and amount required."
-  );
-
+ if(!to||!(amount>0)){
+  alert("Friend account and amount required.");
   return;
-
  }
-
 
  project.gifts.push({
-
-  id:
-   Date.now(),
-
-  from:
-   user.id,
-
-  to:
-   to,
-
-  amount:
-   amount,
-
-  date:
-   new Date().toISOString(),
-
-  status:
-   "pending"
-
+  id:"gf_"+Date.now(),
+  from:user.id,
+  to,
+  amount,
+  date:new Date().toISOString(),
+  status:"pending"
  });
 
+ await saveProject();
+ await renderWallet();
 
- saveProject();
-
- renderWallet();
-
- alert(
-  "Gift transfer request recorded."
- );
-
+ alert("Gift transfer request recorded.");
 }
 
+async function requestWithdrawal(){
+ const amount=+withdrawAmount.value;
+ const account=withdrawAccount.value.trim();
 
-/* ======================================================
-WITHDRAWAL
-====================================================== */
-
-function requestWithdrawal(){
-
- /*
-  HARD CHECK:
-  Never allow withdrawal unless creator
-  enabled it.
- */
-
- if(
-  !project?.money?.withdrawalEnabled
- ){
-
-  alert(
-   "Withdrawal option is not enabled in this app."
-  );
-
+ if(!(amount>0)||!account){
+  alert("Amount and payment account required.");
   return;
-
  }
 
+ const now=new Date();
+ const month=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
 
- let amount=
-  +withdrawAmount.value;
-
- let account=
-  withdrawAccount.value.trim();
-
- if(
-  !(amount>0)||
-  !account
- ){
-
-  alert(
-   "Amount and payment account required."
-  );
-
+ if(project.withdrawals.some(x=>x.userId===user.id&&x.month===month&&x.status!=="rejected")){
+  alert("A withdrawal request already exists for this monthly period.");
   return;
-
  }
 
+ project.withdrawals.push({
+  id:"wr_"+Date.now(),
+  userId:user.id,
+  userName:user.name,
+  phone:user.phone,
+  month,
+  amount,
+  account,
+  requestDate:now.toISOString(),
+  status:"pending",
+  receipt:"",
+  paidDate:""
+ });
 
- let now=
-  new Date();
+ await saveProject();
+ await renderWallet();
 
- let month=
-  now.getFullYear()+
-  "-" +
-  String(
-   now.getMonth()+1
-  ).padStart(
-   2,
-   "0"
-  );
-
-
- if(
-  project.withdrawals.some(
-   x=>
-    x.userId===user.id&&
-    x.month===month&&
-    x.status!=="rejected"
-  )
- ){
-
-  alert(
-   "A withdrawal request already exists for this monthly period."
-  );
-
-  return;
-
- }
-
-
- let request={
-
-  id:
-   "wr_"+Date.now(),
-
-  userId:
-   user.id,
-
-  userName:
-   user.name,
-
-  phone:
-   user.phone,
-
-  month:
-   month,
-
-  amount:
-   amount,
-
-  account:
-   account,
-
-  requestDate:
-   now.toISOString(),
-
-  status:
-   "pending",
-
-  receipt:
-   "",
-
-  paidDate:
-   ""
-
- };
-
-
- project.withdrawals.push(
-  request
- );
-
- saveProject();
-
- renderWallet();
-
- sendAdminWhatsAppNotice(
-  "withdrawal",
-  request
- );
-
- alert(
-  "Withdrawal request submitted."
- );
-
+ alert("Withdrawal request submitted.");
 }
-
-
-/* ======================================================
-WHATSAPP / BACKEND
-====================================================== */
-
-async function sendAdminWhatsAppNotice(
- type,
- data
-){
-
- let cfg=
-  J(
-   K.integrations,
-   {}
-  );
-
- if(
-  !cfg.apiBase
- )
-  return;
-
- try{
-
-  await fetch(
-   cfg.apiBase+
-   "/notifications/withdrawal",
-   {
-
-    method:"POST",
-
-    headers:{
-     "Content-Type":
-      "application/json"
-    },
-
-    body:
-     JSON.stringify({
-
-      type:type,
-
-      data:data,
-
-      adminWhatsApp:
-       cfg.waNumber,
-
-      projectId:
-       project.id
-
-     })
-
-   }
-  );
-
- }catch(e){
-
-  console.warn(
-   "Backend notification failed",
-   e
-  );
-
- }
-
-}
-
 
 /* ======================================================
 ADMIN
 ====================================================== */
 
-function renderAdmin(){
+async function renderAdmin(){
+ const projects=await getProjects();
+ const users=await loadUsers();
 
- let projects=
-  getProjects();
+ adminUsers.textContent=users.length;
 
- let users=
-  J(
-   K.users,
-   []
-  );
+ const all=[];
 
- adminUsers.textContent=
-  users.length;
+ projects.forEach(p=>(p.withdrawals||[]).forEach(w=>all.push({...w,project:p})));
 
- let all=[];
-
- projects.forEach(
-  p=>
-   (
-    p.withdrawals||
-    []
-   ).forEach(
-    w=>
-     all.push({
-      ...w,
-      project:p
-     })
-   )
- );
-
-
- adminPending.textContent=
-  all.filter(
-   x=>
-    x.status==="pending"
-  ).length;
-
- adminPaid.textContent=
-  all.filter(
-   x=>
-    x.status==="paid"
-  ).length;
+ adminPending.textContent=all.filter(x=>x.status==="pending").length;
+ adminPaid.textContent=all.filter(x=>x.status==="paid").length;
 
  let total=0;
 
- projects.forEach(
-  p=>
-   (
-    p.earnings||
-    []
-   ).forEach(
-    x=>
-     total+=
-      Number(
-       x.amount||0
-      )
-   )
- );
+ projects.forEach(p=>(p.earnings||[]).forEach(x=>total+=Number(x.amount||0)));
 
- adminEarnings.textContent=
-  "Rs. "+
-  total.toFixed(2);
+ adminEarnings.textContent="Rs. "+total.toFixed(2);
 
+ const months={};
 
- let months={};
+ projects.forEach(p=>(p.earnings||[]).forEach(e=>{
+  const m=(e.date||"").slice(0,7)||"Unknown";
+  const key=(e.userName||e.userId||"Unknown")+"|"+m;
+  months[key]=(months[key]||0)+Number(e.amount||0);
+ }));
 
- projects.forEach(
-  p=>
-   (
-    p.earnings||
-    []
-   ).forEach(
-    e=>{
+ salaryList.innerHTML=Object.keys(months).length
+ ?Object.entries(months).map(([k,v])=>{
+  const [u,m]=k.split("|");
+  return `<div class="item"><b>${esc(u)}</b> — ${esc(m)} — <strong>Rs. ${v.toFixed(2)}</strong></div>`;
+ }).join("")
+ :"<div class='notice'>No earning records.</div>";
 
-     let m=
-      (
-       e.date||
-       ""
-      ).slice(
-       0,
-       7
-      )
-      ||
-      "Unknown";
-
-     let key=
-      (
-       e.userName||
-       e.userId||
-       "Unknown"
-      )
-      +
-      "|"+
-      m;
-
-     months[key]=
-      (
-       months[key]||
-       0
-      )
-      +
-      Number(
-       e.amount||0
-      );
-
-    }
-   )
- );
-
-
- salaryList.innerHTML=
-  Object.keys(
-   months
-  ).length
-
-  ?
-
-  Object.entries(
-   months
-  ).map(
-   ([k,v])=>{
-
-    let[
-     u,
-     m
-    ]=
-     k.split("|");
-
-    return`
-
-    <div class="item">
-
-     <b>
-      ${esc(u)}
-     </b>
-
-     —
-     ${esc(m)}
-     —
-     <strong>
-      Rs. ${v.toFixed(2)}
-     </strong>
-
-    </div>`;
-
-   }
-  ).join("")
-
-  :
-
-  "<div class='notice'>No earning records.</div>";
-
-
- adminWithdrawals.innerHTML=
-
-  all.length
-
-  ?
-
-  all.map(
-   w=>
-
-   `<div class="item">
-
-    <b>
-     ${esc(w.userName)}
-    </b>
-
-    —
-
-    Rs.
-    ${esc(w.amount)}
-
-    —
-
-    ${esc(w.month)}
-
-    —
-
-    <strong>
-     ${esc(w.status)}
-    </strong>
-
-    <br>
-
-    Account:
-    ${esc(w.account)}
-
-    <br>
-
-    Requested:
-    ${esc(w.requestDate)}
-
-    <br>
-
-    ${
-     w.receipt
-
-     ?
-
-     `🧾
-      <a
-       href="${w.receipt}"
-       target="_blank">
-       View Receipt
-      </a>`
-
-     :
-
-     ""
-
-    }
-
-    ${
-     w.status==="pending"
-
-     ?
-
-     `
-
-     <br>
-
-     <input
-      type="file"
-      accept="image/*,.pdf"
-      onchange="
-       uploadReceipt(
-        '${w.project.id}',
-        '${w.id}',
-        this
-       )
-      ">
-
-     <button
-      class="green"
-      onclick="
-       markPaid(
-        '${w.project.id}',
-        '${w.id}'
-       )
-      ">
-
-      ✅ Mark Paid
-
-     </button>
-
-     `
-
-     :
-
-     ""
-
-    }
-
-   </div>`
-
-  ).join("")
-
-  :
-
-  "<div class='notice'>No withdrawal requests.</div>";
-
+ adminWithdrawals.innerHTML=all.length
+ ?all.map(w=>`
+  <div class="item">
+   <b>${esc(w.userName)}</b> — Rs. ${esc(w.amount)} — ${esc(w.month)}
+   — <strong>${esc(w.status)}</strong>
+   <br>Account: ${esc(w.account)}
+   <br>Requested: ${esc(w.requestDate)}
+   ${w.receipt?`<br>🧾 <a href="${w.receipt}" target="_blank">View Receipt</a>`:""}
+   ${w.status==="pending"?`
+   <br>
+   <input type="file" accept="image/*,.pdf" onchange="uploadReceipt('${w.project.id}','${w.id}',this)">
+   <button class="green" onclick="markPaid('${w.project.id}','${w.id}')">✅ Mark Paid</button>
+   `:""}
+  </div>
+ `).join("")
+ :"<div class='notice'>No withdrawal requests.</div>";
 }
-
 
 /* ======================================================
 RECEIPT
 ====================================================== */
 
-function uploadReceipt(
- pid,
- wid,
- input
-){
+async function uploadReceipt(pid,wid,input){
+ const file=input.files[0];
+ if(!file)return;
 
- let file=
-  input.files[0];
+ try{
+  let data;
 
- if(!file)
-  return;
+  if(file.type.startsWith("image/")){
+   data=await compressImage(file,1600,.8);
+  }else{
+   data=await new Promise((resolve,reject)=>{
+    const r=new FileReader();
+    r.onload=()=>resolve(r.result);
+    r.onerror=reject;
+    r.readAsDataURL(file);
+   });
+  }
 
- let reader=
-  new FileReader();
+  const p=await getProject(pid);
+  if(!p)return;
 
- reader.onload=
- function(){
+  const w=p.withdrawals.find(x=>x.id===wid);
+  if(!w)return;
 
-  let projects=
-   getProjects();
+  const fileId=await saveFile(pid,"receipt_"+wid,data);
 
-  let p=
-   projects.find(
-    x=>x.id===pid
-   );
+  if(fileId){
+   w.receiptFile=fileId;
+   delete w.receipt;
+  }
 
-  if(!p)
-   return;
+  await putProject(p);
+  await renderAdmin();
 
-  let w=
-   p.withdrawals.find(
-    x=>x.id===wid
-   );
-
-  if(!w)
-   return;
-
-  w.receipt=
-   reader.result;
-
-  S(
-   K.projects,
-   projects
-  );
-
-  backupAllStorage();
-
-  renderAdmin();
-
-  alert(
-   "Receipt attached."
-  );
-
- };
-
- reader.readAsDataURL(
-  file
- );
-
+  alert("Receipt attached.");
+ }catch(e){
+  console.warn(e);
+ }
 }
 
+async function markPaid(pid,wid){
+ const p=await getProject(pid);
+ if(!p)return;
 
-/* ======================================================
-MARK PAID
-====================================================== */
+ const w=p.withdrawals.find(x=>x.id===wid);
+ if(!w)return;
 
-function markPaid(
- pid,
- wid
-){
-
- let projects=
-  getProjects();
-
- let p=
-  projects.find(
-   x=>x.id===pid
-  );
-
- if(!p)
+ if(!w.receiptFile&&!w.receipt){
+  alert("Receipt upload karein pehle.");
   return;
-
- let w=
-  p.withdrawals.find(
-   x=>x.id===wid
-  );
-
- if(!w)
-  return;
-
- if(!w.receipt){
-
-  alert(
-   "Receipt upload karein pehle."
-  );
-
-  return;
-
  }
 
- w.status=
-  "paid";
+ w.status="paid";
+ w.paidDate=new Date().toISOString();
 
- w.paidDate=
-  new Date().toISOString();
+ await putProject(p);
+ await renderAdmin();
 
- S(
-  K.projects,
-  projects
- );
-
- backupAllStorage();
-
- renderAdmin();
-
- if(
-  project&&
-  project.id===pid
- ){
-
+ if(project&&project.id===pid){
   project=p;
-
-  renderWallet();
-
+  await renderWallet();
  }
 
- alert(
-  "Withdrawal marked Paid."
- );
-
+ alert("Withdrawal marked Paid.");
 }
-
 
 /* ======================================================
 INTEGRATIONS
 ====================================================== */
 
 function saveIntegrations(){
+ safeSet(LEGACY.integrations,{
+  apiBase:apiBase.value.trim().replace(/\/$/,""),
+  waNumber:waNumber.value.trim(),
+  paymentPublic:paymentPublic.value.trim()
+ });
 
- S(
-  K.integrations,
-  {
-
-   apiBase:
-    apiBase.value
-    .trim()
-    .replace(
-     /\/$/,
-     ""
-    ),
-
-   waNumber:
-    waNumber.value
-    .trim(),
-
-   paymentPublic:
-    paymentPublic.value
-    .trim()
-
-  }
- );
-
- backupAllStorage();
-
- alert(
-  "Configuration saved."
- );
-
+ alert("Configuration saved.");
 }
-
 
 function renderIntegrations(){
-
- let x=
-  J(
-   K.integrations,
-   {}
-  );
-
- apiBase.value=
-  x.apiBase||
-  "";
-
- waNumber.value=
-  x.waNumber||
-  "";
-
- paymentPublic.value=
-  x.paymentPublic||
-  "";
-
+ const x=safeGet(LEGACY.integrations,{});
+ apiBase.value=x.apiBase||"";
+ waNumber.value=x.waNumber||"";
+ paymentPublic.value=x.paymentPublic||"";
 }
-
-
-/* ======================================================
-GUIDES / MENU
-====================================================== */
-
-function showHelp(type){
-
- let p=
-  project||
-  null;
-
- let guides=
-  p?.guides||{
-
-   how:
-    "Open the app, create an account and follow the instructions shown on each screen.",
-
-   earn:
-    "Follow the creator's earning instructions.",
-
-   withdraw:
-    "Withdrawal depends on the creator's configured withdrawal system.",
-
-   wallet:
-    "Wallet shows the available money information.",
-
-   faq:
-    "Check the app instructions or contact support.",
-
-   support:
-    "Contact the creator/app support team."
-
-  };
-
-
- const titles={
-
-  how:"📖 How To Use",
-
-  earn:"💰 How To Earn",
-
-  withdraw:"💸 Withdrawal",
-
-  wallet:"👛 Wallet",
-
-  faq:"❓ FAQ",
-
-  support:"🆘 Support"
-
- };
-
-
- helpContent.classList.remove(
-  "hidden"
- );
-
- helpContent.innerHTML=
-
- `<h3>
-  ${titles[type]}
- </h3>
-
- <p>
-  ${esc(
-   guides[type]||
-   "No information available."
-  )}
- </p>
-
- ${
-  type==="withdraw"&&
-  p?.money?.withdrawalEnabled
-  ?
-  `<div class="success">
-   Withdrawal system is enabled.
-  </div>`
-  :
-  ""
- }
-
- ${
-  type==="withdraw"&&
-  p&&
-  !p.money?.withdrawalEnabled
-  ?
-  `<div class="info">
-   Withdrawal is not enabled in this app.
-  </div>`
-  :
-  ""
- }`;
-
-}
-
-
-function editUserGuide(type){
-
- if(!project)
-  return;
-
- const titles={
-
-  how:"📖 How To Use",
-
-  earn:"💰 How To Earn",
-
-  withdraw:"💸 Withdrawal",
-
-  wallet:"👛 Wallet",
-
-  faq:"❓ FAQ",
-
-  support:"🆘 Support"
-
- };
-
- guideEditor.innerHTML=
-
- `<div class="item">
-
-  <h3>
-   ${titles[type]}
-  </h3>
-
-  <textarea
-   id="guideText"
-   rows="5">${esc(
-    project.guides[type]||
-    ""
-   )}</textarea>
-
-  <button
-   class="green"
-   onclick="
-    project.guides['${type}']=
-    document.getElementById('guideText').value;
-    saveProject();
-    renderWorkspace();
-   ">
-
-   💾 Save Guide
-
-  </button>
-
- </div>`;
-
-}
-
-
-/* ======================================================
-ANNOUNCEMENT
-====================================================== */
-
-function saveAnnouncement(){
-
- normalizeProject();
-
- project.announcement={
-
-  enabled:
-   announcementEnabled.value==="true",
-
-  title:
-   announcementTitle.value.trim(),
-
-  date:
-   announcementDate.value,
-
-  message:
-   announcementMessage.value.trim()
-
- };
-
-
- /*
-  Announcement is meaningful for
-  earning + withdrawal apps.
- */
-
- saveProject();
-
- renderAnnouncementEditor();
-
- renderLive();
-
- renderHome();
-
- alert(
-  "Creator announcement saved. Enabled announcement users ko show hogi."
- );
-
-}
-
-
-function renderAnnouncementEditor(){
-
- if(!project)
-  return;
-
- normalizeProject();
-
- announcementEnabled.value=
-  project.announcement.enabled
-  ?
-  "true"
-  :
-  "false";
-
- announcementTitle.value=
-  project.announcement.title||
-  "";
-
- announcementDate.value=
-  project.announcement.date||
-  "";
-
- announcementMessage.value=
-  project.announcement.message||
-  "";
-
- announcementPreview.innerHTML=
-
-  project.money.withdrawalEnabled&&
-  project.announcement.enabled
-
-  ?
-
-  `<div class="announcement">
-
-   📢
-   <strong>
-    ${esc(
-     project.announcement.title||
-     "Withdrawal Announcement"
-    )}
-   </strong>
-
-   <br><br>
-
-   ${esc(
-    project.announcement.message||
-    "Creator has not written an announcement yet."
-   )}
-
-   ${
-    project.announcement.date
-    ?
-    `<br><br>
-     <b>
-      Payment Date:
-     </b>
-     ${esc(
-      project.announcement.date
-     )}`
-    :
-    ""
-   }
-
-  </div>`
-
-  :
-
-  `<div class="info">
-   Announcement is currently OFF or withdrawal is disabled.
-  </div>`;
-
-}
-
-
-function renderHomeAnnouncement(){
-
- let p=
-  getProjects().find(
-   x=>
-    x.ownerId===user.id
-  );
-
- if(
-  p&&
-  p.money?.withdrawalEnabled&&
-  p.announcement?.enabled
- ){
-
-  homeAnnouncement.innerHTML=
-
-   `<div class="announcement">
-
-    📢
-    <strong>
-     ${esc(
-      p.announcement.title||
-      "Announcement"
-     )}
-    </strong>
-
-    <br><br>
-
-    ${esc(
-     p.announcement.message||
-     ""
-    )}
-
-    ${
-     p.announcement.date
-     ?
-     `<br><br>
-      <b>
-       Payment Date:
-      </b>
-      ${esc(
-       p.announcement.date
-      )}`
-     :
-     ""
-    }
-
-   </div>`;
-
- }else{
-
-  homeAnnouncement.innerHTML="";
-
- }
-
-}
-
 
 /* ======================================================
 SETTINGS
 ====================================================== */
 
 function renderSettings(){
-
- accountInfo.innerHTML=
-
- `<div class="item">
-
-  <b>Name:</b>
-  ${esc(user.name)}
-
-  <br>
-
-  <b>Phone:</b>
-  ${esc(user.phone)}
-
-  <br>
-
-  <b>Email:</b>
-  ${esc(user.email)}
-
-  <br>
-
-  <b>Role:</b>
-  ${esc(user.role)}
-
+ accountInfo.innerHTML=`
+ <div class="item">
+  <b>Name:</b> ${esc(user.name)}<br>
+  <b>Phone:</b> ${esc(user.phone)}<br>
+  <b>Email:</b> ${esc(user.email)}<br>
+  <b>Role:</b> ${esc(user.role)}
  </div>`;
-
 }
-
-
-function deleteAccount(){
-
- if(
-  !confirm(
-   "Delete account and your projects?"
-  )
- )
-  return;
-
- S(
-  K.users,
-
-  J(
-   K.users,
-   []
-  ).filter(
-   x=>x.id!==user.id
-  )
- );
-
- S(
-  K.projects,
-
-  J(
-   K.projects,
-   []
-  ).filter(
-   x=>x.ownerId!==user.id
-  )
- );
-
- logout();
-
-}
-
 
 /* ======================================================
 HOME
 ====================================================== */
 
-function renderHome(){
+async function renderHome(){
+ const projects=await getProjects();
+ const p=projects.find(x=>x.ownerId===user.id);
 
- let p=
-  getProjects().find(
-   x=>
-    x.ownerId===user.id
-  );
+ homeIcon.src="";
 
- homeIcon.src=
-  p?.appIcon||
-  "";
-
- renderHomeAnnouncement();
-
+ if(p){
+  if(p.appIconFile){
+   const icon=await getFile(p.appIconFile);
+   if(icon)homeIcon.src=icon;
+  }else if(p.appIcon){
+   homeIcon.src=p.appIcon;
+  }
+ }
 }
 
-
 /* ======================================================
-EXPORT PROJECT
+EXPORT
 ====================================================== */
 
-function exportProject(){
+async function exportProject(){
+ if(!project)return;
 
- if(!project)
-  return;
+ const copy=JSON.parse(JSON.stringify(project));
 
- const exportData={
+ if(project.appIconFile){
+  copy.appIcon=await getFile(project.appIconFile);
+ }
 
-  exportVersion:"6.0",
+ if(project.backgroundFile){
+  copy.backgroundImage=await getFile(project.backgroundFile);
+ }
 
-  exportedAt:
-   new Date().toISOString(),
+ const blob=new Blob(
+  [JSON.stringify(copy,null,2)],
+  {type:"application/json"}
+ );
 
-  project:
-   project
+ const a=document.createElement("a");
 
- };
+ a.href=URL.createObjectURL(blob);
 
-
- let blob=
-  new Blob(
-   [
-    JSON.stringify(
-     exportData,
-     null,
-     2
-    )
-   ],
-   {
-    type:
-     "application/json"
-   }
-  );
-
- let a=
-  document.createElement(
-   "a"
-  );
-
- a.href=
-  URL.createObjectURL(
-   blob
-  );
-
- a.download=
-  (
-   project.name||
-   "SamiApp"
-  )
-  .replace(
-   /[^a-z0-9]/gi,
-   "_"
-  )
-  +
-  "_backup.json";
+ a.download=(
+  project.name||"SamiApp"
+ ).replace(/[^a-z0-9]/gi,"_")+".json";
 
  a.click();
 
- setTimeout(
-  ()=>{
-   URL.revokeObjectURL(
-    a.href
-   );
-  },
-  1000
- );
-
+ setTimeout(()=>{
+  URL.revokeObjectURL(a.href);
+ },1000);
 }
 
-
-function exportAllData(){
-
- const data={
-
-  version:"6.0",
-
-  exportedAt:
-   new Date().toISOString(),
-
-  user:user,
-
-  projects:
-   getProjects().filter(
-    x=>
-     x.ownerId===user.id
-   ),
-
-  settings:
-   J(
-    K.settings,
-    {}
-   ),
-
-  integrations:
-   J(
-    K.integrations,
-    {}
-
-   )
-
- };
-
-
- let blob=
-  new Blob(
-   [
-    JSON.stringify(
-     data,
-     null,
-     2
-    )
-   ],
-   {
-    type:
-     "application/json"
-   }
-  );
-
- let a=
-  document.createElement(
-   "a"
-  );
-
- a.href=
-  URL.createObjectURL(
-   blob
-  );
-
- a.download=
-  "SamiApp_All_Data_Backup.json";
-
- a.click();
-
-}
-
-
 /* ======================================================
-AUTOSAVE
+STARTUP
 ====================================================== */
 
-let autoSaveTimer=null;
+(async function(){
 
-function scheduleAutoSave(){
-
- clearTimeout(
-  autoSaveTimer
- );
-
- autoSaveTimer=
-  setTimeout(
-   ()=>{
-
-    if(project){
-
-     saveProject();
-
-    }
-
-   },
-   500
-  );
-
-}
-
-
-/*
- Save whenever user changes editable fields.
+ /*
+  No localStorage-full notification is used anywhere.
+  The old project data is migrated into IndexedDB when
+  available.
  */
 
-document.addEventListener(
- "input",
- function(e){
-
-  if(
-   e.target.matches(
-    "input,textarea,select"
-   )
- ){
-
-  if(
-   project &&
-   !e.target.id.startsWith(
-    "login"
-   ) &&
-   !e.target.id.startsWith(
-    "signup"
-   )
-  ){
-
-   scheduleAutoSave();
-
-  }
-
+ try{
+  await openDB();
+  await migrateLegacyData();
+ }catch(e){
+  /*
+   Do not show the old localStorage-full message.
+   The application simply continues using whatever storage
+   is available.
+  */
+  console.warn("IndexedDB initialization issue:",e);
  }
 
+ const session=safeGet(LEGACY.session,null);
+
+ if(session){
+  user=session;
+  await main();
+ }else{
+  showAuth();
  }
-);
 
-
-/*
- Save when browser is closed/backgrounded.
- */
-
-window.addEventListener(
- "beforeunload",
- function(){
-
-  if(project){
-
-   saveProject();
-
-  }
-
-  backupAllStorage();
-
- }
-);
-
-
-/*
- Save when page becomes hidden.
- */
-
-document.addEventListener(
- "visibilitychange",
- function(){
-
-  if(
-   document.visibilityState==="hidden"
-  ){
-
-   if(project)
-    saveProject();
-
-   backupAllStorage();
-
-  }
-
- });
-
-
-/* ======================================================
-PERIODIC RECOVERY BACKUP
-====================================================== */
-
-setInterval(
- function(){
-
-  try{
-
-   if(project){
-
-    saveProject();
-
-   }
-
-   backupAllStorage();
-
-  }catch(e){}
-
- },
- 30000
-);
-
-
-/* ======================================================
-SERVICE-WORKER STYLE OFFLINE NOTICE
-====================================================== */
-
-window.addEventListener(
- "online",
- function(){
-
-  updateAutosave(
-   "🌐 Online"
-  );
-
- });
-
-
-window.addEventListener(
- "offline",
- function(){
-
-  updateAutosave(
-   "📴 Offline — Local mode"
-  );
-
- });
-
-
-/* ======================================================
-INITIAL ONLINE/OFFLINE STATUS
-====================================================== */
-
-setTimeout(
- function(){
-
-  updateAutosave(
-   navigator.onLine
-   ?
-   "🌐 Online"
-   :
-   "📴 Offline — Local mode"
-  );
-
- },
- 100
-);
-
+})();
 </script>
 
 </body>
