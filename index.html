@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Sami App Developer</title>
 
@@ -15,7 +15,7 @@
 }
 
 body{
-  background:#f5f7fb;
+  background:#f4f7fb;
   color:#172033;
 }
 
@@ -23,75 +23,60 @@ header{
   background:#111827;
   color:white;
   padding:18px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  text-align:center;
 }
 
 .logo{
-  font-size:20px;
+  font-size:22px;
   font-weight:bold;
 }
 
 .hero{
   background:white;
   text-align:center;
-  padding:55px 20px;
+  padding:45px 20px;
 }
 
 .hero h1{
   font-size:34px;
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 
 .hero p{
   color:#667085;
-  max-width:650px;
-  margin:auto;
   line-height:1.6;
+  max-width:700px;
+  margin:auto;
 }
 
-.main{
+.container{
   max-width:900px;
   margin:30px auto;
   padding:20px;
 }
 
-.builder{
+.box{
   background:white;
   padding:25px;
   border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-.builder h2{
-  margin-bottom:10px;
-}
-
-.builder p{
-  color:#667085;
-  margin-bottom:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,.07);
 }
 
 textarea{
   width:100%;
   min-height:180px;
-  resize:vertical;
+  margin-top:15px;
   padding:15px;
   border:1px solid #d0d5dd;
   border-radius:10px;
   font-size:16px;
-  outline:none;
-}
-
-textarea:focus{
-  border-color:#2563eb;
+  resize:vertical;
 }
 
 button{
-  border:none;
-  cursor:pointer;
+  border:0;
   border-radius:9px;
+  cursor:pointer;
   font-weight:bold;
 }
 
@@ -103,37 +88,47 @@ button{
   font-size:16px;
 }
 
-.generate:hover{
-  opacity:.9;
-}
-
 .result{
   display:none;
   margin-top:25px;
-  padding:20px;
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
-  border-radius:12px;
 }
 
-.result h3{
+.title{
+  font-size:23px;
   margin-bottom:15px;
 }
 
-.result-item{
-  background:white;
-  padding:12px;
-  margin:8px 0;
-  border-radius:8px;
+.feature{
+  background:#f8fafc;
   border-left:4px solid #2563eb;
+  padding:13px;
+  margin:8px 0;
+  border-radius:7px;
+}
+
+.tag{
+  display:inline-block;
+  background:#eef4ff;
+  padding:7px 10px;
+  margin:4px;
+  border-radius:20px;
+}
+
+.warning{
+  margin-top:15px;
+  padding:12px;
+  background:#fff7ed;
+  border-radius:8px;
+  color:#9a3412;
+  line-height:1.5;
 }
 
 footer{
-  text-align:center;
+  margin-top:30px;
   background:#111827;
   color:white;
+  text-align:center;
   padding:25px;
-  margin-top:40px;
 }
 </style>
 </head>
@@ -149,54 +144,56 @@ footer{
 <h1>Apni Soch Se Apni App Banao</h1>
 
 <p>
-Apni app ki requirements neeche likhein.
-Sami App Developer un requirements ko
-app project plan mein convert karega.
+Apni app ki demand likhein. Sami App Developer
+aapki requirements ko analyze karke app ka
+initial project plan tayar karega.
 </p>
 
 </section>
 
-<div class="main">
+<div class="container">
 
-<div class="builder">
+<div class="box">
 
 <h2>🛠️ Create Your App</h2>
 
-<p>
-Apni app ke bare mein detail mein batayein.
-Misal: app kis liye hai, users kya karenge
-aur kaun se features chahiye.
+<p style="margin-top:8px;color:#667085;">
+Example: "Mujhe school app chahiye jisme students,
+attendance, fees aur admin panel ho."
 </p>
 
 <textarea id="appDemand"
-placeholder="Example:
+placeholder="Apni app ki complete demand yahan likhein..."></textarea>
 
-Mujhe ek school management app chahiye.
-
-Is mein:
-- Student registration
-- Student attendance
-- Fees management
-- Teacher login
-- Admin panel
-- Reports
-
-hone chahiye."></textarea>
-
-<button class="generate" onclick="generatePlan()">
-🚀 Generate App Plan
+<button class="generate" onclick="analyzeApp()">
+🚀 Analyze & Create App Plan
 </button>
 
 <div class="result" id="result">
 
-<h3>📋 Your App Plan</h3>
+<div class="title">
+📋 App Analysis
+</div>
 
-<div id="plan"></div>
+<div id="appType"></div>
 
+<h3 style="margin-top:20px;">⚙️ Required Features</h3>
+
+<div id="features"></div>
+
+<h3 style="margin-top:20px;">📱 Suggested Screens</h3>
+
+<div id="screens"></div>
+
+<div class="warning">
+⚠️ Ye abhi initial planning engine hai. Agle stages mein
+AI, database, live project editor, preview aur actual
+app build/export system connect kiya jayega.
 </div>
 
 </div>
 
+</div>
 </div>
 
 <footer>
@@ -205,62 +202,287 @@ hone chahiye."></textarea>
 
 <script>
 
-function generatePlan(){
+function analyzeApp(){
 
-  const demand =
-  document.getElementById("appDemand").value.trim();
+const demand =
+document.getElementById("appDemand").value
+.toLowerCase()
+.trim();
 
-  if(demand === ""){
-    alert("Pehle apni app ki requirements likhein.");
-    return;
-  }
+if(demand===""){
+alert("Pehle apni app ki demand likhein.");
+return;
+}
 
-  const result =
-  document.getElementById("result");
+let type="📱 General Application";
 
-  const plan =
-  document.getElementById("plan");
+let features=[
+"🔐 User Login / Signup",
+"👤 User Profile",
+"⚙️ Settings",
+"📊 Dashboard",
+"🗄️ Data Management"
+];
 
-  plan.innerHTML = "";
+let screens=[
+"🏠 Home",
+"🔐 Login / Signup",
+"📊 Dashboard",
+"👤 Profile",
+"⚙️ Settings"
+];
 
-  const items = [
+/* SCHOOL */
 
-    "📱 App project create hoga",
+if(
+demand.includes("school") ||
+demand.includes("student") ||
+demand.includes("school management")
+){
+type="🏫 School Management App";
 
-    "🎨 User interface/screens design ki jayengi",
+features=[
+"👨‍🎓 Student Management",
+"✅ Attendance Management",
+"💰 Fees Management",
+"👨‍🏫 Teacher Management",
+"📊 Student Reports",
+"🔐 Admin Login",
+"📢 Notifications",
+"🗄️ Student Database"
+];
 
-    "🔐 Login aur user system add kiya jayega",
+screens=[
+"🏠 School Dashboard",
+"👨‍🎓 Students",
+"✅ Attendance",
+"💰 Fees",
+"👨‍🏫 Teachers",
+"📊 Reports",
+"⚙️ Admin Panel"
+];
+}
 
-    "🗄️ Required database structure banaya jayega",
+/* E-COMMERCE */
 
-    "⚙️ Required features define kiye jayenge",
+else if(
+demand.includes("shopping") ||
+demand.includes("shop") ||
+demand.includes("ecommerce") ||
+demand.includes("e-commerce") ||
+demand.includes("products")
+){
+type="🛒 E-Commerce App";
 
-    "👨‍💼 Admin panel ki requirements identify hongi",
+features=[
+"🛍️ Product Management",
+"🔎 Product Search",
+"🛒 Shopping Cart",
+"📦 Orders",
+"👤 Customer Accounts",
+"💳 Payment System",
+"📊 Sales Dashboard",
+"⚙️ Admin Panel"
+];
 
-    "🔄 Future updates ke liye project structure save hoga",
+screens=[
+"🏠 Home",
+"🛍️ Products",
+"🔎 Search",
+"🛒 Cart",
+"📦 Orders",
+"👤 Profile",
+"⚙️ Admin Panel"
+];
+}
 
-    "🧪 App testing requirements identify hongi"
+/* RESTAURANT */
 
-  ];
+else if(
+demand.includes("restaurant") ||
+demand.includes("food") ||
+demand.includes("delivery") ||
+demand.includes("menu")
+){
+type="🍔 Restaurant / Food App";
 
-  items.forEach(function(item){
+features=[
+"🍔 Food Menu",
+"🔎 Food Search",
+"🛒 Cart",
+"📦 Food Orders",
+"🚚 Delivery Tracking",
+"💳 Payment",
+"⭐ Reviews",
+"⚙️ Restaurant Admin"
+];
 
-    const div =
-    document.createElement("div");
+screens=[
+"🏠 Home",
+"🍔 Menu",
+"🛒 Cart",
+"📦 Orders",
+"🚚 Tracking",
+"👤 Profile",
+"⚙️ Admin"
+];
+}
 
-    div.className="result-item";
+/* EARNING */
 
-    div.textContent=item;
+else if(
+demand.includes("earning") ||
+demand.includes("earn") ||
+demand.includes("income") ||
+demand.includes("dollar") ||
+demand.includes("money")
+){
+type="💰 Earning / Rewards App";
 
-    plan.appendChild(div);
+features=[
+"👤 User Accounts",
+"📊 User Dashboard",
+"🎁 Tasks / Rewards",
+"💰 Earnings Records",
+"💳 Withdrawal Requests",
+"📜 Transaction History",
+"🔔 Notifications",
+"⚙️ Admin Panel"
+];
 
-  });
+screens=[
+"🏠 Home",
+"📊 Dashboard",
+"🎁 Tasks",
+"💰 Earnings",
+"💳 Withdraw",
+"📜 History",
+"👤 Profile",
+"⚙️ Admin"
+];
+}
 
-  result.style.display="block";
+/* CHAT */
 
-  result.scrollIntoView({
-    behavior:"smooth"
-  });
+else if(
+demand.includes("chat") ||
+demand.includes("messenger") ||
+demand.includes("message")
+){
+type="💬 Chat / Messaging App";
+
+features=[
+"👤 User Accounts",
+"💬 One-to-One Chat",
+"👥 User Search",
+"🔔 Notifications",
+"📷 Image Sharing",
+"🟢 Online Status",
+"🔐 Privacy Settings",
+"⚙️ Admin Panel"
+];
+
+screens=[
+"🏠 Home",
+"👥 Users",
+"💬 Chats",
+"👤 Profile",
+"⚙️ Settings",
+"⚙️ Admin"
+];
+}
+
+/* GPS */
+
+else if(
+demand.includes("gps") ||
+demand.includes("location") ||
+demand.includes("tracking") ||
+demand.includes("map")
+){
+type="📍 GPS / Location Tracking App";
+
+features=[
+"📍 Live Location",
+"🗺️ Map",
+"📜 Location History",
+"🔗 Location Sharing",
+"🔔 Location Alerts",
+"👤 User Accounts",
+"🗄️ Location Database",
+"⚙️ Admin Panel"
+];
+
+screens=[
+"🏠 Home",
+"🗺️ Live Map",
+"📜 History",
+"🔗 Share Location",
+"👤 Profile",
+"⚙️ Settings",
+"⚙️ Admin"
+];
+}
+
+/* SOCIAL */
+
+else if(
+demand.includes("social") ||
+demand.includes("video") ||
+demand.includes("tiktok") ||
+demand.includes("reels")
+){
+type="🎥 Social / Video App";
+
+features=[
+"👤 User Profiles",
+"🎥 Video Upload",
+"❤️ Likes",
+"💬 Comments",
+"➕ Follow System",
+"🔖 Favorites",
+"📢 Notifications",
+"⚙️ Admin Panel"
+];
+
+screens=[
+"🏠 Video Feed",
+"🔎 Explore",
+"➕ Upload",
+"🔔 Notifications",
+"👤 Profile",
+"⚙️ Admin"
+];
+}
+
+/* DISPLAY */
+
+document.getElementById("appType").innerHTML=
+"<div class='feature'><strong>Detected App:</strong> "
++type+"</div>";
+
+document.getElementById("features").innerHTML="";
+
+features.forEach(function(item){
+
+document.getElementById("features").innerHTML +=
+"<div class='feature'>"+item+"</div>";
+
+});
+
+document.getElementById("screens").innerHTML="";
+
+screens.forEach(function(item){
+
+document.getElementById("screens").innerHTML +=
+"<span class='tag'>"+item+"</span>";
+
+});
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("result")
+.scrollIntoView({behavior:"smooth"});
 
 }
 
