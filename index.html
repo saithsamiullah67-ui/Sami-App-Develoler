@@ -2,20 +2,39 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#0b1f3a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sami App Developer">
+
 <title>Sami App Developer — AI App & Game Builder</title>
 
 <style>
-*{box-sizing:border-box}
-
-body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#f4f7fb;
- color:#172033
+*{
+ box-sizing:border-box;
 }
 
-button,input,textarea,select{font:inherit}
+html,body{
+ margin:0;
+ padding:0;
+ width:100%;
+ min-height:100%;
+ font-family:Arial,Helvetica,sans-serif;
+ background:#f4f7fb;
+ color:#172033;
+}
+
+body{
+ overflow-x:hidden;
+}
+
+button,
+input,
+textarea,
+select{
+ font:inherit;
+}
 
 button{
  border:0;
@@ -24,10 +43,18 @@ button{
  background:#0b1f3a;
  color:#fff;
  cursor:pointer;
- margin:4px
+ margin:4px;
+ transition:.15s;
 }
 
-button:hover{opacity:.9}
+button:hover{
+ opacity:.9;
+ transform:translateY(-1px);
+}
+
+button:active{
+ transform:translateY(0);
+}
 
 .green{background:#138a4b}
 .red{background:#c62828}
@@ -42,13 +69,17 @@ header{
  padding:17px;
  text-align:center;
  font-size:22px;
- font-weight:bold
+ font-weight:bold;
+ position:sticky;
+ top:0;
+ z-index:100;
 }
 
 .container{
- max-width:1100px;
+ width:100%;
+ max-width:1150px;
  margin:auto;
- padding:15px
+ padding:15px;
 }
 
 .card{
@@ -56,55 +87,78 @@ header{
  padding:18px;
  margin-bottom:18px;
  border-radius:15px;
- box-shadow:0 5px 20px #00000012
+ box-shadow:0 5px 20px #00000012;
 }
 
-.hidden{display:none!important}
+.hidden{
+ display:none!important;
+}
 
 .notice{
  background:#fff7d6;
  padding:12px;
  border-radius:10px;
- margin:10px 0
+ margin:10px 0;
 }
 
 .success{
  background:#dcfce7;
  color:#166534;
  padding:10px;
- border-radius:10px
+ border-radius:10px;
 }
 
 .warning{
  background:#fef3c7;
  padding:10px;
- border-radius:10px
+ border-radius:10px;
 }
 
-input,textarea,select{
+.info{
+ background:#e0f2fe;
+ color:#075985;
+ padding:10px;
+ border-radius:10px;
+}
+
+.danger{
+ background:#fee2e2;
+ color:#991b1b;
+ padding:10px;
+ border-radius:10px;
+}
+
+input,
+textarea,
+select{
  width:100%;
  padding:11px;
  border:1px solid #ccd3df;
  border-radius:10px;
  margin:5px 0 11px;
- background:#fff
+ background:#fff;
+ color:#172033;
+}
+
+textarea{
+ resize:vertical;
 }
 
 label{
  font-weight:bold;
  display:block;
- margin-top:7px
+ margin-top:7px;
 }
 
 .row{
  display:flex;
  flex-wrap:wrap;
- gap:7px
+ gap:7px;
 }
 
 .row>*{
  flex:1;
- min-width:130px
+ min-width:130px;
 }
 
 .nav{
@@ -116,15 +170,22 @@ label{
  border-radius:12px;
  margin-bottom:15px;
  position:sticky;
- top:0;
- z-index:20
+ top:62px;
+ z-index:90;
+ box-shadow:0 3px 15px #00000010;
+}
+
+.nav button{
+ flex:1;
+ min-width:110px;
 }
 
 .item{
- background:#eef3f9;
+ background:#f8fafc;
  padding:12px;
  margin:7px 0;
- border-radius:10px
+ border-radius:10px;
+ border:1px solid #e2e8f0;
 }
 
 .badge{
@@ -133,7 +194,7 @@ label{
  border-radius:20px;
  background:#e3edf9;
  margin:3px;
- font-size:12px
+ font-size:12px;
 }
 
 .stat{
@@ -142,7 +203,7 @@ label{
  padding:14px;
  border-radius:12px;
  flex:1;
- min-width:140px
+ min-width:140px;
 }
 
 .mobile{
@@ -152,7 +213,8 @@ label{
  margin:auto;
  background:#111827;
  padding:8px;
- border-radius:30px
+ border-radius:30px;
+ box-shadow:0 12px 35px #0003;
 }
 
 .mobile-inner{
@@ -163,7 +225,7 @@ label{
  padding:13px;
  background-size:cover;
  background-position:center;
- overflow:auto
+ overflow:auto;
 }
 
 .screen-title{
@@ -172,14 +234,14 @@ label{
  border-radius:10px;
  text-align:center;
  font-weight:bold;
- margin-bottom:10px
+ margin-bottom:10px;
 }
 
 .live{
  padding:10px;
  margin:7px 0;
  border-radius:9px;
- word-break:break-word
+ word-break:break-word;
 }
 
 .screen{
@@ -189,13 +251,15 @@ label{
  border-radius:10px;
  display:flex;
  align-items:center;
- gap:5px
+ gap:5px;
+ flex-wrap:wrap;
 }
 
 .screen-name{
  flex:1;
  font-weight:bold;
- cursor:pointer
+ cursor:pointer;
+ min-width:140px;
 }
 
 .editor{
@@ -203,14 +267,14 @@ label{
  background:#f8fafc;
  padding:11px;
  border-radius:11px;
- margin:7px 0
+ margin:7px 0;
 }
 
 .properties{
  background:#eef3f9;
  padding:13px;
  border-radius:12px;
- margin-top:10px
+ margin-top:10px;
 }
 
 .upload{
@@ -219,7 +283,7 @@ label{
  border-radius:13px;
  text-align:center;
  background:#f8fafc;
- margin:8px 0
+ margin:8px 0;
 }
 
 .preview-img{
@@ -228,7 +292,7 @@ label{
  border-radius:15px;
  object-fit:cover;
  margin:8px auto;
- display:block
+ display:block;
 }
 
 .app-icon{
@@ -238,14 +302,14 @@ label{
  object-fit:cover;
  display:block;
  margin:8px auto;
- background:#e5e7eb
+ background:#e5e7eb;
 }
 
 .brand{
  text-align:center;
  font-weight:bold;
  font-size:19px;
- color:#0b1f3a
+ color:#0b1f3a;
 }
 
 .codebox{
@@ -254,24 +318,172 @@ label{
  padding:12px;
  border-radius:10px;
  overflow:auto;
- white-space:pre-wrap
+ white-space:pre-wrap;
 }
 
 table{
  width:100%;
- border-collapse:collapse
+ border-collapse:collapse;
 }
 
-td,th{
+td,
+th{
  border:1px solid #dbe2ea;
  padding:8px;
- text-align:left
+ text-align:left;
 }
 
 hr{
  border:0;
  border-top:1px solid #e2e8f0;
- margin:16px 0
+ margin:16px 0;
+}
+
+.announcement{
+ background:linear-gradient(135deg,#fff7d6,#fffbeb);
+ border:1px solid #f0c36d;
+ color:#713f12;
+ padding:14px;
+ border-radius:13px;
+ margin:10px 0;
+}
+
+.announcement strong{
+ color:#92400e;
+}
+
+.help-menu{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+ gap:8px;
+}
+
+.help-button{
+ margin:0;
+ width:100%;
+ min-height:52px;
+}
+
+.creator-only{
+ border-left:4px solid #6d28d9;
+}
+
+.mode-pill{
+ display:inline-block;
+ padding:5px 9px;
+ border-radius:20px;
+ font-size:12px;
+ font-weight:bold;
+}
+
+.online{
+ background:#dcfce7;
+ color:#166534;
+}
+
+.offline{
+ background:#e0e7ff;
+ color:#3730a3;
+}
+
+.autosave{
+ position:fixed;
+ right:12px;
+ bottom:12px;
+ z-index:999;
+ background:#0b1f3a;
+ color:#fff;
+ padding:9px 13px;
+ border-radius:20px;
+ font-size:12px;
+ box-shadow:0 5px 20px #0003;
+}
+
+@media(max-width:700px){
+
+ header{
+  font-size:18px;
+  padding:13px 8px;
+ }
+
+ .container{
+  padding:9px;
+ }
+
+ .card{
+  padding:13px;
+  border-radius:12px;
+ }
+
+ .nav{
+  top:49px;
+ }
+
+ .nav button{
+  min-width:calc(50% - 5px);
+  padding:9px 7px;
+  font-size:13px;
+ }
+
+ .row>*{
+  min-width:100%;
+ }
+
+ .mobile{
+  border-radius:22px;
+  padding:6px;
+ }
+
+ .mobile-inner{
+  border-radius:17px;
+ }
+
+ h1{
+  font-size:24px;
+ }
+
+ h2{
+  font-size:20px;
+ }
+
+ button{
+  max-width:100%;
+ }
+
+}
+
+@media(min-width:701px) and (max-width:1100px){
+
+ .container{
+  max-width:100%;
+ }
+
+}
+
+@media(min-width:1200px){
+
+ body{
+  font-size:16px;
+ }
+
+ .container{
+  max-width:1200px;
+ }
+
+}
+
+/* print / export friendly */
+@media print{
+ .nav,
+ button,
+ .autosave{
+  display:none!important;
+ }
+
+ .card{
+  box-shadow:none;
+  border:1px solid #ddd;
+ }
 }
 </style>
 </head>
@@ -282,6 +494,10 @@ hr{
 🚀 Sami App Developer — AI App & Game Builder
 </header>
 
+<div id="autosaveStatus" class="autosave">
+💾 Auto-save ready
+</div>
+
 
 <!-- ======================================================
 AUTH
@@ -291,117 +507,56 @@ AUTH
 
 <div class="card" style="max-width:480px;margin:35px auto">
 
-<div id="authLogo">
-
 <div class="app-icon"
 style="display:flex;align-items:center;justify-content:center;font-size:35px">
 🚀
-</div>
-
 </div>
 
 <div class="brand">
 Sami App Developer
 </div>
 
-
-<!-- SIGNUP -->
-
 <div id="signupBox">
 
 <h2>📝 Create Account</h2>
 
-<p>
-Create Account / Sign Up
-</p>
+<input id="signupName" placeholder="Full name">
 
-<input
-id="signupName"
-placeholder="Full name">
+<input id="signupPhone" placeholder="Phone / WhatsApp number">
 
-<input
-id="signupPhone"
-placeholder="Phone / WhatsApp number">
+<input id="signupEmail" type="email" placeholder="Email">
 
-<input
-id="signupEmail"
-type="email"
-placeholder="Email">
+<input id="signupPassword" type="password" placeholder="Password">
 
-<input
-id="signupPassword"
-type="password"
-placeholder="Password">
+<input id="signupConfirm" type="password" placeholder="Confirm password">
 
-<input
-id="signupConfirm"
-type="password"
-placeholder="Confirm password">
-
-<button
-class="green"
-style="width:100%"
-onclick="signup()">
-
+<button class="green" style="width:100%" onclick="signup()">
 Create Account
-
 </button>
 
 <p style="text-align:center">
-
 Already registered?
-
-<button
-class="blue"
-onclick="showLogin()">
-
-Login
-
-</button>
-
+<button class="blue" onclick="showLogin()">Login</button>
 </p>
 
 </div>
 
 
-<!-- LOGIN -->
-
-<div id="loginBox"
-class="hidden">
+<div id="loginBox" class="hidden">
 
 <h2>🔐 Login</h2>
 
-<input
-id="loginEmail"
-type="email"
-placeholder="Email">
+<input id="loginEmail" type="email" placeholder="Email">
 
-<input
-id="loginPassword"
-type="password"
-placeholder="Password">
+<input id="loginPassword" type="password" placeholder="Password">
 
-<button
-class="green"
-style="width:100%"
-onclick="login()">
-
+<button class="green" style="width:100%" onclick="login()">
 Login
-
 </button>
 
 <p style="text-align:center">
-
 New user?
-
-<button
-class="blue"
-onclick="showSignup()">
-
-Create Account
-
-</button>
-
+<button class="blue" onclick="showSignup()">Create Account</button>
 </p>
 
 </div>
@@ -416,68 +571,41 @@ Create Account
 MAIN
 ====================================================== -->
 
-<div id="mainPage"
-class="hidden">
+<div id="mainPage" class="hidden">
 
 <div class="container">
 
-
-<!-- NAV -->
-
 <div class="nav">
 
-<button
-onclick="showPage('homePage')">
-
+<button onclick="showPage('homePage')">
 🏠 Home
-
 </button>
 
-<button
-onclick="showPage('builderPage')">
-
+<button onclick="showPage('builderPage')">
 🤖 AI Create
-
 </button>
 
-<button
-onclick="showPage('projectsPage');renderProjects()">
-
+<button onclick="showPage('projectsPage');renderProjects()">
 📂 Projects
-
 </button>
 
-<button
-onclick="showPage('adminPage');renderAdmin()">
-
+<button onclick="showPage('adminPage');renderAdmin()">
 👨‍💼 Admin
-
 </button>
 
-<button
-onclick="showPage('integrationsPage');renderIntegrations()">
-
+<button onclick="showPage('integrationsPage');renderIntegrations()">
 🔌 Integrations
-
 </button>
 
-<button
-onclick="showPage('settingsPage');renderSettings()">
-
+<button onclick="showPage('settingsPage');renderSettings()">
 ⚙️ Settings
-
 </button>
 
-<button
-class="red"
-onclick="logout()">
-
+<button class="red" onclick="logout()">
 Logout
-
 </button>
 
 </div>
-
 
 
 <!-- ======================================================
@@ -488,10 +616,7 @@ HOME
 
 <div class="card">
 
-<img
-id="homeIcon"
-class="app-icon"
-alt="">
+<img id="homeIcon" class="app-icon" alt="">
 
 <div class="brand">
 Sami App Developer
@@ -505,30 +630,70 @@ Welcome 👋
 AI automatically designs apps, games and their screens.
 </p>
 
+<div id="homeAnnouncement"></div>
+
 <div class="notice">
+Describe your app/game. AI automatically creates the required screens and components.
+</div>
 
-Describe your app/game.
+<div class="info">
+<b>🌐 Platform Support:</b>
+Mobile + Android + iPhone/iPad + Tablet + Laptop + Desktop.
+The generated app design uses responsive layouts so it can adapt to different screen sizes.
+</div>
 
-AI automatically creates required
-screens and components.
+<div class="success">
+<b>💾 Data Safety:</b>
+The builder uses automatic local saving, version snapshots and export backup.
+For real production apps, use a secure server database and authenticated backend.
+</div>
+
+<button class="green" onclick="showPage('builderPage')">
+🤖 Create With AI
+</button>
+
+<button class="blue" onclick="showPage('projectsPage');renderProjects()">
+📂 My Projects
+</button>
 
 </div>
 
-<button
-class="green"
-onclick="showPage('builderPage')">
 
-🤖 Create With AI
+<div class="card">
 
+<h2>
+📖 App Menu
+</h2>
+
+<div class="help-menu">
+
+<button class="help-button blue" onclick="showHelp('how')">
+📖 How To Use
 </button>
 
-<button
-class="blue"
-onclick="showPage('projectsPage');renderProjects()">
-
-📂 My Projects
-
+<button class="help-button green" onclick="showHelp('earn')">
+💰 How To Earn
 </button>
+
+<button class="help-button orange" onclick="showHelp('withdraw')">
+💸 Withdrawal
+</button>
+
+<button class="help-button purple" onclick="showHelp('wallet')">
+👛 Wallet
+</button>
+
+<button class="help-button gray" onclick="showHelp('faq')">
+❓ FAQ
+</button>
+
+<button class="help-button" onclick="showHelp('support')">
+🆘 Support
+</button>
+
+</div>
+
+<div id="helpContent" class="item hidden"></div>
 
 </div>
 
@@ -541,29 +706,12 @@ onclick="showPage('projectsPage');renderProjects()">
 
 <div class="row">
 
-<div class="stat">
-📱 Business Apps
-</div>
-
-<div class="stat">
-🎮 Games
-</div>
-
-<div class="stat">
-💰 Earning Apps
-</div>
-
-<div class="stat">
-🛒 E-Commerce
-</div>
-
-<div class="stat">
-💬 Social / Chat
-</div>
-
-<div class="stat">
-📍 GPS / Maps
-</div>
+<div class="stat">📱 Business Apps</div>
+<div class="stat">🎮 Games</div>
+<div class="stat">💰 Earning Apps</div>
+<div class="stat">🛒 E-Commerce</div>
+<div class="stat">💬 Social / Chat</div>
+<div class="stat">📍 GPS / Maps</div>
 
 </div>
 
@@ -577,8 +725,7 @@ onclick="showPage('projectsPage');renderProjects()">
 AI BUILDER
 ====================================================== -->
 
-<div id="builderPage"
-class="hidden">
+<div id="builderPage" class="hidden">
 
 <div class="card">
 
@@ -588,56 +735,42 @@ class="hidden">
 
 <div class="notice">
 
-AI automatically generates:
+<b>Important:</b>
+Withdraw option automatically add nahi hoga.
+Agar creator ki demand mein withdrawal / withdraw / earning + withdrawal ho,
+tab withdrawal system add hoga.
+Agar creator withdrawal nahi chahta, to withdrawal system OFF rahega.
 
-<br>✅ App screens
-<br>✅ Game screens
-<br>✅ Components
-<br>✅ Login
-<br>✅ Signup
-<br>✅ Home
-<br>✅ Profile
-<br>✅ Settings
-<br>✅ Delete Account
-<br>✅ Logout
-<br>✅ Wallet
-<br>✅ Deposit
-<br>✅ Withdrawal
-<br>✅ Gift transfer
-<br>✅ Admin dashboard
-<br>✅ Monthly earnings list
-<br>✅ Withdrawal requests
-<br>✅ Receipt upload
+</div>
+
+<div class="info">
+
+<b>🌐 Online + Offline:</b>
+Builder browser/local mode mein basic project editing aur saved data ke sath offline chal sakta hai.
+Online production features, server database, real payments, real withdrawals aur automatic WhatsApp notifications ke liye backend/API connection required hai.
 
 </div>
 
 
-<textarea
-id="appDemand"
-rows="8"
-placeholder="Example:
+<textarea id="appDemand" rows="9" placeholder="Example:
 
-Mujhe car racing game chahiye with lobby,
-gameplay, leaderboard, profile and coins.
+Mujhe car racing game chahiye with lobby, gameplay, leaderboard and coins.
 
 Or:
 
-Mujhe food delivery app chahiye with login,
-menu, cart, payment and orders.
+Mujhe food delivery app chahiye with login, menu, cart, payment and orders.
 
 Or:
 
-Mujhe earning app chahiye with deposit,
-monthly withdrawal, wallet and admin salary report.
+Mujhe earning app chahiye with monthly earnings.
 
 Or:
 
-Mujhe betting app chahiye with betting,
-wallet, deposit, withdrawal and transaction history.">
-</textarea>
+Mujhe earning app chahiye with monthly withdrawal.
 
+Note:
+Agar withdrawal mention nahi hoga to automatic withdrawal system nahi banega."></textarea>
 
-<!-- ICON -->
 
 <div class="upload">
 
@@ -651,14 +784,10 @@ type="file"
 accept="image/*"
 onchange="handleImage(event,'icon')">
 
-<img
-id="appIconPreview"
-class="preview-img hidden">
+<img id="appIconPreview" class="preview-img hidden">
 
 </div>
 
-
-<!-- BACKGROUND -->
 
 <div class="upload">
 
@@ -672,25 +801,17 @@ type="file"
 accept="image/*"
 onchange="handleImage(event,'bg')">
 
-<img
-id="bgPreview"
-class="preview-img hidden">
+<img id="bgPreview" class="preview-img hidden">
 
 </div>
 
 
-<button
-class="blue"
-onclick="analyze()">
-
+<button class="blue" onclick="analyze()">
 🔍 Analyze & Generate Design
-
 </button>
 
 
-<div
-id="analysisBox"
-class="hidden">
+<div id="analysisBox" class="hidden">
 
 <hr>
 
@@ -700,12 +821,8 @@ class="hidden">
 
 <div id="analysis"></div>
 
-<button
-class="green"
-onclick="createProject()">
-
+<button class="green" onclick="createProject()">
 🚀 Create Complete Project
-
 </button>
 
 </div>
@@ -720,8 +837,7 @@ onclick="createProject()">
 PROJECTS
 ====================================================== -->
 
-<div id="projectsPage"
-class="hidden">
+<div id="projectsPage" class="hidden">
 
 <div class="card">
 
@@ -729,12 +845,8 @@ class="hidden">
 📂 My Projects
 </h1>
 
-<button
-class="green"
-onclick="showPage('builderPage')">
-
+<button class="green" onclick="showPage('builderPage')">
 ➕ New Project
-
 </button>
 
 <div id="projectsList"></div>
@@ -749,65 +861,158 @@ onclick="showPage('builderPage')">
 WORKSPACE
 ====================================================== -->
 
-<div id="workspacePage"
-class="hidden">
-
-
-<!-- PROJECT -->
+<div id="workspacePage" class="hidden">
 
 <div class="card">
 
 <div class="row">
 
-<button
-onclick="showPage('projectsPage');renderProjects()">
-
+<button onclick="showPage('projectsPage');renderProjects()">
 ⬅️ Projects
-
 </button>
 
-<button
-class="green"
-onclick="saveProject()">
-
+<button class="green" onclick="saveProject(true)">
 💾 Save
-
 </button>
 
-<button
-class="orange"
-onclick="exportProject()">
+<button class="orange" onclick="exportProject()">
+📦 Export Backup
+</button>
 
-📦 Export
-
+<button class="purple" onclick="createBackupSnapshot()">
+🛡️ Backup Snapshot
 </button>
 
 </div>
-
 
 <h1>
 🛠️ Project Workspace
 </h1>
 
-<input
-id="projectName"
-placeholder="Project name">
+<div class="success">
+💾 Auto-save is enabled. Changes are automatically saved locally.
+</div>
 
-<textarea
-id="projectDescription"
-rows="3"
-placeholder="Description">
-</textarea>
+<input id="projectName" placeholder="Project name">
 
-<input
-id="projectType"
-placeholder="Project type">
+<textarea id="projectDescription" rows="3" placeholder="Description"></textarea>
+
+<input id="projectType" placeholder="Project type">
 
 </div>
 
 
 
-<!-- BRANDING -->
+<!-- ======================================================
+APP MENU
+====================================================== -->
+
+<div class="card">
+
+<h2>
+📖 App User Menu
+</h2>
+
+<div class="notice">
+Har generated app ke menu mein How To Use, How To Earn, Withdrawal, Wallet, FAQ aur Support sections available honge.
+</div>
+
+<div class="help-menu">
+
+<button class="help-button blue" onclick="editUserGuide('how')">
+📖 How To Use
+</button>
+
+<button class="help-button green" onclick="editUserGuide('earn')">
+💰 How To Earn
+</button>
+
+<button class="help-button orange" onclick="editUserGuide('withdraw')">
+💸 Withdrawal
+</button>
+
+<button class="help-button purple" onclick="editUserGuide('wallet')">
+👛 Wallet
+</button>
+
+<button class="help-button gray" onclick="editUserGuide('faq')">
+❓ FAQ
+</button>
+
+<button class="help-button" onclick="editUserGuide('support')">
+🆘 Support
+</button>
+
+</div>
+
+<div id="guideEditor"></div>
+
+</div>
+
+
+
+<!-- ======================================================
+CREATOR ANNOUNCEMENT
+====================================================== -->
+
+<div class="card">
+
+<h2>
+📢 Creator Announcement
+</h2>
+
+<div class="info">
+Agar app earning + withdrawal app hai to creator yahan withdrawal payment date/announcement set kar sakta hai.
+Ye announcement app ke users ko show hogi.
+</div>
+
+<label>
+Announcement ON/OFF
+</label>
+
+<select id="announcementEnabled">
+<option value="true">ON</option>
+<option value="false">OFF</option>
+</select>
+
+<label>
+Announcement Title
+</label>
+
+<input
+id="announcementTitle"
+placeholder="Example: Monthly Withdrawal Announcement">
+
+<label>
+Withdrawal / Payment Date
+</label>
+
+<input
+id="announcementDate"
+type="date">
+
+<label>
+Announcement Message
+</label>
+
+<textarea
+id="announcementMessage"
+rows="4"
+placeholder="Example: Monthly withdrawal payments will be processed on the 15th of every month."></textarea>
+
+<button class="green" onclick="saveAnnouncement()">
+📢 Save Announcement
+</button>
+
+<div id="announcementPreview"></div>
+
+</div>
+
+
+
+<!-- ======================================================
+BRANDING
+====================================================== -->
 
 <div class="card">
 
@@ -815,16 +1020,13 @@ placeholder="Project type">
 🎨 Branding
 </h2>
 
-
 <div class="upload">
 
 <b>
 App Icon
 </b>
 
-<img
-id="wsIcon"
-class="preview-img hidden">
+<img id="wsIcon" class="preview-img hidden">
 
 <input
 id="wsIconInput"
@@ -841,9 +1043,7 @@ onchange="replaceImage(event,'icon')">
 Background
 </b>
 
-<img
-id="wsBg"
-class="preview-img hidden">
+<img id="wsBg" class="preview-img hidden">
 
 <input
 id="wsBgInput"
@@ -857,7 +1057,9 @@ onchange="replaceImage(event,'bg')">
 
 
 
-<!-- SCREENS -->
+<!-- ======================================================
+SCREENS
+====================================================== -->
 
 <div class="card">
 
@@ -867,19 +1069,17 @@ onchange="replaceImage(event,'bg')">
 
 <div id="screenList"></div>
 
-<button
-class="blue"
-onclick="addScreen()">
-
+<button class="blue" onclick="addScreen()">
 ➕ Add Screen
-
 </button>
 
 </div>
 
 
 
-<!-- FEATURES -->
+<!-- ======================================================
+FEATURES
+====================================================== -->
 
 <div class="card">
 
@@ -889,19 +1089,17 @@ onclick="addScreen()">
 
 <div id="featureList"></div>
 
-<button
-class="blue"
-onclick="addFeature()">
-
+<button class="blue" onclick="addFeature()">
 ➕ Add Feature
-
 </button>
 
 </div>
 
 
 
-<!-- COMPONENT EDITOR -->
+<!-- ======================================================
+COMPONENT EDITOR
+====================================================== -->
 
 <div class="card">
 
@@ -910,18 +1108,11 @@ onclick="addFeature()">
 </h2>
 
 <div class="notice">
-
 Editing screen:
-
-<b id="editingScreen">
-None
-</b>
-
+<b id="editingScreen">None</b>
 </div>
 
-
-<select
-id="componentType">
+<select id="componentType">
 
 <option>Text</option>
 <option>Button</option>
@@ -952,95 +1143,50 @@ id="componentType">
 
 </select>
 
+<input id="componentName" placeholder="Component name">
 
-<input
-id="componentName"
-placeholder="Component name">
-
-
-<button
-class="green"
-onclick="addComponent()">
-
+<button class="green" onclick="addComponent()">
 ➕ Add Component
-
 </button>
-
 
 <div id="componentList"></div>
 
 
-<!-- PROPERTIES -->
-
-<div
-id="propBox"
-class="properties hidden">
+<div id="propBox" class="properties hidden">
 
 <h3>
 ⚙️ Properties
 </h3>
 
-<input
-id="pName"
-placeholder="Name">
+<input id="pName" placeholder="Name">
 
-<input
-id="pSize"
-type="number"
-value="16"
-placeholder="Font size">
+<input id="pSize" type="number" value="16" placeholder="Font size">
 
-<input
-id="pWidth"
-type="number"
-value="100"
-placeholder="Width %">
+<input id="pWidth" type="number" value="100" placeholder="Width %">
 
-<input
-id="pHeight"
-type="number"
-value="45"
-placeholder="Height">
+<input id="pHeight" type="number" value="45" placeholder="Height">
 
-<input
-id="pX"
-type="number"
-value="0"
-placeholder="X">
+<input id="pX" type="number" value="0" placeholder="X">
 
-<input
-id="pY"
-type="number"
-value="0"
-placeholder="Y">
+<input id="pY" type="number" value="0" placeholder="Y">
 
 <label>
 Text color
 </label>
 
-<input
-id="pTextColor"
-type="color"
-value="#172033">
+<input id="pTextColor" type="color" value="#172033">
 
 <label>
 Background
 </label>
 
-<input
-id="pBgColor"
-type="color"
-value="#eef3f9">
-
+<input id="pBgColor" type="color" value="#eef3f9">
 
 <select id="pAlign">
-
 <option>left</option>
 <option>center</option>
 <option>right</option>
-
 </select>
-
 
 <select id="pAction">
 
@@ -1082,30 +1228,16 @@ Back
 
 </select>
 
+<input id="pActionValue" placeholder="Action value">
 
-<input
-id="pActionValue"
-placeholder="Action value">
+<input id="pDataKey" placeholder="Data key">
 
-<input
-id="pDataKey"
-placeholder="Data key">
-
-
-<button
-class="green"
-onclick="saveProperties()">
-
+<button class="green" onclick="saveProperties()">
 💾 Apply
-
 </button>
 
-<button
-class="red"
-onclick="closeProps()">
-
+<button class="red" onclick="closeProps()">
 Close
-
 </button>
 
 </div>
@@ -1114,46 +1246,50 @@ Close
 
 
 
-<!-- LIVE PREVIEW -->
+<!-- ======================================================
+LIVE PREVIEW
+====================================================== -->
 
 <div class="card">
 
 <h2>
-📱 Live Preview
+📱 Live Responsive Preview
 </h2>
+
+<div class="info">
+This preview represents a responsive interface intended to adapt to phones, iPhone/iPad, tablets, laptops and desktop browsers.
+</div>
 
 <div class="mobile">
 
-<div
-id="live"
-class="mobile-inner">
+<div id="live" class="mobile-inner"></div>
 
 </div>
 
 </div>
 
-</div>
 
 
-
-<!-- MONEY -->
+<!-- ======================================================
+MONEY / CONDITIONAL WITHDRAW
+====================================================== -->
 
 <div class="card">
 
 <h2>
-💰 Money / Wallet Configuration
+💰 Money / Earning Configuration
 </h2>
 
 <div class="notice">
-
-Production money movement must use a secure
-backend and payment provider.
-
+<b>Conditional Withdrawal System:</b>
+Withdrawal sirf tab ON hoga jab creator explicitly withdrawal/withdrawal system ki demand kare.
 </div>
 
+<label>
+Money System
+</label>
 
-<select
-id="moneyType">
+<select id="moneyType" onchange="moneyTypeChanged()">
 
 <option value="none">
 No money system
@@ -1175,28 +1311,52 @@ Real-money game / wagering
 
 
 <label>
-Withdrawal Cycle
+Withdrawal System
 </label>
 
-<select
-id="withdrawCycle">
+<select id="withdrawalEnabled">
 
-<option value="monthly">
-Monthly
+<option value="false">
+OFF — Creator ne withdrawal nahi manga
+</option>
+
+<option value="true">
+ON — Creator ne withdrawal manga
 </option>
 
 </select>
 
 
 <label>
-Withdrawal Request Day
+Withdrawal Cycle
+</label>
+
+<select id="withdrawCycle">
+
+<option value="monthly">
+Monthly
+</option>
+
+<option value="weekly">
+Weekly
+</option>
+
+<option value="custom">
+Custom
+</option>
+
+</select>
+
+
+<label>
+Withdrawal Request / Payment Day
 </label>
 
 <input
 id="withdrawDay"
 type="number"
 min="1"
-max="28"
+max="31"
 value="1">
 
 
@@ -1207,65 +1367,45 @@ placeholder="Describe earning rules">
 </textarea>
 
 
-<button
-class="green"
-onclick="saveMoney()">
-
+<button class="green" onclick="saveMoney()">
 💾 Save Money Rules
-
 </button>
+
+<div id="withdrawalStatus"></div>
 
 </div>
 
 
 
-<!-- WALLET -->
+<!-- ======================================================
+WALLET
+====================================================== -->
 
-<div class="card">
+<div id="walletCard" class="card">
 
 <h2>
-👤 User Wallet / Withdrawal
+👤 User Wallet
 </h2>
 
+<div class="info">
+Wallet/withdrawal controls are only active when the creator enables the withdrawal system.
+</div>
 
 <div class="row">
 
 <div class="stat">
-
-<b>
-Balance
-</b>
-
-<div id="balance">
-Rs. 0
+<b>Balance</b>
+<div id="balance">Rs. 0</div>
 </div>
-
-</div>
-
 
 <div class="stat">
-
-<b>
-Pending
-</b>
-
-<div id="pending">
-0
+<b>Pending</b>
+<div id="pending">0</div>
 </div>
-
-</div>
-
 
 <div class="stat">
-
-<b>
-Paid
-</b>
-
-<div id="paid">
-0
-</div>
-
+<b>Paid</b>
+<div id="paid">0</div>
 </div>
 
 </div>
@@ -1278,17 +1418,10 @@ Paid
 💳 Deposit
 </h3>
 
-<input
-id="depositAmount"
-type="number"
-placeholder="Deposit amount">
+<input id="depositAmount" type="number" placeholder="Deposit amount">
 
-<button
-class="blue"
-onclick="requestDeposit()">
-
+<button class="blue" onclick="requestDeposit()">
 💳 Request Deposit
-
 </button>
 
 
@@ -1299,50 +1432,34 @@ onclick="requestDeposit()">
 🎁 Send Rupees as Gift
 </h3>
 
-<input
-id="giftPhone"
-placeholder="Friend phone / account">
+<input id="giftPhone" placeholder="Friend phone / account">
 
-<input
-id="giftAmount"
-type="number"
-placeholder="Gift amount">
+<input id="giftAmount" type="number" placeholder="Gift amount">
 
-<button
-class="purple"
-onclick="sendGift()">
-
+<button class="purple" onclick="sendGift()">
 🎁 Send Gift
-
 </button>
 
+
+<div id="withdrawalArea">
 
 <hr>
 
-
 <h3>
-💸 Monthly Withdrawal
+💸 Withdrawal
 </h3>
 
-<input
-id="withdrawAmount"
-type="number"
-placeholder="Withdrawal amount">
+<input id="withdrawAmount" type="number" placeholder="Withdrawal amount">
 
-<input
-id="withdrawAccount"
-placeholder="Bank / Easypaisa / JazzCash account">
+<input id="withdrawAccount" placeholder="Bank / Easypaisa / JazzCash account">
 
-<button
-class="orange"
-onclick="requestWithdrawal()">
-
-💸 Request Monthly Withdrawal
-
+<button class="orange" onclick="requestWithdrawal()">
+💸 Request Withdrawal
 </button>
 
-
 <div id="userWithdrawals"></div>
+
+</div>
 
 </div>
 
@@ -1354,8 +1471,7 @@ onclick="requestWithdrawal()">
 ADMIN
 ====================================================== -->
 
-<div id="adminPage"
-class="hidden">
+<div id="adminPage" class="hidden">
 
 <div class="card">
 
@@ -1363,81 +1479,35 @@ class="hidden">
 👨‍💼 Admin Dashboard
 </h1>
 
-
 <div class="notice">
-
-Admin can see:
-
-<br>✅ Users
-<br>✅ Monthly earnings
-<br>✅ Salary / earning list
-<br>✅ Withdrawal requests
-<br>✅ Deposit records
-<br>✅ Gift records
-<br>✅ Payment receipt
-<br>✅ Paid status
-
+Admin can see users, monthly earnings, withdrawal requests, deposit records, gifts and payment receipts.
 </div>
-
 
 <div class="row">
 
 <div class="stat">
-
-<b>
-Total Users
-</b>
-
-<div id="adminUsers">
-0
+<b>Total Users</b>
+<div id="adminUsers">0</div>
 </div>
-
-</div>
-
 
 <div class="stat">
-
-<b>
-Pending Withdrawals
-</b>
-
-<div id="adminPending">
-0
+<b>Pending Withdrawals</b>
+<div id="adminPending">0</div>
 </div>
-
-</div>
-
 
 <div class="stat">
-
-<b>
-Paid Withdrawals
-</b>
-
-<div id="adminPaid">
-0
+<b>Paid Withdrawals</b>
+<div id="adminPaid">0</div>
 </div>
-
-</div>
-
 
 <div class="stat">
-
-<b>
-Monthly Earnings
-</b>
-
-<div id="adminEarnings">
-Rs. 0
+<b>Monthly Earnings</b>
+<div id="adminEarnings">Rs. 0</div>
 </div>
 
 </div>
-
-</div>
-
 
 <hr>
-
 
 <h2>
 📊 Monthly Salary / Earnings List
@@ -1445,9 +1515,7 @@ Rs. 0
 
 <div id="salaryList"></div>
 
-
 <hr>
-
 
 <h2>
 💸 Withdrawal Requests
@@ -1465,8 +1533,7 @@ Rs. 0
 INTEGRATIONS
 ====================================================== -->
 
-<div id="integrationsPage"
-class="hidden">
+<div id="integrationsPage" class="hidden">
 
 <div class="card">
 
@@ -1476,53 +1543,34 @@ class="hidden">
 
 <div class="warning">
 
-Private API keys and payment secrets must never
-be placed inside browser HTML.
+Private API keys, payment secrets and database credentials must never be placed inside browser HTML.
 
 </div>
-
 
 <label>
 Production API Base URL
 </label>
 
-<input
-id="apiBase"
-placeholder="https://api.example.com">
-
+<input id="apiBase" placeholder="https://api.example.com">
 
 <label>
 Admin WhatsApp Business/API Number
 </label>
 
-<input
-id="waNumber"
-placeholder="+92...">
-
+<input id="waNumber" placeholder="+92...">
 
 <label>
 Payment Provider Public Configuration
 </label>
 
-<input
-id="paymentPublic"
-placeholder="Public key/config">
+<input id="paymentPublic" placeholder="Public key/config">
 
-
-<button
-class="green"
-onclick="saveIntegrations()">
-
+<button class="green" onclick="saveIntegrations()">
 💾 Save Configuration
-
 </button>
 
-
 <p>
-
-Automatic WhatsApp notification requires a
-server-side WhatsApp Business/API integration.
-
+Automatic WhatsApp notification requires a server-side WhatsApp Business/API integration.
 </p>
 
 </div>
@@ -1535,8 +1583,7 @@ server-side WhatsApp Business/API integration.
 SETTINGS
 ====================================================== -->
 
-<div id="settingsPage"
-class="hidden">
+<div id="settingsPage" class="hidden">
 
 <div class="card">
 
@@ -1546,22 +1593,33 @@ class="hidden">
 
 <div id="accountInfo"></div>
 
-
-<button
-class="orange"
-onclick="deleteAccount()">
-
+<button class="orange" onclick="deleteAccount()">
 🗑️ Delete My Account
-
 </button>
 
-
-<button
-class="red"
-onclick="logout()">
-
+<button class="red" onclick="logout()">
 🚪 Logout
+</button>
 
+</div>
+
+
+<div class="card">
+
+<h2>
+🛡️ Data Protection
+</h2>
+
+<div class="success">
+Automatic saving, project snapshots, JSON export and recovery storage are enabled.
+</div>
+
+<button class="blue" onclick="exportAllData()">
+📦 Export All My Data
+</button>
+
+<button class="purple" onclick="restoreLastSnapshot()">
+♻️ Restore Last Snapshot
 </button>
 
 </div>
@@ -1576,52 +1634,89 @@ onclick="logout()">
 <script>
 
 /* ======================================================
-STORAGE
+STORAGE KEYS
 ====================================================== */
 
 const K={
 
- users:"SAMI_USERS_V5",
+ users:"SAMI_USERS_V6",
 
- session:"SAMI_SESSION_V5",
+ session:"SAMI_SESSION_V6",
 
- projects:"SAMI_PROJECTS_V5",
+ projects:"SAMI_PROJECTS_V6",
 
- settings:"SAMI_SETTINGS_V5",
+ settings:"SAMI_SETTINGS_V6",
 
- integrations:"SAMI_INTEGRATIONS_V5"
+ integrations:"SAMI_INTEGRATIONS_V6",
+
+ snapshots:"SAMI_SNAPSHOTS_V6",
+
+ backup:"SAMI_BACKUP_V6"
 
 };
 
 
 let user=null;
-
 let project=null;
-
 let screenIndex=0;
-
 let componentIndex=-1;
-
 let analysis=null;
-
 let iconData="";
-
 let bgData="";
 
 
 /* ======================================================
-HELPERS
+SAFE STORAGE
 ====================================================== */
 
 function J(k,d){
 
  try{
 
-  return JSON.parse(
-   localStorage.getItem(k)
-  ) ?? d;
+  const raw=
+   localStorage.getItem(k);
+
+  if(raw===null)
+   return d;
+
+  const parsed=
+   JSON.parse(raw);
+
+  return parsed;
 
  }catch(e){
+
+  try{
+
+   const backupRaw=
+    localStorage.getItem(
+     K.backup
+    );
+
+   if(
+    backupRaw&&
+    k!==K.backup
+   ){
+
+    const b=
+     JSON.parse(
+      backupRaw
+     );
+
+    if(
+     Object.prototype.hasOwnProperty.call(
+      b,
+      k
+     )
+    ){
+
+     return b[k];
+
+    }
+
+   }
+
+  }catch(ignore){}
 
   return d;
 
@@ -1632,13 +1727,104 @@ function J(k,d){
 
 function S(k,v){
 
- localStorage.setItem(
-  k,
-  JSON.stringify(v)
- );
+ try{
+
+  const serialized=
+   JSON.stringify(v);
+
+  localStorage.setItem(
+   k,
+   serialized
+  );
+
+  updateAutosave(
+   "💾 Saved"
+  );
+
+  return true;
+
+ }catch(e){
+
+  updateAutosave(
+   "⚠️ Storage full"
+  );
+
+  alert(
+   "Local storage full ho gaya hai. Project ka JSON backup export karein."
+  );
+
+  return false;
+
+ }
 
 }
 
+
+function backupAllStorage(){
+
+ try{
+
+  const backup={};
+
+  Object.keys(K).forEach(
+   keyName=>{
+
+    const key=
+     K[keyName];
+
+    backup[key]=
+     localStorage.getItem(
+      key
+     );
+
+   }
+  );
+
+  localStorage.setItem(
+   K.backup,
+   JSON.stringify(
+    backup
+   )
+  );
+
+ }catch(e){}
+
+}
+
+
+function updateAutosave(text){
+
+ const el=
+  document.getElementById(
+   "autosaveStatus"
+  );
+
+ if(el){
+
+  el.textContent=
+   text;
+
+  clearTimeout(
+   window._saveTimer
+  );
+
+  window._saveTimer=
+   setTimeout(
+    ()=>{
+     el.textContent=
+      "💾 Auto-save ready";
+    },
+    1800
+   );
+
+ }
+
+}
+
+
+/* ======================================================
+UTILITY
+====================================================== */
 
 function esc(v){
 
@@ -1715,12 +1901,13 @@ START
 
 window.onload=function(){
 
+ backupAllStorage();
+
  let s=
   J(
    K.session,
    null
   );
-
 
  if(s){
 
@@ -1796,7 +1983,6 @@ function signup(){
  let pass=
   signupPassword.value;
 
-
  if(
   !name||
   !phone||
@@ -1813,13 +1999,11 @@ function signup(){
 
  }
 
-
  let users=
   J(
    K.users,
    []
   );
-
 
  if(
   users.some(
@@ -1834,7 +2018,6 @@ function signup(){
   return;
 
  }
-
 
  let u={
 
@@ -1856,14 +2039,12 @@ function signup(){
 
  };
 
-
  users.push(u);
 
  S(
   K.users,
   users
  );
-
 
  user={
 
@@ -1879,12 +2060,12 @@ function signup(){
 
  };
 
-
  S(
   K.session,
   user
  );
 
+ backupAllStorage();
 
  main();
 
@@ -1901,13 +2082,11 @@ function login(){
  let pass=
   loginPassword.value;
 
-
  let users=
   J(
    K.users,
    []
   );
-
 
  let u=
   users.find(
@@ -1915,7 +2094,6 @@ function login(){
     x.email===email &&
     x.password===pass
   );
-
 
  if(!u){
 
@@ -1926,7 +2104,6 @@ function login(){
   return;
 
  }
-
 
  user={
 
@@ -1942,12 +2119,10 @@ function login(){
 
  };
 
-
  S(
   K.session,
   user
  );
-
 
  main();
 
@@ -1961,51 +2136,10 @@ function logout(){
  );
 
  user=null;
-
  project=null;
 
  showAuth();
-
  showLogin();
-
-}
-
-
-function deleteAccount(){
-
- if(
-  !confirm(
-   "Delete account and your projects?"
-  )
- )
- return;
-
-
- S(
-  K.users,
-
-  J(
-   K.users,
-   []
-  ).filter(
-   x=>x.id!==user.id
-  )
- );
-
-
- S(
-  K.projects,
-
-  J(
-   K.projects,
-   []
-  ).filter(
-   x=>x.ownerId!==user.id
-  )
- );
-
-
- logout();
 
 }
 
@@ -2054,13 +2188,21 @@ function showPage(id){
    )
  );
 
-
  document
  .getElementById(id)
  .classList.remove(
   "hidden"
  );
 
+ if(
+  id==="homePage"
+ )
+  renderHome();
+
+ if(
+  id==="settingsPage"
+ )
+  renderSettings();
 
  scrollTo(
   0,
@@ -2071,7 +2213,7 @@ function showPage(id){
 
 
 /* ======================================================
-IMAGE UPLOAD
+IMAGE
 ====================================================== */
 
 function handleImage(
@@ -2081,7 +2223,6 @@ function handleImage(
 
  let file=
   event.target.files[0];
-
 
  if(
   !file||
@@ -2098,10 +2239,8 @@ function handleImage(
 
  }
 
-
  let reader=
   new FileReader();
-
 
  reader.onload=
  function(){
@@ -2136,10 +2275,10 @@ function handleImage(
 
  };
 
-
  reader.readAsDataURL(
   file
  );
+
 
 }
 
@@ -2152,14 +2291,11 @@ function replaceImage(
  let file=
   event.target.files[0];
 
-
  if(!file)
  return;
 
-
  let reader=
   new FileReader();
-
 
  reader.onload=
  function(){
@@ -2178,13 +2314,11 @@ function replaceImage(
 
   }
 
-
   saveProject();
 
   renderWorkspace();
 
  };
-
 
  reader.readAsDataURL(
   file
@@ -2234,6 +2368,36 @@ function screenComponents(n){
    comp(
     "Profile",
     "My Profile"
+   ),
+
+   comp(
+    "Button",
+    "How To Use"
+   ),
+
+   comp(
+    "Button",
+    "How To Earn"
+   ),
+
+   comp(
+    "Button",
+    "Withdrawal"
+   ),
+
+   comp(
+    "Button",
+    "Wallet"
+   ),
+
+   comp(
+    "Button",
+    "FAQ"
+   ),
+
+   comp(
+    "Button",
+    "Support"
    )
 
   ];
@@ -2840,11 +3004,11 @@ AI ANALYZE
 
 function analyze(){
 
- let d=
-  appDemand.value
-  .trim()
-  .toLowerCase();
+ let original=
+  appDemand.value.trim();
 
+ let d=
+  original.toLowerCase();
 
  if(!d){
 
@@ -2855,6 +3019,42 @@ function analyze(){
   return;
 
  }
+
+
+ /*
+  IMPORTANT:
+  Withdrawal is conditional.
+  It is NOT automatically enabled for every app.
+ */
+
+ const creatorRequestedWithdrawal=
+  contains(
+   d,
+   [
+    "withdraw",
+    "withdrawal",
+    "withdrawal option",
+    "withdrawl",
+    "monthly withdrawal",
+    "cashout",
+    "cash out",
+    "payout"
+   ]
+  );
+
+
+ const creatorRequestedEarning=
+  contains(
+   d,
+   [
+    "earning",
+    "earn",
+    "profit",
+    "commission",
+    "salary",
+    "income"
+   ]
+  );
 
 
  let type=
@@ -2893,7 +3093,17 @@ function analyze(){
   "Authentication",
   "Profile",
   "Delete Account",
-  "Logout"
+  "Logout",
+
+  "Responsive Mobile",
+  "Responsive iPhone/iPad",
+  "Responsive Tablet",
+  "Responsive Laptop/Desktop",
+
+  "How To Use",
+  "How To Earn",
+  "FAQ",
+  "Support"
 
  ];
 
@@ -2917,7 +3127,6 @@ function analyze(){
    "Leaderboard",
    "Game Result"
   );
-
 
   features.push(
    "Game Engine UI",
@@ -2946,21 +3155,62 @@ function analyze(){
    "Bet Slip",
    "Wallet",
    "Deposit",
-   "Withdrawal",
    "Transactions"
 
   );
 
-
   features.push(
-
    "Betting Workflow",
    "Deposit",
-   "Monthly Withdrawal",
    "Wallet",
    "Transaction History",
    "Licensed Payment/Wagering Backend Required"
+  );
 
+ }
+
+
+ /*
+  Earnings can exist without withdrawal.
+ */
+
+ if(
+  creatorRequestedEarning
+ ){
+
+  screens.push(
+   "Earnings"
+  );
+
+  features.push(
+   "Earnings Ledger"
+  );
+
+ }
+
+
+ /*
+  Withdrawal screens are added ONLY if creator requested them.
+ */
+
+ if(
+  creatorRequestedWithdrawal
+ ){
+
+  screens.push(
+   "Wallet",
+   "Withdrawal",
+   "Transactions",
+   "Admin Dashboard"
+  );
+
+  features.push(
+   "Withdrawal System",
+   "Monthly Withdrawal",
+   "Withdrawal Requests",
+   "Admin Earnings List",
+   "Receipt Upload",
+   "Creator Withdrawal Announcement"
   );
 
  }
@@ -2970,35 +3220,17 @@ function analyze(){
   contains(
    d,
    [
-    "deposit",
-    "wallet",
-    "earning",
-    "profit",
-    "withdraw"
+    "deposit"
    ]
   )
  ){
 
   screens.push(
-
-   "Wallet",
-   "Deposit",
-   "Earnings",
-   "Withdrawal",
-   "Transactions",
-   "Admin Dashboard"
-
+   "Deposit"
   );
 
-
   features.push(
-
-   "Deposit Workflow",
-   "Earnings Ledger",
-   "Monthly Withdrawal",
-   "Admin Earnings List",
-   "Receipt Upload"
-
+   "Deposit Workflow"
   );
 
  }
@@ -3020,7 +3252,6 @@ function analyze(){
    "Send Gift"
   );
 
-
   features.push(
    "Friend-to-Friend Gift Transfer"
   );
@@ -3040,22 +3271,17 @@ function analyze(){
  ){
 
   screens.push(
-
    "Products",
    "Cart",
    "Payment",
    "Orders"
-
   );
 
-
   features.push(
-
    "Products",
    "Cart",
    "Orders",
    "Payment"
-
   );
 
  }
@@ -3075,7 +3301,6 @@ function analyze(){
    "Chats",
    "Contacts"
   );
-
 
   features.push(
    "Chat",
@@ -3101,7 +3326,6 @@ function analyze(){
    "Location History"
   );
 
-
   features.push(
    "GPS",
    "Maps"
@@ -3124,7 +3348,6 @@ function analyze(){
    "Camera",
    "Gallery"
   );
-
 
   features.push(
    "Camera",
@@ -3162,7 +3385,13 @@ function analyze(){
 
   features:features,
 
-  plans:plans
+  plans:plans,
+
+  withdrawalRequested:
+   creatorRequestedWithdrawal,
+
+  earningRequested:
+   creatorRequestedEarning
 
  };
 
@@ -3170,6 +3399,24 @@ function analyze(){
  analysisBox.classList.remove(
   "hidden"
  );
+
+
+ const withdrawalMessage=
+  creatorRequestedWithdrawal
+
+  ?
+
+  `<div class="success">
+   ✅ Creator requested withdrawal.
+   Withdrawal system will be added.
+  </div>`
+
+  :
+
+  `<div class="info">
+   ℹ️ Creator did not request withdrawal.
+   Withdrawal system will remain OFF.
+  </div>`;
 
 
  analysis.innerHTML=
@@ -3181,9 +3428,9 @@ function analyze(){
 
  </div>
 
- <h3>
- 📱 Screens
- </h3>
+ ${withdrawalMessage}
+
+ <h3>📱 Screens</h3>
 
  ${screens.map(
   x=>
@@ -3192,9 +3439,7 @@ function analyze(){
    </span>`
  ).join("")}
 
- <h3>
- 🧩 Components
- </h3>
+ <h3>🧩 Components</h3>
 
  ${plans.map(
   p=>
@@ -3219,9 +3464,7 @@ function analyze(){
 
  ).join("")}
 
- <h3>
- ⚡ Features
- </h3>
+ <h3>⚡ Features</h3>
 
  ${features.map(
   x=>
@@ -3231,12 +3474,7 @@ function analyze(){
  ).join("")}
 
  <div class="warning">
-
- Real payment, withdrawal and
- automatic WhatsApp require a
- secure production backend,
- database and appropriate provider.
-
+ Real payment, withdrawal and automatic WhatsApp require a secure production backend, database and appropriate provider.
  </div>`;
 
 }
@@ -3254,9 +3492,16 @@ function createProject(){
 
  }
 
-
  if(!analysis)
- return;
+  return;
+
+
+ /*
+  Create conditional money configuration.
+ */
+
+ const withdrawalOn=
+  !!analysis.withdrawalRequested;
 
 
  project={
@@ -3319,13 +3564,74 @@ function createProject(){
 
   money:{
 
-   type:"none",
+   type:
+    analysis.earningRequested
+    ?
+    "earning"
+    :
+    "none",
 
-   cycle:"monthly",
+   withdrawalEnabled:
+    withdrawalOn,
+
+   cycle:
+    "monthly",
 
    day:1,
 
    description:""
+
+  },
+
+  guides:{
+
+   how:
+    "Open the app, create an account, use the Home menu and follow the instructions shown on each screen.",
+
+   earn:
+    analysis.earningRequested
+    ?
+    "Follow the creator's earning instructions shown in this app."
+    :
+    "This app does not have an automatic earning system unless the creator adds one.",
+
+   withdraw:
+    withdrawalOn
+    ?
+    "Withdrawal requests are available according to the creator's configured withdrawal schedule."
+    :
+    "Withdrawal is not enabled in this app.",
+
+   wallet:
+    "Wallet information is shown according to the app's configured money features.",
+
+   faq:
+    "Check the app instructions or contact support for questions.",
+
+   support:
+    "Contact the creator/app support team."
+  },
+
+  announcement:{
+
+   enabled:
+    withdrawalOn,
+
+   title:
+    withdrawalOn
+    ?
+    "Monthly Withdrawal Announcement"
+    :
+    "",
+
+   date:"",
+
+   message:
+    withdrawalOn
+    ?
+    "The creator will announce the withdrawal payment date here."
+    :
+    ""
 
   },
 
@@ -3336,6 +3642,8 @@ function createProject(){
   deposits:[],
 
   gifts:[],
+
+  snapshots:[],
 
   createdAt:
    new Date().toISOString(),
@@ -3358,47 +3666,54 @@ function createProject(){
 
 
  alert(
-  "AI ne complete screens aur components generate kar diye hain."
+  withdrawalOn
+  ?
+  "Project created. Creator requested withdrawal, so withdrawal system has been added."
+  :
+  "Project created. Withdrawal was not requested, so withdrawal system is OFF."
  );
 
 }
 
+
+/* ======================================================
+PROJECT NAME
+====================================================== */
 
 function projectNameFrom(d){
 
  let x=
   d.toLowerCase();
 
-
  if(
   x.includes("racing")
  )
  return "AI Racing Game";
-
 
  if(
   x.includes("bet")
  )
  return "AI Betting App";
 
-
  if(
   x.includes("school")
  )
  return "School Management App";
-
 
  if(
   x.includes("shop")
  )
  return "E-Commerce App";
 
-
  if(
   x.includes("chat")
  )
  return "Chat App";
 
+ if(
+  x.includes("earning")
+ )
+ return "Earning App";
 
  return "My AI App";
 
@@ -3419,11 +3734,10 @@ function getProjects(){
 }
 
 
-function saveProject(){
+function saveProject(manual=false){
 
  if(!project)
- return;
-
+  return;
 
  if(
   document.getElementById(
@@ -3436,12 +3750,10 @@ function saveProject(){
    ||
    project.name;
 
-
   project.description=
    projectDescription.value
    ||
    project.description;
-
 
   project.type=
    projectType.value
@@ -3450,32 +3762,182 @@ function saveProject(){
 
  }
 
-
  project.updatedAt=
   new Date().toISOString();
 
 
+ /*
+  Preserve creator's conditional withdrawal setting.
+ */
+
+ if(
+  !project.money
+ )
+  project.money={};
+
+ if(
+  typeof project.money.withdrawalEnabled!=="boolean"
+ )
+  project.money.withdrawalEnabled=
+   false;
+
+
  let p=
   getProjects();
-
 
  let i=
   p.findIndex(
    x=>x.id===project.id
   );
 
-
  if(i>=0)
   p[i]=project;
-
  else
   p.push(project);
 
+
+ /*
+  Snapshot old data before writing new state.
+ */
+
+ createProjectSnapshot(project);
 
  S(
   K.projects,
   p
  );
+
+ backupAllStorage();
+
+ if(manual){
+
+  updateAutosave(
+   "💾 Project saved"
+  );
+
+ }
+
+}
+
+
+/* ======================================================
+SNAPSHOTS
+====================================================== */
+
+function createProjectSnapshot(p){
+
+ if(!p||!p.id)
+  return;
+
+ try{
+
+  let all=
+   J(
+    K.snapshots,
+    {}
+   );
+
+  if(!all[p.id])
+   all[p.id]=[];
+
+  const snapshot=
+   JSON.parse(
+    JSON.stringify(p)
+   );
+
+  snapshot.snapshotAt=
+   new Date().toISOString();
+
+  all[p.id].push(
+   snapshot
+  );
+
+  /*
+   Keep last 5 snapshots.
+  */
+
+  if(
+   all[p.id].length>5
+  ){
+
+   all[p.id]=
+    all[p.id].slice(-5);
+
+  }
+
+  S(
+   K.snapshots,
+   all
+  );
+
+ }catch(e){}
+
+}
+
+
+function createBackupSnapshot(){
+
+ if(!project)
+  return;
+
+ createProjectSnapshot(
+  project
+ );
+
+ backupAllStorage();
+
+ alert(
+  "Secure recovery snapshot created."
+ );
+
+}
+
+
+function restoreLastSnapshot(){
+
+ if(!project)
+  return;
+
+ let all=
+  J(
+   K.snapshots,
+   {}
+  );
+
+ let list=
+  all[project.id]||
+  [];
+
+ if(!list.length){
+
+  alert(
+   "No snapshot available."
+  );
+
+  return;
+
+ }
+
+ if(
+  !confirm(
+   "Restore last snapshot?"
+  )
+ )
+  return;
+
+ project=
+  JSON.parse(
+   JSON.stringify(
+    list[list.length-1]
+   )
+  );
+
+ project.snapshotAt=
+  undefined;
+
+ saveProject();
+
+ renderWorkspace();
 
 }
 
@@ -3490,7 +3952,6 @@ function renderProjects(){
   getProjects().filter(
    x=>x.ownerId===user.id
   );
-
 
  projectsList.innerHTML=
   p.length
@@ -3525,28 +3986,30 @@ function renderProjects(){
      ${esc(x.description)}
     </p>
 
-    <button
-     class="green"
-     onclick="openProject('${x.id}')">
+    <span class="badge">
+     ${esc(x.type)}
+    </span>
 
+    <span class="badge">
+     ${
+      x.money?.withdrawalEnabled
+      ?
+      "💸 Withdrawal ON"
+      :
+      "🔒 Withdrawal OFF"
+     }
+    </span>
+
+    <button class="green" onclick="openProject('${x.id}')">
      ✏️ Open
-
     </button>
 
-    <button
-     class="blue"
-     onclick="duplicateProject('${x.id}')">
-
+    <button class="blue" onclick="duplicateProject('${x.id}')">
      📑 Duplicate
-
     </button>
 
-    <button
-     class="red"
-     onclick="deleteProject('${x.id}')">
-
+    <button class="red" onclick="deleteProject('${x.id}')">
      🗑️ Delete
-
     </button>
 
    </div>`
@@ -3569,10 +4032,10 @@ function openProject(id){
     x.ownerId===user.id
   );
 
-
  if(!project)
- return;
+  return;
 
+ normalizeProject();
 
  screenIndex=0;
 
@@ -3592,37 +4055,37 @@ function duplicateProject(id){
    p=>p.id===id
   );
 
-
  if(!x)
- return;
-
+  return;
 
  let c=
   JSON.parse(
    JSON.stringify(x)
   );
 
-
  c.id=
   "p_"+Date.now();
-
 
  c.name+=
   " Copy";
 
+ c.createdAt=
+  new Date().toISOString();
+
+ c.updatedAt=
+  new Date().toISOString();
 
  let p=
   getProjects();
 
-
  p.push(c);
-
 
  S(
   K.projects,
   p
  );
 
+ backupAllStorage();
 
  renderProjects();
 
@@ -3636,8 +4099,7 @@ function deleteProject(id){
    "Delete project?"
   )
  )
- return;
-
+  return;
 
  S(
   K.projects,
@@ -3647,6 +4109,7 @@ function deleteProject(id){
   )
  );
 
+ backupAllStorage();
 
  renderProjects();
 
@@ -3654,14 +4117,13 @@ function deleteProject(id){
 
 
 /* ======================================================
-WORKSPACE
+NORMALIZE OLD PROJECTS
 ====================================================== */
 
-function renderWorkspace(){
+function normalizeProject(){
 
  if(!project)
- return;
-
+  return;
 
  project.screens=
   project.screens||[];
@@ -3671,11 +4133,75 @@ function renderWorkspace(){
 
  project.money=
   project.money||
+  {};
+
+ if(
+  typeof project.money.withdrawalEnabled!=="boolean"
+ ){
+
+  project.money.withdrawalEnabled=
+   false;
+
+ }
+
+ project.money.type=
+  project.money.type||
+  "none";
+
+ project.money.cycle=
+  project.money.cycle||
+  "monthly";
+
+ project.money.day=
+  project.money.day||
+  1;
+
+ project.money.description=
+  project.money.description||
+  "";
+
+ project.guides=
+  project.guides||
+  {};
+
+ project.guides.how=
+  project.guides.how||
+  "Open the app and follow the instructions shown on each screen.";
+
+ project.guides.earn=
+  project.guides.earn||
+  "Follow the earning instructions provided by the creator.";
+
+ project.guides.withdraw=
+  project.guides.withdraw||
+  (
+   project.money.withdrawalEnabled
+   ?
+   "Withdrawal is available according to the creator's configured schedule."
+   :
+   "Withdrawal is not enabled in this app."
+  );
+
+ project.guides.wallet=
+  project.guides.wallet||
+  "Wallet information is shown according to the configured money features.";
+
+ project.guides.faq=
+  project.guides.faq||
+  "Check the instructions or contact support.";
+
+ project.guides.support=
+  project.guides.support||
+  "Contact the creator/app support team.";
+
+ project.announcement=
+  project.announcement||
   {
-   type:"none",
-   cycle:"monthly",
-   day:1,
-   description:""
+   enabled:
+    !!project.money.withdrawalEnabled,
+   title:"",
+   date:"",
+   message:""
   };
 
  project.earnings=
@@ -3690,14 +4216,25 @@ function renderWorkspace(){
  project.gifts=
   project.gifts||[];
 
+}
+
+
+/* ======================================================
+WORKSPACE
+====================================================== */
+
+function renderWorkspace(){
+
+ if(!project)
+  return;
+
+ normalizeProject();
 
  projectName.value=
   project.name;
 
-
  projectDescription.value=
   project.description;
-
 
  projectType.value=
   project.type;
@@ -3749,28 +4286,16 @@ function renderWorkspace(){
 
    `<div class="screen">
 
-    <span
-     class="screen-name"
-     onclick="openScreen(${i})">
-
+    <span class="screen-name" onclick="openScreen(${i})">
      📱 ${esc(s.name)}
-
     </span>
 
-    <button
-     class="blue"
-     onclick="renameScreen(${i})">
-
+    <button class="blue" onclick="renameScreen(${i})">
      Rename
-
     </button>
 
-    <button
-     class="red"
-     onclick="removeScreen(${i})">
-
+    <button class="red" onclick="removeScreen(${i})">
      Remove
-
     </button>
 
    </div>`
@@ -3785,21 +4310,15 @@ function renderWorkspace(){
    `<div class="screen">
 
     <span class="screen-name">
-
      ${esc(f)}
-
     </span>
 
-    <button
-     class="red"
-     onclick="
-      project.features.splice(${i},1);
-      saveProject();
-      renderWorkspace()
-     ">
-
+    <button class="red" onclick="
+     project.features.splice(${i},1);
+     saveProject();
+     renderWorkspace()
+    ">
      Remove
-
     </button>
 
    </div>`
@@ -3810,23 +4329,29 @@ function renderWorkspace(){
  moneyType.value=
   project.money.type;
 
+ withdrawalEnabled.value=
+  project.money.withdrawalEnabled
+  ?
+  "true"
+  :
+  "false";
 
  withdrawCycle.value=
   project.money.cycle;
 
-
  withdrawDay.value=
   project.money.day;
-
 
  moneyDescription.value=
   project.money.description;
 
+ renderWithdrawalStatus();
+
+ renderAnnouncementEditor();
 
  openScreen(
   screenIndex
  );
-
 
  renderWallet();
 
@@ -3843,13 +4368,11 @@ function openScreen(i){
 
  componentIndex=-1;
 
-
  editingScreen.textContent=
   project
   .screens[i]
   ?.name||
   "None";
-
 
  renderComponents();
 
@@ -3869,10 +4392,8 @@ function addScreen(){
    "Screen name"
   );
 
-
  if(!n)
- return;
-
+  return;
 
  project.screens.push({
 
@@ -3883,10 +4404,8 @@ function addScreen(){
 
  });
 
-
  screenIndex=
   project.screens.length-1;
-
 
  saveProject();
 
@@ -3902,7 +4421,6 @@ function renameScreen(i){
    "New name",
    project.screens[i].name
   );
-
 
  if(n){
 
@@ -3932,12 +4450,10 @@ function removeScreen(i){
 
  }
 
-
  project.screens.splice(
   i,
   1
  );
-
 
  screenIndex=
   Math.max(
@@ -3947,7 +4463,6 @@ function removeScreen(i){
     project.screens.length-1
    )
   );
-
 
  saveProject();
 
@@ -3962,7 +4477,6 @@ function addFeature(){
   prompt(
    "Feature"
   );
-
 
  if(f){
 
@@ -3993,7 +4507,6 @@ function addComponent(){
   ||
   t;
 
-
  project
  .screens[
   screenIndex
@@ -4006,9 +4519,7 @@ function addComponent(){
   )
  );
 
-
  componentName.value="";
-
 
  saveProject();
 
@@ -4028,7 +4539,6 @@ function renderComponents(){
   ]
   .components;
 
-
  componentList.innerHTML=
   a.map(
    (c,i)=>
@@ -4038,42 +4548,31 @@ function renderComponents(){
     <b>
      ${esc(c.type)}
     </b>
-
     —
     ${esc(c.name)}
 
     <br>
 
     <small>
-
      X:${c.x}
      Y:${c.y}
      W:${c.width}%
      H:${c.height}
-
     </small>
 
     <br>
 
-    <button
-     class="blue"
-     onclick="editComponent(${i})">
-
+    <button class="blue" onclick="editComponent(${i})">
      ⚙️ Properties
-
     </button>
 
-    <button
-     class="red"
-     onclick="
-      project.screens[screenIndex].components.splice(${i},1);
-      saveProject();
-      renderComponents();
-      renderLive()
-     ">
-
+    <button class="red" onclick="
+     project.screens[screenIndex].components.splice(${i},1);
+     saveProject();
+     renderComponents();
+     renderLive()
+    ">
      Delete
-
     </button>
 
    </div>`
@@ -4087,7 +4586,6 @@ function editComponent(i){
 
  componentIndex=i;
 
-
  let c=
   project
   .screens[
@@ -4095,55 +4593,42 @@ function editComponent(i){
   ]
   .components[i];
 
-
  propBox.classList.remove(
   "hidden"
  );
 
-
  pName.value=
   c.name;
-
 
  pSize.value=
   c.fontSize;
 
-
  pWidth.value=
   c.width;
-
 
  pHeight.value=
   c.height;
 
-
  pX.value=
   c.x;
-
 
  pY.value=
   c.y;
 
-
  pTextColor.value=
   c.textColor;
-
 
  pBgColor.value=
   c.bgColor;
 
-
  pAlign.value=
   c.align;
-
 
  pAction.value=
   c.action;
 
-
  pActionValue.value=
   c.actionValue;
-
 
  pDataKey.value=
   c.dataKey;
@@ -4162,64 +4647,50 @@ function saveProperties(){
    componentIndex
   ];
 
-
  if(!c)
- return;
-
+  return;
 
  c.name=
   pName.value||
   c.name;
 
-
  c.fontSize=
   +pSize.value||
   16;
-
 
  c.width=
   +pWidth.value||
   100;
 
-
  c.height=
   +pHeight.value||
   45;
-
 
  c.x=
   +pX.value||
   0;
 
-
  c.y=
   +pY.value||
   0;
 
-
  c.textColor=
   pTextColor.value;
-
 
  c.bgColor=
   pBgColor.value;
 
-
  c.align=
   pAlign.value;
-
 
  c.action=
   pAction.value;
 
-
  c.actionValue=
   pActionValue.value;
 
-
  c.dataKey=
   pDataKey.value;
-
 
  saveProject();
 
@@ -4257,10 +4728,8 @@ function renderLive(){
    screenIndex
   ];
 
-
  if(!s)
- return;
-
+  return;
 
  live.style.backgroundImage=
   project.backgroundImage
@@ -4268,7 +4737,6 @@ function renderLive(){
   `url("${project.backgroundImage}")`
   :
   "none";
-
 
  let h=
 
@@ -4303,15 +4771,61 @@ function renderLive(){
  </div>`;
 
 
+ /*
+  Creator announcement is visible
+  to every app user when enabled.
+ */
+
+ if(
+  project.money?.withdrawalEnabled &&
+  project.announcement?.enabled &&
+  project.announcement?.message
+ ){
+
+  h+=`
+
+  <div class="announcement">
+
+   📢
+   <strong>
+    ${esc(
+     project.announcement.title||
+     "Announcement"
+    )}
+   </strong>
+
+   <br><br>
+
+   ${esc(
+    project.announcement.message
+   )}
+
+   ${
+    project.announcement.date
+    ?
+    `<br><br>
+     <b>
+      Payment Date:
+     </b>
+     ${esc(
+      project.announcement.date
+     )}`
+    :
+    ""
+   }
+
+  </div>`;
+
+ }
+
+
  s.components.forEach(
   (c,i)=>{
 
    let st=
 
    `
-
    font-size:${c.fontSize}px;
-
    width:${Math.min(
     100,
     Math.max(
@@ -4319,23 +4833,15 @@ function renderLive(){
      c.width
     )
    )}%;
-
-   min-height:
-   ${Math.max(
+   min-height:${Math.max(
     20,
     c.height
    )}px;
-
    color:${c.textColor};
-
    background:${c.bgColor};
-
    text-align:${c.align};
-
    margin-left:${c.x}px;
-
    margin-top:${c.y}px;
-
    `;
 
 
@@ -4466,7 +4972,6 @@ function renderLive(){
      ${esc(c.name)}
 
      <br>
-
      Selection • Odds • Stake
 
     </div>
@@ -4526,21 +5031,32 @@ function renderLive(){
     c.type==="Withdrawal"
    ){
 
-    h+=`
+    if(
+     project.money?.withdrawalEnabled
+    ){
 
-    <div
-     class="live"
-     style="${st}">
+     h+=`
 
-     💸 Withdrawal
+     <div
+      class="live"
+      style="${st}">
 
-     <br>
+      💸 Withdrawal
 
-     Monthly Request
+      <br>
 
-    </div>
+      ${esc(
+       project.money.cycle||
+       "Monthly"
+      )}
 
-    `;
+      Request
+
+     </div>
+
+     `;
+
+    }
 
    }
 
@@ -4558,8 +5074,7 @@ function renderLive(){
      📁
      ${esc(c.name)}
 
-     <input
-      type="file">
+     <input type="file">
 
     </div>
 
@@ -4606,7 +5121,6 @@ function componentAction(i){
   ]
   .components[i];
 
-
  if(
   c.action==="alert"
  ){
@@ -4629,7 +5143,6 @@ function componentAction(i){
      s.name.toLowerCase()===
      c.actionValue.toLowerCase()
    );
-
 
   if(x>=0)
    openScreen(x);
@@ -4654,7 +5167,14 @@ function componentAction(i){
   c.action==="withdraw"
  ){
 
-  requestWithdrawal();
+  if(
+   project.money?.withdrawalEnabled
+  )
+   requestWithdrawal();
+  else
+   alert(
+    "Withdrawal is not enabled in this app."
+   );
 
  }
 
@@ -4684,12 +5204,35 @@ function componentAction(i){
 MONEY
 ====================================================== */
 
+function moneyTypeChanged(){
+
+ /*
+  Money type does not automatically turn
+  withdrawal ON.
+ */
+
+ renderWithdrawalStatus();
+
+}
+
+
 function saveMoney(){
+
+ const creatorWantsWithdrawal=
+  withdrawalEnabled.value==="true";
+
+
+ /*
+  Creator explicitly selected withdrawal ON.
+ */
 
  project.money={
 
   type:
    moneyType.value,
+
+  withdrawalEnabled:
+   creatorWantsWithdrawal,
 
   cycle:
    withdrawCycle.value,
@@ -4703,11 +5246,106 @@ function saveMoney(){
  };
 
 
+ /*
+  If withdrawal is turned OFF,
+  remove active withdrawal screen/components.
+ */
+
+ if(
+  !creatorWantsWithdrawal
+ ){
+
+  project.screens=
+   project.screens.map(
+    s=>({
+
+     ...s,
+
+     components:
+      (s.components||[]).filter(
+       c=>
+        c.type!=="Withdrawal"
+      )
+
+    })
+   );
+
+ }
+
+
+ /*
+  If ON and no withdrawal screen exists,
+  add one.
+ */
+
+ else{
+
+  const exists=
+   project.screens.some(
+    s=>
+     s.name
+      .toLowerCase()
+      .includes(
+       "withdraw"
+      )
+   );
+
+  if(!exists){
+
+   project.screens.push({
+
+    name:
+     "Withdrawal",
+
+    components:
+     screenComponents(
+      "Withdrawal"
+     )
+
+   });
+
+  }
+
+ }
+
+
  saveProject();
 
+ renderWorkspace();
+
  alert(
-  "Money rules saved."
+  creatorWantsWithdrawal
+  ?
+  "Withdrawal system ON."
+  :
+  "Withdrawal system OFF. Is app mein automatic withdrawal nahi hoga."
  );
+
+}
+
+
+function renderWithdrawalStatus(){
+
+ const on=
+  project?.money?.withdrawalEnabled;
+
+ withdrawalStatus.innerHTML=
+
+  on
+
+  ?
+
+  `<div class="success">
+   💸 Withdrawal system is <b>ON</b>.
+   Creator has enabled withdrawal.
+  </div>`
+
+  :
+
+  `<div class="info">
+   🔒 Withdrawal system is <b>OFF</b>.
+   Creator ne withdrawal request/enable nahi kiya.
+  </div>`;
 
 }
 
@@ -4717,6 +5355,24 @@ WALLET
 ====================================================== */
 
 function renderWallet(){
+
+ if(!project)
+  return;
+
+ const withdrawalOn=
+  !!project.money?.withdrawalEnabled;
+
+
+ walletCard.classList.remove(
+  "hidden"
+ );
+
+
+ withdrawalArea.classList.toggle(
+  "hidden",
+  !withdrawalOn
+ );
+
 
  let earnings=
   project.earnings.reduce(
@@ -4799,47 +5455,56 @@ function renderWallet(){
 
  userWithdrawals.innerHTML=
 
-  project.withdrawals.length
+  withdrawalOn
 
   ?
 
-  project.withdrawals.map(
-   x=>
+  (
+   project.withdrawals.length
 
-   `<div class="item">
+   ?
 
-    <b>
-     ${esc(x.amount)}
-     Rs.
-    </b>
+   project.withdrawals.map(
+    x=>
 
-    —
-    ${esc(x.status)}
+    `<div class="item">
 
-    —
-    ${esc(x.requestDate)}
+     <b>
+      ${esc(x.amount)} Rs.
+     </b>
 
-    ${
-     x.receipt
-     ?
-     `<br>
-      🧾
-      <a
-       href="${x.receipt}"
-       target="_blank">
-       View Receipt
-      </a>`
-     :
-     ""
-    }
+     —
+     ${esc(x.status)}
 
-   </div>`
+     —
+     ${esc(x.requestDate)}
 
-  ).join("")
+     ${
+      x.receipt
+      ?
+      `<br>
+       🧾
+       <a
+        href="${x.receipt}"
+        target="_blank">
+        View Receipt
+       </a>`
+      :
+      ""
+     }
+
+    </div>`
+
+   ).join("")
+
+   :
+
+   "<div class='notice'>No withdrawals.</div>"
+  )
 
   :
 
-  "<div class='notice'>No withdrawals.</div>";
+  "<div class='info'>Withdrawal is disabled for this app.</div>";
 
 }
 
@@ -4852,7 +5517,6 @@ function requestDeposit(){
 
  let amount=
   +depositAmount.value;
-
 
  if(
   !(amount>0)
@@ -4896,7 +5560,6 @@ function requestDeposit(){
   amount
  );
 
-
  alert(
   "Deposit request recorded."
  );
@@ -4915,7 +5578,6 @@ function sendGift(){
 
  let amount=
   +giftAmount.value;
-
 
  if(
   !to||
@@ -4958,7 +5620,6 @@ function sendGift(){
 
  renderWallet();
 
-
  alert(
   "Gift transfer request recorded."
  );
@@ -4972,12 +5633,30 @@ WITHDRAWAL
 
 function requestWithdrawal(){
 
+ /*
+  HARD CHECK:
+  Never allow withdrawal unless creator
+  enabled it.
+ */
+
+ if(
+  !project?.money?.withdrawalEnabled
+ ){
+
+  alert(
+   "Withdrawal option is not enabled in this app."
+  );
+
+  return;
+
+ }
+
+
  let amount=
   +withdrawAmount.value;
 
  let account=
   withdrawAccount.value.trim();
-
 
  if(
   !(amount>0)||
@@ -4996,7 +5675,6 @@ function requestWithdrawal(){
  let now=
   new Date();
 
-
  let month=
   now.getFullYear()+
   "-" +
@@ -5007,11 +5685,6 @@ function requestWithdrawal(){
    "0"
   );
 
-
- /*
-  Only one withdrawal request
-  per user per month.
- */
 
  if(
   project.withdrawals.some(
@@ -5073,17 +5746,14 @@ function requestWithdrawal(){
   request
  );
 
-
  saveProject();
 
  renderWallet();
-
 
  sendAdminWhatsAppNotice(
   "withdrawal",
   request
  );
-
 
  alert(
   "Withdrawal request submitted."
@@ -5107,19 +5777,10 @@ async function sendAdminWhatsAppNotice(
    {}
   );
 
-
- /*
-  Production backend endpoint.
- */
-
  if(
   !cfg.apiBase
- ){
-
+ )
   return;
-
- }
-
 
  try{
 
@@ -5174,20 +5835,16 @@ function renderAdmin(){
  let projects=
   getProjects();
 
-
  let users=
   J(
    K.users,
    []
   );
 
-
  adminUsers.textContent=
   users.length;
 
-
  let all=[];
-
 
  projects.forEach(
   p=>
@@ -5210,16 +5867,13 @@ function renderAdmin(){
     x.status==="pending"
   ).length;
 
-
  adminPaid.textContent=
   all.filter(
    x=>
     x.status==="paid"
   ).length;
 
-
  let total=0;
-
 
  projects.forEach(
   p=>
@@ -5235,18 +5889,12 @@ function renderAdmin(){
    )
  );
 
-
  adminEarnings.textContent=
   "Rs. "+
   total.toFixed(2);
 
 
- /*
-  Monthly salary / earning list
- */
-
  let months={};
-
 
  projects.forEach(
   p=>
@@ -5267,7 +5915,6 @@ function renderAdmin(){
       ||
       "Unknown";
 
-
      let key=
       (
        e.userName||
@@ -5277,7 +5924,6 @@ function renderAdmin(){
       +
       "|"+
       m;
-
 
      months[key]=
       (
@@ -5312,7 +5958,6 @@ function renderAdmin(){
     ]=
      k.split("|");
 
-
     return`
 
     <div class="item">
@@ -5323,9 +5968,7 @@ function renderAdmin(){
 
      —
      ${esc(m)}
-
      —
-
      <strong>
       Rs. ${v.toFixed(2)}
      </strong>
@@ -5339,10 +5982,6 @@ function renderAdmin(){
 
   "<div class='notice'>No earning records.</div>";
 
-
- /*
-  Withdrawal requests
- */
 
  adminWithdrawals.innerHTML=
 
@@ -5395,16 +6034,14 @@ function renderAdmin(){
       <a
        href="${w.receipt}"
        target="_blank">
-
        View Receipt
-
       </a>`
 
      :
 
      ""
-    }
 
+    }
 
     ${
      w.status==="pending"
@@ -5471,14 +6108,11 @@ function uploadReceipt(
  let file=
   input.files[0];
 
-
  if(!file)
- return;
-
+  return;
 
  let reader=
   new FileReader();
-
 
  reader.onload=
  function(){
@@ -5486,51 +6120,39 @@ function uploadReceipt(
   let projects=
    getProjects();
 
-
   let p=
    projects.find(
     x=>x.id===pid
    );
 
-
   if(!p)
-  return;
-
+   return;
 
   let w=
    p.withdrawals.find(
     x=>x.id===wid
    );
 
-
   if(!w)
-  return;
-
-
-  /*
-   Prototype stores receipt locally.
-   Production should use secure storage.
-  */
+   return;
 
   w.receipt=
    reader.result;
-
 
   S(
    K.projects,
    projects
   );
 
+  backupAllStorage();
 
   renderAdmin();
-
 
   alert(
    "Receipt attached."
   );
 
  };
-
 
  reader.readAsDataURL(
   file
@@ -5551,26 +6173,21 @@ function markPaid(
  let projects=
   getProjects();
 
-
  let p=
   projects.find(
    x=>x.id===pid
   );
 
-
  if(!p)
- return;
-
+  return;
 
  let w=
   p.withdrawals.find(
    x=>x.id===wid
   );
 
-
  if(!w)
- return;
-
+  return;
 
  if(!w.receipt){
 
@@ -5582,23 +6199,20 @@ function markPaid(
 
  }
 
-
  w.status=
   "paid";
 
-
  w.paidDate=
   new Date().toISOString();
-
 
  S(
   K.projects,
   projects
  );
 
+ backupAllStorage();
 
  renderAdmin();
-
 
  if(
   project&&
@@ -5610,7 +6224,6 @@ function markPaid(
   renderWallet();
 
  }
-
 
  alert(
   "Withdrawal marked Paid."
@@ -5648,6 +6261,7 @@ function saveIntegrations(){
   }
  );
 
+ backupAllStorage();
 
  alert(
   "Configuration saved."
@@ -5664,20 +6278,343 @@ function renderIntegrations(){
    {}
   );
 
-
  apiBase.value=
   x.apiBase||
   "";
-
 
  waNumber.value=
   x.waNumber||
   "";
 
-
  paymentPublic.value=
   x.paymentPublic||
   "";
+
+}
+
+
+/* ======================================================
+GUIDES / MENU
+====================================================== */
+
+function showHelp(type){
+
+ let p=
+  project||
+  null;
+
+ let guides=
+  p?.guides||{
+
+   how:
+    "Open the app, create an account and follow the instructions shown on each screen.",
+
+   earn:
+    "Follow the creator's earning instructions.",
+
+   withdraw:
+    "Withdrawal depends on the creator's configured withdrawal system.",
+
+   wallet:
+    "Wallet shows the available money information.",
+
+   faq:
+    "Check the app instructions or contact support.",
+
+   support:
+    "Contact the creator/app support team."
+
+  };
+
+
+ const titles={
+
+  how:"📖 How To Use",
+
+  earn:"💰 How To Earn",
+
+  withdraw:"💸 Withdrawal",
+
+  wallet:"👛 Wallet",
+
+  faq:"❓ FAQ",
+
+  support:"🆘 Support"
+
+ };
+
+
+ helpContent.classList.remove(
+  "hidden"
+ );
+
+ helpContent.innerHTML=
+
+ `<h3>
+  ${titles[type]}
+ </h3>
+
+ <p>
+  ${esc(
+   guides[type]||
+   "No information available."
+  )}
+ </p>
+
+ ${
+  type==="withdraw"&&
+  p?.money?.withdrawalEnabled
+  ?
+  `<div class="success">
+   Withdrawal system is enabled.
+  </div>`
+  :
+  ""
+ }
+
+ ${
+  type==="withdraw"&&
+  p&&
+  !p.money?.withdrawalEnabled
+  ?
+  `<div class="info">
+   Withdrawal is not enabled in this app.
+  </div>`
+  :
+  ""
+ }`;
+
+}
+
+
+function editUserGuide(type){
+
+ if(!project)
+  return;
+
+ const titles={
+
+  how:"📖 How To Use",
+
+  earn:"💰 How To Earn",
+
+  withdraw:"💸 Withdrawal",
+
+  wallet:"👛 Wallet",
+
+  faq:"❓ FAQ",
+
+  support:"🆘 Support"
+
+ };
+
+ guideEditor.innerHTML=
+
+ `<div class="item">
+
+  <h3>
+   ${titles[type]}
+  </h3>
+
+  <textarea
+   id="guideText"
+   rows="5">${esc(
+    project.guides[type]||
+    ""
+   )}</textarea>
+
+  <button
+   class="green"
+   onclick="
+    project.guides['${type}']=
+    document.getElementById('guideText').value;
+    saveProject();
+    renderWorkspace();
+   ">
+
+   💾 Save Guide
+
+  </button>
+
+ </div>`;
+
+}
+
+
+/* ======================================================
+ANNOUNCEMENT
+====================================================== */
+
+function saveAnnouncement(){
+
+ normalizeProject();
+
+ project.announcement={
+
+  enabled:
+   announcementEnabled.value==="true",
+
+  title:
+   announcementTitle.value.trim(),
+
+  date:
+   announcementDate.value,
+
+  message:
+   announcementMessage.value.trim()
+
+ };
+
+
+ /*
+  Announcement is meaningful for
+  earning + withdrawal apps.
+ */
+
+ saveProject();
+
+ renderAnnouncementEditor();
+
+ renderLive();
+
+ renderHome();
+
+ alert(
+  "Creator announcement saved. Enabled announcement users ko show hogi."
+ );
+
+}
+
+
+function renderAnnouncementEditor(){
+
+ if(!project)
+  return;
+
+ normalizeProject();
+
+ announcementEnabled.value=
+  project.announcement.enabled
+  ?
+  "true"
+  :
+  "false";
+
+ announcementTitle.value=
+  project.announcement.title||
+  "";
+
+ announcementDate.value=
+  project.announcement.date||
+  "";
+
+ announcementMessage.value=
+  project.announcement.message||
+  "";
+
+ announcementPreview.innerHTML=
+
+  project.money.withdrawalEnabled&&
+  project.announcement.enabled
+
+  ?
+
+  `<div class="announcement">
+
+   📢
+   <strong>
+    ${esc(
+     project.announcement.title||
+     "Withdrawal Announcement"
+    )}
+   </strong>
+
+   <br><br>
+
+   ${esc(
+    project.announcement.message||
+    "Creator has not written an announcement yet."
+   )}
+
+   ${
+    project.announcement.date
+    ?
+    `<br><br>
+     <b>
+      Payment Date:
+     </b>
+     ${esc(
+      project.announcement.date
+     )}`
+    :
+    ""
+   }
+
+  </div>`
+
+  :
+
+  `<div class="info">
+   Announcement is currently OFF or withdrawal is disabled.
+  </div>`;
+
+}
+
+
+function renderHomeAnnouncement(){
+
+ let p=
+  getProjects().find(
+   x=>
+    x.ownerId===user.id
+  );
+
+ if(
+  p&&
+  p.money?.withdrawalEnabled&&
+  p.announcement?.enabled
+ ){
+
+  homeAnnouncement.innerHTML=
+
+   `<div class="announcement">
+
+    📢
+    <strong>
+     ${esc(
+      p.announcement.title||
+      "Announcement"
+     )}
+    </strong>
+
+    <br><br>
+
+    ${esc(
+     p.announcement.message||
+     ""
+    )}
+
+    ${
+     p.announcement.date
+     ?
+     `<br><br>
+      <b>
+       Payment Date:
+      </b>
+      ${esc(
+       p.announcement.date
+      )}`
+     :
+     ""
+    }
+
+   </div>`;
+
+ }else{
+
+  homeAnnouncement.innerHTML="";
+
+ }
 
 }
 
@@ -5715,6 +6652,42 @@ function renderSettings(){
 }
 
 
+function deleteAccount(){
+
+ if(
+  !confirm(
+   "Delete account and your projects?"
+  )
+ )
+  return;
+
+ S(
+  K.users,
+
+  J(
+   K.users,
+   []
+  ).filter(
+   x=>x.id!==user.id
+  )
+ );
+
+ S(
+  K.projects,
+
+  J(
+   K.projects,
+   []
+  ).filter(
+   x=>x.ownerId!==user.id
+  )
+ );
+
+ logout();
+
+}
+
+
 /* ======================================================
 HOME
 ====================================================== */
@@ -5727,29 +6700,42 @@ function renderHome(){
     x.ownerId===user.id
   );
 
-
  homeIcon.src=
   p?.appIcon||
   "";
+
+ renderHomeAnnouncement();
 
 }
 
 
 /* ======================================================
-EXPORT
+EXPORT PROJECT
 ====================================================== */
 
 function exportProject(){
 
  if(!project)
- return;
+  return;
+
+ const exportData={
+
+  exportVersion:"6.0",
+
+  exportedAt:
+   new Date().toISOString(),
+
+  project:
+   project
+
+ };
 
 
  let blob=
   new Blob(
    [
     JSON.stringify(
-     project,
+     exportData,
      null,
      2
     )
@@ -5760,18 +6746,15 @@ function exportProject(){
    }
   );
 
-
  let a=
   document.createElement(
    "a"
   );
 
-
  a.href=
   URL.createObjectURL(
    blob
   );
-
 
  a.download=
   (
@@ -5783,12 +6766,261 @@ function exportProject(){
    "_"
   )
   +
-  ".json";
+  "_backup.json";
 
+ a.click();
+
+ setTimeout(
+  ()=>{
+   URL.revokeObjectURL(
+    a.href
+   );
+  },
+  1000
+ );
+
+}
+
+
+function exportAllData(){
+
+ const data={
+
+  version:"6.0",
+
+  exportedAt:
+   new Date().toISOString(),
+
+  user:user,
+
+  projects:
+   getProjects().filter(
+    x=>
+     x.ownerId===user.id
+   ),
+
+  settings:
+   J(
+    K.settings,
+    {}
+   ),
+
+  integrations:
+   J(
+    K.integrations,
+    {}
+
+   )
+
+ };
+
+
+ let blob=
+  new Blob(
+   [
+    JSON.stringify(
+     data,
+     null,
+     2
+    )
+   ],
+   {
+    type:
+     "application/json"
+   }
+  );
+
+ let a=
+  document.createElement(
+   "a"
+  );
+
+ a.href=
+  URL.createObjectURL(
+   blob
+  );
+
+ a.download=
+  "SamiApp_All_Data_Backup.json";
 
  a.click();
 
 }
+
+
+/* ======================================================
+AUTOSAVE
+====================================================== */
+
+let autoSaveTimer=null;
+
+function scheduleAutoSave(){
+
+ clearTimeout(
+  autoSaveTimer
+ );
+
+ autoSaveTimer=
+  setTimeout(
+   ()=>{
+
+    if(project){
+
+     saveProject();
+
+    }
+
+   },
+   500
+  );
+
+}
+
+
+/*
+ Save whenever user changes editable fields.
+ */
+
+document.addEventListener(
+ "input",
+ function(e){
+
+  if(
+   e.target.matches(
+    "input,textarea,select"
+   )
+ ){
+
+  if(
+   project &&
+   !e.target.id.startsWith(
+    "login"
+   ) &&
+   !e.target.id.startsWith(
+    "signup"
+   )
+  ){
+
+   scheduleAutoSave();
+
+  }
+
+ }
+
+ }
+);
+
+
+/*
+ Save when browser is closed/backgrounded.
+ */
+
+window.addEventListener(
+ "beforeunload",
+ function(){
+
+  if(project){
+
+   saveProject();
+
+  }
+
+  backupAllStorage();
+
+ }
+);
+
+
+/*
+ Save when page becomes hidden.
+ */
+
+document.addEventListener(
+ "visibilitychange",
+ function(){
+
+  if(
+   document.visibilityState==="hidden"
+  ){
+
+   if(project)
+    saveProject();
+
+   backupAllStorage();
+
+  }
+
+ });
+
+
+/* ======================================================
+PERIODIC RECOVERY BACKUP
+====================================================== */
+
+setInterval(
+ function(){
+
+  try{
+
+   if(project){
+
+    saveProject();
+
+   }
+
+   backupAllStorage();
+
+  }catch(e){}
+
+ },
+ 30000
+);
+
+
+/* ======================================================
+SERVICE-WORKER STYLE OFFLINE NOTICE
+====================================================== */
+
+window.addEventListener(
+ "online",
+ function(){
+
+  updateAutosave(
+   "🌐 Online"
+  );
+
+ });
+
+
+window.addEventListener(
+ "offline",
+ function(){
+
+  updateAutosave(
+   "📴 Offline — Local mode"
+  );
+
+ });
+
+
+/* ======================================================
+INITIAL ONLINE/OFFLINE STATUS
+====================================================== */
+
+setTimeout(
+ function(){
+
+  updateAutosave(
+   navigator.onLine
+   ?
+   "🌐 Online"
+   :
+   "📴 Offline — Local mode"
+  );
+
+ },
+ 100
+);
 
 </script>
 
