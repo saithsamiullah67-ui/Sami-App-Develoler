@@ -7,106 +7,305 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
  margin:0;
  font-family:Arial,sans-serif;
  background:#f4f7fb;
  color:#172033
 }
+
 button,input,textarea,select{font:inherit}
+
 button{
- border:0;border-radius:10px;padding:11px 15px;
- background:#0b1f3a;color:#fff;cursor:pointer;margin:4px
+ border:0;
+ border-radius:10px;
+ padding:11px 15px;
+ background:#0b1f3a;
+ color:#fff;
+ cursor:pointer;
+ margin:4px
 }
+
 button:hover{opacity:.9}
+
 .green{background:#138a4b}
 .red{background:#c62828}
 .blue{background:#1769aa}
 .orange{background:#d97706}
 .purple{background:#6d28d9}
 .gray{background:#64748b}
+
 header{
- background:#0b1f3a;color:white;padding:17px;
- text-align:center;font-size:23px;font-weight:bold
+ background:#0b1f3a;
+ color:white;
+ padding:17px;
+ text-align:center;
+ font-size:23px;
+ font-weight:bold
 }
-.container{max-width:1000px;margin:auto;padding:15px}
+
+.container{
+ max-width:1050px;
+ margin:auto;
+ padding:15px
+}
+
 .card{
- background:#fff;padding:18px;margin-bottom:18px;
- border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.08)
+ background:#fff;
+ padding:18px;
+ margin-bottom:18px;
+ border-radius:15px;
+ box-shadow:0 5px 20px rgba(0,0,0,.08)
 }
+
 .hidden{display:none!important}
+
 input,textarea,select{
- width:100%;padding:12px;border:1px solid #ccd3df;
- border-radius:10px;margin:6px 0 12px;background:#fff
+ width:100%;
+ padding:12px;
+ border:1px solid #ccd3df;
+ border-radius:10px;
+ margin:6px 0 12px;
+ background:#fff
 }
-label{font-weight:bold;display:block;margin-top:7px}
-h1,h2,h3{margin-top:0}
+
+label{
+ font-weight:bold;
+ display:block;
+ margin-top:7px
+}
+
 .notice{
- background:#fff7d6;padding:12px;border-radius:10px;margin:10px 0
+ background:#fff7d6;
+ padding:12px;
+ border-radius:10px;
+ margin:10px 0
 }
-.success{background:#dcfce7;color:#166534;padding:10px;border-radius:10px}
-.warning{background:#fef3c7;padding:10px;border-radius:10px}
-.item{
- background:#eef3f9;padding:12px;margin:7px 0;
+
+.success{
+ background:#dcfce7;
+ color:#166534;
+ padding:10px;
  border-radius:10px
 }
+
+.warning{
+ background:#fef3c7;
+ padding:10px;
+ border-radius:10px
+}
+
+.item{
+ background:#eef3f9;
+ padding:12px;
+ margin:7px 0;
+ border-radius:10px
+}
+
 .row{
- display:flex;flex-wrap:wrap;gap:5px;align-items:center
+ display:flex;
+ flex-wrap:wrap;
+ gap:5px;
+ align-items:center
 }
+
 .row>*{flex:1}
+
 .nav{
- display:flex;flex-wrap:wrap;gap:4px;
- background:#fff;padding:8px;border-radius:12px;
- margin-bottom:15px;position:sticky;top:0;z-index:20
+ display:flex;
+ flex-wrap:wrap;
+ gap:4px;
+ background:#fff;
+ padding:8px;
+ border-radius:12px;
+ margin-bottom:15px;
+ position:sticky;
+ top:0;
+ z-index:20
 }
+
 .badge{
- display:inline-block;padding:5px 9px;border-radius:20px;
- background:#e3edf9;margin:3px;font-size:12px
+ display:inline-block;
+ padding:5px 9px;
+ border-radius:20px;
+ background:#e3edf9;
+ margin:3px;
+ font-size:12px
 }
+
 .preview{
- background:#111827;color:white;border-radius:20px;
- padding:15px;min-height:300px
+ background:#111827;
+ color:white;
+ border-radius:20px;
+ padding:15px;
+ min-height:300px
 }
+
 .mobile{
- width:100%;max-width:370px;min-height:560px;
- margin:auto;background:#fff;color:#172033;
- border:8px solid #111827;border-radius:28px;
- padding:15px;overflow:hidden;position:relative
+ width:100%;
+ max-width:380px;
+ min-height:620px;
+ margin:auto;
+ background:#fff;
+ color:#172033;
+ border:8px solid #111827;
+ border-radius:30px;
+ overflow:hidden;
+ position:relative;
+ box-shadow:0 15px 40px rgba(0,0,0,.25)
 }
+
+.mobile-inner{
+ min-height:604px;
+ padding:14px;
+ background-size:cover;
+ background-position:center;
+ background-repeat:no-repeat
+}
+
+.screen-title{
+ background:rgba(255,255,255,.9);
+ padding:10px;
+ border-radius:10px;
+ text-align:center;
+ font-weight:bold;
+ margin-bottom:10px
+}
+
 .live{
- padding:10px;margin:8px 0;border-radius:9px;
+ padding:10px;
+ margin:8px 0;
+ border-radius:9px;
  word-break:break-word
 }
+
 .screen{
- background:#eef3f9;padding:11px;margin:7px 0;
- border-radius:10px;display:flex;justify-content:space-between;
- align-items:center;gap:6px
+ background:#eef3f9;
+ padding:12px;
+ margin:7px 0;
+ border-radius:10px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:6px
 }
-.screen-name{flex:1;font-weight:bold;cursor:pointer}
+
+.screen-name{
+ flex:1;
+ font-weight:bold;
+ cursor:pointer
+}
+
 .editor{
- border:1px solid #d9e0ea;background:#f8fafc;
- padding:12px;border-radius:11px;margin:8px 0
+ border:1px solid #d9e0ea;
+ background:#f8fafc;
+ padding:12px;
+ border-radius:11px;
+ margin:8px 0
 }
+
 .properties{
- background:#eef3f9;padding:14px;border-radius:12px;margin-top:12px
+ background:#eef3f9;
+ padding:14px;
+ border-radius:12px;
+ margin-top:12px
 }
+
 .stat{
- background:#f8fafc;border:1px solid #e2e8f0;
- padding:14px;border-radius:12px;flex:1;min-width:130px
+ background:#f8fafc;
+ border:1px solid #e2e8f0;
+ padding:14px;
+ border-radius:12px;
+ flex:1;
+ min-width:130px
 }
+
 .auth{
- max-width:480px;margin:45px auto
+ max-width:480px;
+ margin:35px auto
 }
+
 .logo{
- text-align:center;font-size:38px;margin-bottom:5px
+ text-align:center;
+ font-size:38px;
+ margin-bottom:5px
 }
-.muted{color:#64748b;font-size:13px}
-hr{border:0;border-top:1px solid #e2e8f0;margin:15px 0}
-table{width:100%;border-collapse:collapse}
-td,th{border:1px solid #dbe2ea;padding:8px;text-align:left}
+
+.app-icon{
+ width:82px;
+ height:82px;
+ border-radius:20px;
+ object-fit:cover;
+ display:block;
+ margin:8px auto;
+ background:#e5e7eb
+}
+
+.brand{
+ text-align:center;
+ font-weight:bold;
+ font-size:19px;
+ color:#0b1f3a
+}
+
+.muted{
+ color:#64748b;
+ font-size:13px
+}
+
+hr{
+ border:0;
+ border-top:1px solid #e2e8f0;
+ margin:15px 0
+}
+
+table{
+ width:100%;
+ border-collapse:collapse
+}
+
+td,th{
+ border:1px solid #dbe2ea;
+ padding:8px;
+ text-align:left
+}
+
 .codebox{
- background:#0f172a;color:#e2e8f0;padding:12px;
- border-radius:10px;overflow:auto;white-space:pre-wrap
+ background:#0f172a;
+ color:#e2e8f0;
+ padding:12px;
+ border-radius:10px;
+ overflow:auto;
+ white-space:pre-wrap
+}
+
+.upload-box{
+ border:2px dashed #b7c1d1;
+ padding:18px;
+ border-radius:14px;
+ text-align:center;
+ background:#f8fafc;
+ margin:8px 0
+}
+
+.upload-preview{
+ max-width:150px;
+ max-height:150px;
+ border-radius:15px;
+ object-fit:cover;
+ margin:8px auto;
+ display:block
+}
+
+.ai-tag{
+ background:#ede9fe;
+ color:#5b21b6;
+ padding:5px 9px;
+ border-radius:20px;
+ font-size:12px;
+ display:inline-block;
+ margin:3px
 }
 </style>
 </head>
@@ -115,99 +314,209 @@ td,th{border:1px solid #dbe2ea;padding:8px;text-align:left}
 
 <header>🚀 Sami App Developer</header>
 
-<!-- AUTH -->
+
+<!-- =====================================================
+     AUTH
+===================================================== -->
+
 <div id="authPage" class="container">
+
 <div class="card auth">
 
-<div class="logo">🚀</div>
-<h1 style="text-align:center">Sami App Developer</h1>
-<p style="text-align:center">AI Powered App Builder</p>
+<div id="authIconBox">
+ <div class="logo">🚀</div>
+</div>
+
+<div class="brand">Sami App Developer</div>
+
+<p style="text-align:center">
+AI Powered App Builder
+</p>
+
+
+<!-- SIGNUP -->
 
 <div id="signupBox">
+
 <h2>📝 Create Account</h2>
 
-<input id="signupName" placeholder="Your Name">
-<input id="signupEmail" type="email" placeholder="Email">
-<input id="signupPassword" type="password" placeholder="Password">
-<input id="signupConfirm" type="password" placeholder="Confirm Password">
+<p class="muted">
+Create Account — Sami App Developer
+</p>
 
-<button class="green" style="width:100%" onclick="signup()">
+<input id="signupName" placeholder="Your Name">
+
+<input id="signupEmail"
+ type="email"
+ placeholder="Email">
+
+<input id="signupPassword"
+ type="password"
+ placeholder="Password">
+
+<input id="signupConfirm"
+ type="password"
+ placeholder="Confirm Password">
+
+<button class="green"
+ style="width:100%"
+ onclick="signup()">
 Create Account / Sign Up
 </button>
 
 <p style="text-align:center">
 Already have account?
-<button class="blue" onclick="showLogin()">Sign In</button>
+<button class="blue"
+ onclick="showLogin()">
+Sign In
+</button>
 </p>
+
 </div>
 
+
+<!-- LOGIN -->
+
 <div id="loginBox" class="hidden">
-<h2>🔐 Sign In</h2>
 
-<input id="loginEmail" type="email" placeholder="Email">
-<input id="loginPassword" type="password" placeholder="Password">
+<h2>🔐 Login</h2>
 
-<button class="green" style="width:100%" onclick="login()">
+<p class="muted">
+Login — Sami App Developer
+</p>
+
+<input id="loginEmail"
+ type="email"
+ placeholder="Email">
+
+<input id="loginPassword"
+ type="password"
+ placeholder="Password">
+
+<button class="green"
+ style="width:100%"
+ onclick="login()">
 Sign In / Login
 </button>
 
 <p style="text-align:center">
 New user?
-<button class="blue" onclick="showSignup()">Create Account</button>
+<button class="blue"
+ onclick="showSignup()">
+Create Account
+</button>
 </p>
+
 </div>
 
 </div>
 </div>
 
 
-<!-- MAIN -->
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <div id="mainPage" class="hidden">
 
 <div class="container">
 
 <div class="nav">
+
 <button onclick="showHome()">🏠 Home</button>
+
 <button onclick="showBuilder()">🤖 AI Create</button>
+
 <button onclick="showProjects()">📂 My Projects</button>
+
 <button onclick="showTemplates()">🧩 Templates</button>
+
 <button onclick="showIntegrations()">🔌 Integrations</button>
+
 <button onclick="showSettings()">⚙️ Settings</button>
-<button class="red" onclick="logout()">Logout</button>
+
+<button class="red"
+ onclick="logout()">
+Logout
+</button>
+
 </div>
 
 
-<!-- HOME -->
+<!-- =====================================================
+     HOME
+===================================================== -->
+
 <div id="homePage">
 
 <div class="card">
-<h1>👋 Welcome to Sami App Developer</h1>
-<p>
-Apna idea likhein aur AI-style builder ko batayein ke aap kis qisam ki app banana chahte hain.
+
+<img id="homeAppIcon"
+ class="app-icon"
+ src=""
+ alt="App Icon">
+
+<div class="brand">
+Sami App Developer
+</div>
+
+<h1 style="text-align:center">
+Welcome 👋
+</h1>
+
+<p style="text-align:center">
+AI Powered App Builder
 </p>
 
-<button class="green" onclick="showBuilder()">
+<div class="notice">
+Apna app idea likhein. AI automatically complete app structure,
+screens aur components design karega.
+</div>
+
+<button class="green"
+ onclick="showBuilder()">
 🤖 Create App With AI
 </button>
 
-<button class="blue" onclick="showProjects()">
+<button class="blue"
+ onclick="showProjects()">
 📂 My Projects
 </button>
+
 </div>
 
+
 <div class="card">
-<h2>✨ Platform Capabilities</h2>
+
+<h2>✨ Builder Capabilities</h2>
 
 <div class="row">
-<div class="stat"><b>🤖 AI Builder</b><br>Idea based architecture</div>
-<div class="stat"><b>🔐 Accounts</b><br>Persistent login</div>
-<div class="stat"><b>💾 Data</b><br>Project storage</div>
-<div class="stat"><b>💰 Monetization</b><br>Earning architecture</div>
+
+<div class="stat">
+<b>🤖 AI Designer</b><br>
+Automatic screens
+</div>
+
+<div class="stat">
+<b>📱 UI</b><br>
+Automatic components
+</div>
+
+<div class="stat">
+<b>🖼️ Branding</b><br>
+Icon + background
+</div>
+
+<div class="stat">
+<b>✏️ Editor</b><br>
+Full customization
+</div>
+
 </div>
 
 <br>
 
-<div>
 <span class="badge">📱 Mobile Apps</span>
 <span class="badge">🌐 Web Apps</span>
 <span class="badge">💬 Chat</span>
@@ -218,150 +527,309 @@ Apna idea likhein aur AI-style builder ko batayein ke aap kis qisam ki app banan
 <span class="badge">💳 Payments</span>
 <span class="badge">📢 Ads</span>
 <span class="badge">🔔 Notifications</span>
-<span class="badge">📊 Dashboard</span>
-<span class="badge">🗄️ Database</span>
-</div>
+
 </div>
 
 </div>
 
 
-<!-- BUILDER -->
+<!-- =====================================================
+     AI BUILDER
+===================================================== -->
+
 <div id="builderPage" class="hidden">
 
 <div class="card">
+
 <button onclick="showHome()">⬅️ Back</button>
 
 <h1>🤖 AI App Creator</h1>
 
 <div class="notice">
-Apni app ko normal language mein describe karein. Builder requirement ko analyze karke screens, features aur backend requirements suggest karega.
+
+<strong>Automatic AI Screen Designer</strong><br>
+
+Aap sirf app ka idea batayein.
+AI automatically:
+
+<br>✅ Required screens banayega
+<br>✅ Har screen ke required components add karega
+<br>✅ Signup/Login/Home branding karega
+<br>✅ App icon adjust karega
+<br>✅ Background image adjust karega
+<br>✅ Features ke mutabiq UI banayega
+<br>✅ Aap ko baad mein edit karne dega
+
 </div>
 
-<textarea id="appDemand" rows="7"
-placeholder="Example:
-Mujhe GPS Map Camera app chahiye jisme GPS location, camera, map, date/time, history, user login aur AdMob earning ho."></textarea>
+
+<textarea id="appDemand"
+ rows="7"
+ placeholder="Example:
+Mujhe GPS Map Camera app chahiye jisme GPS location,
+camera, map, date/time, history, user login aur AdMob earning ho.">
+</textarea>
+
+
+<h2>🎨 App Branding</h2>
+
+
+<div class="upload-box">
+
+<h3>1️⃣ App Icon Image</h3>
+
+<p class="muted">
+AI is image ko automatically square/circular app-icon
+preview mein adjust karega.
+</p>
+
+<input id="appIconInput"
+ type="file"
+ accept="image/*"
+ onchange="handleAppIcon(event)">
+
+<img id="appIconPreview"
+ class="upload-preview hidden"
+ alt="App Icon Preview">
+
+</div>
+
+
+<div class="upload-box">
+
+<h3>2️⃣ Screen Background Image</h3>
+
+<p class="muted">
+AI image ko automatically cover/center/fit karke screens par
+apply karega.
+</p>
+
+<input id="backgroundInput"
+ type="file"
+ accept="image/*"
+ onchange="handleBackgroundImage(event)">
+
+<img id="backgroundPreview"
+ class="upload-preview hidden"
+ alt="Background Preview">
+
+</div>
+
 
 <div class="row">
-<button class="green" onclick="analyzeApp()">🔍 Analyze Idea</button>
-<button class="purple" onclick="createAIProject()">🚀 Create App</button>
+
+<button class="green"
+ onclick="analyzeApp()">
+🔍 Analyze & Auto Design
+</button>
+
+<button class="purple"
+ onclick="createAIProject()">
+🚀 Create Complete App
+</button>
+
 </div>
+
 </div>
 
-<div id="analysisBox" class="card hidden">
-<h2>🧠 AI Requirement Analysis</h2>
 
-<h3>Detected Features</h3>
-<div id="analysisFeatures"></div>
+<div id="analysisBox"
+ class="card hidden">
 
-<h3>Recommended Screens</h3>
+<h2>🧠 AI Automatic Design</h2>
+
+<h3>📱 Screens AI Will Create</h3>
 <div id="analysisScreens"></div>
 
-<h3>Backend / Services</h3>
+<h3>🧩 Components AI Will Add</h3>
+<div id="analysisComponents"></div>
+
+<h3>⚡ Detected Features</h3>
+<div id="analysisFeatures"></div>
+
+<h3>☁️ Backend Requirements</h3>
 <div id="analysisBackend"></div>
 
-<h3>Monetization</h3>
+<h3>💰 Monetization</h3>
 <div id="analysisMoney"></div>
 
-<button class="green" onclick="createAIProject()">
-🚀 Create Project From Analysis
+<button class="green"
+ onclick="createAIProject()">
+🚀 Create Complete AI Designed App
 </button>
-</div>
 
 </div>
 
+</div>
 
-<!-- PROJECTS -->
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
 <div id="projectsPage" class="hidden">
 
 <div class="card">
+
 <button onclick="showHome()">⬅️ Back</button>
+
 <h1>📂 My Projects</h1>
 
-<button class="green" onclick="showBuilder()">➕ New Project</button>
+<button class="green"
+ onclick="showBuilder()">
+➕ New Project
+</button>
 
 <div id="projectsList"></div>
-</div>
 
 </div>
 
+</div>
 
-<!-- TEMPLATES -->
+
+<!-- =====================================================
+     TEMPLATES
+===================================================== -->
+
 <div id="templatesPage" class="hidden">
 
 <div class="card">
+
 <button onclick="showHome()">⬅️ Back</button>
+
 <h1>🧩 App Templates</h1>
 
 <div id="templateList"></div>
-</div>
 
 </div>
 
+</div>
 
-<!-- INTEGRATIONS -->
+
+<!-- =====================================================
+     INTEGRATIONS
+===================================================== -->
+
 <div id="integrationsPage" class="hidden">
 
 <div class="card">
+
 <button onclick="showHome()">⬅️ Back</button>
 
 <h1>🔌 Services & Integrations</h1>
 
 <div class="notice">
-External services require their own account, credentials and authorization.
-Sami App Developer does not bypass provider security.
+External services require their own account, credentials
+and authorization.
 </div>
 
+
 <div class="item">
+
 <h3>🔥 Firebase</h3>
-<p>Authentication, Firestore database, Storage and notifications.</p>
-<input id="firebaseConfig" placeholder="Firebase config / project information">
-<button class="green" onclick="saveIntegration('Firebase')">💾 Save Firebase Setup</button>
+
+<input id="firebaseConfig"
+ placeholder="Firebase configuration">
+
+<button class="green"
+ onclick="saveIntegration('Firebase')">
+💾 Save Firebase
+</button>
+
 </div>
 
+
 <div class="item">
+
 <h3>🔑 Google Sign-In</h3>
-<input id="googleConfig" placeholder="Google Client ID / configuration">
-<button class="green" onclick="saveIntegration('Google')">💾 Save Google Setup</button>
+
+<input id="googleConfig"
+ placeholder="Google Client ID">
+
+<button class="green"
+ onclick="saveIntegration('Google')">
+💾 Save Google
+</button>
+
 </div>
 
+
 <div class="item">
+
 <h3>📢 Google AdMob</h3>
-<input id="admobConfig" placeholder="AdMob App ID / Ad Unit IDs">
-<button class="green" onclick="saveIntegration('AdMob')">💾 Save AdMob Setup</button>
+
+<input id="admobConfig"
+ placeholder="AdMob App ID / Ad Unit IDs">
+
+<button class="green"
+ onclick="saveIntegration('AdMob')">
+💾 Save AdMob
+</button>
+
 </div>
 
+
 <div class="item">
+
 <h3>💳 Payment Provider</h3>
-<input id="paymentConfig" placeholder="Payment provider configuration">
-<button class="green" onclick="saveIntegration('Payments')">💾 Save Payment Setup</button>
+
+<input id="paymentConfig"
+ placeholder="Payment configuration">
+
+<button class="green"
+ onclick="saveIntegration('Payments')">
+💾 Save Payment
+</button>
+
 </div>
 
+
 <div class="item">
+
 <h3>🗺️ Maps / Location</h3>
-<input id="mapsConfig" placeholder="Maps/API configuration">
-<button class="green" onclick="saveIntegration('Maps')">💾 Save Maps Setup</button>
+
+<input id="mapsConfig"
+ placeholder="Maps API configuration">
+
+<button class="green"
+ onclick="saveIntegration('Maps')">
+💾 Save Maps
+</button>
+
 </div>
+
 
 <div class="item">
+
 <h3>📱 SMS / OTP</h3>
-<input id="smsConfig" placeholder="SMS provider configuration">
-<button class="green" onclick="saveIntegration('SMS')">💾 Save SMS Setup</button>
-</div>
+
+<input id="smsConfig"
+ placeholder="SMS provider configuration">
+
+<button class="green"
+ onclick="saveIntegration('SMS')">
+💾 Save SMS
+</button>
 
 </div>
 
 </div>
 
+</div>
 
-<!-- SETTINGS -->
+
+<!-- =====================================================
+     SETTINGS
+===================================================== -->
+
 <div id="settingsPage" class="hidden">
 
 <div class="card">
+
 <button onclick="showHome()">⬅️ Back</button>
+
 <h1>⚙️ Settings</h1>
 
-<h3>👤 Account</h3>
 <div id="accountInfo"></div>
 
 <hr>
@@ -369,102 +837,247 @@ Sami App Developer does not bypass provider security.
 <h3>🎨 Builder Defaults</h3>
 
 <select id="defaultTheme">
+
 <option value="light">Light</option>
 <option value="dark">Dark</option>
 <option value="blue">Blue</option>
+
 </select>
 
-<button class="green" onclick="saveSettings()">Save Settings</button>
+<button class="green"
+ onclick="saveSettings()">
+Save Settings
+</button>
 
 <hr>
 
 <h3>📤 Data</h3>
 
-<button class="blue" onclick="exportAllData()">📤 Export My Data</button>
+<button class="blue"
+ onclick="exportAllData()">
+📤 Export My Data
+</button>
 
-<button class="orange" onclick="document.getElementById('importFile').click()">
+<button class="orange"
+ onclick="document.getElementById('importFile').click()">
 📥 Import Data
 </button>
 
-<input id="importFile" type="file" accept=".json" class="hidden"
-onchange="importAllData(event)">
-
-<hr>
-
-<h3>⚠️ Danger Zone</h3>
-<button class="red" onclick="logout()">Logout</button>
-</div>
+<input id="importFile"
+ type="file"
+ accept=".json"
+ class="hidden"
+ onchange="importAllData(event)">
 
 </div>
 
+</div>
 
-<!-- WORKSPACE -->
+
+<!-- =====================================================
+     WORKSPACE
+===================================================== -->
+
 <div id="workspacePage" class="hidden">
+
+
+<!-- PROJECT BASIC -->
 
 <div class="card">
 
 <div class="row">
-<button onclick="showProjects()">⬅️ Projects</button>
-<button class="green" onclick="saveCurrentProject()">💾 Save</button>
-<button class="blue" onclick="previewCurrentProject()">👁️ Preview</button>
-<button class="orange" onclick="exportCurrentProject()">📦 Export</button>
+
+<button onclick="showProjects()">
+⬅️ Projects
+</button>
+
+<button class="green"
+ onclick="saveCurrentProject()">
+💾 Save
+</button>
+
+<button class="blue"
+ onclick="previewCurrentProject()">
+👁️ Preview
+</button>
+
+<button class="orange"
+ onclick="exportCurrentProject()">
+📦 Export
+</button>
+
 </div>
 
-<h1>🛠️ App Project Workspace</h1>
+
+<h1>🛠️ AI Designed App Workspace</h1>
+
 
 <label>Project Name</label>
+
 <input id="projectName">
 
+
 <label>App Description</label>
-<textarea id="projectDescription" rows="3"></textarea>
+
+<textarea id="projectDescription"
+ rows="3">
+</textarea>
+
 
 <label>App Type</label>
+
 <input id="projectType">
 
-<h2>📱 Screens</h2>
+
+</div>
+
+
+<!-- BRANDING EDITOR -->
+
+<div class="card">
+
+<h2>🎨 App Branding</h2>
+
+<div class="notice">
+AI ne uploaded images ko automatically adjust kiya hai.
+Aap chahein to yahan se dobara change kar sakte hain.
+</div>
+
+
+<div class="upload-box">
+
+<h3>📱 App Icon</h3>
+
+<img id="workspaceIconPreview"
+ class="upload-preview hidden">
+
+<input id="workspaceIconInput"
+ type="file"
+ accept="image/*"
+ onchange="replaceProjectIcon(event)">
+
+</div>
+
+
+<div class="upload-box">
+
+<h3>🌄 Screen Background</h3>
+
+<img id="workspaceBgPreview"
+ class="upload-preview hidden">
+
+<input id="workspaceBgInput"
+ type="file"
+ accept="image/*"
+ onchange="replaceProjectBackground(event)">
+
+</div>
+
+</div>
+
+
+<!-- SCREENS -->
+
+<div class="card">
+
+<h2>📱 AI Generated Screens</h2>
+
+<div class="notice">
+AI ne required screens automatically create ki hain.
+Kisi bhi screen ko select karke edit karein.
+</div>
+
 <div id="projectScreens"></div>
 
-<button class="blue" onclick="addScreen()">➕ Add Screen</button>
+<button class="blue"
+ onclick="addScreen()">
+➕ Add Screen
+</button>
+
+</div>
+
+
+<!-- FEATURES -->
+
+<div class="card">
 
 <h2>🧩 Features</h2>
+
 <div id="projectFeatures"></div>
 
-<button class="blue" onclick="addFeature()">➕ Add Feature</button>
+<button class="blue"
+ onclick="addFeature()">
+➕ Add Feature
+</button>
+
+</div>
+
+
+<!-- BACKEND -->
+
+<div class="card">
 
 <h2>☁️ Backend Requirements</h2>
+
 <div id="projectBackend"></div>
+
+</div>
+
+
+<!-- MONETIZATION -->
+
+<div class="card">
 
 <h2>💰 Monetization</h2>
 
-<select id="monetizationType" onchange="saveWorkspaceMoney()">
+<select id="monetizationType"
+ onchange="saveWorkspaceMoney()">
+
 <option value="none">No Monetization</option>
 <option value="ads">Advertising / AdMob</option>
 <option value="subscription">Subscription</option>
 <option value="commission">Commission</option>
 <option value="userEarning">User Earning + Withdrawal</option>
-<option value="adsUserEarning">Ads + User Earning + Creator Earning</option>
+<option value="adsUserEarning">
+Ads + User Earning + Creator Earning
+</option>
 <option value="custom">Custom Monetization</option>
+
 </select>
 
-<textarea id="moneyDescription" rows="3"
-placeholder="Explain earning model..."></textarea>
 
-<button class="green" onclick="saveWorkspaceMoney()">💾 Save Monetization</button>
+<textarea id="moneyDescription"
+ rows="3"
+ placeholder="Explain earning model...">
+</textarea>
+
+
+<button class="green"
+ onclick="saveWorkspaceMoney()">
+💾 Save Monetization
+</button>
 
 </div>
 
 
-<!-- EDITOR -->
+<!-- COMPONENT EDITOR -->
+
 <div class="card">
 
-<h2>🎨 Screen Editor</h2>
+<h2>🎨 Screen Component Editor</h2>
 
 <div class="notice">
+
 Current Screen:
-<strong id="editingScreenName">None</strong>
+<strong id="editingScreenName">
+None
+</strong>
+
 </div>
 
+
 <select id="componentType">
+
 <option value="Text">📝 Text</option>
 <option value="Button">🔘 Button</option>
 <option value="Input">⌨️ Input</option>
@@ -486,51 +1099,100 @@ Current Screen:
 <option value="Withdrawal">💸 Withdrawal</option>
 <option value="Chart">📊 Chart</option>
 <option value="Menu">☰ Menu</option>
+<option value="Card">🃏 Card</option>
+<option value="Divider">➖ Divider</option>
+
 </select>
 
-<input id="componentName" placeholder="Component name/text">
 
-<button class="green" onclick="addComponent()">➕ Add Component</button>
+<input id="componentName"
+ placeholder="Component name/text">
+
+
+<button class="green"
+ onclick="addComponent()">
+➕ Add Component
+</button>
+
 
 <div id="componentList"></div>
 
-<div id="propertyEditor" class="properties hidden">
+
+<div id="propertyEditor"
+ class="properties hidden">
 
 <h3>⚙️ Component Properties</h3>
 
+
 <label>Name / Text</label>
+
 <input id="propName">
 
+
 <label>Font Size</label>
-<input id="propFontSize" type="number" value="16">
+
+<input id="propFontSize"
+ type="number"
+ value="16">
+
 
 <label>Width %</label>
-<input id="propWidth" type="number" value="100">
+
+<input id="propWidth"
+ type="number"
+ value="100">
+
 
 <label>Height</label>
-<input id="propHeight" type="number" value="45">
+
+<input id="propHeight"
+ type="number"
+ value="45">
+
 
 <label>Text Color</label>
-<input id="propTextColor" type="color" value="#172033">
+
+<input id="propTextColor"
+ type="color"
+ value="#172033">
+
 
 <label>Background Color</label>
-<input id="propBgColor" type="color" value="#eef3f9">
+
+<input id="propBgColor"
+ type="color"
+ value="#eef3f9">
+
 
 <label>Alignment</label>
+
 <select id="propAlign">
+
 <option value="left">Left</option>
 <option value="center">Center</option>
 <option value="right">Right</option>
+
 </select>
 
+
 <label>X Position</label>
-<input id="propX" type="number" value="0">
+
+<input id="propX"
+ type="number"
+ value="0">
+
 
 <label>Y Position</label>
-<input id="propY" type="number" value="0">
+
+<input id="propY"
+ type="number"
+ value="0">
+
 
 <label>Button Action</label>
+
 <select id="propAction">
+
 <option value="none">No Action</option>
 <option value="screen">Open Screen</option>
 <option value="url">Open Website</option>
@@ -540,16 +1202,31 @@ Current Screen:
 <option value="saveData">Save Data</option>
 <option value="deleteData">Delete Data</option>
 <option value="back">Back</option>
+
 </select>
 
+
 <label>Action Value</label>
-<input id="propActionValue" placeholder="Screen name / URL / number / message">
+
+<input id="propActionValue"
+ placeholder="Screen / URL / Number / Message">
+
 
 <label>Data Key</label>
-<input id="propDataKey" placeholder="example: users">
 
-<button class="green" onclick="saveProperties()">💾 Apply Properties</button>
-<button class="red" onclick="closeProperties()">Close</button>
+<input id="propDataKey"
+ placeholder="example: users">
+
+
+<button class="green"
+ onclick="saveProperties()">
+💾 Apply Properties
+</button>
+
+<button class="red"
+ onclick="closeProperties()">
+Close
+</button>
 
 </div>
 
@@ -557,42 +1234,57 @@ Current Screen:
 
 
 <!-- LIVE PREVIEW -->
+
 <div class="card">
 
-<h2>📱 Live Preview</h2>
+<h2>📱 AI Live Preview</h2>
 
 <div class="mobile">
-<div id="liveScreenContent"></div>
+
+<div id="liveScreenContent"
+ class="mobile-inner">
+</div>
+
 </div>
 
 </div>
 
 
 <!-- DATA -->
+
 <div class="card">
 
 <h2>🗄️ App Data Storage</h2>
 
 <div class="notice">
-Data entered through Input components can be saved locally in this browser.
-Real online multi-user apps require a backend such as Firebase or another server.
+Input components ka data local browser storage mein save ho sakta hai.
+Real online multi-user application ke liye backend required hoga.
 </div>
 
 <div class="row">
-<button class="green" onclick="savePreviewForm()">💾 Save Current Inputs</button>
-<button class="blue" onclick="renderRecords()">🔄 Refresh Records</button>
-<button class="red" onclick="deleteAllRecords()">🗑️ Delete Current Screen Data</button>
+
+<button class="green"
+ onclick="savePreviewForm()">
+💾 Save Inputs
+</button>
+
+<button class="blue"
+ onclick="renderRecords()">
+🔄 Refresh
+</button>
+
+<button class="red"
+ onclick="deleteAllRecords()">
+🗑️ Delete Data
+</button>
+
 </div>
 
-<input id="dataSearch" placeholder="Search records..."
-oninput="renderRecords()">
 
-<div id="editRecordBox" class="hidden properties">
-<h3>✏️ Edit / Update Record</h3>
-<div id="editRecordFields"></div>
-<button class="green" onclick="updateEditedRecord()">💾 Update Record</button>
-<button class="red" onclick="cancelEditRecord()">Cancel</button>
-</div>
+<input id="dataSearch"
+ placeholder="Search records..."
+ oninput="renderRecords()">
+
 
 <div id="records"></div>
 
@@ -600,61 +1292,97 @@ oninput="renderRecords()">
 
 
 <!-- EARNING -->
+
 <div class="card">
 
-<h2>💰 Earning / Withdrawal System</h2>
+<h2>💰 Earning / Withdrawal</h2>
 
 <div class="notice">
-This is a real-system architecture. A real payout requires a real payment provider/account. This page never marks an unpaid transaction as paid.
+Real payout ke liye real payment provider/account required hoga.
+System unpaid transaction ko automatically paid nahi karega.
 </div>
+
 
 <div class="row">
+
 <div class="stat">
-<b>Total User Balance</b>
-<div id="totalUserBalance">Rs. 0</div>
+<b>Total Earnings</b>
+<div id="totalUserBalance">
+Rs. 0
+</div>
 </div>
 
 <div class="stat">
-<b>Pending Withdrawals</b>
-<div id="pendingWithdrawals">0</div>
+<b>Pending</b>
+<div id="pendingWithdrawals">
+0
+</div>
 </div>
 
 <div class="stat">
-<b>Paid Withdrawals</b>
-<div id="paidWithdrawals">0</div>
+<b>Paid</b>
+<div id="paidWithdrawals">
+0
 </div>
 </div>
+
+</div>
+
 
 <br>
 
-<input id="workerName" placeholder="Worker/User name">
-<input id="earningAmount" type="number" placeholder="Amount earned">
 
-<button class="green" onclick="addEarning()">➕ Add Verified Earning</button>
+<input id="workerName"
+ placeholder="Worker/User name">
+
+
+<input id="earningAmount"
+ type="number"
+ placeholder="Amount earned">
+
+
+<button class="green"
+ onclick="addEarning()">
+➕ Add Verified Earning
+</button>
+
 
 <hr>
 
-<input id="withdrawName" placeholder="Worker name">
-<input id="withdrawAmount" type="number" placeholder="Withdrawal amount">
 
-<button class="orange" onclick="requestWithdrawal()">💸 Request Withdrawal</button>
+<input id="withdrawName"
+ placeholder="Worker name">
+
+
+<input id="withdrawAmount"
+ type="number"
+ placeholder="Withdrawal amount">
+
+
+<button class="orange"
+ onclick="requestWithdrawal()">
+💸 Request Withdrawal
+</button>
+
 
 <div id="withdrawals"></div>
 
+
 <hr>
 
-<h3>⏳ Payment Protection</h3>
-<p>
-If creator has overdue withdrawals, the earning/withdrawal system can be frozen.
-Existing records are preserved.
-</p>
 
-<input id="overdueMonths" type="number" min="0" value="0"
-placeholder="Overdue months">
+<input id="overdueMonths"
+ type="number"
+ min="0"
+ value="0"
+ placeholder="Overdue months">
 
-<button class="red" onclick="checkPaymentStatus()">
+
+<button class="red"
+ onclick="checkPaymentStatus()">
 🔒 Check Payment Status
 </button>
+
 
 <div id="paymentStatus"></div>
 
@@ -662,67 +1390,89 @@ placeholder="Overdue months">
 
 
 <!-- EXPORT -->
+
 <div class="card">
 
 <h2>📦 Project Export</h2>
 
-<button class="green" onclick="exportCurrentProject()">
+<button class="green"
+ onclick="exportCurrentProject()">
 📥 Download Project JSON
 </button>
 
-<button class="blue" onclick="copyProjectJSON()">
+<button class="blue"
+ onclick="copyProjectJSON()">
 📋 Copy Project Data
 </button>
 
-<div id="exportOutput" class="codebox hidden"></div>
+<div id="exportOutput"
+ class="codebox hidden">
+</div>
+
+</div>
 
 </div>
 
 </div>
-</div>
+
 
 <script>
 
 /* =========================================================
    SAMI APP DEVELOPER
-   SINGLE FILE APP BUILDER
+   AI AUTO SCREEN DESIGNER VERSION
 ========================================================= */
 
-const USERS_KEY="SAMI_USERS_V1";
-const SESSION_KEY="SAMI_SESSION_V1";
-const PROJECTS_KEY="SAMI_PROJECTS_V1";
-const SETTINGS_KEY="SAMI_SETTINGS_V1";
-const INTEGRATIONS_KEY="SAMI_INTEGRATIONS_V1";
+const USERS_KEY="SAMI_USERS_V2";
+const SESSION_KEY="SAMI_SESSION_V2";
+const PROJECTS_KEY="SAMI_PROJECTS_V2";
+const SETTINGS_KEY="SAMI_SETTINGS_V2";
+const INTEGRATIONS_KEY="SAMI_INTEGRATIONS_V2";
 
 let currentUser=null;
 let currentProject=null;
 let currentScreenIndex=0;
 let currentComponentIndex=-1;
-let editingRecordId=null;
+
+let uploadedAppIcon="";
+let uploadedBackground="";
 
 let currentAnalysis={
  features:[],
  screens:[],
+ components:[],
  backend:[],
  money:[]
 };
 
 
 /* =========================================================
-   BASIC STORAGE
+   STORAGE
 ========================================================= */
 
-function getJSON(key, fallback){
+function getJSON(key,fallback){
+
  try{
-  const x=localStorage.getItem(key);
-  return x?JSON.parse(x):fallback;
+
+  const value=localStorage.getItem(key);
+
+  return value ? JSON.parse(value) : fallback;
+
  }catch(e){
+
   return fallback;
+
  }
 }
 
+
 function setJSON(key,value){
- localStorage.setItem(key,JSON.stringify(value));
+
+ localStorage.setItem(
+  key,
+  JSON.stringify(value)
+ );
+
 }
 
 
@@ -731,127 +1481,293 @@ function setJSON(key,value){
 ========================================================= */
 
 window.addEventListener("load",function(){
- const session=getJSON(SESSION_KEY,null);
+
+ const session=getJSON(
+  SESSION_KEY,
+  null
+ );
 
  if(session && session.email){
+
   currentUser=session;
+
   showMain();
+
  }else{
+
   showAuth();
+
  }
+
 });
 
+
 function showAuth(){
- document.getElementById("authPage").classList.remove("hidden");
- document.getElementById("mainPage").classList.add("hidden");
+
+ document.getElementById("authPage")
+  .classList.remove("hidden");
+
+ document.getElementById("mainPage")
+  .classList.add("hidden");
+
 }
+
 
 function showMain(){
- document.getElementById("authPage").classList.add("hidden");
- document.getElementById("mainPage").classList.remove("hidden");
+
+ document.getElementById("authPage")
+  .classList.add("hidden");
+
+ document.getElementById("mainPage")
+  .classList.remove("hidden");
+
  showHome();
+
+ updateAuthBrand();
+
 }
+
 
 function showSignup(){
- document.getElementById("signupBox").classList.remove("hidden");
- document.getElementById("loginBox").classList.add("hidden");
+
+ document.getElementById("signupBox")
+  .classList.remove("hidden");
+
+ document.getElementById("loginBox")
+  .classList.add("hidden");
+
 }
 
+
 function showLogin(){
- document.getElementById("signupBox").classList.add("hidden");
- document.getElementById("loginBox").classList.remove("hidden");
+
+ document.getElementById("signupBox")
+  .classList.add("hidden");
+
+ document.getElementById("loginBox")
+  .classList.remove("hidden");
+
 }
+
 
 function signup(){
 
- const name=document.getElementById("signupName").value.trim();
- const email=document.getElementById("signupEmail").value.trim().toLowerCase();
- const pass=document.getElementById("signupPassword").value;
- const confirm=document.getElementById("signupConfirm").value;
+ const name=
+  document.getElementById("signupName")
+  .value.trim();
+
+ const email=
+  document.getElementById("signupEmail")
+  .value.trim()
+  .toLowerCase();
+
+ const pass=
+  document.getElementById("signupPassword")
+  .value;
+
+ const confirm=
+  document.getElementById("signupConfirm")
+  .value;
+
 
  if(!name || !email || !pass){
-  alert("Name, email aur password required hain.");
+
+  alert(
+   "Name, email aur password required hain."
+  );
+
   return;
+
  }
+
 
  if(pass!==confirm){
-  alert("Password aur Confirm Password same nahi hain.");
+
+  alert(
+   "Password aur Confirm Password same nahi hain."
+  );
+
   return;
+
  }
 
- let users=getJSON(USERS_KEY,[]);
 
- if(users.some(u=>u.email===email)){
-  alert("Ye email already registered hai.");
+ let users=getJSON(
+  USERS_KEY,
+  []
+ );
+
+
+ if(
+  users.some(
+   u=>u.email===email
+  )
+ ){
+
+  alert(
+   "Ye email already registered hai."
+  );
+
   showLogin();
+
   return;
+
  }
+
 
  const user={
+
   id:"u_"+Date.now(),
+
   name:name,
+
   email:email,
+
   password:pass,
-  createdAt:new Date().toLocaleString()
+
+  createdAt:
+   new Date().toLocaleString()
+
  };
+
 
  users.push(user);
- setJSON(USERS_KEY,users);
+
+ setJSON(
+  USERS_KEY,
+  users
+ );
+
 
  currentUser={
+
   id:user.id,
+
   name:user.name,
+
   email:user.email
+
  };
 
- setJSON(SESSION_KEY,currentUser);
 
- alert("Account successfully create ho gaya.");
+ setJSON(
+  SESSION_KEY,
+  currentUser
+ );
+
+
  showMain();
+
+ alert(
+  "Account successfully create ho gaya."
+ );
+
 }
+
 
 function login(){
 
- const email=document.getElementById("loginEmail").value.trim().toLowerCase();
- const pass=document.getElementById("loginPassword").value;
+ const email=
+  document.getElementById("loginEmail")
+  .value.trim()
+  .toLowerCase();
 
- const users=getJSON(USERS_KEY,[]);
+ const pass=
+  document.getElementById("loginPassword")
+  .value;
 
- const user=users.find(
-  u=>u.email===email && u.password===pass
- );
+
+ const users=
+  getJSON(USERS_KEY,[]);
+
+
+ const user=
+  users.find(
+   u=>
+    u.email===email &&
+    u.password===pass
+  );
+
 
  if(!user){
-  alert("Email ya password incorrect hai.");
+
+  alert(
+   "Email ya password incorrect hai."
+  );
+
   return;
+
  }
 
+
  currentUser={
+
   id:user.id,
+
   name:user.name,
+
   email:user.email
+
  };
 
- setJSON(SESSION_KEY,currentUser);
+
+ setJSON(
+  SESSION_KEY,
+  currentUser
+ );
+
 
  showMain();
+
 }
+
 
 function logout(){
 
- localStorage.removeItem(SESSION_KEY);
+ localStorage.removeItem(
+  SESSION_KEY
+ );
+
  currentUser=null;
+
  currentProject=null;
+
  showAuth();
+
  showLogin();
+
 }
 
 
 /* =========================================================
-   PAGE NAVIGATION
+   BRANDING
+========================================================= */
+
+function updateAuthBrand(){
+
+ if(
+  currentProject &&
+  currentProject.appIcon
+ ){
+
+  document.getElementById(
+   "authIconBox"
+  ).innerHTML=
+  `<img class="app-icon"
+   src="${currentProject.appIcon}"
+   alt="App Icon">`;
+
+ }
+
+}
+
+
+/* =========================================================
+   NAVIGATION
 ========================================================= */
 
 const pages=[
+
  "homePage",
  "builderPage",
  "projectsPage",
@@ -859,351 +1775,1887 @@ const pages=[
  "integrationsPage",
  "settingsPage",
  "workspacePage"
+
 ];
 
+
 function hidePages(){
- pages.forEach(id=>{
-  const el=document.getElementById(id);
-  if(el)el.classList.add("hidden");
- });
+
+ pages.forEach(
+  id=>{
+
+   const el=
+    document.getElementById(id);
+
+   if(el)
+    el.classList.add("hidden");
+
+  }
+ );
+
 }
+
 
 function showPage(id){
+
  hidePages();
- document.getElementById(id).classList.remove("hidden");
- window.scrollTo({top:0,behavior:"smooth"});
+
+ document.getElementById(id)
+  .classList.remove("hidden");
+
+ window.scrollTo({
+  top:0,
+  behavior:"smooth"
+ });
+
 }
+
 
 function showHome(){
+
  showPage("homePage");
+
+ updateHomeBrand();
+
 }
+
 
 function showBuilder(){
+
  showPage("builderPage");
+
 }
+
 
 function showProjects(){
+
  showPage("projectsPage");
+
  renderProjects();
+
 }
+
 
 function showTemplates(){
+
  showPage("templatesPage");
+
  renderTemplates();
+
 }
+
 
 function showIntegrations(){
+
  showPage("integrationsPage");
+
  renderIntegrations();
+
 }
+
 
 function showSettings(){
+
  showPage("settingsPage");
+
  renderSettings();
+
 }
 
+
 function showWorkspace(){
+
  showPage("workspacePage");
+
  renderWorkspace();
+
 }
 
 
 /* =========================================================
-   AI REQUIREMENT ANALYZER
+   IMAGE UPLOAD
+========================================================= */
+
+function readImageFile(file,callback){
+
+ if(!file){
+
+  callback("");
+
+  return;
+
+ }
+
+
+ if(!file.type.startsWith("image/")){
+
+  alert(
+   "Sirf image file select karein."
+  );
+
+  callback("");
+
+  return;
+
+ }
+
+
+ const reader=
+  new FileReader();
+
+
+ reader.onload=function(e){
+
+  callback(
+   e.target.result
+  );
+
+ };
+
+
+ reader.readAsDataURL(file);
+
+}
+
+
+function handleAppIcon(event){
+
+ const file=
+  event.target.files[0];
+
+ readImageFile(
+  file,
+  function(data){
+
+   if(!data)return;
+
+   uploadedAppIcon=data;
+
+   const img=
+    document.getElementById(
+     "appIconPreview"
+    );
+
+   img.src=data;
+
+   img.classList.remove(
+    "hidden"
+   );
+
+  }
+ );
+
+}
+
+
+function handleBackgroundImage(event){
+
+ const file=
+  event.target.files[0];
+
+ readImageFile(
+  file,
+  function(data){
+
+   if(!data)return;
+
+   uploadedBackground=data;
+
+   const img=
+    document.getElementById(
+     "backgroundPreview"
+    );
+
+   img.src=data;
+
+   img.classList.remove(
+    "hidden"
+   );
+
+  }
+ );
+
+}
+
+
+function replaceProjectIcon(event){
+
+ const file=
+  event.target.files[0];
+
+ readImageFile(
+  file,
+  function(data){
+
+   if(!data)return;
+
+   currentProject.appIcon=data;
+
+   saveCurrentProject();
+
+   renderWorkspace();
+
+  }
+ );
+
+}
+
+
+function replaceProjectBackground(event){
+
+ const file=
+  event.target.files[0];
+
+ readImageFile(
+  file,
+  function(data){
+
+   if(!data)return;
+
+   currentProject.backgroundImage=data;
+
+   saveCurrentProject();
+
+   renderWorkspace();
+
+  }
+ );
+
+}
+
+
+/* =========================================================
+   AI DETECTION
 ========================================================= */
 
 function contains(text,words){
- return words.some(w=>text.includes(w));
-}
 
-function analyzeApp(){
+ return words.some(
+  w=>text.includes(w)
+ );
 
- const demand=document.getElementById("appDemand").value.trim().toLowerCase();
-
- if(!demand){
-  alert("Pehle apni app ka idea likhein.");
-  return;
- }
-
- let features=[];
- let screens=[];
- let backend=[];
- let money=[];
-
- /* ACCOUNT DEFAULT */
-
- features.push("🔐 Create Account / Sign Up");
- features.push("🔑 Sign In / Login");
- features.push("🚪 Logout");
- features.push("💾 Persistent Login Session");
- features.push("👤 User Profile");
- features.push("🔙 Back Navigation");
-
- screens.push("🔐 Sign Up");
- screens.push("🔑 Login");
- screens.push("🏠 Home");
- screens.push("👤 Profile");
- screens.push("⚙️ Settings");
-
- /* UNIVERSAL DETECTION */
-
- if(contains(demand,["gps","location","tracking","map"])){
-  features.push("📍 GPS / Location");
-  features.push("🗺️ Map");
-  features.push("🕐 Location History");
-  screens.push("🗺️ Live Map");
-  screens.push("📍 Location History");
-  backend.push("Location data storage");
-  backend.push("Maps API configuration");
- }
-
- if(contains(demand,["camera","photo","picture"])){
-  features.push("📷 Camera");
-  features.push("🖼️ Photo Storage");
-  screens.push("📷 Camera");
-  screens.push("🖼️ Gallery");
-  backend.push("Media Storage");
- }
-
- if(contains(demand,["video","tiktok","reels"])){
-  features.push("🎬 Video Upload");
-  features.push("▶️ Video Feed");
-  features.push("❤️ Likes");
-  features.push("💬 Comments");
-  features.push("👥 Follow");
-  screens.push("🎬 Video Feed");
-  screens.push("⬆️ Upload Video");
-  screens.push("💬 Comments");
-  backend.push("Video/File Storage");
-  backend.push("Real-time social data");
- }
-
- if(contains(demand,["chat","whatsapp","messenger"])){
-  features.push("💬 Real-time Chat");
-  features.push("🟢 Online Status");
-  features.push("📎 Media Sharing");
-  screens.push("💬 Chats");
-  screens.push("👥 Contacts");
-  backend.push("Real-time messaging database");
-  backend.push("Media storage");
-  backend.push("Push notifications");
- }
-
- if(contains(demand,["school","student","teacher","attendance"])){
-  features.push("🏫 Student Management");
-  features.push("📅 Attendance");
-  features.push("💰 Fees");
-  features.push("👨‍🏫 Teacher Management");
-  screens.push("🎓 Students");
-  screens.push("📅 Attendance");
-  screens.push("💰 Fees");
-  screens.push("👨‍🏫 Teachers");
-  backend.push("Student database");
-  backend.push("Reports");
- }
-
- if(contains(demand,["shop","shopping","ecommerce","e-commerce","store"])){
-  features.push("🛒 Shopping Cart");
-  features.push("📦 Orders");
-  features.push("💳 Payments");
-  features.push("🔎 Product Search");
-  screens.push("🛍️ Products");
-  screens.push("🛒 Cart");
-  screens.push("📦 Orders");
-  backend.push("Products database");
-  backend.push("Orders database");
-  backend.push("Payment integration");
- }
-
- if(contains(demand,["restaurant","food","delivery"])){
-  features.push("🍔 Menu");
-  features.push("🛒 Food Orders");
-  features.push("🚚 Delivery Tracking");
-  screens.push("🍔 Menu");
-  screens.push("🛒 Cart");
-  screens.push("🚚 Delivery");
-  backend.push("Orders database");
-  backend.push("Delivery/location service");
- }
-
- if(contains(demand,["booking","appointment","hotel"])){
-  features.push("📅 Booking System");
-  features.push("⏰ Availability");
-  features.push("🔔 Booking Notifications");
-  screens.push("📅 Booking");
-  screens.push("📋 My Bookings");
-  backend.push("Booking database");
- }
-
- if(contains(demand,["bank","banking","wallet","money","finance"])){
-  features.push("💰 Wallet");
-  features.push("🧾 Transaction History");
-  features.push("💸 Withdrawal");
-  features.push("🔒 Security / Verification");
-  screens.push("💰 Wallet");
-  screens.push("🧾 Transactions");
-  screens.push("💸 Withdrawal");
-  backend.push("Secure financial transaction database");
-  backend.push("Payment provider");
- }
-
- if(contains(demand,["earning","earn","worker","withdraw","income"])){
-  features.push("💰 User Earning");
-  features.push("💸 Withdrawal");
-  features.push("🧾 Transaction History");
-  features.push("👨‍💼 Creator/Admin Payout Management");
-  screens.push("💰 Earnings");
-  screens.push("💸 Withdraw");
-  screens.push("🧾 Transactions");
-  screens.push("🛠️ Admin Payouts");
-  backend.push("Wallet/earning database");
-  backend.push("Withdrawal records");
-  backend.push("Payment provider");
-  money.push("User earning + withdrawal");
-  money.push("Creator monetization");
- }
-
- if(contains(demand,["admob","ads","advertisement","advertising"])){
-  features.push("📢 Advertising / AdMob Integration");
-  backend.push("AdMob configuration");
-  money.push("Advertising revenue");
- }
-
- if(contains(demand,["payment","pay","stripe","jazzcash","easypaisa"])){
-  features.push("💳 Payment Integration");
-  backend.push("Payment provider API");
-  money.push("Payment / sales revenue");
- }
-
- if(contains(demand,["notification","alert"])){
-  features.push("🔔 Notifications");
-  backend.push("Push notification service");
- }
-
- if(contains(demand,["admin","management"])){
-  features.push("🛠️ Admin Panel");
-  screens.push("🛠️ Admin Dashboard");
-  backend.push("Role-based access");
- }
-
- if(contains(demand,["google","gmail"])){
-  features.push("🔑 Google Account Sign-In");
-  backend.push("Google OAuth configuration");
- }
-
- if(!money.length){
-  money.push("Optional monetization can be enabled later.");
- }
-
- backend.push("Online database recommended");
- backend.push("Authentication service");
- backend.push("Security/access rules");
-
- currentAnalysis={
-  features:[...new Set(features)],
-  screens:[...new Set(screens)],
-  backend:[...new Set(backend)],
-  money:[...new Set(money)]
- };
-
- renderAnalysis();
-
- document.getElementById("analysisBox").classList.remove("hidden");
-
- document.getElementById("analysisBox")
-  .scrollIntoView({behavior:"smooth"});
-}
-
-function renderAnalysis(){
-
- const make=list=>list.map(x=>
-  `<div class="item">${escapeHTML(x)}</div>`
- ).join("");
-
- document.getElementById("analysisFeatures").innerHTML=
-  make(currentAnalysis.features);
-
- document.getElementById("analysisScreens").innerHTML=
-  make(currentAnalysis.screens);
-
- document.getElementById("analysisBackend").innerHTML=
-  make(currentAnalysis.backend);
-
- document.getElementById("analysisMoney").innerHTML=
-  make(currentAnalysis.money);
 }
 
 
 /* =========================================================
-   CREATE AI PROJECT
+   AUTOMATIC SCREEN COMPONENT BUILDER
+========================================================= */
+
+function component(type,name,extra={}){
+
+ return normalizeComponent({
+
+  type:type,
+
+  name:name,
+
+  ...extra
+
+ });
+
+}
+
+
+function autoComponentsForScreen(
+ screenName,
+ demand
+){
+
+ const name=
+  screenName.toLowerCase();
+
+ const result=[];
+
+
+ /* HOME */
+
+ if(name.includes("home")){
+
+  result.push(
+   component(
+    "Text",
+    "Sami App Developer"
+   )
+  );
+
+  result.push(
+   component(
+    "Text",
+    "Welcome to your app"
+   )
+  );
+
+  result.push(
+   component(
+    "Menu",
+    "Main Menu"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "My Profile",
+    {
+     action:"screen",
+     actionValue:"Profile"
+    }
+   )
+  );
+
+  result.push(
+   component(
+    "Notification",
+    "Notifications"
+   )
+  );
+
+ }
+
+
+ /* SIGNUP */
+
+ else if(
+  name.includes("sign up") ||
+  name.includes("signup") ||
+  name.includes("create account")
+ ){
+
+  result.push(
+   component(
+    "Text",
+    "Sami App Developer"
+   )
+  );
+
+  result.push(
+   component(
+    "Text",
+    "Create Your Account"
+   )
+  );
+
+  result.push(
+   component(
+    "Input",
+    "Full Name",
+    {dataKey:"name"}
+   )
+  );
+
+  result.push(
+   component(
+    "Input",
+    "Email",
+    {dataKey:"email"}
+   )
+  );
+
+  result.push(
+   component(
+    "Input",
+    "Password",
+    {dataKey:"password"}
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Create Account",
+    {action:"alert",
+     actionValue:"Account creation submitted."}
+   )
+  );
+
+ }
+
+
+ /* LOGIN */
+
+ else if(
+  name.includes("login") ||
+  name.includes("sign in")
+ ){
+
+  result.push(
+   component(
+    "Text",
+    "Sami App Developer"
+   )
+  );
+
+  result.push(
+   component(
+    "Text",
+    "Sign In / Login"
+   )
+  );
+
+  result.push(
+   component(
+    "Input",
+    "Email",
+    {dataKey:"email"}
+   )
+  );
+
+  result.push(
+   component(
+    "Input",
+    "Password",
+    {dataKey:"password"}
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Sign In",
+    {action:"alert",
+     actionValue:"Login submitted."}
+   )
+  );
+
+ }
+
+
+ /* PROFILE */
+
+ else if(name.includes("profile")){
+
+  result.push(
+   component(
+    "Profile",
+    "User Profile"
+   )
+  );
+
+  result.push(
+   component(
+    "Text",
+    "Name"
+   )
+  );
+
+  result.push(
+   component(
+    "Text",
+    "Email"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Edit Profile"
+   )
+  );
+
+ }
+
+
+ /* GPS / MAP */
+
+ else if(
+  name.includes("map") ||
+  name.includes("location")
+ ){
+
+  result.push(
+   component(
+    "Map",
+    "Live Map"
+   )
+  );
+
+  result.push(
+   component(
+    "Text",
+    "Current Location"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Refresh Location"
+   )
+  );
+
+ }
+
+
+ /* CAMERA */
+
+ else if(name.includes("camera")){
+
+  result.push(
+   component(
+    "Camera",
+    "Camera"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Capture Photo"
+   )
+  );
+
+  result.push(
+   component(
+    "Image",
+    "Captured Image"
+   )
+  );
+
+ }
+
+
+ /* HISTORY */
+
+ else if(
+  name.includes("history") ||
+  name.includes("transaction")
+ ){
+
+  result.push(
+   component(
+    "Search",
+    "Search"
+   )
+  );
+
+  result.push(
+   component(
+    "List",
+    "History List"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Refresh"
+   )
+  );
+
+ }
+
+
+ /* VIDEO */
+
+ else if(
+  name.includes("video") ||
+  name.includes("feed")
+ ){
+
+  result.push(
+   component(
+    "Video",
+    "Video Feed"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Like"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Comment"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Share"
+   )
+  );
+
+ }
+
+
+ /* CHAT */
+
+ else if(
+  name.includes("chat") ||
+  name.includes("message")
+ ){
+
+  result.push(
+   component(
+    "Chat",
+    "Messages"
+   )
+  );
+
+  result.push(
+   component(
+    "Input",
+    "Write message",
+    {dataKey:"message"}
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Send"
+   )
+  );
+
+ }
+
+
+ /* SHOP */
+
+ else if(
+  name.includes("product") ||
+  name.includes("shop")
+ ){
+
+  result.push(
+   component(
+    "Search",
+    "Search Products"
+   )
+  );
+
+  result.push(
+   component(
+    "List",
+    "Products"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Add to Cart"
+   )
+  );
+
+ }
+
+
+ /* CART */
+
+ else if(name.includes("cart")){
+
+  result.push(
+   component(
+    "List",
+    "Cart Items"
+   )
+  );
+
+  result.push(
+   component(
+    "Text",
+    "Total Amount"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Checkout",
+    {action:"screen",
+     actionValue:"Payment"}
+   )
+  );
+
+ }
+
+
+ /* PAYMENT */
+
+ else if(
+  name.includes("payment") ||
+  name.includes("checkout")
+ ){
+
+  result.push(
+   component(
+    "Payment",
+    "Payment"
+   )
+  );
+
+  result.push(
+   component(
+    "Input",
+    "Amount",
+    {dataKey:"amount"}
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Pay Now"
+   )
+  );
+
+ }
+
+
+ /* WALLET */
+
+ else if(name.includes("wallet")){
+
+  result.push(
+   component(
+    "Wallet",
+    "My Wallet"
+   )
+  );
+
+  result.push(
+   component(
+    "Text",
+    "Available Balance"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Withdraw",
+    {
+     action:"screen",
+     actionValue:"Withdrawal"
+    }
+   )
+  );
+
+ }
+
+
+ /* WITHDRAWAL */
+
+ else if(
+  name.includes("withdraw")
+ ){
+
+  result.push(
+   component(
+    "Withdrawal",
+    "Withdrawal"
+   )
+  );
+
+  result.push(
+   component(
+    "Input",
+    "Withdrawal Amount",
+    {dataKey:"withdrawalAmount"}
+   )
+  );
+
+  result.push(
+   component(
+    "Input",
+    "Payment Account",
+    {dataKey:"paymentAccount"}
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Request Withdrawal"
+   )
+  );
+
+ }
+
+
+ /* STUDENT */
+
+ else if(
+  name.includes("student") ||
+  name.includes("teacher") ||
+  name.includes("attendance")
+ ){
+
+  result.push(
+   component(
+    "Search",
+    "Search"
+   )
+  );
+
+  result.push(
+   component(
+    "List",
+    "Records"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Add Record"
+   )
+  );
+
+ }
+
+
+ /* ADMIN */
+
+ else if(
+  name.includes("admin") ||
+  name.includes("dashboard")
+ ){
+
+  result.push(
+   component(
+    "Chart",
+    "Statistics"
+   )
+  );
+
+  result.push(
+   component(
+    "Table",
+    "Management Records"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Manage Users"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Manage Payments"
+   )
+  );
+
+ }
+
+
+ /* SETTINGS */
+
+ else if(name.includes("settings")){
+
+  result.push(
+   component(
+    "Text",
+    "App Settings"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Account Settings"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Notifications"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Logout"
+   )
+  );
+
+ }
+
+
+ /* DEFAULT */
+
+ else{
+
+  result.push(
+   component(
+    "Text",
+    screenName
+   )
+  );
+
+  result.push(
+   component(
+    "List",
+    "Content"
+   )
+  );
+
+  result.push(
+   component(
+    "Button",
+    "Continue"
+   )
+  );
+
+ }
+
+
+ return result;
+
+}
+
+
+/* =========================================================
+   AI ANALYZE
+========================================================= */
+
+function analyzeApp(){
+
+ const demand=
+  document.getElementById(
+   "appDemand"
+  ).value.trim().toLowerCase();
+
+
+ if(!demand){
+
+  alert(
+   "Pehle app ka idea likhein."
+  );
+
+  return;
+
+ }
+
+
+ let features=[];
+ let screens=[
+  "Create Account",
+  "Login",
+  "Home",
+  "Profile",
+  "Settings"
+ ];
+
+ let backend=[];
+ let money=[];
+
+
+ /* UNIVERSAL */
+
+ features.push(
+  "🔐 Create Account / Sign Up"
+ );
+
+ features.push(
+  "🔑 Login / Sign In"
+ );
+
+ features.push(
+  "🏠 Home Screen"
+ );
+
+ features.push(
+  "👤 User Profile"
+ );
+
+ features.push(
+  "⚙️ Settings"
+ );
+
+
+ /* GPS */
+
+ if(
+  contains(
+   demand,
+   ["gps","location","map","tracking"]
+  )
+ ){
+
+  features.push(
+   "📍 GPS / Location"
+  );
+
+  features.push(
+   "🗺️ Interactive Map"
+  );
+
+  features.push(
+   "📍 Location History"
+  );
+
+  screens.push(
+   "Live Map"
+  );
+
+  screens.push(
+   "Location History"
+  );
+
+  backend.push(
+   "Location database"
+  );
+
+  backend.push(
+   "Maps API"
+  );
+
+ }
+
+
+ /* CAMERA */
+
+ if(
+  contains(
+   demand,
+   ["camera","photo","picture"]
+  )
+ ){
+
+  features.push(
+   "📷 Camera"
+  );
+
+  features.push(
+   "🖼️ Photo Storage"
+  );
+
+  screens.push(
+   "Camera"
+  );
+
+  screens.push(
+   "Gallery"
+  );
+
+  backend.push(
+   "Media Storage"
+  );
+
+ }
+
+
+ /* VIDEO */
+
+ if(
+  contains(
+   demand,
+   ["video","tiktok","reels"]
+  )
+ ){
+
+  features.push(
+   "🎬 Video"
+  );
+
+  features.push(
+   "❤️ Likes"
+  );
+
+  features.push(
+   "💬 Comments"
+  );
+
+  features.push(
+   "👥 Follow"
+  );
+
+  screens.push(
+   "Video Feed"
+  );
+
+  screens.push(
+   "Upload Video"
+  );
+
+  screens.push(
+   "Comments"
+  );
+
+  backend.push(
+   "Video Storage"
+  );
+
+ }
+
+
+ /* CHAT */
+
+ if(
+  contains(
+   demand,
+   ["chat","whatsapp","messenger","message"]
+  )
+ ){
+
+  features.push(
+   "💬 Real-time Chat"
+  );
+
+  features.push(
+   "📎 Media Sharing"
+  );
+
+  features.push(
+   "🔔 Notifications"
+  );
+
+  screens.push(
+   "Chats"
+  );
+
+  screens.push(
+   "Contacts"
+  );
+
+  backend.push(
+   "Real-time messaging"
+  );
+
+  backend.push(
+   "Push Notifications"
+  );
+
+ }
+
+
+ /* SCHOOL */
+
+ if(
+  contains(
+   demand,
+   ["school","student","teacher","attendance"]
+  )
+ ){
+
+  features.push(
+   "🏫 Student Management"
+  );
+
+  features.push(
+   "📅 Attendance"
+  );
+
+  features.push(
+   "👨‍🏫 Teacher Management"
+  );
+
+  features.push(
+   "💰 Fees"
+  );
+
+  screens.push(
+   "Students"
+  );
+
+  screens.push(
+   "Attendance"
+  );
+
+  screens.push(
+   "Teachers"
+  );
+
+  screens.push(
+   "Fees"
+  );
+
+  backend.push(
+   "Student database"
+  );
+
+ }
+
+
+ /* SHOP */
+
+ if(
+  contains(
+   demand,
+   ["shop","shopping","ecommerce","e-commerce","store"]
+  )
+ ){
+
+  features.push(
+   "🛒 Shopping Cart"
+  );
+
+  features.push(
+   "📦 Orders"
+  );
+
+  features.push(
+   "🔎 Product Search"
+  );
+
+  features.push(
+   "💳 Payment"
+  );
+
+  screens.push(
+   "Products"
+  );
+
+  screens.push(
+   "Cart"
+  );
+
+  screens.push(
+   "Orders"
+  );
+
+  screens.push(
+   "Payment"
+  );
+
+  backend.push(
+   "Products database"
+  );
+
+  backend.push(
+   "Orders database"
+  );
+
+ }
+
+
+ /* RESTAURANT */
+
+ if(
+  contains(
+   demand,
+   ["restaurant","food","delivery"]
+  )
+ ){
+
+  features.push(
+   "🍔 Food Menu"
+  );
+
+  features.push(
+   "🛒 Food Orders"
+  );
+
+  features.push(
+   "🚚 Delivery"
+  );
+
+  screens.push(
+   "Menu"
+  );
+
+  screens.push(
+   "Food Cart"
+  );
+
+  screens.push(
+   "Delivery"
+  );
+
+  backend.push(
+   "Order database"
+  );
+
+ }
+
+
+ /* BOOKING */
+
+ if(
+  contains(
+   demand,
+   ["booking","appointment","hotel"]
+  )
+ ){
+
+  features.push(
+   "📅 Booking"
+  );
+
+  features.push(
+   "⏰ Availability"
+  );
+
+  screens.push(
+   "Booking"
+  );
+
+  screens.push(
+   "My Bookings"
+  );
+
+  backend.push(
+   "Booking database"
+  );
+
+ }
+
+
+ /* EARNING */
+
+ if(
+  contains(
+   demand,
+   ["earning","earn","worker","withdraw","income","wallet"]
+  )
+ ){
+
+  features.push(
+   "💰 User Earnings"
+  );
+
+  features.push(
+   "💳 Wallet"
+  );
+
+  features.push(
+   "💸 Withdrawal"
+  );
+
+  screens.push(
+   "Wallet"
+  );
+
+  screens.push(
+   "Earnings"
+  );
+
+  screens.push(
+   "Withdrawal"
+  );
+
+  screens.push(
+   "Transactions"
+  );
+
+  screens.push(
+   "Admin Payouts"
+  );
+
+  backend.push(
+   "Earning database"
+  );
+
+  backend.push(
+   "Withdrawal database"
+  );
+
+  backend.push(
+   "Payment provider"
+  );
+
+  money.push(
+   "User earning + withdrawal"
+  );
+
+ }
+
+
+ /* ADS */
+
+ if(
+  contains(
+   demand,
+   ["admob","ads","advertising","advertisement"]
+  )
+ ){
+
+  features.push(
+   "📢 AdMob / Advertising"
+  );
+
+  backend.push(
+   "AdMob configuration"
+  );
+
+  money.push(
+   "Advertising revenue"
+  );
+
+ }
+
+
+ /* PAYMENT */
+
+ if(
+  contains(
+   demand,
+   ["payment","stripe","jazzcash","easypaisa"]
+  )
+ ){
+
+  features.push(
+   "💳 Payment Integration"
+  );
+
+  backend.push(
+   "Payment provider API"
+  );
+
+  money.push(
+   "Payment / sales revenue"
+  );
+
+ }
+
+
+ /* ADMIN */
+
+ if(
+  contains(
+   demand,
+   ["admin","management"]
+  )
+ ){
+
+  features.push(
+   "🛠️ Admin Panel"
+  );
+
+  screens.push(
+   "Admin Dashboard"
+  );
+
+  screens.push(
+   "Manage Users"
+  );
+
+  screens.push(
+   "Manage Payments"
+  );
+
+  backend.push(
+   "Role-based access"
+  );
+
+ }
+
+
+ /* NOTIFICATIONS */
+
+ if(
+  contains(
+   demand,
+   ["notification","alert"]
+  )
+ ){
+
+  features.push(
+   "🔔 Notifications"
+  );
+
+  backend.push(
+   "Push notification service"
+  );
+
+ }
+
+
+ /* GOOGLE */
+
+ if(
+  contains(
+   demand,
+   ["google","gmail"]
+  )
+ ){
+
+  features.push(
+   "🔑 Google Sign-In"
+  );
+
+  backend.push(
+   "Google OAuth"
+  );
+
+ }
+
+
+ backend.push(
+  "Authentication service"
+ );
+
+ backend.push(
+  "Online database"
+ );
+
+ backend.push(
+  "Security / access rules"
+ );
+
+
+ if(!money.length){
+
+  money.push(
+   "Optional monetization"
+  );
+
+ }
+
+
+ screens=[
+  ...new Set(screens)
+ ];
+
+
+ /*
+   AI creates a component plan
+   for EVERY generated screen.
+ */
+
+ let componentPlan=[];
+
+ screens.forEach(
+  screen=>{
+
+   const comps=
+    autoComponentsForScreen(
+     screen,
+     demand
+    );
+
+   componentPlan.push({
+    screen:screen,
+    components:comps
+   });
+
+  }
+ );
+
+
+ currentAnalysis={
+
+  features:[
+   ...new Set(features)
+  ],
+
+  screens:screens,
+
+  components:componentPlan,
+
+  backend:[
+   ...new Set(backend)
+  ],
+
+  money:[
+   ...new Set(money)
+  ]
+
+ };
+
+
+ renderAnalysis();
+
+ document.getElementById(
+  "analysisBox"
+ ).classList.remove(
+  "hidden"
+ );
+
+ document.getElementById(
+  "analysisBox"
+ ).scrollIntoView({
+  behavior:"smooth"
+ });
+
+}
+
+
+/* =========================================================
+   RENDER AI ANALYSIS
+========================================================= */
+
+function renderAnalysis(){
+
+ const make=
+  list=>
+   list.map(
+    x=>
+     `<div class="item">
+      ${escapeHTML(x)}
+     </div>`
+   ).join("");
+
+
+ document.getElementById(
+  "analysisScreens"
+ ).innerHTML=
+ currentAnalysis.screens.map(
+  s=>
+   `<span class="ai-tag">
+    📱 ${escapeHTML(s)}
+   </span>`
+ ).join("");
+
+
+ document.getElementById(
+  "analysisFeatures"
+ ).innerHTML=
+ make(
+  currentAnalysis.features
+ );
+
+
+ document.getElementById(
+  "analysisBackend"
+ ).innerHTML=
+ make(
+  currentAnalysis.backend
+ );
+
+
+ document.getElementById(
+  "analysisMoney"
+ ).innerHTML=
+ make(
+  currentAnalysis.money
+ );
+
+
+ document.getElementById(
+  "analysisComponents"
+ ).innerHTML=
+ currentAnalysis.components.map(
+  plan=>
+   `<div class="item">
+
+    <b>📱 ${escapeHTML(plan.screen)}</b>
+
+    <br><br>
+
+    ${plan.components.map(
+     c=>
+      `<span class="badge">
+       ${escapeHTML(c.type)}:
+       ${escapeHTML(c.name)}
+      </span>`
+    ).join("")}
+
+   </div>`
+ ).join("");
+
+}
+
+
+/* =========================================================
+   CREATE COMPLETE AI PROJECT
 ========================================================= */
 
 function createAIProject(){
 
- if(!currentAnalysis.screens.length){
-  analyzeApp();
- }
+ const demand=
+  document.getElementById(
+   "appDemand"
+  ).value.trim();
 
- const demand=document.getElementById("appDemand").value.trim();
 
  if(!demand){
-  alert("App idea likhein.");
+
+  alert(
+   "App idea likhein."
+  );
+
   return;
+
  }
 
+
+ /*
+   Ensure analysis exists.
+ */
+
+ if(
+  !currentAnalysis.screens.length
+ ){
+
+  analyzeApp();
+
+ }
+
+
+ /*
+   AI automatically creates
+   EVERY screen and components.
+ */
+
+ const screens=
+  currentAnalysis.components.map(
+   plan=>({
+
+    name:plan.screen,
+
+    components:
+     plan.components.map(
+      c=>normalizeComponent(c)
+     )
+
+   })
+  );
+
+
  const project={
+
   id:"p_"+Date.now(),
+
   ownerId:currentUser.id,
-  name:generateProjectName(demand),
+
+  name:
+   generateProjectName(demand),
+
   description:demand,
-  type:"AI Generated App",
-  screens:currentAnalysis.screens.map(x=>({
-   name:cleanScreenName(x),
-   components:[]
-  })),
-  features:[...currentAnalysis.features],
-  backend:[...currentAnalysis.backend],
+
+  type:"AI Automatically Designed App",
+
+  appIcon:
+   uploadedAppIcon || "",
+
+  backgroundImage:
+   uploadedBackground || "",
+
+  brandName:
+   "Sami App Developer",
+
+  screens:screens,
+
+  features:[
+   ...currentAnalysis.features
+  ],
+
+  backend:[
+   ...currentAnalysis.backend
+  ],
+
   monetization:{
-   type:currentAnalysis.money.some(x=>x.toLowerCase().includes("earning"))
-    ?"userEarning":"none",
-   description:currentAnalysis.money.join(", ")
+
+   type:
+    currentAnalysis.money.some(
+     x=>
+      x.toLowerCase()
+       .includes("earning")
+    )
+    ?"userEarning"
+    :"none",
+
+   description:
+    currentAnalysis.money.join(", ")
+
   },
+
   records:[],
+
   withdrawals:[],
+
   earnings:[],
+
   overdueMonths:0,
+
   frozen:false,
+
   integrations:{},
-  createdAt:new Date().toLocaleString(),
-  updatedAt:new Date().toLocaleString()
+
+  createdAt:
+   new Date().toLocaleString(),
+
+  updatedAt:
+   new Date().toLocaleString()
+
  };
+
 
  currentProject=project;
 
  saveProjectObject(project);
+
+
+ currentScreenIndex=0;
+
+
+ /*
+   Reset upload state for next project.
+ */
+
+ uploadedAppIcon="";
+ uploadedBackground="";
+
+
  showWorkspace();
 
- alert("AI project create ho gaya. Ab aap screens/components customize kar sakte hain.");
+
+ alert(
+  "🎉 AI ne complete app automatically design kar di hai. Har screen aur component ab editable hai."
+ );
+
 }
+
+
+/* =========================================================
+   PROJECT NAME
+========================================================= */
 
 function generateProjectName(demand){
 
  const d=demand.toLowerCase();
 
- if(d.includes("gps"))return"GPS Map Camera App";
- if(d.includes("school"))return"School Management App";
- if(d.includes("restaurant")||d.includes("food"))return"Restaurant App";
- if(d.includes("shop")||d.includes("ecommerce"))return"E-Commerce App";
- if(d.includes("chat")||d.includes("whatsapp"))return"Chat App";
- if(d.includes("video")||d.includes("tiktok"))return"Social Video App";
- if(d.includes("bank"))return"Banking App";
- if(d.includes("booking"))return"Booking App";
+
+ if(d.includes("gps"))
+  return"GPS Map Camera App";
+
+
+ if(d.includes("school"))
+  return"School Management App";
+
+
+ if(
+  d.includes("restaurant") ||
+  d.includes("food")
+ )
+  return"Restaurant App";
+
+
+ if(
+  d.includes("shop") ||
+  d.includes("ecommerce")
+ )
+  return"E-Commerce App";
+
+
+ if(
+  d.includes("chat") ||
+  d.includes("whatsapp")
+ )
+  return"Chat App";
+
+
+ if(
+  d.includes("video") ||
+  d.includes("tiktok")
+ )
+  return"Social Video App";
+
+
+ if(d.includes("bank"))
+  return"Banking App";
+
+
+ if(d.includes("booking"))
+  return"Booking App";
+
 
  return"My AI Generated App";
-}
 
-function cleanScreenName(x){
- return x.replace(/^[^\w]+/,"").trim();
 }
 
 
@@ -1212,164 +3664,370 @@ function cleanScreenName(x){
 ========================================================= */
 
 function getProjects(){
- return getJSON(PROJECTS_KEY,[]);
+
+ return getJSON(
+  PROJECTS_KEY,
+  []
+ );
+
 }
+
 
 function saveProjectObject(project){
 
- let projects=getProjects();
+ let projects=
+  getProjects();
 
- const index=projects.findIndex(
-  p=>p.id===project.id
- );
 
- if(index>=0)projects[index]=project;
- else projects.push(project);
+ const index=
+  projects.findIndex(
+   p=>p.id===project.id
+  );
 
- setJSON(PROJECTS_KEY,projects);
-}
 
-function saveCurrentProject(){
+ if(index>=0){
 
- if(!currentProject)return;
+  projects[index]=project;
 
- currentProject.name=document.getElementById("projectName").value.trim() || "My App";
- currentProject.description=document.getElementById("projectDescription").value;
- currentProject.type=document.getElementById("projectType").value;
+ }else{
 
- currentProject.updatedAt=new Date().toLocaleString();
+  projects.push(project);
 
- saveProjectObject(currentProject);
-
- alert("Project saved successfully.");
-}
-
-function renderProjects(){
-
- const list=document.getElementById("projectsList");
- const projects=getProjects().filter(
-  p=>p.ownerId===currentUser.id
- );
-
- if(!projects.length){
-  list.innerHTML=
-   `<div class="notice">Abhi koi project nahi hai.</div>`;
-  return;
  }
 
- list.innerHTML=projects.map(p=>`
-  <div class="item">
-   <h3>${escapeHTML(p.name)}</h3>
-   <p class="muted">${escapeHTML(p.description||"")}</p>
-   <p class="muted">Updated: ${escapeHTML(p.updatedAt||"")}</p>
 
-   <button class="green" onclick="openProject('${p.id}')">
-    ✏️ Open
-   </button>
+ setJSON(
+  PROJECTS_KEY,
+  projects
+ );
 
-   <button class="blue" onclick="duplicateProject('${p.id}')">
-    📑 Duplicate
-   </button>
-
-   <button class="red" onclick="deleteProject('${p.id}')">
-    🗑️ Delete
-   </button>
-  </div>
- `).join("");
 }
+
+
+/* =========================================================
+   OPEN PROJECT
+========================================================= */
 
 function openProject(id){
 
- const projects=getProjects();
+ const projects=
+  getProjects();
 
- const project=projects.find(
-  p=>p.id===id && p.ownerId===currentUser.id
- );
+
+ const project=
+  projects.find(
+   p=>
+    p.id===id &&
+    p.ownerId===currentUser.id
+  );
+
 
  if(!project)return;
 
- currentProject=normalizeProject(project);
 
- saveProjectObject(currentProject);
+ currentProject=
+  normalizeProject(project);
+
 
  currentScreenIndex=0;
- currentComponentIndex=-1;
+
+
+ saveProjectObject(
+  currentProject
+ );
+
 
  showWorkspace();
+
 }
+
+
+/* =========================================================
+   PROJECT LIST
+========================================================= */
+
+function renderProjects(){
+
+ const list=
+  document.getElementById(
+   "projectsList"
+  );
+
+
+ const projects=
+  getProjects().filter(
+   p=>
+    p.ownerId===currentUser.id
+  );
+
+
+ if(!projects.length){
+
+  list.innerHTML=
+   `<div class="notice">
+    Abhi koi project nahi hai.
+   </div>`;
+
+  return;
+
+ }
+
+
+ list.innerHTML=
+ projects.map(
+  p=>`
+
+  <div class="item">
+
+   ${
+    p.appIcon
+    ?
+    `<img
+      src="${p.appIcon}"
+      style="width:55px;height:55px;
+      border-radius:14px;object-fit:cover">
+    `
+    :""
+   }
+
+   <h3>
+    ${escapeHTML(p.name)}
+   </h3>
+
+   <p class="muted">
+    ${escapeHTML(
+     p.description||""
+    )}
+   </p>
+
+   <p class="muted">
+    ${escapeHTML(
+     p.updatedAt||""
+    )}
+   </p>
+
+   <button class="green"
+    onclick="openProject('${p.id}')">
+    ✏️ Open & Edit
+   </button>
+
+   <button class="blue"
+    onclick="duplicateProject('${p.id}')">
+    📑 Duplicate
+   </button>
+
+   <button class="red"
+    onclick="deleteProject('${p.id}')">
+    🗑️ Delete
+   </button>
+
+  </div>
+
+ `).join("");
+
+}
+
 
 function duplicateProject(id){
 
- const projects=getProjects();
- const original=projects.find(p=>p.id===id);
+ const projects=
+  getProjects();
+
+
+ const original=
+  projects.find(
+   p=>p.id===id
+  );
+
 
  if(!original)return;
 
- const copy=JSON.parse(JSON.stringify(original));
 
- copy.id="p_"+Date.now();
- copy.name=original.name+" Copy";
- copy.createdAt=new Date().toLocaleString();
- copy.updatedAt=new Date().toLocaleString();
+ const copy=
+  JSON.parse(
+   JSON.stringify(original)
+  );
+
+
+ copy.id=
+  "p_"+Date.now();
+
+
+ copy.name=
+  original.name+" Copy";
+
+
+ copy.createdAt=
+  new Date().toLocaleString();
+
+
+ copy.updatedAt=
+  new Date().toLocaleString();
+
 
  projects.push(copy);
- setJSON(PROJECTS_KEY,projects);
+
+ setJSON(
+  PROJECTS_KEY,
+  projects
+ );
+
 
  renderProjects();
+
 }
+
 
 function deleteProject(id){
 
- if(!confirm("Is project ko delete karna hai?"))return;
+ if(
+  !confirm(
+   "Is project ko delete karna hai?"
+  )
+ )
+  return;
 
- const projects=getProjects().filter(
-  p=>!(p.id===id && p.ownerId===currentUser.id)
+
+ const projects=
+  getProjects().filter(
+   p=>
+    !(
+     p.id===id &&
+     p.ownerId===currentUser.id
+    )
+  );
+
+
+ setJSON(
+  PROJECTS_KEY,
+  projects
  );
 
- setJSON(PROJECTS_KEY,projects);
 
  renderProjects();
+
 }
+
+
+/* =========================================================
+   NORMALIZE
+========================================================= */
 
 function normalizeProject(p){
 
  p.screens=p.screens||[];
+
  p.features=p.features||[];
+
  p.backend=p.backend||[];
- p.integrations=p.integrations||{};
+
  p.records=p.records||[];
+
  p.withdrawals=p.withdrawals||[];
+
  p.earnings=p.earnings||[];
 
- if(!p.monetization){
-  p.monetization={type:"none",description:""};
- }
+ p.integrations=
+  p.integrations||{};
 
- p.screens=p.screens.map(s=>({
-  name:s.name||"New Screen",
-  components:(s.components||[]).map(normalizeComponent)
- }));
+ p.brandName=
+  p.brandName||
+  "Sami App Developer";
+
+
+ p.appIcon=
+  p.appIcon||"";
+
+
+ p.backgroundImage=
+  p.backgroundImage||"";
+
+
+ p.monetization=
+  p.monetization||
+  {
+   type:"none",
+   description:""
+  };
+
+
+ p.screens=
+  p.screens.map(
+   s=>({
+
+    name:
+     s.name||
+     "New Screen",
+
+    components:
+     (s.components||[])
+      .map(
+       normalizeComponent
+      )
+
+   })
+  );
+
 
  return p;
+
 }
+
 
 function normalizeComponent(c){
 
- return {
-  type:c.type||"Text",
-  name:c.name||c.text||"Component",
-  fontSize:c.fontSize||16,
-  width:c.width||100,
-  height:c.height||45,
-  textColor:c.textColor||"#172033",
-  bgColor:c.bgColor||"#eef3f9",
-  align:c.align||"left",
-  x:c.x||0,
-  y:c.y||0,
-  action:c.action||"none",
-  actionValue:c.actionValue||"",
-  dataKey:c.dataKey||""
+ return{
+
+  type:
+   c.type||
+   "Text",
+
+  name:
+   c.name||
+   c.text||
+   "Component",
+
+  fontSize:
+   Number(c.fontSize)||16,
+
+  width:
+   Number(c.width)||100,
+
+  height:
+   Number(c.height)||45,
+
+  textColor:
+   c.textColor||
+   "#172033",
+
+  bgColor:
+   c.bgColor||
+   "#eef3f9",
+
+  align:
+   c.align||
+   "left",
+
+  x:
+   Number(c.x)||0,
+
+  y:
+   Number(c.y)||0,
+
+  action:
+   c.action||
+   "none",
+
+  actionValue:
+   c.actionValue||
+   "",
+
+  dataKey:
+   c.dataKey||
+   ""
+
  };
+
 }
 
 
@@ -1381,44 +4039,192 @@ function renderWorkspace(){
 
  if(!currentProject)return;
 
- document.getElementById("projectName").value=
+
+ currentProject=
+  normalizeProject(
+   currentProject
+  );
+
+
+ document.getElementById(
+  "projectName"
+ ).value=
   currentProject.name||"";
 
- document.getElementById("projectDescription").value=
+
+ document.getElementById(
+  "projectDescription"
+ ).value=
   currentProject.description||"";
 
- document.getElementById("projectType").value=
+
+ document.getElementById(
+  "projectType"
+ ).value=
   currentProject.type||"";
 
+
+ /*
+   Branding previews
+ */
+
+ const icon=
+  document.getElementById(
+   "workspaceIconPreview"
+  );
+
+
+ if(currentProject.appIcon){
+
+  icon.src=
+   currentProject.appIcon;
+
+  icon.classList.remove(
+   "hidden"
+  );
+
+ }else{
+
+  icon.classList.add(
+   "hidden"
+  );
+
+ }
+
+
+ const bg=
+  document.getElementById(
+   "workspaceBgPreview"
+  );
+
+
+ if(currentProject.backgroundImage){
+
+  bg.src=
+   currentProject.backgroundImage;
+
+  bg.classList.remove(
+   "hidden"
+  );
+
+ }else{
+
+  bg.classList.add(
+   "hidden"
+  );
+
+ }
+
+
  renderProjectScreens();
+
  renderProjectFeatures();
+
  renderBackend();
+
  renderMoney();
 
- if(currentProject.screens.length){
-  if(currentScreenIndex>=currentProject.screens.length)
+ renderEarningSystem();
+
+
+ if(
+  currentProject.screens.length
+ ){
+
+  if(
+   currentScreenIndex>=
+   currentProject.screens.length
+  ){
+
    currentScreenIndex=0;
 
-  openScreenEditor(currentScreenIndex);
+  }
+
+  openScreenEditor(
+   currentScreenIndex
+  );
+
  }else{
+
   currentProject.screens.push({
    name:"Home",
-   components:[]
+   components:
+    autoComponentsForScreen(
+     "Home",
+     currentProject.description||""
+    )
   });
 
   currentScreenIndex=0;
+
   openScreenEditor(0);
+
  }
+
 }
+
+
+/* =========================================================
+   SAVE CURRENT PROJECT
+========================================================= */
+
+function saveCurrentProject(){
+
+ if(!currentProject)return;
+
+
+ currentProject.name=
+  document.getElementById(
+   "projectName"
+  ).value.trim()
+  ||
+  "My App";
+
+
+ currentProject.description=
+  document.getElementById(
+   "projectDescription"
+  ).value;
+
+
+ currentProject.type=
+  document.getElementById(
+   "projectType"
+  ).value;
+
+
+ currentProject.updatedAt=
+  new Date().toLocaleString();
+
+
+ saveProjectObject(
+  currentProject
+ );
+
+
+}
+
+
+/* =========================================================
+   SCREENS
+========================================================= */
 
 function renderProjectScreens(){
 
- document.getElementById("projectScreens").innerHTML=
- currentProject.screens.map((s,i)=>`
+ document.getElementById(
+  "projectScreens"
+ ).innerHTML=
+ currentProject.screens.map(
+  (s,i)=>`
+
   <div class="screen">
-   <span class="screen-name"
+
+   <span
+    class="screen-name"
     onclick="openScreenEditor(${i})">
+
     📱 ${escapeHTML(s.name)}
+
    </span>
 
    <button class="blue"
@@ -1430,113 +4236,209 @@ function renderProjectScreens(){
     onclick="removeScreen(${i})">
     Remove
    </button>
+
   </div>
+
  `).join("");
+
 }
 
-function renderProjectFeatures(){
-
- document.getElementById("projectFeatures").innerHTML=
- currentProject.features.map((f,i)=>`
-  <div class="screen">
-   <span>${escapeHTML(f)}</span>
-   <button class="red" onclick="removeFeature(${i})">
-    Remove
-   </button>
-  </div>
- `).join("");
-}
-
-function renderBackend(){
-
- document.getElementById("projectBackend").innerHTML=
- currentProject.backend.map(x=>
-  `<span class="badge">${escapeHTML(x)}</span>`
- ).join("");
-}
-
-function renderMoney(){
-
- document.getElementById("monetizationType").value=
-  currentProject.monetization?.type||"none";
-
- document.getElementById("moneyDescription").value=
-  currentProject.monetization?.description||"";
-}
 
 function addScreen(){
 
- const name=prompt("New screen ka naam:");
+ const name=
+  prompt(
+   "New screen ka naam:"
+  );
+
 
  if(!name)return;
 
+
  currentProject.screens.push({
+
   name:name,
-  components:[]
+
+  components:
+   autoComponentsForScreen(
+    name,
+    currentProject.description||""
+   )
+
  });
 
- currentScreenIndex=currentProject.screens.length-1;
+
+ currentScreenIndex=
+  currentProject.screens.length-1;
+
 
  saveCurrentProject();
+
  renderWorkspace();
+
 }
+
 
 function renameScreen(index){
 
- const name=prompt(
-  "Screen ka new naam:",
-  currentProject.screens[index].name
- );
+ const name=
+  prompt(
+   "Screen ka new naam:",
+   currentProject.screens[index].name
+  );
+
 
  if(!name)return;
 
- currentProject.screens[index].name=name;
+
+ currentProject.screens[index].name=
+  name;
+
 
  saveCurrentProject();
+
  renderWorkspace();
+
 }
+
 
 function removeScreen(index){
 
- if(currentProject.screens.length<=1){
-  alert("Kam az kam 1 screen zaroor honi chahiye.");
+ if(
+  currentProject.screens.length<=1
+ ){
+
+  alert(
+   "Kam az kam 1 screen honi chahiye."
+  );
+
   return;
+
  }
 
- if(!confirm("Screen remove karni hai?"))return;
 
- currentProject.screens.splice(index,1);
+ if(
+  !confirm(
+   "Screen remove karni hai?"
+  )
+ )
+  return;
 
- if(currentScreenIndex>=currentProject.screens.length)
-  currentScreenIndex=currentProject.screens.length-1;
+
+ currentProject.screens.splice(
+  index,
+  1
+ );
+
+
+ if(
+  currentScreenIndex>=
+  currentProject.screens.length
+ ){
+
+  currentScreenIndex=
+   currentProject.screens.length-1;
+
+ }
+
 
  saveCurrentProject();
+
  renderWorkspace();
-}
 
-function addFeature(){
-
- const feature=prompt("New feature ka naam:");
-
- if(!feature)return;
-
- currentProject.features.push(feature);
-
- saveCurrentProject();
- renderWorkspace();
-}
-
-function removeFeature(index){
-
- currentProject.features.splice(index,1);
-
- saveCurrentProject();
- renderWorkspace();
 }
 
 
 /* =========================================================
-   COMPONENT EDITOR
+   FEATURES
+========================================================= */
+
+function renderProjectFeatures(){
+
+ document.getElementById(
+  "projectFeatures"
+ ).innerHTML=
+ currentProject.features.map(
+  (f,i)=>`
+
+  <div class="screen">
+
+   <span>
+    ${escapeHTML(f)}
+   </span>
+
+   <button
+    class="red"
+    onclick="removeFeature(${i})">
+    Remove
+   </button>
+
+  </div>
+
+ `).join("");
+
+}
+
+
+function addFeature(){
+
+ const feature=
+  prompt(
+   "New feature:"
+  );
+
+
+ if(!feature)return;
+
+
+ currentProject.features.push(
+  feature
+ );
+
+
+ saveCurrentProject();
+
+ renderWorkspace();
+
+}
+
+
+function removeFeature(index){
+
+ currentProject.features.splice(
+  index,
+  1
+ );
+
+
+ saveCurrentProject();
+
+ renderWorkspace();
+
+}
+
+
+/* =========================================================
+   BACKEND
+========================================================= */
+
+function renderBackend(){
+
+ document.getElementById(
+  "projectBackend"
+ ).innerHTML=
+ currentProject.backend.map(
+  x=>
+   `<span class="badge">
+    ${escapeHTML(x)}
+   </span>`
+ ).join("");
+
+}
+
+
+/* =========================================================
+   SCREEN EDITOR
 ========================================================= */
 
 function openScreenEditor(index){
@@ -1545,154 +4447,394 @@ function openScreenEditor(index){
 
  currentComponentIndex=-1;
 
- const screen=currentProject.screens[index];
 
- document.getElementById("editingScreenName").textContent=
+ const screen=
+  currentProject.screens[index];
+
+
+ document.getElementById(
+  "editingScreenName"
+ ).textContent=
   screen.name;
 
+
  renderComponents();
+
  renderLivePreview();
 
  closeProperties();
+
 }
+
 
 function renderComponents(){
 
- const list=document.getElementById("componentList");
- const screen=currentProject.screens[currentScreenIndex];
+ const list=
+  document.getElementById(
+   "componentList"
+  );
+
+
+ const screen=
+  currentProject.screens[
+   currentScreenIndex
+  ];
+
 
  if(!screen){
+
   list.innerHTML="";
+
   return;
+
  }
+
 
  if(!screen.components.length){
+
   list.innerHTML=
-   `<div class="notice">Is screen mein abhi koi component nahi hai.</div>`;
+   `<div class="notice">
+    Is screen mein components nahi hain.
+   </div>`;
+
   return;
+
  }
 
- list.innerHTML=screen.components.map((c,i)=>`
+
+ list.innerHTML=
+ screen.components.map(
+  (c,i)=>`
+
   <div class="editor">
 
-   <b>${escapeHTML(c.type)}</b>
+   <b>
+    ${escapeHTML(c.type)}
+   </b>
+
    <br>
+
    ${escapeHTML(c.name)}
 
    <div class="muted">
-    X:${c.x} Y:${c.y}
-    | Width:${c.width}%
-    | Height:${c.height}
+
+    X:${c.x}
+    Y:${c.y}
+    |
+    Width:${c.width}%
+    |
+    Height:${c.height}
+
    </div>
 
-   <button class="blue"
+   <button
+    class="blue"
     onclick="editComponent(${i})">
     ⚙️ Properties
    </button>
 
-   <button class="red"
+   <button
+    class="red"
     onclick="deleteComponent(${i})">
     🗑️ Delete
    </button>
 
   </div>
+
  `).join("");
+
 }
+
+
+/* =========================================================
+   ADD COMPONENT
+========================================================= */
 
 function addComponent(){
 
  if(!currentProject)return;
 
- const type=document.getElementById("componentType").value;
- const name=document.getElementById("componentName").value.trim()
-  || type;
 
- const c=normalizeComponent({
-  type:type,
-  name:name
- });
+ const type=
+  document.getElementById(
+   "componentType"
+  ).value;
 
- currentProject.screens[currentScreenIndex].components.push(c);
 
- document.getElementById("componentName").value="";
+ const name=
+  document.getElementById(
+   "componentName"
+  ).value.trim()
+  ||
+  type;
+
+
+ currentProject.screens[
+  currentScreenIndex
+ ].components.push(
+  component(
+   type,
+   name
+  )
+ );
+
+
+ document.getElementById(
+  "componentName"
+ ).value="";
+
 
  saveCurrentProject();
+
  renderComponents();
+
  renderLivePreview();
+
 }
+
+
+/* =========================================================
+   COMPONENT EDIT
+========================================================= */
 
 function editComponent(index){
 
  currentComponentIndex=index;
 
- const c=currentProject.screens[currentScreenIndex]
-  .components[index];
 
- document.getElementById("propertyEditor")
-  .classList.remove("hidden");
+ const c=
+  currentProject.screens[
+   currentScreenIndex
+  ].components[index];
 
- document.getElementById("propName").value=c.name;
- document.getElementById("propFontSize").value=c.fontSize;
- document.getElementById("propWidth").value=c.width;
- document.getElementById("propHeight").value=c.height;
- document.getElementById("propTextColor").value=c.textColor;
- document.getElementById("propBgColor").value=c.bgColor;
- document.getElementById("propAlign").value=c.align;
- document.getElementById("propX").value=c.x;
- document.getElementById("propY").value=c.y;
- document.getElementById("propAction").value=c.action;
- document.getElementById("propActionValue").value=c.actionValue;
- document.getElementById("propDataKey").value=c.dataKey;
 
- document.getElementById("propertyEditor")
-  .scrollIntoView({behavior:"smooth"});
+ document.getElementById(
+  "propertyEditor"
+ ).classList.remove(
+  "hidden"
+ );
+
+
+ document.getElementById(
+  "propName"
+ ).value=c.name;
+
+
+ document.getElementById(
+  "propFontSize"
+ ).value=c.fontSize;
+
+
+ document.getElementById(
+  "propWidth"
+ ).value=c.width;
+
+
+ document.getElementById(
+  "propHeight"
+ ).value=c.height;
+
+
+ document.getElementById(
+  "propTextColor"
+ ).value=c.textColor;
+
+
+ document.getElementById(
+  "propBgColor"
+ ).value=c.bgColor;
+
+
+ document.getElementById(
+  "propAlign"
+ ).value=c.align;
+
+
+ document.getElementById(
+  "propX"
+ ).value=c.x;
+
+
+ document.getElementById(
+  "propY"
+ ).value=c.y;
+
+
+ document.getElementById(
+  "propAction"
+ ).value=c.action;
+
+
+ document.getElementById(
+  "propActionValue"
+ ).value=
+  c.actionValue;
+
+
+ document.getElementById(
+  "propDataKey"
+ ).value=
+  c.dataKey;
+
+
+ document.getElementById(
+  "propertyEditor"
+ ).scrollIntoView({
+  behavior:"smooth"
+ });
+
 }
+
 
 function saveProperties(){
 
- if(currentComponentIndex<0)return;
+ if(
+  currentComponentIndex<0
+ )
+  return;
 
- const c=currentProject.screens[currentScreenIndex]
-  .components[currentComponentIndex];
 
- c.name=document.getElementById("propName").value||c.name;
- c.fontSize=Number(document.getElementById("propFontSize").value)||16;
- c.width=Number(document.getElementById("propWidth").value)||100;
- c.height=Number(document.getElementById("propHeight").value)||45;
- c.textColor=document.getElementById("propTextColor").value;
- c.bgColor=document.getElementById("propBgColor").value;
- c.align=document.getElementById("propAlign").value;
- c.x=Number(document.getElementById("propX").value)||0;
- c.y=Number(document.getElementById("propY").value)||0;
- c.action=document.getElementById("propAction").value;
- c.actionValue=document.getElementById("propActionValue").value;
- c.dataKey=document.getElementById("propDataKey").value;
+ const c=
+  currentProject.screens[
+   currentScreenIndex
+  ].components[
+   currentComponentIndex
+  ];
+
+
+ c.name=
+  document.getElementById(
+   "propName"
+  ).value ||
+  c.name;
+
+
+ c.fontSize=
+  Number(
+   document.getElementById(
+    "propFontSize"
+   ).value
+  )||16;
+
+
+ c.width=
+  Number(
+   document.getElementById(
+    "propWidth"
+   ).value
+  )||100;
+
+
+ c.height=
+  Number(
+   document.getElementById(
+    "propHeight"
+   ).value
+  )||45;
+
+
+ c.textColor=
+  document.getElementById(
+   "propTextColor"
+  ).value;
+
+
+ c.bgColor=
+  document.getElementById(
+   "propBgColor"
+  ).value;
+
+
+ c.align=
+  document.getElementById(
+   "propAlign"
+  ).value;
+
+
+ c.x=
+  Number(
+   document.getElementById(
+    "propX"
+   ).value
+  )||0;
+
+
+ c.y=
+  Number(
+   document.getElementById(
+    "propY"
+   ).value
+  )||0;
+
+
+ c.action=
+  document.getElementById(
+   "propAction"
+  ).value;
+
+
+ c.actionValue=
+  document.getElementById(
+   "propActionValue"
+  ).value;
+
+
+ c.dataKey=
+  document.getElementById(
+   "propDataKey"
+  ).value;
+
 
  saveCurrentProject();
+
  renderComponents();
+
  renderLivePreview();
 
- alert("Properties applied.");
+ alert(
+  "Component properties updated."
+ );
+
 }
+
 
 function closeProperties(){
 
- document.getElementById("propertyEditor")
-  .classList.add("hidden");
+ document.getElementById(
+  "propertyEditor"
+ ).classList.add(
+  "hidden"
+ );
 
  currentComponentIndex=-1;
+
 }
+
 
 function deleteComponent(index){
 
- if(!confirm("Component delete karna hai?"))return;
+ if(
+  !confirm(
+   "Component delete karna hai?"
+  )
+ )
+  return;
 
- currentProject.screens[currentScreenIndex]
-  .components.splice(index,1);
+
+ currentProject.screens[
+  currentScreenIndex
+ ].components.splice(
+  index,
+  1
+ );
+
 
  saveCurrentProject();
+
  renderComponents();
+
  renderLivePreview();
+
 }
 
 
@@ -1702,213 +4844,565 @@ function deleteComponent(index){
 
 function renderLivePreview(){
 
- const screen=currentProject.screens[currentScreenIndex];
+ const screen=
+  currentProject.screens[
+   currentScreenIndex
+  ];
+
 
  if(!screen)return;
 
+
+ const wrapper=
+  document.getElementById(
+   "liveScreenContent"
+  );
+
+
+ /*
+   AI automatically adjusts
+   background image:
+   cover + center.
+ */
+
+ if(currentProject.backgroundImage){
+
+  wrapper.style.backgroundImage=
+   `url("${currentProject.backgroundImage}")`;
+
+ }else{
+
+  wrapper.style.backgroundImage=
+   "none";
+
+ }
+
+
  let html="";
 
+
  html+=`
- <div style="font-weight:bold;text-align:center;
- padding:10px;border-bottom:1px solid #ddd">
- ${escapeHTML(screen.name)}
+
+ <div class="screen-title">
+
+  ${
+   currentProject.appIcon
+   ?
+   `<img
+     src="${currentProject.appIcon}"
+     style="
+      width:42px;
+      height:42px;
+      border-radius:11px;
+      object-fit:cover;
+      vertical-align:middle;
+      margin-right:7px
+     ">`
+   :""
+  }
+
+  ${escapeHTML(
+   currentProject.brandName||
+   "Sami App Developer"
+  )}
+
+  <br>
+
+  <small>
+   ${escapeHTML(screen.name)}
+  </small>
+
  </div>
+
  `;
 
- screen.components.forEach((c,i)=>{
 
-  const style=`
-   font-size:${c.fontSize}px;
-   width:${Math.min(100,Math.max(20,c.width))}%;
-   min-height:${Math.max(20,c.height)}px;
-   color:${c.textColor};
-   background:${c.bgColor};
-   text-align:${c.align};
-   margin-left:${Math.max(-50,Math.min(50,c.x))}px;
-   margin-top:${Math.max(-30,Math.min(100,c.y))}px;
-   display:block;
-  `;
+ screen.components.forEach(
+  (c,i)=>{
 
-  if(c.type==="Button"){
-   html+=`
-   <button class="live"
-    style="${style}"
-    onclick="previewAction(${i})">
-    ${escapeHTML(c.name)}
-   </button>`;
+   const style=`
+
+    font-size:${c.fontSize}px;
+
+    width:${Math.min(
+     100,
+     Math.max(20,c.width)
+    )}%;
+
+    min-height:${Math.max(
+     20,c.height
+    )}px;
+
+    color:${c.textColor};
+
+    background:${c.bgColor};
+
+    text-align:${c.align};
+
+    margin-left:${Math.max(
+     -50,
+     Math.min(50,c.x)
+    )}px;
+
+    margin-top:${Math.max(
+     -30,
+     Math.min(100,c.y)
+    )}px;
+
+    display:block;
+
+   `;
+
+
+   if(c.type==="Button"){
+
+    html+=`
+
+    <button
+     class="live"
+     style="${style}"
+     onclick="previewAction(${i})">
+
+     ${escapeHTML(c.name)}
+
+    </button>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Input"){
+
+    html+=`
+
+    <input
+     class="live"
+     style="${style}"
+     placeholder="${escapeAttribute(c.name)}"
+     data-preview-input="${i}">
+
+    `;
+
+   }
+
+
+   else if(c.type==="Image"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     🖼️
+     ${escapeHTML(c.name)}
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Camera"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     📷
+     ${escapeHTML(c.name)}
+
+     <br>
+     <small>
+      Camera component
+     </small>
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Map"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     🗺️
+     ${escapeHTML(c.name)}
+
+     <br>
+
+     <small>
+      Live map integration required
+     </small>
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Video"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     🎬
+     ${escapeHTML(c.name)}
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Chat"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     💬
+     ${escapeHTML(c.name)}
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Wallet"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     💰 Wallet
+
+     <br>
+
+     Balance:
+     Rs. 0
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Withdrawal"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     💸 Withdrawal
+
+     <br>
+
+     <small>
+      Payment provider required
+     </small>
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Login"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     <b>
+      Sami App Developer
+     </b>
+
+     <br><br>
+
+     🔐 Login
+
+     <input
+      placeholder="Email">
+
+     <input
+      type="password"
+      placeholder="Password">
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Signup"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     <b>
+      Sami App Developer
+     </b>
+
+     <br><br>
+
+     📝 Create Account
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Profile"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     👤 User Profile
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="FileUpload"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     📁
+     ${escapeHTML(c.name)}
+
+     <input
+      type="file">
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Payment"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     💳
+     ${escapeHTML(c.name)}
+
+    </div>
+
+    `;
+
+   }
+
+
+   else if(c.type==="Chart"){
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     📊
+     ${escapeHTML(c.name)}
+
+    </div>
+
+    `;
+
+   }
+
+
+   else{
+
+    html+=`
+
+    <div
+     class="live"
+     style="${style}">
+
+     ${escapeHTML(c.name)}
+
+    </div>
+
+    `;
+
+   }
+
   }
+ );
 
-  else if(c.type==="Input"){
-   html+=`
-   <input class="live"
-    style="${style}"
-    placeholder="${escapeHTML(c.name)}"
-    data-preview-input="${i}">`;
-  }
 
-  else if(c.type==="Image"){
-   html+=`
-   <div class="live" style="${style}">
-    🖼️ ${escapeHTML(c.name)}
-   </div>`;
-  }
+ wrapper.innerHTML=html;
 
-  else if(c.type==="Video"){
-   html+=`
-   <div class="live" style="${style}">
-    🎬 ${escapeHTML(c.name)}
-    <br><small>Video component</small>
-   </div>`;
-  }
-
-  else if(c.type==="Map"){
-   html+=`
-   <div class="live" style="${style}">
-    🗺️ ${escapeHTML(c.name)}
-    <br><small>Map integration required for live maps</small>
-   </div>`;
-  }
-
-  else if(c.type==="Camera"){
-   html+=`
-   <div class="live" style="${style}">
-    📷 ${escapeHTML(c.name)}
-   </div>`;
-  }
-
-  else if(c.type==="Chat"){
-   html+=`
-   <div class="live" style="${style}">
-    💬 ${escapeHTML(c.name)}
-   </div>`;
-  }
-
-  else if(c.type==="Wallet"){
-   html+=`
-   <div class="live" style="${style}">
-    💰 Wallet
-    <br>Balance: Rs. 0
-   </div>`;
-  }
-
-  else if(c.type==="Withdrawal"){
-   html+=`
-   <div class="live" style="${style}">
-    💸 Withdrawal
-    <br><small>Real payment provider required</small>
-   </div>`;
-  }
-
-  else if(c.type==="Login"){
-   html+=`
-   <div class="live" style="${style}">
-    🔐 Login
-    <input placeholder="Email">
-    <input type="password" placeholder="Password">
-   </div>`;
-  }
-
-  else if(c.type==="Signup"){
-   html+=`
-   <div class="live" style="${style}">
-    📝 Create Account
-   </div>`;
-  }
-
-  else if(c.type==="Profile"){
-   html+=`
-   <div class="live" style="${style}">
-    👤 Profile
-   </div>`;
-  }
-
-  else if(c.type==="Notification"){
-   html+=`
-   <div class="live" style="${style}">
-    🔔 ${escapeHTML(c.name)}
-   </div>`;
-  }
-
-  else if(c.type==="Payment"){
-   html+=`
-   <div class="live" style="${style}">
-    💳 Payment
-   </div>`;
-  }
-
-  else if(c.type==="FileUpload"){
-   html+=`
-   <div class="live" style="${style}">
-    📁 ${escapeHTML(c.name)}
-    <input type="file">
-   </div>`;
-  }
-
-  else{
-   html+=`
-   <div class="live" style="${style}">
-    ${escapeHTML(c.name)}
-   </div>`;
-  }
-
- });
-
- document.getElementById("liveScreenContent").innerHTML=html;
 }
+
+
+/* =========================================================
+   PREVIEW ACTION
+========================================================= */
 
 function previewAction(index){
 
- const c=currentProject.screens[currentScreenIndex]
-  .components[index];
+ const c=
+  currentProject.screens[
+   currentScreenIndex
+  ].components[index];
 
- if(c.action==="none")return;
+
+ if(c.action==="none")
+  return;
+
 
  if(c.action==="alert"){
-  alert(c.actionValue||c.name);
+
+  alert(
+   c.actionValue||
+   c.name
+  );
+
  }
 
- else if(c.action==="back"){
-  history.back();
- }
 
  else if(c.action==="url"){
-  if(c.actionValue)
-   window.open(c.actionValue,"_blank");
- }
 
- else if(c.action==="call"){
-  if(c.actionValue)
-   window.location.href="tel:"+c.actionValue;
- }
+  if(c.actionValue){
 
- else if(c.action==="whatsapp"){
-  if(c.actionValue)
    window.open(
-    "https://wa.me/"+c.actionValue.replace(/\D/g,""),
+    c.actionValue,
     "_blank"
    );
+
+  }
+
  }
+
+
+ else if(c.action==="call"){
+
+  if(c.actionValue){
+
+   window.location.href=
+    "tel:"+c.actionValue;
+
+  }
+
+ }
+
+
+ else if(c.action==="whatsapp"){
+
+  if(c.actionValue){
+
+   window.open(
+    "https://wa.me/"+
+    c.actionValue.replace(
+     /\D/g,
+     ""
+    ),
+    "_blank"
+   );
+
+  }
+
+ }
+
 
  else if(c.action==="screen"){
 
-  const index=currentProject.screens.findIndex(
-   s=>s.name.toLowerCase()===c.actionValue.toLowerCase()
-  );
+  const index=
+   currentProject.screens.findIndex(
+    s=>
+     s.name.toLowerCase()===
+     c.actionValue.toLowerCase()
+   );
+
 
   if(index>=0){
-   openScreenEditor(index);
+
+   openScreenEditor(
+    index
+   );
+
   }else{
-   alert("Screen nahi mili: "+c.actionValue);
+
+   alert(
+    "Screen nahi mili: "+
+    c.actionValue
+   );
+
   }
+
  }
+
 
  else if(c.action==="saveData"){
+
   savePreviewForm();
+
  }
 
+
  else if(c.action==="deleteData"){
+
   deleteAllRecords();
+
  }
+
+
+ else if(c.action==="back"){
+
+  showHome();
+
+ }
+
 }
 
 
@@ -1918,99 +5412,197 @@ function previewAction(index){
 
 function dataKey(){
 
- return "SAMI_DATA_"+currentUser.id+"_"+currentProject.id+
-  "_SCREEN_"+currentScreenIndex;
+ return(
+  "SAMI_DATA_"+
+  currentUser.id+
+  "_"+
+  currentProject.id+
+  "_SCREEN_"+
+  currentScreenIndex
+ );
+
 }
+
 
 function getRecords(){
 
- return getJSON(dataKey(),[]);
+ return getJSON(
+  dataKey(),
+  []
+ );
+
 }
+
 
 function savePreviewForm(){
 
- const inputs=document.querySelectorAll(
-  "#liveScreenContent input[data-preview-input]"
- );
+ const inputs=
+  document.querySelectorAll(
+   "#liveScreenContent input[data-preview-input]"
+  );
+
 
  if(!inputs.length){
-  alert("Is screen par Input component nahi hai.");
+
+  alert(
+   "Is screen par Input component nahi hai."
+  );
+
   return;
+
  }
+
 
  let fields=[];
 
- inputs.forEach((input)=>{
-  const index=input.getAttribute("data-preview-input");
-  const c=currentProject.screens[currentScreenIndex]
-   .components[Number(index)];
 
-  fields.push({
-   key:c.dataKey||("field_"+index),
-   label:c.name,
-   value:input.value
-  });
- });
+ inputs.forEach(
+  input=>{
 
- const records=getRecords();
+   const index=
+    Number(
+     input.getAttribute(
+      "data-preview-input"
+     )
+    );
+
+
+   const c=
+    currentProject.screens[
+     currentScreenIndex
+    ].components[index];
+
+
+   fields.push({
+
+    key:
+     c.dataKey||
+     ("field_"+index),
+
+    label:
+     c.name,
+
+    value:
+     input.value
+
+   });
+
+  }
+ );
+
+
+ const records=
+  getRecords();
+
 
  records.push({
+
   id:Date.now(),
-  createdAt:new Date().toLocaleString(),
+
+  createdAt:
+   new Date().toLocaleString(),
+
   fields:fields
+
  });
 
- setJSON(dataKey(),records);
+
+ setJSON(
+  dataKey(),
+  records
+ );
+
 
  renderRecords();
 
- alert("Record save ho gaya.");
+
+ alert(
+  "Record save ho gaya."
+ );
+
 }
+
 
 function renderRecords(){
 
- const box=document.getElementById("records");
+ const box=
+  document.getElementById(
+   "records"
+  );
+
 
  if(!box)return;
 
- const query=
-  (document.getElementById("dataSearch")?.value||"")
-  .toLowerCase();
 
- let records=getRecords();
+ const query=
+  (
+   document.getElementById(
+    "dataSearch"
+   )?.value||""
+  ).toLowerCase();
+
+
+ let records=
+  getRecords();
+
 
  if(query){
-  records=records.filter(r=>
-   JSON.stringify(r).toLowerCase().includes(query)
-  );
+
+  records=
+   records.filter(
+    r=>
+     JSON.stringify(r)
+      .toLowerCase()
+      .includes(query)
+   );
+
  }
+
 
  if(!records.length){
+
   box.innerHTML=
-   `<div class="notice">No records found.</div>`;
+   `<div class="notice">
+    No records found.
+   </div>`;
+
   return;
+
  }
 
- box.innerHTML=records.map(r=>`
+
+ box.innerHTML=
+ records.map(
+  r=>`
 
   <div class="item">
 
-   <b>Record ${r.id}</b>
-   <div class="muted">${escapeHTML(r.createdAt)}</div>
+   <b>
+    Record ${r.id}
+   </b>
 
-   ${r.fields.map(f=>`
-    <p>
-     <b>${escapeHTML(f.label)}:</b>
-     ${escapeHTML(f.value)}
-    </p>
-   `).join("")}
+   <div class="muted">
+    ${escapeHTML(r.createdAt)}
+   </div>
 
-   <button class="blue"
-    onclick="editRecord(${r.id})">
-    ✏️ Edit / Update
-   </button>
+   ${
+    r.fields.map(
+     f=>`
 
-   <button class="red"
+     <p>
+      <b>
+       ${escapeHTML(f.label)}:
+      </b>
+
+      ${escapeHTML(f.value)}
+     </p>
+
+    `
+    ).join("")
+   }
+
+   <button
+    class="red"
     onclick="deleteRecord(${r.id})">
     🗑️ Delete
    </button>
@@ -2018,414 +5610,663 @@ function renderRecords(){
   </div>
 
  `).join("");
+
 }
 
-function editRecord(id){
-
- const records=getRecords();
- const record=records.find(r=>r.id===id);
-
- if(!record)return;
-
- editingRecordId=id;
-
- document.getElementById("editRecordFields").innerHTML=
- record.fields.map((f,i)=>`
-  <label>${escapeHTML(f.label)}</label>
-  <input id="editField_${i}"
-   value="${escapeAttribute(f.value)}">
- `).join("");
-
- document.getElementById("editRecordBox")
-  .classList.remove("hidden");
-
- document.getElementById("editRecordBox")
-  .scrollIntoView({behavior:"smooth"});
-}
-
-function updateEditedRecord(){
-
- if(editingRecordId===null)return;
-
- const records=getRecords();
- const index=records.findIndex(
-  r=>r.id===editingRecordId
- );
-
- if(index<0)return;
-
- records[index].fields.forEach((f,i)=>{
-  const input=document.getElementById("editField_"+i);
-  if(input)f.value=input.value;
- });
-
- setJSON(dataKey(),records);
-
- editingRecordId=null;
-
- cancelEditRecord();
- renderRecords();
-
- alert("Record successfully updated.");
-}
-
-function cancelEditRecord(){
-
- editingRecordId=null;
-
- document.getElementById("editRecordBox")
-  .classList.add("hidden");
-
- document.getElementById("editRecordFields")
-  .innerHTML="";
-}
 
 function deleteRecord(id){
 
- if(!confirm("Record delete karna hai?"))return;
+ if(
+  !confirm(
+   "Record delete karna hai?"
+  )
+ )
+  return;
 
- const records=getRecords().filter(
-  r=>r.id!==id
+
+ const records=
+  getRecords().filter(
+   r=>r.id!==id
+  );
+
+
+ setJSON(
+  dataKey(),
+  records
  );
 
- setJSON(dataKey(),records);
 
  renderRecords();
+
 }
+
 
 function deleteAllRecords(){
 
- if(!confirm(
-  "Current screen ka sara local data delete karna hai?"
- ))return;
+ if(
+  !confirm(
+   "Current screen ka sara data delete karna hai?"
+  )
+ )
+  return;
 
- localStorage.removeItem(dataKey());
+
+ localStorage.removeItem(
+  dataKey()
+ );
+
 
  renderRecords();
+
 }
 
 
 /* =========================================================
-   MONETIZATION / EARNING
+   MONETIZATION
 ========================================================= */
+
+function renderMoney(){
+
+ document.getElementById(
+  "monetizationType"
+ ).value=
+  currentProject
+   .monetization
+   ?.type||
+  "none";
+
+
+ document.getElementById(
+  "moneyDescription"
+ ).value=
+  currentProject
+   .monetization
+   ?.description||
+  "";
+
+}
+
 
 function saveWorkspaceMoney(){
 
  if(!currentProject)return;
 
+
  currentProject.monetization={
-  type:document.getElementById("monetizationType").value,
-  description:document.getElementById("moneyDescription").value
+
+  type:
+   document.getElementById(
+    "monetizationType"
+   ).value,
+
+  description:
+   document.getElementById(
+    "moneyDescription"
+   ).value
+
  };
 
- if(currentProject.monetization.type!=="none"){
-  if(!currentProject.features.includes("💰 Monetization")){
-   currentProject.features.push("💰 Monetization");
-  }
-
-  if(!currentProject.features.includes("💸 Withdrawal")){
-   currentProject.features.push("💸 Withdrawal");
-  }
-
-  if(!currentProject.backend.includes("Payment provider")){
-   currentProject.backend.push("Payment provider");
-  }
- }
 
  saveCurrentProject();
- renderWorkspace();
+
+ renderMoney();
+
 }
 
-function getEarnings(){
- return currentProject.earnings||[];
-}
 
-function getWithdrawals(){
- return currentProject.withdrawals||[];
-}
+/* =========================================================
+   EARNING
+========================================================= */
 
 function addEarning(){
 
  if(currentProject.frozen){
-  alert("Earning system currently frozen.");
+
+  alert(
+   "Earning system currently frozen."
+  );
+
   return;
+
  }
 
- const name=document.getElementById("workerName").value.trim();
- const amount=Number(
-  document.getElementById("earningAmount").value
- );
 
- if(!name||!amount||amount<=0){
-  alert("Worker name aur valid amount required.");
+ const name=
+  document.getElementById(
+   "workerName"
+  ).value.trim();
+
+
+ const amount=
+  Number(
+   document.getElementById(
+    "earningAmount"
+   ).value
+  );
+
+
+ if(
+  !name||
+  !amount||
+  amount<=0
+ ){
+
+  alert(
+   "Valid worker name aur amount required."
+  );
+
   return;
+
  }
+
 
  currentProject.earnings.push({
+
   id:Date.now(),
+
   user:name,
+
   amount:amount,
+
   status:"verified",
-  createdAt:new Date().toLocaleString()
+
+  createdAt:
+   new Date().toLocaleString()
+
  });
+
 
  saveCurrentProject();
 
- document.getElementById("workerName").value="";
- document.getElementById("earningAmount").value="";
-
  renderEarningSystem();
 
- alert("Verified earning record add ho gaya.");
+
+ document.getElementById(
+  "workerName"
+ ).value="";
+
+
+ document.getElementById(
+  "earningAmount"
+ ).value="";
+
+
+ alert(
+  "Verified earning record add ho gaya."
+ );
+
 }
+
 
 function requestWithdrawal(){
 
  if(currentProject.frozen){
-  alert("Withdrawal system currently frozen.");
+
+  alert(
+   "Withdrawal system currently frozen."
+  );
+
   return;
+
  }
 
- const name=document.getElementById("withdrawName").value.trim();
- const amount=Number(
-  document.getElementById("withdrawAmount").value
- );
 
- if(!name||!amount||amount<=0){
-  alert("Worker name aur valid withdrawal amount required.");
+ const name=
+  document.getElementById(
+   "withdrawName"
+  ).value.trim();
+
+
+ const amount=
+  Number(
+   document.getElementById(
+    "withdrawAmount"
+   ).value
+  );
+
+
+ if(
+  !name||
+  !amount||
+  amount<=0
+ ){
+
+  alert(
+   "Valid worker name aur amount required."
+  );
+
   return;
+
  }
 
- const userEarned=currentProject.earnings
-  .filter(e=>e.user===name)
-  .reduce((sum,e)=>sum+Number(e.amount),0);
 
- const alreadyRequested=currentProject.withdrawals
-  .filter(w=>w.user===name && w.status!=="rejected")
-  .reduce((sum,w)=>sum+Number(w.amount),0);
+ const earned=
+  currentProject.earnings
+   .filter(
+    e=>e.user===name
+   )
+   .reduce(
+    (sum,e)=>
+     sum+Number(e.amount),
+    0
+   );
 
- if(amount>userEarned-alreadyRequested){
-  alert("Available verified balance se zyada withdrawal request hai.");
+
+ const requested=
+  currentProject.withdrawals
+   .filter(
+    w=>
+     w.user===name &&
+     w.status!=="rejected"
+   )
+   .reduce(
+    (sum,w)=>
+     sum+Number(w.amount),
+    0
+   );
+
+
+ if(
+  amount >
+  earned-requested
+ ){
+
+  alert(
+   "Available verified balance se zyada withdrawal hai."
+  );
+
   return;
+
  }
+
 
  currentProject.withdrawals.push({
+
   id:Date.now(),
+
   user:name,
+
   amount:amount,
+
   status:"pending",
-  requestedAt:new Date().toLocaleString(),
+
+  requestedAt:
+   new Date().toLocaleString(),
+
   paidAt:""
+
  });
+
 
  saveCurrentProject();
 
- document.getElementById("withdrawName").value="";
- document.getElementById("withdrawAmount").value="";
-
  renderEarningSystem();
+
 }
+
 
 function markWithdrawalPaid(id){
 
- const w=currentProject.withdrawals.find(
-  x=>x.id===id
- );
+ const w=
+  currentProject.withdrawals.find(
+   x=>x.id===id
+  );
+
 
  if(!w)return;
 
- const ok=confirm(
-  "Confirm karein ke real payment provider ke through payment ho chuki hai?"
- );
 
- if(!ok)return;
+ if(
+  !confirm(
+   "Confirm karein ke real payment provider ke through payment ho chuki hai?"
+  )
+ )
+  return;
+
 
  w.status="paid";
- w.paidAt=new Date().toLocaleString();
+
+ w.paidAt=
+  new Date().toLocaleString();
+
 
  saveCurrentProject();
+
  renderEarningSystem();
+
 }
+
 
 function rejectWithdrawal(id){
 
- const w=currentProject.withdrawals.find(
-  x=>x.id===id
- );
+ const w=
+  currentProject.withdrawals.find(
+   x=>x.id===id
+  );
+
 
  if(!w)return;
 
+
  w.status="rejected";
 
+
  saveCurrentProject();
+
  renderEarningSystem();
+
 }
+
 
 function renderEarningSystem(){
 
  if(!currentProject)return;
 
- const earnings=currentProject.earnings||[];
- const withdrawals=currentProject.withdrawals||[];
 
- const total=earnings.reduce(
-  (sum,e)=>sum+Number(e.amount),0
- );
+ const earnings=
+  currentProject.earnings||[];
 
- const pending=withdrawals.filter(
-  w=>w.status==="pending"
- ).length;
 
- const paid=withdrawals.filter(
-  w=>w.status==="paid"
- ).length;
+ const withdrawals=
+  currentProject.withdrawals||[];
 
- document.getElementById("totalUserBalance").textContent=
-  "Rs. "+total.toFixed(2);
 
- document.getElementById("pendingWithdrawals").textContent=
+ const total=
+  earnings.reduce(
+   (sum,e)=>
+    sum+Number(e.amount),
+   0
+  );
+
+
+ const pending=
+  withdrawals.filter(
+   w=>w.status==="pending"
+  ).length;
+
+
+ const paid=
+  withdrawals.filter(
+   w=>w.status==="paid"
+  ).length;
+
+
+ document.getElementById(
+  "totalUserBalance"
+ ).textContent=
+  "Rs. "+
+  total.toFixed(2);
+
+
+ document.getElementById(
+  "pendingWithdrawals"
+ ).textContent=
   pending;
 
- document.getElementById("paidWithdrawals").textContent=
+
+ document.getElementById(
+  "paidWithdrawals"
+ ).textContent=
   paid;
 
- document.getElementById("withdrawals").innerHTML=
+
+ document.getElementById(
+  "withdrawals"
+ ).innerHTML=
  withdrawals.length
- ?withdrawals.map(w=>`
+ ?
+ withdrawals.map(
+  w=>`
+
   <div class="item">
-   <b>${escapeHTML(w.user)}</b>
-   <br>Rs. ${Number(w.amount).toFixed(2)}
-   <br>Status:
-   <b>${escapeHTML(w.status)}</b>
+
+   <b>
+    ${escapeHTML(w.user)}
+   </b>
+
    <br>
-   <span class="muted">${escapeHTML(w.requestedAt)}</span>
+
+   Rs.
+   ${Number(w.amount).toFixed(2)}
+
+   <br>
+
+   Status:
+   <b>
+    ${escapeHTML(w.status)}
+   </b>
+
+   <br>
+
+   <span class="muted">
+    ${escapeHTML(w.requestedAt)}
+   </span>
 
    ${
     w.status==="pending"
-    ?`
+    ?
+    `
+
     <br>
-    <button class="green"
+
+    <button
+     class="green"
      onclick="markWithdrawalPaid(${w.id})">
      ✅ Mark Paid
     </button>
 
-    <button class="red"
+    <button
+     class="red"
      onclick="rejectWithdrawal(${w.id})">
      ❌ Reject
     </button>
+
     `
     :""
    }
 
   </div>
- `).join("")
- :"<div class='notice'>No withdrawal requests.</div>";
+
+ `
+ ).join("")
+ :
+ "<div class='notice'>No withdrawal requests.</div>";
+
 }
+
 
 function checkPaymentStatus(){
 
- const months=Number(
-  document.getElementById("overdueMonths").value
- )||0;
+ const months=
+  Number(
+   document.getElementById(
+    "overdueMonths"
+   ).value
+  )||0;
 
- currentProject.overdueMonths=months;
+
+ currentProject.overdueMonths=
+  months;
+
 
  if(months>=2){
 
   currentProject.frozen=true;
 
-  document.getElementById("paymentStatus").innerHTML=
+
+  document.getElementById(
+   "paymentStatus"
+  ).innerHTML=
    `<div class="warning">
-    🔒 Earning/withdrawal system frozen because
-    ${months} months are overdue.
-    Existing records have been preserved.
+    🔒 Earning/withdrawal system frozen
+    because ${months} months are overdue.
+    Existing records preserved.
    </div>`;
 
  }else{
 
   currentProject.frozen=false;
 
-  document.getElementById("paymentStatus").innerHTML=
+
+  document.getElementById(
+   "paymentStatus"
+  ).innerHTML=
    `<div class="success">
     ✅ Payment status normal.
    </div>`;
+
  }
 
+
  saveCurrentProject();
+
  renderEarningSystem();
+
 }
 
 
 /* =========================================================
-   BACKEND / INTEGRATIONS
+   INTEGRATIONS
 ========================================================= */
 
 function saveIntegration(name){
 
- let values=getJSON(INTEGRATIONS_KEY,{});
+ let values=
+  getJSON(
+   INTEGRATIONS_KEY,
+   {}
+  );
+
 
  let value="";
 
+
  if(name==="Firebase")
-  value=document.getElementById("firebaseConfig").value;
+  value=
+   document.getElementById(
+    "firebaseConfig"
+   ).value;
+
 
  if(name==="Google")
-  value=document.getElementById("googleConfig").value;
+  value=
+   document.getElementById(
+    "googleConfig"
+   ).value;
+
 
  if(name==="AdMob")
-  value=document.getElementById("admobConfig").value;
+  value=
+   document.getElementById(
+    "admobConfig"
+   ).value;
+
 
  if(name==="Payments")
-  value=document.getElementById("paymentConfig").value;
+  value=
+   document.getElementById(
+    "paymentConfig"
+   ).value;
+
 
  if(name==="Maps")
-  value=document.getElementById("mapsConfig").value;
+  value=
+   document.getElementById(
+    "mapsConfig"
+   ).value;
+
 
  if(name==="SMS")
-  value=document.getElementById("smsConfig").value;
+  value=
+   document.getElementById(
+    "smsConfig"
+   ).value;
+
 
  values[name]={
+
   value:value,
-  updatedAt:new Date().toLocaleString()
+
+  updatedAt:
+   new Date().toLocaleString()
+
  };
 
- setJSON(INTEGRATIONS_KEY,values);
+
+ setJSON(
+  INTEGRATIONS_KEY,
+  values
+ );
+
 
  if(currentProject){
-  currentProject.integrations[name]=values[name];
+
+  currentProject.integrations[name]=
+   values[name];
+
   saveCurrentProject();
+
  }
 
- alert(name+" configuration saved locally.");
+
+ alert(
+  name+
+  " configuration saved locally."
+ );
+
 }
+
 
 function renderIntegrations(){
 
- const values=getJSON(INTEGRATIONS_KEY,{});
+ const values=
+  getJSON(
+   INTEGRATIONS_KEY,
+   {}
+  );
+
 
  if(values.Firebase)
-  document.getElementById("firebaseConfig").value=
+  document.getElementById(
+   "firebaseConfig"
+  ).value=
    values.Firebase.value||"";
 
+
  if(values.Google)
-  document.getElementById("googleConfig").value=
+  document.getElementById(
+   "googleConfig"
+  ).value=
    values.Google.value||"";
 
+
  if(values.AdMob)
-  document.getElementById("admobConfig").value=
+  document.getElementById(
+   "admobConfig"
+  ).value=
    values.AdMob.value||"";
 
+
  if(values.Payments)
-  document.getElementById("paymentConfig").value=
+  document.getElementById(
+   "paymentConfig"
+  ).value=
    values.Payments.value||"";
 
+
  if(values.Maps)
-  document.getElementById("mapsConfig").value=
+  document.getElementById(
+   "mapsConfig"
+  ).value=
    values.Maps.value||"";
 
+
  if(values.SMS)
-  document.getElementById("smsConfig").value=
+  document.getElementById(
+   "smsConfig"
+  ).value=
    values.SMS.value||"";
+
 }
 
 
@@ -2434,59 +6275,109 @@ function renderIntegrations(){
 ========================================================= */
 
 const templates=[
+
  {
   name:"📍 GPS Map Camera",
-  idea:"GPS Map Camera app with camera, location, map, history and AdMob monetization."
+
+  idea:
+   "Mujhe GPS Map Camera app chahiye jisme GPS location, camera, map, date/time, history, user login aur AdMob earning ho."
+
  },
+
  {
   name:"🏫 School Management",
-  idea:"School app with students, attendance, teachers, fees and admin."
+
+  idea:
+   "Mujhe School Management app chahiye jisme students, attendance, teachers, fees, login aur admin panel ho."
+
  },
+
  {
   name:"🛒 E-Commerce",
-  idea:"Shopping app with products, cart, orders, payments and profiles."
+
+  idea:
+   "Mujhe E-Commerce shopping app chahiye jisme products, search, cart, orders, payment, profile aur admin management ho."
+
  },
+
  {
   name:"💬 Chat App",
-  idea:"Messaging app with login, profiles, chat, media and notifications."
+
+  idea:
+   "Mujhe Chat app chahiye jisme login, profiles, real time chat, contacts, media sharing aur notifications hon."
+
  },
+
  {
   name:"🎬 Social Video",
-  idea:"Short video social app with uploads, feed, likes, comments and follow."
+
+  idea:
+   "Mujhe social video app chahiye jisme video feed, upload, likes, comments, follow, profile aur notifications hon."
+
  },
+
  {
   name:"🍔 Restaurant",
-  idea:"Restaurant ordering app with menu, cart, orders and delivery."
+
+  idea:
+   "Mujhe restaurant food delivery app chahiye jisme menu, cart, orders, payment, delivery tracking aur profile ho."
+
  },
+
  {
   name:"💰 Earning Platform",
-  idea:"Worker earning app with verified earnings, wallet, withdrawal and admin payouts."
+
+  idea:
+   "Mujhe earning platform chahiye jisme user earning, wallet, transactions, withdrawal, admin payouts aur payment integration ho."
+
  }
+
 ];
+
 
 function renderTemplates(){
 
- document.getElementById("templateList").innerHTML=
- templates.map((t,i)=>`
+ document.getElementById(
+  "templateList"
+ ).innerHTML=
+ templates.map(
+  (t,i)=>`
+
   <div class="item">
-   <h3>${escapeHTML(t.name)}</h3>
-   <p>${escapeHTML(t.idea)}</p>
-   <button class="green"
+
+   <h3>
+    ${escapeHTML(t.name)}
+   </h3>
+
+   <p>
+    ${escapeHTML(t.idea)}
+   </p>
+
+   <button
+    class="green"
     onclick="useTemplate(${i})">
     🚀 Use Template
    </button>
+
   </div>
+
  `).join("");
+
 }
+
 
 function useTemplate(index){
 
- document.getElementById("appDemand").value=
+ document.getElementById(
+  "appDemand"
+ ).value=
   templates[index].idea;
+
 
  showBuilder();
 
  analyzeApp();
+
 }
 
 
@@ -2496,188 +6387,387 @@ function useTemplate(index){
 
 function renderSettings(){
 
- document.getElementById("accountInfo").innerHTML=`
-  <div class="item">
-   <b>Name:</b> ${escapeHTML(currentUser.name)}
-   <br>
-   <b>Email:</b> ${escapeHTML(currentUser.email)}
-  </div>
- `;
+ document.getElementById(
+  "accountInfo"
+ ).innerHTML=
 
- const settings=getJSON(
-  SETTINGS_KEY+"_"+currentUser.id,
-  {theme:"light"}
- );
+ `<div class="item">
 
- document.getElementById("defaultTheme").value=
-  settings.theme||"light";
+  <b>Platform:</b>
+  Sami App Developer
+
+  <br>
+
+  <b>Name:</b>
+  ${escapeHTML(currentUser.name)}
+
+  <br>
+
+  <b>Email:</b>
+  ${escapeHTML(currentUser.email)}
+
+ </div>`;
+
+
+ const settings=
+  getJSON(
+   SETTINGS_KEY+
+   "_"+
+   currentUser.id,
+   {
+    theme:"light"
+   }
+  );
+
+
+ document.getElementById(
+  "defaultTheme"
+ ).value=
+  settings.theme||
+  "light";
+
 }
+
 
 function saveSettings(){
 
- const value=document.getElementById("defaultTheme").value;
+ const theme=
+  document.getElementById(
+   "defaultTheme"
+  ).value;
+
 
  setJSON(
-  SETTINGS_KEY+"_"+currentUser.id,
-  {theme:value}
+  SETTINGS_KEY+
+  "_"+
+  currentUser.id,
+  {
+   theme:theme
+  }
  );
 
- alert("Settings saved.");
+
+ alert(
+  "Settings saved."
+ );
+
 }
 
 
 /* =========================================================
-   EXPORT / IMPORT
+   HOME BRANDING
+========================================================= */
+
+function updateHomeBrand(){
+
+ const img=
+  document.getElementById(
+   "homeAppIcon"
+  );
+
+
+ if(
+  currentProject &&
+  currentProject.appIcon
+ ){
+
+  img.src=
+   currentProject.appIcon;
+
+ }else{
+
+  img.src=
+   "";
+
+ }
+
+}
+
+
+/* =========================================================
+   EXPORT CURRENT PROJECT
 ========================================================= */
 
 function exportCurrentProject(){
 
  if(!currentProject)return;
 
+
  saveCurrentProject();
 
- const data=JSON.stringify(
-  currentProject,
-  null,
-  2
- );
 
- const blob=new Blob(
-  [data],
-  {type:"application/json"}
- );
+ const data=
+  JSON.stringify(
+   currentProject,
+   null,
+   2
+  );
 
- const url=URL.createObjectURL(blob);
 
- const a=document.createElement("a");
+ const blob=
+  new Blob(
+   [data],
+   {
+    type:"application/json"
+   }
+  );
+
+
+ const url=
+  URL.createObjectURL(
+   blob
+  );
+
+
+ const a=
+  document.createElement(
+   "a"
+  );
+
 
  a.href=url;
+
  a.download=
-  (currentProject.name||"SamiApp")
-  .replace(/[^a-z0-9]/gi,"_")
-  +".json";
+  (
+   currentProject.name||
+   "SamiApp"
+  )
+  .replace(
+   /[^a-z0-9]/gi,
+   "_"
+  )+
+  ".json";
+
 
  a.click();
 
- URL.revokeObjectURL(url);
 
- document.getElementById("exportOutput")
-  .classList.remove("hidden");
+ URL.revokeObjectURL(
+  url
+ );
 
- document.getElementById("exportOutput")
-  .textContent=data;
+
+ const output=
+  document.getElementById(
+   "exportOutput"
+  );
+
+
+ output.classList.remove(
+  "hidden"
+ );
+
+ output.textContent=
+  data;
+
 }
+
 
 function copyProjectJSON(){
 
  if(!currentProject)return;
 
- const data=JSON.stringify(
-  currentProject,
-  null,
-  2
- );
 
- navigator.clipboard.writeText(data)
-  .then(()=>{
-   alert("Project JSON copied.");
-  })
-  .catch(()=>{
-   alert("Copy browser ne allow nahi ki. Export use karein.");
-  });
+ const data=
+  JSON.stringify(
+   currentProject,
+   null,
+   2
+  );
+
+
+ if(
+  navigator.clipboard
+ ){
+
+  navigator.clipboard
+   .writeText(data)
+   .then(
+    ()=>alert(
+     "Project JSON copied."
+    )
+   )
+   .catch(
+    ()=>alert(
+     "Copy failed. Export use karein."
+    )
+   );
+
+ }else{
+
+  alert(
+   "Clipboard available nahi hai."
+  );
+
+ }
+
 }
+
+
+/* =========================================================
+   EXPORT ALL DATA
+========================================================= */
 
 function exportAllData(){
 
  const data={
+
   user:currentUser,
-  projects:getProjects().filter(
-   p=>p.ownerId===currentUser.id
-  ),
-  settings:getJSON(
-   SETTINGS_KEY+"_"+currentUser.id,
-   {}
-  ),
-  exportedAt:new Date().toLocaleString()
+
+  projects:
+   getProjects().filter(
+    p=>
+     p.ownerId===
+     currentUser.id
+   ),
+
+  settings:
+   getJSON(
+    SETTINGS_KEY+
+    "_"+
+    currentUser.id,
+    {}
+   ),
+
+  exportedAt:
+   new Date().toLocaleString()
+
  };
 
- const blob=new Blob(
-  [JSON.stringify(data,null,2)],
-  {type:"application/json"}
- );
 
- const url=URL.createObjectURL(blob);
- const a=document.createElement("a");
+ const blob=
+  new Blob(
+   [
+    JSON.stringify(
+     data,
+     null,
+     2
+    )
+   ],
+   {
+    type:"application/json"
+   }
+  );
+
+
+ const url=
+  URL.createObjectURL(
+   blob
+  );
+
+
+ const a=
+  document.createElement(
+   "a"
+  );
+
 
  a.href=url;
- a.download="SamiAppDeveloper_Backup.json";
+
+ a.download=
+  "SamiAppDeveloper_Backup.json";
+
  a.click();
 
- URL.revokeObjectURL(url);
+
+ URL.revokeObjectURL(
+  url
+ );
+
 }
+
+
+/* =========================================================
+   IMPORT
+========================================================= */
 
 function importAllData(event){
 
- const file=event.target.files[0];
+ const file=
+  event.target.files[0];
+
 
  if(!file)return;
 
- const reader=new FileReader();
 
- reader.onload=function(){
+ const reader=
+  new FileReader();
+
+
+ reader.onload=
+ function(){
 
   try{
 
-   const data=JSON.parse(reader.result);
+   const data=
+    JSON.parse(
+     reader.result
+    );
+
 
    if(data.projects){
 
-    let projects=getProjects();
+    let projects=
+     getProjects();
 
-    data.projects.forEach(p=>{
-     p.ownerId=currentUser.id;
-     p.id="p_"+Date.now()+"_"+Math.random()
-      .toString(36).slice(2);
 
-     projects.push(normalizeProject(p));
-    });
+    data.projects.forEach(
+     p=>{
 
-    setJSON(PROJECTS_KEY,projects);
+      p.ownerId=
+       currentUser.id;
+
+      p.id=
+       "p_"+
+       Date.now()+
+       "_"+
+       Math.random()
+        .toString(36)
+        .slice(2);
+
+
+      projects.push(
+       normalizeProject(p)
+      );
+
+     }
+    );
+
+
+    setJSON(
+     PROJECTS_KEY,
+     projects
+    );
+
    }
 
-   alert("Backup imported.");
+
+   alert(
+    "Backup successfully imported."
+   );
+
+
    showProjects();
 
+
   }catch(e){
-   alert("Invalid backup file.");
+
+   alert(
+    "Invalid backup file."
+   );
+
   }
+
  };
 
+
  reader.readAsText(file);
+
 }
 
 
 /* =========================================================
-   UTILITY
-========================================================= */
-
-function escapeHTML(value){
-
- return String(value??"")
-  .replace(/&/g,"&amp;")
-  .replace(/</g,"&lt;")
-  .replace(/>/g,"&gt;")
-  .replace(/"/g,"&quot;")
-  .replace(/'/g,"&#039;");
-}
-
-function escapeAttribute(value){
- return escapeHTML(value);
-}
-
-
-/* =========================================================
-   PROJECT PREVIEW
+   PREVIEW
 ========================================================= */
 
 function previewCurrentProject(){
@@ -2688,27 +6778,48 @@ function previewCurrentProject(){
 
  openScreenEditor(0);
 
- alert(
-  "Live preview workspace ke neeche available hai."
- );
 }
 
 
 /* =========================================================
-   STARTUP HELPERS
+   ESCAPE
 ========================================================= */
 
-function renderProjectAfterChange(){
+function escapeHTML(value){
 
- saveCurrentProject();
- renderProjectScreens();
- renderProjectFeatures();
- renderBackend();
- renderMoney();
- renderComponents();
- renderLivePreview();
- renderRecords();
- renderEarningSystem();
+ return String(
+  value??""
+ )
+ .replace(
+  /&/g,
+  "&amp;"
+ )
+ .replace(
+  /</g,
+  "&lt;"
+ )
+ .replace(
+  />/g,
+  "&gt;"
+ )
+ .replace(
+  /"/g,
+  "&quot;"
+ )
+ .replace(
+  /'/g,
+  "&#039;"
+ );
+
+}
+
+
+function escapeAttribute(value){
+
+ return escapeHTML(
+  value
+ );
+
 }
 
 </script>
