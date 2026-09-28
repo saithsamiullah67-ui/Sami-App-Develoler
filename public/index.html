@@ -1,0 +1,1441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08111f">
+  <title>Sami App Creator AI</title>
+
+  <style>
+    :root {
+      --bg: #07101d;
+      --panel: #101b2d;
+      --panel2: #0c1627;
+      --text: #eef5ff;
+      --muted: #9fb0c9;
+      --line: #263750;
+      --primary: #72e0c1;
+      --secondary: #8ba7ff;
+      --danger: #ff7d91;
+      --shadow: 0 20px 60px rgba(0,0,0,.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 80% 0%, #1c3454 0, transparent 32%),
+        radial-gradient(circle at 0% 30%, #122442 0, transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font: 15px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 13px max(18px, calc((100vw - 1180px) / 2));
+      background: rgba(7,16,29,.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: .4px;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg,var(--primary),var(--secondary));
+      color: #07101d;
+      font-size: 21px;
+      font-weight: 950;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 36px));
+      margin: auto;
+      padding: 35px 0 70px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    h1 {
+      font-size: clamp(38px,6vw,68px);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin: 12px 0 16px;
+    }
+
+    h2 {
+      margin: 0 0 5px;
+      font-size: 21px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .hero-copy {
+      max-width: 700px;
+      font-size: 17px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(19,34,56,.96), rgba(10,20,35,.96));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 21px;
+      box-shadow: var(--shadow);
+    }
+
+    .ai-card {
+      border-color: rgba(114,224,193,.35);
+    }
+
+    .ai-badge {
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(114,224,193,.1);
+      border: 1px solid rgba(114,224,193,.25);
+      color: var(--primary);
+      font-weight: 850;
+      font-size: 12px;
+    }
+
+    .big {
+      font-size: 45px;
+      line-height: 1;
+      font-weight: 950;
+      color: var(--primary);
+      margin: 16px 0 8px;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      color: #cbd7e9;
+      font-size: 13px;
+      font-weight: 750;
+      margin: 14px 0 6px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #081321;
+      color: var(--text);
+      padding: 12px 13px;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(114,224,193,.08);
+    }
+
+    textarea {
+      min-height: 135px;
+      resize: vertical;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 11px 15px;
+      font-weight: 800;
+      background: var(--primary);
+      color: #07101d;
+    }
+
+    button.secondary {
+      background: #17243a;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    button.danger {
+      background: rgba(255,125,145,.1);
+      color: #ff9bac;
+      border: 1px solid rgba(255,125,145,.2);
+    }
+
+    button:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    .status {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .notice {
+      margin-top: 15px;
+      border: 1px solid #554928;
+      background: #292317;
+      color: #ffe7a8;
+      border-radius: 13px;
+      padding: 12px;
+      font-size: 13px;
+    }
+
+    .screens {
+      display: grid;
+      gap: 8px;
+    }
+
+    .screen {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #081321;
+      border: 1px solid var(--line);
+      padding: 10px;
+      border-radius: 13px;
+    }
+
+    .screen small {
+      display: block;
+      color: var(--muted);
+    }
+
+    .screen-actions {
+      display: flex;
+      gap: 5px;
+    }
+
+    .screen-actions button {
+      padding: 7px 9px;
+    }
+
+    .preview {
+      max-width: 320px;
+      margin: 18px auto 0;
+      padding: 9px;
+      border: 1px solid #33435e;
+      background: #050a12;
+      border-radius: 30px;
+    }
+
+    .phone {
+      min-height: 430px;
+      border-radius: 22px;
+      padding: 17px;
+      background: #f5f8fc;
+      color: #17243a;
+      overflow: hidden;
+    }
+
+    .notch {
+      width: 74px;
+      height: 6px;
+      margin: 0 auto 20px;
+      background: #d6dce5;
+      border-radius: 10px;
+    }
+
+    .mock-title {
+      font-size: 26px;
+      line-height: 1.08;
+      font-weight: 900;
+      margin: 18px 0 7px;
+    }
+
+    .mock-copy {
+      color: #66758a;
+      font-size: 12px;
+    }
+
+    .mock-btn {
+      margin-top: 17px;
+      padding: 11px;
+      border-radius: 11px;
+      background: #172a45;
+      color: white;
+      text-align: center;
+      font-weight: 750;
+    }
+
+    .mock-card {
+      margin-top: 9px;
+      padding: 10px;
+      border: 1px solid #dce3ec;
+      border-radius: 11px;
+      font-size: 12px;
+      background: white;
+    }
+
+    .result {
+      display: none;
+      margin-top: 18px;
+    }
+
+    .result.show {
+      display: block;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 14px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: #18263d;
+      border: 1px solid var(--line);
+      color: #cbd7e9;
+      font-size: 12px;
+      margin: 3px;
+    }
+
+    .file-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .file {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background: #081321;
+      border: 1px solid var(--line);
+      padding: 10px;
+      border-radius: 11px;
+    }
+
+    .code {
+      margin-top: 12px;
+      max-height: 300px;
+      overflow: auto;
+      background: #050a12;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px;
+      white-space: pre;
+      font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: #d9e7ff;
+    }
+
+    .chat {
+      margin-top: 18px;
+    }
+
+    .chat-box {
+      min-height: 150px;
+      max-height: 300px;
+      overflow: auto;
+      background: #081321;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 10px;
+    }
+
+    .message {
+      max-width: 90%;
+      padding: 10px 12px;
+      margin: 7px 0;
+      border-radius: 13px;
+      white-space: pre-wrap;
+    }
+
+    .message.user {
+      margin-left: auto;
+      background: #20314e;
+    }
+
+    .message.ai {
+      background: #13243b;
+      border: 1px solid var(--line);
+    }
+
+    .foot {
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .loading {
+      animation: pulse 1.1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { opacity: .45; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 800px) {
+      .hero,
+      .workspace,
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        padding: 11px 14px;
+      }
+
+      .wrap {
+        width: min(100% - 26px, 1180px);
+        padding-top: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">S</div>
+    SAMI APP CREATOR AI
+  </div>
+
+  <button class="secondary" id="newProject">New project</button>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">AI application builder</div>
+
+      <h1>
+        Turn your idea into an app.
+      </h1>
+
+      <p class="hero-copy">
+        Describe what you want to build. Sami AI will create the application
+        plan, screens, features and starter frontend code for you.
+      </p>
+    </div>
+
+    <div class="card ai-card">
+      <div class="ai-badge">✦ AI MODE ACTIVE</div>
+
+      <div class="big">AI</div>
+
+      <b>Describe → Generate → Preview → Export</b>
+
+      <p>
+        Your OpenAI key stays on the server. It is never placed inside this
+        browser page.
+      </p>
+    </div>
+  </section>
+
+  <section class="workspace">
+
+    <div class="card">
+
+      <h2>AI App Creator</h2>
+
+      <p>
+        Tell AI exactly what kind of app you want.
+      </p>
+
+      <label for="name">App name</label>
+      <input id="name" value="My New App" maxlength="80">
+
+      <label for="idea">What should your app do?</label>
+
+      <textarea
+        id="idea"
+        placeholder="Example: Create an electrician service app where customers can register, request an electrician, choose a service, book an appointment, see booking status and contact support."
+      ></textarea>
+
+      <label for="extra">
+        Extra instructions
+      </label>
+
+      <textarea
+        id="extra"
+        style="min-height:90px"
+        placeholder="Example: Use dark blue and green colors. Make it professional and easy for older users."
+      ></textarea>
+
+      <div class="row">
+
+        <div>
+          <label for="platform">Target platform</label>
+
+          <select id="platform">
+            <option>Android + Web</option>
+            <option>Android app</option>
+            <option>Web app</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="style">Design style</label>
+
+          <select id="style">
+            <option>Modern professional</option>
+            <option>Minimal</option>
+            <option>Colorful</option>
+            <option>Business</option>
+            <option>Luxury</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="actions">
+
+        <button id="generate">
+          ✦ Generate with AI
+        </button>
+
+        <button class="secondary" id="save">
+          Save project
+        </button>
+
+        <button class="secondary" id="export">
+          Export JSON
+        </button>
+
+      </div>
+
+      <div class="status" id="status">
+        Checking AI connection...
+      </div>
+
+      <div class="notice">
+        AI generation requires your OpenAI API key to be configured on the
+        server. Never put the API key inside this HTML file.
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <h2>Project screens</h2>
+
+      <p>
+        AI-generated screens will appear here.
+      </p>
+
+      <div class="screens" id="screens"></div>
+
+      <div class="actions">
+
+        <button class="secondary" id="addScreen">
+          + Add screen
+        </button>
+
+        <button class="secondary" id="updatePreview">
+          Update preview
+        </button>
+
+      </div>
+
+      <div class="preview">
+
+        <div class="phone" id="phone">
+
+          <div class="notch"></div>
+
+          <b>YOUR APP</b>
+
+          <div class="mock-title">
+            Your app starts here.
+          </div>
+
+          <div class="mock-copy">
+            AI generated preview
+          </div>
+
+          <div class="mock-btn">
+            Get Started
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="card result" id="result">
+
+    <div class="eyebrow">
+      AI GENERATED PROJECT
+    </div>
+
+    <h2 id="resultTitle">
+      Your application
+    </h2>
+
+    <p id="resultDescription"></p>
+
+    <div class="result-grid">
+
+      <div>
+
+        <h3>Features</h3>
+
+        <div id="features"></div>
+
+        <h3 style="margin-top:20px">
+          Generated files
+        </h3>
+
+        <div class="file-list" id="files"></div>
+
+      </div>
+
+      <div>
+
+        <h3>Selected code</h3>
+
+        <div class="actions">
+          <button class="secondary" id="downloadFiles">
+            Download generated files
+          </button>
+
+          <button class="secondary" id="downloadHtml">
+            Download HTML
+          </button>
+        </div>
+
+        <div class="code" id="code">
+          Select a generated file.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="card chat">
+
+    <div class="ai-badge">
+      ✦ AI ASSISTANT
+    </div>
+
+    <h2 style="margin-top:10px">
+      Ask AI anything about your app
+    </h2>
+
+    <p>
+      Example: "Add a booking cancellation feature" or
+      "Make the home screen more modern."
+    </p>
+
+    <div class="chat-box" id="chatBox">
+      <div class="message ai">
+        Hello! I am Sami AI. Tell me what you want to change or build.
+      </div>
+    </div>
+
+    <div class="actions">
+
+      <input
+        id="chatInput"
+        placeholder="Ask Sami AI..."
+        style="flex:1;min-width:220px"
+      >
+
+      <button id="sendChat">
+        Send
+      </button>
+
+    </div>
+
+  </section>
+
+  <div class="foot">
+    © <span id="year"></span> Sami App Creator AI · AI Creator Foundation
+  </div>
+
+</main>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+
+  let screens = [
+    {
+      name: "Welcome",
+      purpose: "Introduce the application"
+    },
+    {
+      name: "Sign Up / Login",
+      purpose: "User authentication"
+    },
+    {
+      name: "Home",
+      purpose: "Main application dashboard"
+    },
+    {
+      name: "Profile",
+      purpose: "User profile and settings"
+    }
+  ];
+
+  let generatedProject = null;
+  let selectedFile = null;
+
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "\"": "&quot;",
+      "'": "&#39;"
+    }[char]));
+  }
+
+  function currentProjectData() {
+    return {
+      format: "sami-app-creator-project",
+      version: 2,
+      appName: $("name").value.trim() || "My New App",
+      idea: $("idea").value.trim(),
+      extraInstructions: $("extra").value.trim(),
+      platform: $("platform").value,
+      designStyle: $("style").value,
+      screens,
+      generatedProject,
+      updatedAt: new Date().toISOString()
+    };
+  }
+
+  function renderScreens() {
+    $("screens").innerHTML = screens.map((screen, index) => `
+      <div class="screen">
+
+        <div>
+          <b>${escapeHtml(screen.name)}</b>
+          <small>${escapeHtml(screen.purpose)}</small>
+        </div>
+
+        <div class="screen-actions">
+
+          <button
+            class="secondary"
+            data-edit="${index}"
+          >
+            Edit
+          </button>
+
+          <button
+            class="danger"
+            data-delete="${index}"
+          >
+            ×
+          </button>
+
+        </div>
+
+      </div>
+    `).join("");
+
+    $("screens")
+      .querySelectorAll("[data-edit]")
+      .forEach((button) => {
+
+        button.onclick = () => {
+
+          const index = Number(button.dataset.edit);
+
+          const name = prompt(
+            "Screen name",
+            screens[index].name
+          );
+
+          if (name === null) return;
+
+          const purpose = prompt(
+            "Screen purpose",
+            screens[index].purpose
+          );
+
+          if (purpose === null) return;
+
+          screens[index] = {
+            name: name.trim() || "Untitled",
+            purpose: purpose.trim() || "Application screen"
+          };
+
+          renderScreens();
+          updatePreview();
+        };
+
+      });
+
+    $("screens")
+      .querySelectorAll("[data-delete]")
+      .forEach((button) => {
+
+        button.onclick = () => {
+
+          if (screens.length <= 1) {
+            alert("Keep at least one screen.");
+            return;
+          }
+
+          screens.splice(
+            Number(button.dataset.delete),
+            1
+          );
+
+          renderScreens();
+          updatePreview();
+        };
+
+      });
+  }
+
+  function updatePreview() {
+
+    const appName =
+      $("name").value.trim() || "My New App";
+
+    const idea =
+      $("idea").value.trim() ||
+      "Your AI-generated application preview.";
+
+    $("phone").innerHTML = `
+      <div class="notch"></div>
+
+      <b>${escapeHtml(appName.toUpperCase())}</b>
+
+      <div class="mock-title">
+        ${escapeHtml(appName)}
+      </div>
+
+      <div class="mock-copy">
+        ${escapeHtml(idea)}
+      </div>
+
+      <div class="mock-btn">
+        ${escapeHtml(screens[0]?.name || "Get Started")}
+      </div>
+
+      ${screens.slice(0, 4).map((screen) => `
+        <div class="mock-card">
+          <b>${escapeHtml(screen.name)}</b><br>
+          ${escapeHtml(screen.purpose)}
+        </div>
+      `).join("")}
+    `;
+  }
+
+  function setStatus(message, loading = false) {
+
+    $("status").textContent = message;
+
+    $("status").classList.toggle(
+      "loading",
+      loading
+    );
+  }
+
+  async function generateWithAI() {
+
+    const idea = $("idea").value.trim();
+
+    if (idea.length < 5) {
+
+      setStatus(
+        "Please describe your app idea first."
+      );
+
+      $("idea").focus();
+
+      return;
+    }
+
+    const button = $("generate");
+
+    button.disabled = true;
+
+    button.textContent = "✦ AI is creating your app...";
+
+    setStatus(
+      "AI is planning screens, features and frontend code...",
+      true
+    );
+
+    try {
+
+      const response = await fetch(
+        "/api/ai/create-app",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+            appName: $("name").value.trim(),
+            idea,
+            platform: $("platform").value,
+            designStyle: $("style").value,
+            extraInstructions: $("extra").value.trim()
+          })
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok || !data.ok) {
+        throw new Error(
+          data.error || "AI generation failed."
+        );
+      }
+
+      generatedProject = data.result;
+
+      if (generatedProject.appName) {
+        $("name").value =
+          generatedProject.appName;
+      }
+
+      screens =
+        generatedProject.screens?.length
+          ? generatedProject.screens
+          : screens;
+
+      renderScreens();
+      updatePreview();
+      renderResult();
+
+      $("result").classList.add("show");
+
+      setStatus(
+        "AI completed your starter application successfully."
+      );
+
+      $("result").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    } catch (error) {
+
+      console.error(error);
+
+      setStatus(
+        error.message ||
+        "Could not connect to AI."
+      );
+
+    } finally {
+
+      button.disabled = false;
+
+      button.textContent =
+        "✦ Generate with AI";
+    }
+  }
+
+  function renderResult() {
+
+    if (!generatedProject) return;
+
+    $("resultTitle").textContent =
+      generatedProject.appName ||
+      "Generated application";
+
+    $("resultDescription").textContent =
+      generatedProject.description ||
+      "";
+
+    $("features").innerHTML =
+      (generatedProject.features || [])
+        .map((feature) =>
+          `<span class="pill">${escapeHtml(feature)}</span>`
+        )
+        .join("");
+
+    const files =
+      generatedProject.files || [];
+
+    $("files").innerHTML =
+      files.map((file, index) => `
+        <div class="file">
+
+          <b>${escapeHtml(file.path)}</b>
+
+          <button
+            class="secondary"
+            data-file="${index}"
+          >
+            View
+          </button>
+
+        </div>
+      `).join("");
+
+    $("files")
+      .querySelectorAll("[data-file]")
+      .forEach((button) => {
+
+        button.onclick = () => {
+
+          const file =
+            files[Number(button.dataset.file)];
+
+          selectedFile = file;
+
+          $("code").textContent =
+            file.content;
+        };
+
+      });
+
+    if (files.length) {
+
+      selectedFile = files[0];
+
+      $("code").textContent =
+        files[0].content;
+    }
+  }
+
+  function downloadText(
+    filename,
+    content,
+    type = "text/plain"
+  ) {
+
+    const blob = new Blob(
+      [content],
+      { type }
+    );
+
+    const url =
+      URL.createObjectURL(blob);
+
+    const link =
+      document.createElement("a");
+
+    link.href = url;
+    link.download = filename;
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+    URL.revokeObjectURL(url);
+  }
+
+  function downloadGeneratedFiles() {
+
+    if (!generatedProject?.files?.length) {
+      alert("Generate an app first.");
+      return;
+    }
+
+    generatedProject.files.forEach((file) => {
+
+      const safeName =
+        file.path
+          .replace(/^\/+/, "")
+          .replace(/\//g, "-");
+
+      downloadText(
+        safeName,
+        file.content
+      );
+
+    });
+  }
+
+  function downloadSelectedHtml() {
+
+    if (!generatedProject?.files?.length) {
+      alert("Generate an app first.");
+      return;
+    }
+
+    const html =
+      generatedProject.files.find(
+        (file) =>
+          file.path.toLowerCase() === "index.html"
+      );
+
+    if (!html) {
+      alert("Generated project does not contain index.html.");
+      return;
+    }
+
+    downloadText(
+      "index.html",
+      html.content,
+      "text/html"
+    );
+  }
+
+  async function sendChat() {
+
+    const input =
+      $("chatInput");
+
+    const message =
+      input.value.trim();
+
+    if (!message) return;
+
+    addChatMessage(
+      message,
+      "user"
+    );
+
+    input.value = "";
+
+    const thinking =
+      addChatMessage(
+        "Sami AI is thinking...",
+        "ai"
+      );
+
+    try {
+
+      const response =
+        await fetch(
+          "/api/ai/chat",
+          {
+            method: "POST",
+
+            headers: {
+              "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+              message
+            })
+          }
+        );
+
+      const data =
+        await response.json();
+
+      if (!response.ok || !data.ok) {
+        throw new Error(
+          data.error ||
+          "AI request failed."
+        );
+      }
+
+      thinking.textContent =
+        data.answer;
+
+    } catch (error) {
+
+      thinking.textContent =
+        error.message ||
+        "AI request failed.";
+    }
+
+    $("chatBox").scrollTop =
+      $("chatBox").scrollHeight;
+  }
+
+  function addChatMessage(
+    message,
+    type
+  ) {
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      `message ${type}`;
+
+    div.textContent =
+      message;
+
+    $("chatBox").appendChild(div);
+
+    $("chatBox").scrollTop =
+      $("chatBox").scrollHeight;
+
+    return div;
+  }
+
+  $("generate").onclick =
+    generateWithAI;
+
+  $("updatePreview").onclick =
+    updatePreview;
+
+  $("addScreen").onclick =
+    () => {
+
+      const name =
+        prompt(
+          "New screen name",
+          "New Screen"
+        );
+
+      if (name === null) return;
+
+      screens.push({
+        name:
+          name.trim() ||
+          "New Screen",
+
+        purpose:
+          "Describe this screen"
+      });
+
+      renderScreens();
+      updatePreview();
+    };
+
+  $("save").onclick =
+    () => {
+
+      try {
+
+        localStorage.setItem(
+          "samiAppCreatorProject",
+          JSON.stringify(
+            currentProjectData()
+          )
+        );
+
+        setStatus(
+          "Project saved on this device."
+        );
+
+      } catch (_) {
+
+        setStatus(
+          "Could not save project."
+        );
+      }
+    };
+
+  $("export").onclick =
+    () => {
+
+      const data =
+        currentProjectData();
+
+      downloadText(
+        `${(data.appName || "app-project")
+          .replace(/[^a-z0-9_-]/gi, "-")}.json`,
+        JSON.stringify(
+          data,
+          null,
+          2
+        ),
+        "application/json"
+      );
+
+      setStatus(
+        "Project JSON exported."
+      );
+    };
+
+  $("downloadFiles").onclick =
+    downloadGeneratedFiles;
+
+  $("downloadHtml").onclick =
+    downloadSelectedHtml;
+
+  $("sendChat").onclick =
+    sendChat;
+
+  $("chatInput").addEventListener(
+    "keydown",
+    (event) => {
+
+      if (
+        event.key === "Enter" &&
+        !event.shiftKey
+      ) {
+
+        event.preventDefault();
+
+        sendChat();
+      }
+
+    }
+  );
+
+  $("newProject").onclick =
+    () => {
+
+      if (
+        !confirm(
+          "Start a new project? Save/export your current project first."
+        )
+      ) {
+        return;
+      }
+
+      $("name").value =
+        "My New App";
+
+      $("idea").value =
+        "";
+
+      $("extra").value =
+        "";
+
+      generatedProject =
+        null;
+
+      selectedFile =
+        null;
+
+      screens = [
+        {
+          name: "Welcome",
+          purpose: "Introduce the application"
+        },
+        {
+          name: "Sign Up / Login",
+          purpose: "User authentication"
+        },
+        {
+          name: "Home",
+          purpose: "Main application dashboard"
+        },
+        {
+          name: "Profile",
+          purpose: "User profile and settings"
+        }
+      ];
+
+      renderScreens();
+      updatePreview();
+
+      $("result").classList.remove(
+        "show"
+      );
+
+      setStatus(
+        "New project ready."
+      );
+    };
+
+  $("year").textContent =
+    new Date().getFullYear();
+
+  renderScreens();
+  updatePreview();
+
+  fetch("/api/health")
+    .then((response) =>
+      response.json()
+    )
+    .then((data) => {
+
+      if (data.aiConfigured) {
+
+        setStatus(
+          `AI connected · ${data.model}`
+        );
+
+      } else {
+
+        setStatus(
+          "Website is running, but OPENAI_API_KEY is not configured."
+        );
+      }
+
+    })
+    .catch(() => {
+
+      setStatus(
+        "Website is running."
+      );
+    });
+</script>
+
+</body>
+</html>
