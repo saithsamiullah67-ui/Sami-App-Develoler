@@ -1,8 +1,15 @@
 {
-  "name":"sami-app-creator",
-  "version":"1.0.0",
-  "private":true,
-  "scripts":{"start":"node server.js"},
-  "dependencies":{"express":"^4.21.2"},
-  "engines":{"node":">=18"}
+  "name": "sami-app-creator",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "openai": "^7.23.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }
