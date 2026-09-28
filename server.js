@@ -1,0 +1,11 @@
+const express=require("express");
+const path=require("path");
+const app=express();
+const PORT=process.env.PORT||3000;
+app.disable("x-powered-by");
+app.use(express.json({limit:"1mb"}));
+app.use(express.static(path.join(__dirname,"public")));
+app.get("/api/health",(_req,res)=>res.json({ok:true,service:"Sami App Creator",version:"1.0.0"}));
+app.get("/api/architecture",(_req,res)=>res.json({stage:"Foundation",modules:["Creator website","Project workspace","Screen planner","Visual editor","Preview","Project export"],notYet:["Hosted accounts","Cloud database","AI model connection","APK/AAB build"]}));
+app.get("*",(_req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));
+app.listen(PORT,"0.0.0.0",()=>console.log("Sami App Creator running on "+PORT));
